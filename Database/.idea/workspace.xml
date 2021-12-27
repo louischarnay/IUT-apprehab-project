@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2eb4406d-95c2-4e4a-9de2-3f2d5c9007b6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.empty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Database.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fa662b1e-e88a-4b33-ae7f-15abe1c09e45.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/fa662b1e-e88a-4b33-ae7f-15abe1c09e45/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +35,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect" value="SQLite" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../PHP" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -37,7 +46,11 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1639245034026</updated>
-      <workItem from="1639245035889" duration="9178000" />
+      <workItem from="1639245035889" duration="9521000" />
+      <workItem from="1639316112770" duration="1102000" />
+      <workItem from="1639395732444" duration="32000" />
+      <workItem from="1640623016835" duration="392000" />
+      <workItem from="1640627177545" duration="67000" />
     </task>
     <servers />
   </component>
@@ -54,5 +67,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
