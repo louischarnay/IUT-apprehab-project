@@ -57,8 +57,7 @@ class Db {
         return true;
     }
 
-    public function deleteExercice(string $nom)
-    {
+    public function deleteExercice(string $nom){
         $sth = $this->pdo->prepare("SELECT * FROM Items WHERE nameItem= :nom");
         $sth->execute(["nom" => $nom]);
         $result = $sth->fetch();
@@ -70,6 +69,25 @@ class Db {
         $sth->execute(["itemId" => $itemId]);
         $sth = $this->pdo->prepare("DELETE FROM Items WHERE idItem= :itemId");
         $sth->execute(["itemId" => $itemId]);
+        return true;
+    }
+
+    public function deleteTheme(string $nom){
+        $sth = $this->pdo->prepare("SELECT * FROM Lessons WHERE nameLesson= :nom");
+        $sth->execute(["nom" => $nom]);
+        $result = $sth->fetch();
+        if($result == false){
+            return false;
+        }
+        $lessonId = $result["idLesson"];
+        $sth = $this->pdo->prepare("SELECT * FROM Items WHERE lessonId= :lessonId");
+        $sth->execute(["lessonId" => $lessonId]);
+        $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
+        foreach ($result as $value){
+            $this->deleteExercice($value);
+        }
+        $sth = $this->pdo->prepare("DELETE FROM Lessons WHERE idLesson= :lessonId");
+        $sth->execute(["lessonId" => $lessonId]);
         return true;
     }
 }
