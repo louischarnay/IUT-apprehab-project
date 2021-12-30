@@ -90,4 +90,23 @@ class Db {
         $sth->execute(["lessonId" => $lessonId]);
         return true;
     }
+
+    public function deleteCategorie(string $nom){
+        $sth = $this->pdo->prepare("SELECT * FROM Categories WHERE nameCategory= :nom");
+        $sth->execute(["nom" => $nom]);
+        $result = $sth->fetch();
+        if($result == false){
+            return false;
+        }
+        $categoryId = $result["idCategory"];
+        $sth = $this->pdo->prepare("SELECT * FROM Lessons WHERE categoryId= :categoryId");
+        $sth->execute(["categoryId" => $categoryId]);
+        $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
+        foreach ($result as $value){
+            $this->deleteTheme($value);
+        }
+        $sth = $this->pdo->prepare("DELETE FROM Categories WHERE idCategory= :categoryId");
+        $sth->execute(["categoryId" => $categoryId]);
+        return true;
+    }
 }

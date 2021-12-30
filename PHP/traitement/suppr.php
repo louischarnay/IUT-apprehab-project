@@ -8,5 +8,8 @@ switch ($_POST["typeSuppr"]){
     case "Theme":
         $db->deleteTheme("new theme");
         break;
+    case "Categorie":
+        $db->deleteCategorie("new caategory");
+        break;
 }
 header("Location: ../dashboard.php");
