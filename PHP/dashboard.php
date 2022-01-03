@@ -5,6 +5,7 @@
     <title>Dashboard</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
+<?php include "class/Db.php";?>
 <body>
 <header>
     <h1>DashBoard App La Rehab</h1>
@@ -112,9 +113,19 @@
                 </div>
             </div>
             <select name="dropSuppr" id="dropSuppr" class="widthNormal">
-                <option value="Séance1">Séance1</option>
-                <option value="Séance2">Séance2</option>
-                <option value="Séance3">Séance3</option>
+                <?php $db = new Db();
+                $result = $db->getExercices();
+                foreach ($result as $value):?>
+                <option value="<?php echo $value?>"><?php echo $value?></option>
+                <?php endforeach;
+                $result = $db->getThemes();
+                foreach ($result as $value):?>
+                <option value="<?php echo $value?>"><?php echo $value?></option>
+                <?php endforeach;
+                $result = $db->getCategories();
+                foreach ($result as $value):?>
+                <option value="<?php echo $value?>"><?php echo $value?></option>
+                <?php endforeach;?>
             </select>
             <button type="submit">Supprimer élément</button>
         </form>

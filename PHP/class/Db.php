@@ -109,4 +109,25 @@ class Db {
         $sth->execute(["categoryId" => $categoryId]);
         return true;
     }
+
+    public function getCategories(){
+        $sth = $this->pdo->prepare("SELECT * FROM Categories");
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
+        return $result;
+    }
+
+    public function getThemes(){
+        $sth = $this->pdo->prepare("SELECT * FROM Lessons");
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
+        return $result;
+    }
+
+    public function getExercices(){
+        $sth = $this->pdo->prepare("SELECT * FROM Items");
+        $sth->execute();
+        $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
+        return $result;
+    }
 }
