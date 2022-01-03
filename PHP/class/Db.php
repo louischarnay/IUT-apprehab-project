@@ -130,4 +130,19 @@ class Db {
         $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
         return $result;
     }
+
+    public function addItem(string $nom, string $exercice){
+        $sth = $this->pdo->prepare("SELECT * FROM Items WHERE nameItem= :exercice");
+        $sth->execute(["exercice" => $exercice]);
+        $result = $sth->fetch();
+        if($result == false){
+            return false;
+        }
+        $sth = $this->pdo->prepare("SELECT *FROM Files WHERE nameFile= :nom");
+        $sth->execute(["nom" => $nom]);
+        $result = $sth->fetch();
+        if($result != false){
+            return false;
+        }
+    }
 }

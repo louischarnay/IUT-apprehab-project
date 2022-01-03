@@ -45,7 +45,7 @@
                     <input type="text" name="titreExercice" id="titreExercice" required="required">
                 </div>
                 <div class="divInputLabel">
-                    <label for="dropExercice">Catégorie</label>
+                    <label for="dropExercice">Thème</label>
                     <select name="dropExercice" id="dropExercice">
                         <option value="Renforcement">Renforcement</option>
                         <option value="Etirements">Etirements</option>
@@ -61,35 +61,39 @@
         <legend>Ajout Item</legend>
         <form>
             <div id="divRadioAjout">
-                <div class="classRadio">
+                <div class="classRadio" id="divRadioTexte">
                     <input type="radio" name="typeFichier" id="texteRadio" value="Texte" class="widthNormal" required="required">
                     <label for="texteRadio" class="widthNormal">Texte</label>
                 </div>
-                <div class="classRadio">
+                <div class="classRadio" id="divRadioLien">
                     <input type="radio" name="typeFichier" id="lienRadio" value="Lien" class="widthNormal" required="required">
                     <label for="lienRadio" class="widthNormal">Lien</label>
             </div>
-                <div class="classRadio">
+                <div class="classRadio" id="divRadioImage">
                     <input type="radio" name="typeFichier" id="imageRadio" value="Image" class="widthNormal" required="required">
                     <label for="imageRadio" class="widthNormal">Image</label>
             </div>
             </div>
-            <div class="divInputLabel">
+            <div class="divInputLabel" id="divInputLien">
                 <label for="lienItem">Lien</label>
                 <input type="text" name="lienItem" id="lienItem">
             </div>
-            <div class="divInputLabel hidden">
+            <div class="divInputLabel hidden" id="divInputTexte">
                 <label for="textItem">Texte</label>
                 <textarea name="textItem" id="textItem"></textarea>
             </div>
-            <div class="divInputLabel hidden">
+            <div class="divInputLabel hidden" id="divInputImage">
                 <label for="imageItem">Image</label>
                 <input type="file" name="imageItem" id="imageItem" accept="image/jpeg">
-                <label for="dropExercice">Catégorie</label>
-                <select name="dropExercice" id="dropExercice">
-                    <option value="Séance1">Séance1</option>
-                    <option value="Séance2">Séance2</option>
-                    <option value="Séance3">Séance3</option>
+            </div>
+            <div class="divInputLabel">
+                <label for="dropExercice">Exercice</label>
+                <select name="dropSuppr" id="dropSuppr">
+                    <?php $db = new Db();
+                    $result = $db->getExercices();
+                    foreach ($result as $value):?>
+                        <option value="<?php echo $value?>"><?php echo $value?></option>
+                    <?php endforeach;?>
                 </select>
             </div>
             <button type="submit">Ajouter Item</button>
@@ -112,6 +116,7 @@
                     <label for="exerciceRadio" class="widthNormal">Exercice</label>
                 </div>
             </div>
+            <label for="dropSuppr">Supprimer</label>
             <select name="dropSuppr" id="dropSuppr" class="widthNormal">
                 <?php $db = new Db();
                 $result = $db->getExercices();
@@ -131,6 +136,7 @@
         </form>
     </fieldset>
     </div>
-</main>
+
+    <script src="js/script.js"></script>
 </body>
 </html>
