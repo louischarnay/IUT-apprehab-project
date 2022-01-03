@@ -57,6 +57,25 @@ class Db {
         return true;
     }
 
+    public function addItem(string $contenu, string $exercice, string $typeFile){
+        $sth = $this->pdo->prepare("SELECT * FROM Items WHERE nameItem= :exercice");
+        $sth->execute(["exercice" => $exercice]);
+        $result = $sth->fetch();
+        if($result == false){
+            return false;
+        }
+        $itemId = $result["idItem"];
+        $sth = $this->pdo->prepare("SELECT * FROM Files WHERE pathFile= :nom");
+        $sth->execute(["nom" => $contenu]);
+        $result = $sth->fetch();
+        if($result != false){
+            return false;
+        }
+        $sth = $this->pdo->prepare("INSERT INTO Files(pathFile, typeFile, itemId) VALUES(:contenu, :typeFile, :exercice)");
+        $sth->execute(["exercice" => $itemId, "contenu" => $contenu, "typeFile" => $typeFile]);
+        return true;
+    }
+
     public function deleteExercice(string $nom){
         $sth = $this->pdo->prepare("SELECT * FROM Items WHERE nameItem= :nom");
         $sth->execute(["nom" => $nom]);
@@ -129,20 +148,5 @@ class Db {
         $sth->execute();
         $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
         return $result;
-    }
-
-    public function addItem(string $nom, string $exercice){
-        $sth = $this->pdo->prepare("SELECT * FROM Items WHERE nameItem= :exercice");
-        $sth->execute(["exercice" => $exercice]);
-        $result = $sth->fetch();
-        if($result == false){
-            return false;
-        }
-        $sth = $this->pdo->prepare("SELECT *FROM Files WHERE nameFile= :nom");
-        $sth->execute(["nom" => $nom]);
-        $result = $sth->fetch();
-        if($result != false){
-            return false;
-        }
     }
 }

@@ -28,7 +28,7 @@ form{
     flex-direction: column;
     padding:  0 20px;
 }
-input, button, select{
+input, button, select, textarea{
     font-size: 1.2rem;
     margin: 10px;
 }

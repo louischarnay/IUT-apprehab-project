@@ -28,7 +28,7 @@
                 </div>
                 <div class="divInputLabel">
                     <label for="dropCategorie">Catégorie</label>
-                    <select name="dropCategorie" id="dropCategorie">
+                    <select name="dropCategorie" id="dropCategorie" required="required">
                         <option value="Créativité">Créativité</option>
                         <option value="Cognition">Cognition</option>
                         <option value="Sport">Sport</option>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="divInputLabel">
                     <label for="dropExercice">Thème</label>
-                    <select name="dropExercice" id="dropExercice">
+                    <select name="dropExercice" id="dropExercice" required="required">
                         <option value="Renforcement">Renforcement</option>
                         <option value="Etirements">Etirements</option>
                         <option value="Liens/Vidéos">Liens/Vidéos</option>
@@ -59,7 +59,7 @@
     <div class="divThemeExercice">
     <fieldset class="classThemeExercice">
         <legend>Ajout Item</legend>
-        <form>
+        <form action="traitement/ajoutItem.php" method="post" enctype="multipart/form-data">
             <div id="divRadioAjout">
                 <div class="classRadio" id="divRadioTexte">
                     <input type="radio" name="typeFichier" id="texteRadio" value="Texte" class="widthNormal" required="required">
@@ -88,7 +88,7 @@
             </div>
             <div class="divInputLabel">
                 <label for="dropExercice">Exercice</label>
-                <select name="dropSuppr" id="dropSuppr">
+                <select name="dropAjout" id="dropAjout">
                     <?php $db = new Db();
                     $result = $db->getExercices();
                     foreach ($result as $value):?>
@@ -117,7 +117,7 @@
                 </div>
             </div>
             <label for="dropSuppr">Supprimer</label>
-            <select name="dropSuppr" id="dropSuppr" class="widthNormal">
+            <select name="dropSuppr" id="dropSuppr" class="widthNormal" required="required">
                 <?php $db = new Db();
                 $result = $db->getExercices();
                 foreach ($result as $value):?>
