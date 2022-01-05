@@ -7,17 +7,34 @@
 </head>
 <?php include "class/Db.php";?>
 <body>
-<header>
-    <h1>DashBoard App La Rehab</h1>
-</header>
 <main>
-    <form action="traitement/ajoutCategorie.php" method="post" enctype="multipart/form-data">
-        <label for="titreCategorie" id="labelTitreCategorie">Titre</label>
-        <div id="divInputCategorie">
-            <input type="text" name="titreCategorie" id="titreCategorie" required="required">
-            <button type="submit">Ajouter Catégorie</button>
+    <div class="divThemeExercice">
+        <div class="classThemeExercice divUn">
+            <h1>DashBoard App la Rehab</h1>
+            <form action="traitement/ajoutCategorie.php" method="post" enctype="multipart/form-data">
+                <label for="titreCategorie" id="labelTitreCategorie">Titre</label>
+                <div id="divInputCategorie">
+                    <input type="text" name="titreCategorie" id="titreCategorie" required="required">
+                    <button type="submit">Ajouter Catégorie</button>
+                </div>
+            </form>
+            <a href="viewRates.php">Voir les commmentaires</a>
         </div>
-    </form>
+        <fieldset class="classThemeExercice">
+            <legend>Ajout Lexique</legend>
+            <form action="traitement/ajoutMot.php" method="post" enctype="multipart/form-data">
+                <div class="divInputLabel">
+                    <label for="titreMot">Mot</label>
+                    <input type="text" name="titreMot" id="titreMot" required="required">
+                </div>
+                <div class="divInputLabel">
+                    <label for="dropExercice">Définition</label>
+                    <textarea name="textDef"></textarea>
+                </div>
+                <button type="submit">Ajouter Mot</button>
+            </form>
+        </fieldset>
+    </div>
     <div class="divThemeExercice">
         <fieldset class="classThemeExercice">
             <legend>Ajout thème</legend>

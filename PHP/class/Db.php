@@ -76,6 +76,18 @@ class Db {
         return true;
     }
 
+    public function addWord(string $mot, string $def){
+        $sth = $this->pdo->prepare("SELECT * FROM Words WHERE name= :mot");
+        $sth->execute(["mot" => $mot]);
+        $result = $sth->fetch();
+        if($result != false){
+            return 0;
+        }
+        $sth = $this->pdo->prepare("INSERT INTO Words(name, definition) VALUES(:mot, :def)");
+        $sth->execute(["mot" => $mot, "def" => $def]);
+        return true;
+    }
+
     public function deleteExercice(string $nom){
         $sth = $this->pdo->prepare("SELECT * FROM Items WHERE nameItem= :nom");
         $sth->execute(["nom" => $nom]);
