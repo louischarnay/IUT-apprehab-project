@@ -62,7 +62,7 @@
         <form action="traitement/ajoutItem.php" method="post" enctype="multipart/form-data">
             <div id="divRadioAjout">
                 <div class="classRadio" id="divRadioTexte">
-                    <input type="radio" name="typeFichier" id="texteRadio" value="Texte" class="widthNormal" required="required">
+                    <input type="radio" name="typeFichier" id="texteRadio" value="Texte" class="widthNormal" required="required" checked="checked">
                     <label for="texteRadio" class="widthNormal">Texte</label>
                 </div>
                 <div class="classRadio" id="divRadioLien">
@@ -74,11 +74,11 @@
                     <label for="imageRadio" class="widthNormal">Image</label>
             </div>
             </div>
-            <div class="divInputLabel" id="divInputLien">
+            <div class="divInputLabel hidden" id="divInputLien">
                 <label for="lienItem">Lien</label>
                 <input type="text" name="lienItem" id="lienItem">
             </div>
-            <div class="divInputLabel hidden" id="divInputTexte">
+            <div class="divInputLabel" id="divInputTexte">
                 <label for="textItem">Texte</label>
                 <textarea name="textItem" id="textItem"></textarea>
             </div>
