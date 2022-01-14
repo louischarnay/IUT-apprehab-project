@@ -1,5 +1,6 @@
 <?php
 include "../class/Db.php";
+session_start();
 $db = new Db();
-$db->addWord($_POST["titreMot"], $_POST["textDef"]);
-header("Location: ../dashboard.php");
+$_SESSION["message"] = $db->addMot($_POST["titreMot"], $_POST["textDef"]);
+header("Location: ../index.php");

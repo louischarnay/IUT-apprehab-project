@@ -1,15 +1,16 @@
 <?php
 include "../class/Db.php";
+session_start();
 $db = new Db();
 switch ($_POST["typeSuppr"]){
     case "Exercice":
-        $db->deleteExercice($_POST["dropSuppr"]);
+        $_SESSION["message"] = $db->deleteExercice($_POST["dropSuppr"]);
         break;
     case "Theme":
-        $db->deleteTheme("new theme");
+        $_SESSION["message"] = $db->deleteTheme($_POST["dropSuppr"]);
         break;
     case "Categorie":
-        $db->deleteCategorie("new caategory");
+        $_SESSION["message"] = $db->deleteCategorie($_POST["dropSuppr"]);
         break;
 }
-header("Location: ../dashboard.php");
+header("Location: ../index.php");

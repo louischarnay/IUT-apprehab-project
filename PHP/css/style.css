@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Futura;
-    --couleurPrincipale: #22ad9f;
+    --couleurPrincipale: #e9225e;
 }
 h1{
     color: var(--couleurPrincipale);
@@ -76,7 +76,7 @@ legend{
     margin: auto;
     border-radius: 10px;
 }
-fieldset{
+fieldset, .divDataBase, .divCommentaire{
     border: 5px solid var(--couleurPrincipale);
     border-radius: 10px;
 }
@@ -98,6 +98,92 @@ a{
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+#erreur{
+    color: red;
+}
+
+.dataBase{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.categorieDataBase{
+    background-color: var(--couleurPrincipale);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px var(--couleurPrincipale) solid;
+}
+
+.themeDataBase{
+    border: 5px var(--couleurPrincipale) solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.divDataBase{
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.h1DataBase{
+    text-align: center;
+}
+
+.h1Button{
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.buttonsDataBase{
+    display: flex;
+    width: 700px;
+}
+
+.divCommentaire{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.margin{
+    margin-right: 20px;
+}
+
+.exerciceCommentaire{
+    color: var(--couleurPrincipale);
+}
+
+.commentaire{
+    width: 70%;
+    align-items: baseline;
+    float: right;
+    display: flex;
+    flex-direction: row;
+}
+
+.noteCommentaire{
+    background-color: var(--couleurPrincipale);
+    color: white;
+    border: 5px var(--couleurPrincipale) solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.categorieThemeExercice{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 10px;
 }
 
 @media (max-width: 1000px) {

@@ -1,5 +1,6 @@
 <?php
 include "../class/Db.php";
+session_start();
 $db = new Db();
-$db->addExercice($_POST["titreExercice"], $_POST["dropExercice"]);
-header("Location: ../dashboard.php");
+$_SESSION["message"] = $db->addExercice($_POST["titreExercice"], $_POST["dropExercice"]);
+header("Location: ../index.php");

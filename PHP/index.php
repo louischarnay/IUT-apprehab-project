@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,7 +6,8 @@
     <title>Dashboard</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
-<?php include "class/Db.php";?>
+<?php include "class/Db.php";
+$db = new Db();?>
 <body>
 <main>
     <div class="divThemeExercice">
@@ -19,6 +21,10 @@
                 </div>
             </form>
             <a href="viewRates.php">Voir les commmentaires</a>
+            <a href="viewDatabase.php">Voir la base de données</a>
+            <p id="erreur"><?php if(isset($_SESSION["message"])){
+                echo $_SESSION["message"];
+                }?></p>
         </div>
         <fieldset class="classThemeExercice">
             <legend>Ajout Lexique</legend>
@@ -49,6 +55,10 @@
                         <option value="Créativité">Créativité</option>
                         <option value="Cognition">Cognition</option>
                         <option value="Sport">Sport</option>
+                        <?php $result = $db->getCategories();
+                        foreach ($result as $value):?>
+                            <option value="<?php echo $value?>"><?php echo $value?></option>
+                        <?php endforeach;?>
                     </select>
                 </div>
                 <button type="submit">Ajouter Thème</button>
@@ -64,9 +74,10 @@
                 <div class="divInputLabel">
                     <label for="dropExercice">Thème</label>
                     <select name="dropExercice" id="dropExercice" required="required">
-                        <option value="Renforcement">Renforcement</option>
-                        <option value="Etirements">Etirements</option>
-                        <option value="Liens/Vidéos">Liens/Vidéos</option>
+                        <?php $result = $db->getThemes();
+                        foreach ($result as $value):?>
+                        <option value="<?php echo $value?>"><?php echo $value?></option>
+                        <?php endforeach;?>
                     </select>
                 </div>
                 <button type="submit">Ajouter Exercice</button>
@@ -106,8 +117,7 @@
             <div class="divInputLabel">
                 <label for="dropExercice">Exercice</label>
                 <select name="dropAjout" id="dropAjout">
-                    <?php $db = new Db();
-                    $result = $db->getExercices();
+                    <?php $result = $db->getExercices();
                     foreach ($result as $value):?>
                         <option value="<?php echo $value?>"><?php echo $value?></option>
                     <?php endforeach;?>
