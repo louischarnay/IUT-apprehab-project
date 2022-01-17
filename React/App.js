@@ -7,7 +7,7 @@ import Lessons from './modules/Lessons'
 export default class App extends React.Component {
   render() {
     return (
-      <Categories/>
+      <Lessons/>
     )
   }
 }
