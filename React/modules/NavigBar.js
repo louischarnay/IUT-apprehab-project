@@ -56,7 +56,7 @@ const ROW = [
     return (
       <SafeAreaView style={styles.container}>
           <FlatList
-              data={ROW_1}
+              data={ROW}
               horizontal={true}
               renderItem={renderItemChallenge,renderItemAccueil,renderItemProfil}
               keyExtractor={item => item.id}
@@ -68,21 +68,22 @@ const ROW = [
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: Dimensions.get('window').width/4,    
+      marginTop: Dimensions.get('window').width+160,    
     },
     item: {
       flex: 1,
-      margin: 20,
+      margin: 2,
       padding: 0,
-      width: Dimensions.get('window').width/2 - 40,
-      height: Dimensions.get('window').width/2 - 40,
+      width: Dimensions.get('window').width/3,
+      height: Dimensions.get('window').height/10,
       borderRadius: 10,
       justifyContent: 'flex-end',
       alignItems: 'center',
     },
     title: {
       fontSize: 15,
-      fontWeight: 'bold'
+      fontWeight: 'bold',
+      marginBottom: 20
     }
 });
 export default NavigBar;
