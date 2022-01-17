@@ -42,7 +42,7 @@ const ROW_3 = [
     {
       id: '06',
       title: 'Culture',
-      color: '#e9c2ff',
+      color: '#f9c2ff',
       icon: require('../icones/culture.png')
     }
 ];
