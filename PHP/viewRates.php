@@ -17,16 +17,16 @@
     <?php $db = new Db();
     $allCommentaires = $db->getAllCommentaires();
     foreach ($allCommentaires as $commentaire){
-        $exercice = $db->getExerciceFromExerciceId($commentaire["itemId"]);
-        $theme = $db->getThemeFromThemeId($exercice["lessonId"]);
-        $categorie = $db->getCategorieFromCategorieId($theme["categoryId"]);
+        $exercice = $db->getExerciceFromExerciceId($commentaire["exerciceId"]);
+        $theme = $db->getThemeFromThemeId($exercice["themeId"]);
+        $categorie = $db->getCategorieFromCategorieId($theme["categorieId"]);
         echo "<div class='divCommentaire'><div class='categorieThemeExercice'>".
-            "<p class='categorieDataBase margin'>".$categorie['nameCategory']."</p>".
-            "<p class='themeDataBase margin'>".$theme["nameLesson"]."</p>".
-            "<p class='exerciceCommentaire margin'>".$exercice["nameItem"]."</p>".
+            "<p class='categorieDataBase margin'>".$categorie['nomCategorie']."</p>".
+            "<p class='themeDataBase margin'>".$theme["nomTheme"]."</p>".
+            "<p class='exerciceCommentaire margin'>".$exercice["nomExercice"]."</p>".
             "</div><div class='commentaire'>".
-            "<p class='noteCommentaire'>".$commentaire["rate"]." / 5</p>".
-            "<p class='messageCommentaire'>".$commentaire["comment"]."</p><br>".
+            "<p class='noteCommentaire'>".$commentaire["note"]." / 5</p>".
+            "<p class='messageCommentaire'>".$commentaire["commentaire"]."</p><br>".
             "</div></div>";
     }?>
 </body>

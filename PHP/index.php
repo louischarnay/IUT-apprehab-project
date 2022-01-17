@@ -13,15 +13,9 @@ $db = new Db();?>
     <div class="divThemeExercice">
         <div class="classThemeExercice divUn">
             <h1>DashBoard App la Rehab</h1>
-            <form action="traitement/ajoutCategorie.php" method="post" enctype="multipart/form-data">
-                <label for="titreCategorie" id="labelTitreCategorie">Titre</label>
-                <div id="divInputCategorie">
-                    <input type="text" name="titreCategorie" id="titreCategorie" required="required">
-                    <button type="submit">Ajouter Catégorie</button>
-                </div>
-            </form>
             <a href="viewRates.php">Voir les commmentaires</a>
             <a href="viewDatabase.php">Voir la base de données</a>
+            <a href="viewLexique.php">Voir le lexique</a>
             <p id="erreur"><?php if(isset($_SESSION["message"])){
                 echo $_SESSION["message"];
                 }?></p>
@@ -52,9 +46,6 @@ $db = new Db();?>
                 <div class="divInputLabel">
                     <label for="dropCategorie">Catégorie</label>
                     <select name="dropCategorie" id="dropCategorie" required="required">
-                        <option value="Créativité">Créativité</option>
-                        <option value="Cognition">Cognition</option>
-                        <option value="Sport">Sport</option>
                         <?php $result = $db->getCategories();
                         foreach ($result as $value):?>
                             <option value="<?php echo $value?>"><?php echo $value?></option>
@@ -130,10 +121,6 @@ $db = new Db();?>
         <legend>Supprimer</legend>
         <form action="traitement/suppr.php" method="post" enctype="multipart/form-data">
             <div id="divRadioSuppr">
-                <div class="classRadio">
-                    <input type="radio" name="typeSuppr" id="categorieRadio" value="Categorie" class="widthNormal" required="required">
-                    <label for="categorieRadio" class="widthNormal">Catégorie</label>
-                </div>
                 <div class="classRadio">
                     <input type="radio" name="typeSuppr" id="themeRadio" value="Theme" class="widthNormal" required="required">
                     <label for="themeRadio" class="widthNormal">Thème</label>
