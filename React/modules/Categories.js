@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
 
@@ -47,8 +48,8 @@ const ROW_3 = [
     }
 ];
 
-const Item = item => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => console.log("View click")}>
+const Item = (item) => (
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('Lessons')}>
       <Image
         style={styles.icon}
         source={item.icon}  
@@ -57,9 +58,9 @@ const Item = item => (
   </View>
 );
 
-const Categories = () => {
+const Categories = ({navigation}) => {
   const renderItem = ({ item }) => (
-    <Item title={item.title} icon={item.icon} color={item.color}/>
+    <Item title={item.title} icon={item.icon} color={item.color} nav={navigation}/>
   );
 
   return (
