@@ -8,14 +8,14 @@ const ex ={
 }
 
 const ItemChall =({item})=>(
-<View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate('ChallengesPage')}>
+<View style={styles.item}>
 <Text>"Ceci est un challenge"</Text>
 </View>
 );
 
 const Challenge=({navigation})=>{
     const renderItemChall=({item})=>(
-        <ItemChall title={item.title}></ItemChall>
+        <ItemChall title={item.title} nav={navigation}></ItemChall>
     );
     
     return (

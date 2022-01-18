@@ -17,5 +17,4 @@ const ChallengesPage = ({navigation}) => {
         </View>
     );
 }
-
 export default ChallengesPage
