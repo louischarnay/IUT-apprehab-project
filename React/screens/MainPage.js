@@ -1,11 +1,19 @@
 import React from 'react';
 import Header from '../modules/Header';
 import Categories from '../modules/Categories'
+import NavigBar from '../modules/NavigBar';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
 
 const MainPage = ({navigation}) => {
     return (
-        <Categories navigation={navigation}/>
+        <View style={{flex: 1}}>
+            <View style={{flex: 7}}>
+                <Categories navigation={navigation}/>
+            </View>
+            <View style={{flex: 1}}>
+                <NavigBar navigation={navigation}/>
+            </View>
+        </View>
     );
 }
 
