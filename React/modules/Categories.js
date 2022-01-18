@@ -1,6 +1,22 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
+import sqlite from 'react-native-sqlite-storage';
+
+const db = sqlite.openDatabase({
+  name: 'databaseSQLite',
+  location: 'databaseSQLite/databaseSQLite.db'
+  },
+  () => {},
+  error => { console.log(error) }
+);
+
+const createTable = () => {
+  db.transaction((tx) => {
+    tx.executeSql("CREATE TABLE test(id integer primary key, zebi text);");
+    console.log("zebi");
+  })
+}
 
 const ROW_1 = [
   {
@@ -59,6 +75,7 @@ const Item = (item) => (
 );
 
 const Categories = ({navigation}) => {
+  createTable();
   const renderItem = ({ item }) => (
     <Item title={item.title} icon={item.icon} color={item.color} nav={navigation}/>
   );
