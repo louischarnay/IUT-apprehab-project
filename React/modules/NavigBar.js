@@ -7,21 +7,21 @@ const ROW = [
     {
       id: '01',
       title: 'Challenge',
-      icon: require('../icones/challenge.png'),
+     // icon: require('../icones/challenge.png'),
       link:'Challenge'
       
     },
     {
       id: '02',
       title: 'Accueil',
-      icon:require('../icones/accueil.png'),
+     // icon:require('../icones/accueil.png'),
       link:'MainPage'
       
     },
     {
         id: '03',
         title:'Profil',
-        icon:require('../icones/profile.png'),
+      //  icon:require('../icones/profile.png'),
         link:null
 
     }
@@ -30,14 +30,14 @@ const ROW = [
   const Item = (item) => (
     <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('Challenge')}>
         <Image
-        style={styles.icon}
+       // style={styles.icon}
         source={item.icon}/>
     </View>
   );
   
   const NavigBar= ({navigation}) => {
     const renderItem = ({ item }) => (
-      <Item icon={item.icon} color={item.color} nav={navigation} link={item.link}/>
+      <Item /*icon={item.icon}*/ color={item.color} nav={navigation} link={item.link}/>
       
     );
     
@@ -72,9 +72,9 @@ const ROW = [
       justifyContent: 'center',
       alignItems: 'center',
     },
-    icon: {
+    /*icon: {
       width:65,
       height:65
-    }
+    }*/
 });
 export default NavigBar;
