@@ -7,58 +7,47 @@ const ROW = [
     {
       id: '01',
       title: 'Challenge',
-      color: '#f9c2ff',
+      icon: require('../icones/challenge.png'),
+      link:'Challenge'
       
     },
     {
       id: '02',
       title: 'Accueil',
-      color: '#f9c2ff',
+      icon:require('../icones/accueil.png'),
+      link:'MainPage'
       
     },
     {
         id: '03',
         title:'Profil',
-        color: '#f9c2ff'
+        icon:require('../icones/profile.png'),
+        link:null
 
     }
   ];
 
-  const ItemChallenge = (item) => (
+  const Item = (item) => (
     <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('Challenge')}>
-        <Text style={styles.title}>{item.title}</Text>
+        <Image
+        style={styles.icon}
+        source={item.icon}/>
     </View>
   );
-  const ItemAccueil = (item) => (
-    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('Accueil')}>
-        <Text style={styles.title}>{item.title}</Text>
-    </View>
-  );
-  const ItemProfil = (item) => (
-    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('Profil')}>
-        <Text style={styles.title}>{item.title}</Text>
-    </View>
-  );
+  
   const NavigBar= ({navigation}) => {
-    const renderItemChallenge = ({ item }) => (
-      <ItemChallenge title={item.title} color={item.color} nav={navigation}/>
+    const renderItem = ({ item }) => (
+      <Item icon={item.icon} color={item.color} nav={navigation} link={item.link}/>
       
     );
-    const renderItemAccueil = ({ item }) => (
-        <ItemAccueil title={item.title} color={item.color} nav={navigation}/>
-        
-    );
-    const renderItemProfil = ({ item }) => (
-        <ItemProfil title={item.title} color={item.color} nav={navigation}/>
-        
-    );
+    
   
     return (
       <SafeAreaView style={styles.container}>
           <FlatList
               data={ROW}
               horizontal={true}
-              renderItem={renderItemChallenge,renderItemAccueil,renderItemProfil}
+              renderItem={renderItem}
               keyExtractor={item => item.id}
           />
       </SafeAreaView>
@@ -68,22 +57,24 @@ const ROW = [
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: Dimensions.get('window').width+160,    
+      backgroundColor:'#f9c2ff',
+      borderTopRightRadius:10,
+      borderTopLeftRadius:10,
+      marginTop:22   
     },
     item: {
       flex: 1,
       margin: 2,
       padding: 0,
-      width: Dimensions.get('window').width/3,
+      width: Dimensions.get('window').width/3-4,
       height: Dimensions.get('window').height/10,
       borderRadius: 10,
-      justifyContent: 'flex-end',
+      justifyContent: 'center',
       alignItems: 'center',
     },
-    title: {
-      fontSize: 15,
-      fontWeight: 'bold',
-      marginBottom: 20
+    icon: {
+      width:65,
+      height:65
     }
 });
 export default NavigBar;
