@@ -89,8 +89,7 @@ const Categories = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginTop: Dimensions.get('window').width/4,    
+    marginTop: Dimensions.get('window').width/4,
   },
   item: {
     flex: 1,
