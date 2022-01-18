@@ -1,6 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
+import * as SQLite from 'expo-sqlite';
+
+const db = SQLite.openDatabase('databaseSQLite/databaseSQLite.db');
+
+const addTheme = () => {
+    db.transaction(tx =>{
+        tx.executeSql("INSERT INTO Themes (nomTheme, idCategorie)")
+    })
+}
 
 const ROW_1 = [
   {
@@ -59,9 +68,9 @@ const Item = (item) => (
 );
 
 const Categories = ({navigation}) => {
-  const renderItem = ({ item }) => (
-    <Item title={item.title} icon={item.icon} color={item.color} nav={navigation}/>
-  );
+    const renderItem = ({ item }) => (
+        <Item title={item.title} icon={item.icon} color={item.color} nav={navigation}/>
+    );
 
   return (
     <SafeAreaView style={styles.container}>
