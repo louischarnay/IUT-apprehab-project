@@ -22,8 +22,8 @@ export default class App extends React.Component {
       <NavigationContainer>
         <Stack.Navigator>
 
-          <Stack.Screen name="MainPage" component={MainPage} options={{headershown:false}} />
-          <Stack.Screen name="Categories" component={ThemesPage} options={{headershown:false}} />
+          <Stack.Screen name="MainPage" component={MainPage} options={{headerShown:false}} />
+          <Stack.Screen name="Categories" component={ThemesPage} options={{headerShown:false}} />
           
 
         </Stack.Navigator>
