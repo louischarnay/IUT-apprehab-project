@@ -64,7 +64,7 @@ const Lessons = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: 20,
   },
   item: {
     backgroundColor: '#f9c2ff',
