@@ -9,10 +9,10 @@ import Challenge from './modules/Challenge';
 import Profil from './modules/Profil';
 import NavigBar from './modules/NavigBar';
 import Categories from './modules/Categories'
-import Lessons from './modules/Lessons'
+import Lessons from './modules/ItemList'
 import Header from './modules/Header';
 import MainPage from './screens/MainPage';
-
+import ThemesPage from './screens/ThemesPage';
 
 const Stack = createStackNavigator();
 
@@ -23,7 +23,7 @@ export default class App extends React.Component {
         <Stack.Navigator>
 
           <Stack.Screen name="MainPage" component={MainPage} />
-          <Stack.Screen name="Categories" component={Categories} />
+          <Stack.Screen name="Categories" component={ThemesPage} />
           <Stack.Screen name="Lessons" component={Lessons} />
 
         </Stack.Navigator>
