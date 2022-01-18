@@ -58,7 +58,7 @@ const ROW_3 = [
 ];
 
 const Item = (item) => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('Lessons')}>
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('ThemesPage')}>
       <Image
         style={styles.icon}
         source={item.icon}  
@@ -98,8 +98,7 @@ const Categories = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    marginTop: Dimensions.get('window').width/4,    
+    marginTop: Dimensions.get('window').width/4,
   },
   item: {
     flex: 1,
