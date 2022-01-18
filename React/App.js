@@ -4,6 +4,8 @@ import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
 import NavigBar from './modules/NavigBar';
+import Challenge from './modules/Challenge';
+import Profil from './modules/Profil';
 
 const Stack = createStackNavigator();
 
@@ -12,8 +14,8 @@ export default class App extends React.Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="NavigBar" component={NavigBar} />
-          
+          <Stack.Screen name="MainPage" component={NavigBar} />
+         
         </Stack.Navigator>
       </NavigationContainer>
     )

@@ -22,22 +22,21 @@ const ROW = [
         id: '03',
         title:'Profil',
       //  icon:require('../icones/profile.png'),
-        link:null
+        link:'Profil'
 
     }
   ];
 
   const Item = (item) => (
-    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('Challenge')}>
-        <Image
-       // style={styles.icon}
-        source={item.icon}/>
+    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item)}>
+      <Text title={item.title}/>  
+      
     </View>
   );
   
   const NavigBar= ({navigation}) => {
     const renderItem = ({ item }) => (
-      <Item /*icon={item.icon}*/ color={item.color} nav={navigation} link={item.link}/>
+      <Item /*icon={item.icon}*/title={item.title} color={item.color} nav={navigation} link={item.link}/>
       
     );
     
