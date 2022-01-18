@@ -1,0 +1,197 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Futura;
+    --couleurPrincipale: #e9225e;
+}
+h1{
+    color: var(--couleurPrincipale);
+}
+main{
+    display: flex;
+    align-items: stretch;
+    justify-content: space-around;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 0 50px;
+    font-size: 1.2rem;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    padding:  0 20px;
+    width: 100%;
+}
+input, button, select, textarea, a{
+    font-size: 1.2rem;
+    margin: 10px;
+}
+label{
+    width: 20%;
+    margin: 10px 0 10px 10px;
+}
+input, select, textarea{
+    width: 80%;
+    margin: 10px;
+}
+.widthNormal{
+    width: auto;
+}
+.divInputLabel{
+    display: flex;
+    flex-direction: row;
+}
+#labelTitreCategorie{
+    margin: 0;
+}
+#divInputCategorie{
+    width: 100%;
+}
+#divInputCategorie input{
+    width: 60%;
+    margin: 0;
+}
+#divInputCategorie button{
+    width: 38%;
+    margin: 0;
+}
+.divThemeExercice{
+    display: flex;
+    justify-content: space-between;
+}
+.classThemeExercice{
+    width: 48%;
+}
+.hidden{
+    display: none;
+}
+#divRadioAjout, #divRadioSuppr{
+    display: flex;
+    justify-content: space-evenly;
+}
+legend{
+    padding: 5px;
+    border: 5px solid var(--couleurPrincipale);
+    margin: auto;
+    border-radius: 10px;
+}
+fieldset, .divDataBase, .divCommentaire{
+    border: 5px solid var(--couleurPrincipale);
+    border-radius: 10px;
+}
+button, a{
+    background-color: var(--couleurPrincipale);
+    border: var(--couleurPrincipale) 5px solid;
+    color: white;
+    border-radius: 10px;
+}
+
+a{
+    text-decoration: none;
+    width: calc(100% - 40px);
+    text-align: center;
+}
+
+.divUn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#erreur{
+    color: red;
+}
+
+.dataBase{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.categorieDataBase{
+    background-color: var(--couleurPrincipale);
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 5px var(--couleurPrincipale) solid;
+}
+
+.themeDataBase{
+    border: 5px var(--couleurPrincipale) solid;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.divDataBase{
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+.h1DataBase{
+    text-align: center;
+}
+
+.h1Button{
+    display: flex;
+    padding: 10px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.buttonsDataBase{
+    display: flex;
+    width: 700px;
+}
+
+.divCommentaire{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.margin{
+    margin-right: 20px;
+}
+
+.exerciceCommentaire{
+    color: var(--couleurPrincipale);
+}
+
+.commentaire{
+    width: 70%;
+    align-items: baseline;
+    float: right;
+    display: flex;
+    flex-direction: row;
+}
+
+.noteCommentaire{
+    background-color: var(--couleurPrincipale);
+    color: white;
+    border: 5px var(--couleurPrincipale) solid;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.categorieThemeExercice{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 10px;
+}
+
+@media (max-width: 1000px) {
+    .divThemeExercice{
+        flex-direction: column;
+    }
+    .classThemeExercice{
+        width: 100%;
+        margin: 20px 0;
+    }
+}
