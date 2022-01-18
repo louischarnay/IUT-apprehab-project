@@ -3,11 +3,8 @@ import { render } from 'react-dom';
 import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
-import Categories from './modules/Categories'
-import Lessons from './modules/Lessons'
-import Header from './modules/Header';
-import NavigBar from './modules/NavigBar';
 import MainPage from './screens/MainPage';
+import ThemesPage from './screens/ThemesPage';
 
 const Stack = createStackNavigator();
 
@@ -17,7 +14,7 @@ export default class App extends React.Component {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen name="MainPage" component={MainPage} options={{headerShown: false}}/>
-          <Stack.Screen name="Lessons" component={Lessons} options={{headerShown: false}}/>
+          <Stack.Screen name="ThemesPage" component={ThemesPage} options={{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     )

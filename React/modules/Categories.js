@@ -49,7 +49,7 @@ const ROW_3 = [
 ];
 
 const Item = (item) => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('Lessons')}>
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('ThemesPage')}>
       <Image
         style={styles.icon}
         source={item.icon}  
