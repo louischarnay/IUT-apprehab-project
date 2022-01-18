@@ -11,6 +11,7 @@ import NavigBar from './modules/NavigBar';
 import Categories from './modules/Categories'
 import Lessons from './modules/Lessons'
 import Header from './modules/Header';
+import MainPage from './screens/MainPage';
 
 
 const Stack = createStackNavigator();
@@ -21,9 +22,7 @@ export default class App extends React.Component {
       <NavigationContainer>
         <Stack.Navigator>
 
-          <Stack.Screen name="MainPage" component={NavigBar} />
-         
-
+          <Stack.Screen name="MainPage" component={MainPage} />
           <Stack.Screen name="Categories" component={Categories} />
           <Stack.Screen name="Lessons" component={Lessons} />
 

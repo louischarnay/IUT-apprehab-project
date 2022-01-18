@@ -2,7 +2,7 @@
 import React from "react"
 import { StyleSheet, View, Image, ProgressViewIOSComponent } from 'react-native'
 
-class Header extends React.Component {
+const Header = {
     render() {
         return (
             <View style={{flex: 1}}> 

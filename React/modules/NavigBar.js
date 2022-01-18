@@ -7,40 +7,41 @@ const ROW = [
     {
       id: '01',
       title: 'Challenge',
-      icon: require('../icones/creativite.png'),
-      link:'Challenge'
-      
+
+      icon: require('../icones/challenge.png'),
+      link: 'Challenge'
     },
     {
       id: '02',
       title: 'Accueil',
-      icon:require('../icones/cognition.png'),
-      link:'MainPage'
-      
+
+      icon: require('../icones/accueil.png'),
+      link: 'MainPage'
     },
     {
-        id: '03',
-        title:'Profil',
-        icon:require('../icones/anxiete.png'),
-        link:null
+      id: '03',
+      title:'Profil',
+      icon: require('../icones/profil.png'),
+      link: 'Profil'
 
     }
   ];
 
   const Item = (item) => (
-    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item)}>
+
+    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
         <Image
-         style={styles.icon}
-        source={item.icon}/>
+          style={styles.icon}
+          source={item.icon}
+        />
     </View>
   );
-  
+
   const NavigBar= ({navigation}) => {
     const renderItem = ({ item }) => (
       <Item icon={item.icon} color={item.color} nav={navigation} link={item.link}/>
-      
     );
-    
+
   
     return (
       <SafeAreaView style={styles.container}>
@@ -57,24 +58,28 @@ const ROW = [
   const styles = StyleSheet.create({
     container: {
       flex: 1,
+
       backgroundColor:'#f9c2ff',
       borderTopRightRadius:10,
       borderTopLeftRadius:10,
       marginTop:22   
+
     },
     item: {
       flex: 1,
       margin: 2,
       padding: 0,
-      width: Dimensions.get('window').width/3-4,
+      width: Dimensions.get('window').width/3 - 4,
       height: Dimensions.get('window').height/10,
       borderRadius: 10,
       justifyContent: 'center',
       alignItems: 'center',
     },
     icon: {
+
       width:65,
       height:65
     }
 });
+
 export default NavigBar;
