@@ -7,7 +7,7 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import Challenge from './modules/Challenge';
 import Profil from './modules/Profil';
-
+import NavigBar from './modules/NavigBar';
 import Categories from './modules/Categories'
 import Lessons from './modules/Lessons'
 import Header from './modules/Header';
