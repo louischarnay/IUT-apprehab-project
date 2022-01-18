@@ -22,9 +22,9 @@ export default class App extends React.Component {
       <NavigationContainer>
         <Stack.Navigator>
 
-          <Stack.Screen name="MainPage" component={MainPage} />
-          <Stack.Screen name="Categories" component={ThemesPage} />
-          <Stack.Screen name="Lessons" component={Lessons} />
+          <Stack.Screen name="MainPage" component={MainPage} options={{headershown:false}} />
+          <Stack.Screen name="Categories" component={ThemesPage} options={{headershown:false}} />
+          
 
         </Stack.Navigator>
       </NavigationContainer>
