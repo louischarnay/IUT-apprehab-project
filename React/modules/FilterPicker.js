@@ -16,7 +16,7 @@ const FilterPicker = () => {
             }>
             <Picker.Item label="Ajout récent" value="ch1"/>
             <Picker.Item label="Catégorie préférée" value="ch2"/>
-            <Picker.Item label="Catégorie la plus regardée" value="ch2"/>
+            <Picker.Item label="Catégorie la plus regardée" value="ch3"/>
           </Picker>
       </SafeAreaView>
     );
