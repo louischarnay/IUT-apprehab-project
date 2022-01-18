@@ -7,7 +7,7 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, 
 const MainPage = ({navigation}) => {
     return (
         <View style={{flex: 1}}>
-            <View style={{flex: 7}}>
+            <View style={{flex: 6}}>
                 <Categories navigation={navigation}/>
             </View>
             <View style={{flex: 1}}>
