@@ -8,7 +8,7 @@ const ex ={
 }
 
 const ItemChall =({item})=>(
-<View style={styles.item}>
+<View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate('ChallengesPage')}>
 <Text>"Ceci est un challenge"</Text>
 </View>
 );

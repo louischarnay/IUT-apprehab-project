@@ -5,14 +5,9 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
 
 
-import Challenge from './modules/Challenge';
-import Profil from './modules/Profil';
-import NavigBar from './modules/NavigBar';
-import Categories from './modules/Categories'
-import Lessons from './modules/ItemList'
-import Header from './modules/Header';
 import MainPage from './screens/MainPage';
 import ThemesPage from './screens/ThemesPage';
+import ChallengesPage from './screens/ChallengesPage';
 
 const Stack = createStackNavigator();
 
@@ -23,8 +18,8 @@ export default class App extends React.Component {
         <Stack.Navigator>
 
           <Stack.Screen name="MainPage" component={MainPage} options={{headerShown:false}} />
-          <Stack.Screen name="Categories" component={ThemesPage} options={{headerShown:false}} />
-          
+          <Stack.Screen name="ThemesPage" component={ThemesPage} options={{headerShown:false}} />
+          <Stack.Screen name="ChallengesPage" component={ChallengesPage} options={{headerShown:false}}/>
 
         </Stack.Navigator>
       </NavigationContainer>
