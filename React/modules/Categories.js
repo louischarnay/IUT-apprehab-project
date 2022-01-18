@@ -89,25 +89,27 @@ const Categories = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Dimensions.get('window').width/4,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   item: {
     flex: 1,
-    margin: 20,
+    margin: Dimensions.get('window').width/25,
     padding: 0,
-    width: Dimensions.get('window').width/2 - 40,
-    height: Dimensions.get('window').width/2 - 40,
+    width: Dimensions.get('window').height/4.5,
+    height: Dimensions.get('window').height/4.5,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   title: {
-    fontSize: 15,
+    fontSize: Dimensions.get('window').width/24,
     fontWeight: 'bold'
   },
   icon: {
-    width: 100,
-    height: 100,
+    width: Dimensions.get('window').width/3.7,
+    height: Dimensions.get('window').width/3.7,
     margin: 10
   }
 });
