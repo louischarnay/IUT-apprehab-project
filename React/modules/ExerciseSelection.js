@@ -4,7 +4,7 @@ import ItemList from '../modules/ItemList';
 
 
 const Theme =[{
-  title = 'Thème'  
+  title: 'Thème'  
 }]
 
 const ThemedExercise=[
@@ -25,13 +25,13 @@ const ThemedExercise=[
 ];
 
 const ItemTheme =({title})=>(
-<View style={styles.item}>
+<View style={styles.itemTheme}>
 <Text style={styles.title}>{title}</Text>
 </View>
 );
 
 const ItemThemedExercise =({title})=>(
-<View style={styles.item}>
+<View style={styles.itemThemedExercise}>
 <Text style={styles.title}>{title}</Text>
 </View>
 );
@@ -66,7 +66,17 @@ const styles = StyleSheet.create({
       flex: 1,
       marginTop: 20,
     },
-    item: {
+    itemTheme: {
+      backgroundColor: '#f9c2ff',
+      borderColor:"black",
+      borderStyle:'solid',
+      borderWidth:3,
+      padding: 20,
+      marginVertical: 8,
+      marginHorizontal: 16
+     
+    },
+    itemThemedExercise: {
       backgroundColor: '#f9c2ff',
       padding: 20,
       marginVertical: 8,

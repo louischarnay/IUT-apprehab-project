@@ -5,7 +5,6 @@ import NavigBar from '../modules/NavigBar';
 import ExerciseSelection from '../modules/ExerciseSelection';
 import FilterPicker from '../modules/FilterPicker';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
-import ExerciseSelection from '../modules/ExerciseSelection';
 
 const ExerciseSelectionPage = ({navigation}) => {
     return (

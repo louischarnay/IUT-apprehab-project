@@ -5,6 +5,7 @@ const DATA = [
   {
     id: '1',
     title: 'Premier Item',
+    link:'ExerciseSelectionPage'
   },
   {
     id: '2',
@@ -40,15 +41,15 @@ const DATA = [
   },
 ];
 
-const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
+const Item = (item) => (
+  <View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
+    <Text style={styles.title}>{item.title}</Text>
   </View>
 );
 
-const Lessons = () => {
+const Lessons = ({navigation}) => {
   const renderItem = ({ item }) => (
-    <Item title={item.title} />
+    <Item title={item.title} nav={navigation} link={item.link}/>
   );
   return (
     <SafeAreaView style={styles.container}>
