@@ -22,8 +22,7 @@ const ROW = [
       id: '03',
       title:'Profil',
       icon: require('../icones/profil.png'),
-      link: 'Profil'
-
+      link: 'Profile'
     }
   ];
 

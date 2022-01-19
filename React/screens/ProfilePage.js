@@ -2,57 +2,36 @@ import React from 'react';
 import Header from '../modules/Header';
 import Categories from '../modules/Categories'
 import NavigBar from '../modules/NavigBar';
-import ItemList from '../modules/ItemList';
-import FilterPicker from '../modules/FilterPicker';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
+import ItemList from '../modules/ItemList';
 
 const DATA = [
     {
       id: '1',
-      title: 'Premier Item',
+      title: 'Statistiques',
     },
     {
       id: '2',
-      title: 'Second Item',
+      title: 'Préférences',
     },
     {
       id: '3',
-      title: 'Troisième Item',
+      title: 'Lexique',
     },
     {
       id: '4',
-      title: 'Quatrième Item',
-    },
-    {
-      id: '5',
-      title: 'Cinquième Item',
-    },
-    {
-      id: '6',
-      title: 'Sixième Item',
-    },
-    {
-      id: '7',
-      title: 'Septième Item',
-    },
-    {
-      id: '8',
-      title: 'Huitième Item',
-    },
-    {
-      id: '9',
-      title: 'Neuvième Item',
+      title: 'Historique',
     },
 ];
 
-const ThemesPage = ({navigation}) => {
+const ProfilePage = ({navigation}) => {
     return (
         <View style={{flex: 1}}>
             <View style={{flex: 1}}>
-                <FilterPicker/>
+                <Header/>
             </View>
             <View style={{flex: 5}}>
-                <ItemList navigation={navigation} DATA={DATA}/>
+                <ItemList DATA={DATA}/>
             </View>
             <View style={{flex: 1}}>
                 <NavigBar navigation={navigation}/>
@@ -61,4 +40,4 @@ const ThemesPage = ({navigation}) => {
     );
 }
 
-export default ThemesPage
+export default ProfilePage
