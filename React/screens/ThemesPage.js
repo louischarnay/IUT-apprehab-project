@@ -12,7 +12,7 @@ const ThemesPage = ({navigation}) => {
             <View style={{flex: 1}}>
                 <FilterPicker/>
             </View>
-            <View style={{flex: 6}}>
+            <View style={{flex: 5}}>
                 <ItemList navigation={navigation}/>
             </View>
             <View style={{flex: 1}}>
