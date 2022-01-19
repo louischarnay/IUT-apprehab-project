@@ -3,8 +3,8 @@ import { render } from 'react-dom';
 import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
-import MainPage from './screens/MainPage';
-import ThemesPage from './screens/ThemesPage';
+import Home from './stacks/Home';
+import Profile from './stacks/Profile';
 
 const Stack = createStackNavigator();
 
@@ -13,8 +13,8 @@ export default class App extends React.Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="MainPage" component={MainPage} options={{headerShown: false}}/>
-          <Stack.Screen name="ThemesPage" component={ThemesPage} options={{headerShown: false}}/>
+          <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
+          <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
         </Stack.Navigator>
       </NavigationContainer>
     )
