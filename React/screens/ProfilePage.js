@@ -8,18 +8,22 @@ const DATA = [
   {
     id: '1',
     title: 'Statistiques',
+    link: null,
   },
   {
     id: '2',
     title: 'Préférences',
+    link: null,
   },
   {
     id: '3',
     title: 'Lexique',
+    link: null,
   },
   {
     id: '4',
     title: 'Historique',
+    link: null,
   },
 ];
 

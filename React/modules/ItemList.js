@@ -2,14 +2,14 @@ import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 
 const Item = (item) => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('ExercisesPage', {title:item.title, color:item.color})}>
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item.link, {title:item.title, color:item.color})}>
     <Text style={styles.title}>{item.title}</Text>
   </View>
 );
 
 const ItemList = (props) => {
   const renderItem = ({ item }) => (
-    <Item title={item.title} color={props.color} nav={props.navigation}/>
+    <Item title={item.title} color={props.color} link={item.link} nav={props.navigation}/>
   );
   return (
     <SafeAreaView style={styles.container}>

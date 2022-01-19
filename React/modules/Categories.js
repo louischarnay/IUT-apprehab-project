@@ -52,18 +52,22 @@ function navigation(params){
       {
         id: '1',
         title: 'Pliage',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Collage',
+        link: 'ExercisesPage',
       },
       {
         id: '3',
         title: 'Land\'Art',
+        link: 'ExercisesPage',
       },
       {
         id: '4',
         title: 'Ecriture',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -73,18 +77,22 @@ function navigation(params){
       {
         id: '1',
         title: 'Renforcements',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Etirements',
+        link: 'ExercisesPage',
       },
       {
         id: '3',
         title: 'Liens/Videos utiles',
+        link: 'ExercisesPage',
       },
       {
         id: '4',
         title: 'Activités',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -94,14 +102,17 @@ function navigation(params){
       {
         id: '1',
         title: 'Jeux',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Livrets',
+        link: 'ExercisesPage',
       },
       {
         id: '3',
         title: 'Exercices',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -111,14 +122,17 @@ function navigation(params){
       {
         id: '1',
         title: 'Traitements & Symptomes',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Autonomie',
+        link: 'ExercisesPage',
       },
       {
         id: '3',
         title: 'Temoignages',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -128,10 +142,12 @@ function navigation(params){
       {
         id: '1',
         title: 'Applications',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Videos',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -141,10 +157,12 @@ function navigation(params){
       {
         id: '1',
         title: 'Réseau',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Qui sommes nous ?',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
