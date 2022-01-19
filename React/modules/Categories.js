@@ -66,7 +66,7 @@ function navigation(params){
         title: 'Ecriture',
       },
     ];
-    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
   }
   if (params.title == 'Sport'){
     const DATA = [
@@ -87,7 +87,7 @@ function navigation(params){
         title: 'Activités',
       },
     ];
-    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
   }
   if (params.title == 'Cognition'){
     const DATA = [
@@ -104,7 +104,7 @@ function navigation(params){
         title: 'Exercices',
       },
     ];
-    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
   }
   if (params.title == 'Psycho-éducation'){
     const DATA = [
@@ -121,7 +121,7 @@ function navigation(params){
         title: 'Temoignages',
       },
     ];
-    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
   }
   if (params.title == 'Relaxation'){
     const DATA = [
@@ -134,7 +134,7 @@ function navigation(params){
         title: 'Videos',
       },
     ];
-    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
   }
   if (params.title == 'Culture & Infos'){
     const DATA = [
@@ -147,7 +147,7 @@ function navigation(params){
         title: 'Qui sommes nous ?',
       },
     ];
-    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
   }
 };
 

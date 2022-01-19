@@ -2,14 +2,14 @@ import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 
 const Item = (item) => (
-  <View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate('ExercisesPage')}>
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('ExercisesPage')}>
     <Text style={styles.title}>{item.title}</Text>
   </View>
 );
 
 const ItemList = (props) => {
   const renderItem = ({ item }) => (
-    <Item title={item.title} nav={props.navigation}/>
+    <Item title={item.title} color={props.color} nav={props.navigation}/>
   );
   return (
     <SafeAreaView style={styles.container}>
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 25,
+    color: 'white',
     fontWeight: 'bold',
   },
 });

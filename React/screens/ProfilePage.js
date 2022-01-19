@@ -30,7 +30,7 @@ const ProfilePage = ({navigation}) => {
         <Header/>
       </View>
       <View style={{flex: 5}}>
-        <ItemList DATA={DATA}/>
+        <ItemList DATA={DATA} color='#f9c2ff'/>
       </View>
       <View style={{flex: 1}}>
         <NavigBar navigation={navigation}/>
