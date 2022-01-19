@@ -1,88 +1,76 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
-
+import { SafeAreaView, View, FlatList, StyleSheet, Dimensions, Image } from 'react-native';
 
 const ROW = [
     {
       id: '01',
       title: 'Challenge',
-
-      icon: require('../icones/challenge.png'),
-      link: 'ChallengesPage'
+      icon: require('../assets/icones/challenge.png'),
+      link: 'Challenge'
     },
     {
       id: '02',
       title: 'Accueil',
-
-      icon: require('../icones/accueil.png'),
+      icon: require('../assets/icones/accueil.png'),
       link: 'MainPage'
     },
     {
       id: '03',
       title:'Profil',
-      icon: require('../icones/profil.png'),
-      link: 'Profil'
-
+      icon: require('../assets/icones/profil.png'),
+      link: 'Profile'
     }
   ];
 
-  const Item = (item) => (
+const Item = (item) => (
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
+    <Image
+      style={styles.icon}
+      source={item.icon}
+    />
+  </View>
+);
 
-    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
-        <Image
-          style={styles.icon}
-          source={item.icon}
-        />
-    </View>
+const NavigBar= ({navigation}) => {
+  const renderItem = ({ item }) => (
+    <Item icon={item.icon} color={item.color} nav={navigation} link={item.link}/>
   );
 
-  const NavigBar= ({navigation}) => {
-    const renderItem = ({ item }) => (
-      <Item icon={item.icon} color={item.color} nav={navigation} link={item.link}/>
-    );
-
   
-    return (
-      <SafeAreaView style={styles.container}>
-          <FlatList
-              data={ROW}
-              horizontal={true}
-              renderItem={renderItem}
-              keyExtractor={item => item.id}
-          />
-      </SafeAreaView>
-    );
-  }
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={ROW}
+        horizontal={true}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+    </SafeAreaView>
+  );
+}
 
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-
-
-
-      backgroundColor: '#f9c2ff',
-      borderTopRightRadius: 10,
-      borderTopLeftRadius: 10,
-      marginTop: 22,
-
-    },
-    item: {
-      flex: 1,
-      margin: 2,
-      padding: 0,
-      width: Dimensions.get('window').width/3.1,
-      height: Dimensions.get('window').height/10,
-      borderRadius: 10,
-      justifyContent: 'flex-end',
-      alignItems: 'center',
-    },
-    icon: {
-
-      width:  Dimensions.get('window').width/5.8,
-      height:  Dimensions.get('window').width/5.8
-
-    }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#f9c2ff',
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
+    marginTop: 22,
+  },
+  item: {
+    flex: 1,
+    margin: 2,
+    padding: 0,
+    width: Dimensions.get('window').width/3.1,
+    height: Dimensions.get('window').height/10,
+    borderRadius: 10,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  icon: {
+    width:  Dimensions.get('window').width/5.8,
+    height:  Dimensions.get('window').width/5.8
+  },
 });
 
 export default NavigBar;

@@ -13,9 +13,12 @@ $db = new Db();?>
     <div class="divThemeExercice">
         <div class="classThemeExercice divUn">
             <h1>DashBoard App la Rehab</h1>
-            <a href="viewRates.php">Voir les commmentaires</a>
-            <a href="viewDatabase.php">Voir la base de données</a>
-            <a href="viewLexique.php">Voir le lexique</a>
+            <div class="divButtons">
+                <a href="viewRates.php">Voir les commmentaires</a>
+                <a href="viewDatabase.php">Voir la base de données</a>
+                <a href="viewLexique.php">Voir le lexique</a>
+                <a href="api.php">Envoyer la notification</a>
+            </div>
             <p id="erreur"><?php if(isset($_SESSION["message"])){
                 echo $_SESSION["message"];
                 }?></p>

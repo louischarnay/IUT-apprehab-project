@@ -47,14 +47,17 @@ const Item = (item) => (
   </View>
 );
 
-const Lessons = ({navigation}) => {
+
+
+
+const ItemList = (item) => {
   const renderItem = ({ item }) => (
     <Item title={item.title} nav={navigation} link={item.link}/>
   );
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={DATA}
+        data={item.DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
@@ -78,4 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Lessons;
+export default ItemList;

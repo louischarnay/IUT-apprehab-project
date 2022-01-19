@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../modules/Header';
-import Challenge from '../modules/Challenge';
+import ChallengePicture from '../modules/ChallengePicture';
 import NavigBar from '../modules/NavigBar';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
 
@@ -8,8 +8,11 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, 
 const ChallengesPage = ({navigation}) => {
     return (
         <View style={{flex: 1}}>
-            <View style={{flex: 6}}>
-                <Challenge navigation={navigation}/>
+            <View style={{flex: 1}}>
+                <Header navigation={navigation}/>
+            </View>
+            <View style={{flex: 5}}>
+                <ChallengePicture navigation={navigation}/>
             </View>
             <View style={{flex: 1}}>
                 <NavigBar navigation={navigation}/>
