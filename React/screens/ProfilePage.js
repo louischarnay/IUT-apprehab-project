@@ -3,7 +3,26 @@ import Header from '../modules/Header';
 import Categories from '../modules/Categories'
 import NavigBar from '../modules/NavigBar';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
-import Lessons from '../modules/ItemList';
+import ItemList from '../modules/ItemList';
+
+const DATA = [
+    {
+      id: '1',
+      title: 'Statistiques',
+    },
+    {
+      id: '2',
+      title: 'Préférences',
+    },
+    {
+      id: '3',
+      title: 'Lexique',
+    },
+    {
+      id: '4',
+      title: 'Historique',
+    },
+];
 
 const ProfilePage = ({navigation}) => {
     return (
@@ -12,7 +31,7 @@ const ProfilePage = ({navigation}) => {
                 <Header/>
             </View>
             <View style={{flex: 5}}>
-                <Lessons navigation={navigation}/>
+                <ItemList DATA={DATA}/>
             </View>
             <View style={{flex: 1}}>
                 <NavigBar navigation={navigation}/>
