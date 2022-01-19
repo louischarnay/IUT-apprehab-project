@@ -24,9 +24,9 @@ const ThemedExercise=[
 
 ];
 
-const ItemTheme =({title})=>(
-<View style={styles.itemTheme}>
-<Text style={styles.title}>{title}</Text>
+const ItemTheme =(item)=>(
+<View style={styles.itemTheme} onStartShouldSetResponder={() => item.nav.navigate('ThemesPage')}>
+<Text style={styles.title}>{item.title}</Text>
 </View>
 );
 
@@ -36,9 +36,9 @@ const ItemThemedExercise =({title})=>(
 </View>
 );
 
-const ExerciseSelection =()=>{
+const ExerciseSelection =({navigation})=>{
     const renderItemTheme=({item})=>(
-      <ItemTheme title={item.title}/>      
+      <ItemTheme title={item.title} nav={navigation} />      
     );
     
     const renderItemThemedExercise=({item})=>(
