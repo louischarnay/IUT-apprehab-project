@@ -50,14 +50,14 @@ const Item = (item) => (
 
 
 
-const ItemList = (item) => {
-  const renderItem = ({ item }) => (
+const ItemList = ({navigation}) => {
+  const renderItem = (item) => (
     <Item title={item.title} nav={navigation} link={item.link}/>
   );
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={item.DATA}
+        data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
