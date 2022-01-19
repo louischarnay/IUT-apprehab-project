@@ -4,18 +4,21 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, 
 
 const ex ={
     id:'01',
-    title:'Ex'
-}
+    source: require('../assets/banner.png')
+  }
 
-const ItemChall =({item})=>(
-<View style={styles.item}>
-<Text>"Ceci est un challenge"</Text>
+const ItemChall =(item)=>(
+<View style={styles.item} >
+<Image
+  style={styles.im}
+  source={item.source}
+/>
 </View>
 );
 
 const Challenge=({navigation})=>{
     const renderItemChall=({item})=>(
-        <ItemChall title={item.title} nav={navigation}></ItemChall>
+        <ItemChall  source={item.source} nav={navigation}></ItemChall>
     );
     
     return (
@@ -34,7 +37,6 @@ const Challenge=({navigation})=>{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'#f9c2ff',
         borderTopRightRadius:10,
         borderTopLeftRadius:10,
         marginTop:22   
@@ -50,9 +52,9 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
-    /*icon: {
+    im: {
       width:65,
       height:65
-    }*/
+    }
 });
 export default Challenge;

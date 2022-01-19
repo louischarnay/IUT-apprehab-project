@@ -9,7 +9,7 @@ const ROW = [
       title: 'Challenge',
 
       icon: require('../icones/challenge.png'),
-      link: 'ChallengePages'
+      link: 'ChallengesPage'
     },
     {
       id: '02',
