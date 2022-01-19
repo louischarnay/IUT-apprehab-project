@@ -7,19 +7,19 @@ const ROW = [
     {
       id: '01',
       title: 'Challenge',
-      icon: require('../icones/challenge.png'),
+      icon: require('../assets/icones/challenge.png'),
       link: 'null'
     },
     {
       id: '02',
       title: 'Accueil',
-      icon: require('../icones/accueil.png'),
+      icon: require('../assets/icones/accueil.png'),
       link: 'MainPage'
     },
     {
       id: '03',
       title:'Profil',
-      icon: require('../icones/profil.png'),
+      icon: require('../assets/icones/profil.png'),
       link: 'null'
     }
   ];

@@ -217,4 +217,22 @@ class Db {
         $sth->execute();
         return $sth->fetchAll();
     }
+
+    public function getAllCategories(){
+        $sth = $this->pdo->prepare("SELECT * FROM Categories");
+        $sth->execute();
+        return $sth->fetchAll();
+    }
+
+    public function getAllThemes(){
+        $sth = $this->pdo->prepare("SELECT * FROM Lessons");
+        $sth->execute();
+        return $sth->fetchAll();
+    }
+
+    public function getAllExercices(){
+        $sth = $this->pdo->prepare("SELECT * FROM Items");
+        $sth->execute();
+        return $sth->fetchAll();
+    }
 }
