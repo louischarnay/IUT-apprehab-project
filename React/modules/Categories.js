@@ -97,8 +97,8 @@ const styles = StyleSheet.create({
     flex: 1,
     margin: Dimensions.get('window').width/25,
     padding: 0,
-    width: Dimensions.get('window').height/4.5,
-    height: Dimensions.get('window').height/4.5,
+    width: Dimensions.get('window').height/4.7,
+    height: Dimensions.get('window').height/4.7,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
@@ -108,8 +108,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   icon: {
-    width: Dimensions.get('window').width/3.7,
-    height: Dimensions.get('window').width/3.7,
+    width: Dimensions.get('window').width/4,
+    height: Dimensions.get('window').width/4,
     margin: 10
   }
 });

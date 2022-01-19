@@ -56,21 +56,21 @@ const ROW = [
       backgroundColor: '#f9c2ff',
       borderTopRightRadius: 10,
       borderTopLeftRadius: 10,
-      marginTop: 22
+      marginTop: 22,
     },
     item: {
       flex: 1,
       margin: 2,
       padding: 0,
-      width: Dimensions.get('window').width/3 - 4,
+      width: Dimensions.get('window').width/3.1,
       height: Dimensions.get('window').height/10,
       borderRadius: 10,
-      justifyContent: 'center',
+      justifyContent: 'flex-end',
       alignItems: 'center',
     },
     icon: {
-      width: 65,
-      height: 65
+      width:  Dimensions.get('window').width/5.8,
+      height:  Dimensions.get('window').width/5.8
     }
 });
 
