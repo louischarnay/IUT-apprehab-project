@@ -186,6 +186,15 @@ a{
     margin: 10px;
 }
 
+.divButtons{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.divButtons a{
+    width: 45%;
+}
+
 @media (max-width: 1000px) {
     .divThemeExercice{
         flex-direction: column;
