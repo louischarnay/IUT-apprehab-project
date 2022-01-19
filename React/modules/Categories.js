@@ -5,13 +5,13 @@ const ROW_1 = [
   {
     id: '01',
     title: 'Créativité',
-    color: '#f9c2ff',
+    color: '#ac569d',
     icon: require('../assets/icones/creativite.png')
   },
   {
     id: '02',
     title: 'Sport',
-    color: '#f9c2ff',
+    color: '#f39205',
     icon: require('../assets/icones/sport.png')
   }
 ];
@@ -20,13 +20,13 @@ const ROW_2 = [
   {
     id: '03',
     title: 'Cognition',
-    color: '#f9c2ff',
+    color: '#bce652',
     icon: require('../assets/icones/cognition.png')
   },
   {
     id: '04',
     title: 'Psycho-éducation',
-    color: '#f9c2ff',
+    color: '#4bc2ee',
     icon: require('../assets/icones/psycho-education.png')
   }
 ];
@@ -35,19 +35,124 @@ const ROW_3 = [
   {
     id: '05',
     title: 'Relaxation',
-    color: '#f9c2ff',
-    icon: require('../assets/icones/anxiete.png')
+    color: '#99cda2',
+    icon: require('../assets/icones/relaxation.png')
   },
   {
     id: '06',
     title: 'Culture & Infos',
-    color: '#f9c2ff',
+    color: '#dd0712',
     icon: require('../assets/icones/culture.png')
   }
 ];
 
+function navigation(params){
+  if (params.title == 'Créativité'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Pliage',
+      },
+      {
+        id: '2',
+        title: 'Collage',
+      },
+      {
+        id: '3',
+        title: 'Land\'Art',
+      },
+      {
+        id: '4',
+        title: 'Ecriture',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
+  }
+  if (params.title == 'Sport'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Renforcements',
+      },
+      {
+        id: '2',
+        title: 'Etirements',
+      },
+      {
+        id: '3',
+        title: 'Liens/Videos utiles',
+      },
+      {
+        id: '4',
+        title: 'Activités',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
+  }
+  if (params.title == 'Cognition'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Jeux',
+      },
+      {
+        id: '2',
+        title: 'Livrets',
+      },
+      {
+        id: '3',
+        title: 'Exercices',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
+  }
+  if (params.title == 'Psycho-éducation'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Traitements & Symptomes',
+      },
+      {
+        id: '2',
+        title: 'Autonomie',
+      },
+      {
+        id: '3',
+        title: 'Temoignages',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
+  }
+  if (params.title == 'Relaxation'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Applications',
+      },
+      {
+        id: '2',
+        title: 'Videos',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
+  }
+  if (params.title == 'Culture & Infos'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Réseau',
+      },
+      {
+        id: '2',
+        title: 'Qui sommes nous ?',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
+  }
+};
+
 const Item = (item) => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('ThemesPage')}>
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => navigation(item)}>
     <Image
       style={styles.icon}
       source={item.icon}  
@@ -104,11 +209,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: Dimensions.get('window').width/24,
     fontWeight: 'bold',
+    color: 'white'
   },
   icon: {
-    width: Dimensions.get('window').width/4,
-    height: Dimensions.get('window').width/4,
-    margin: 10,
+    width: Dimensions.get('window').width/2.5,
+    height: Dimensions.get('window').width/2.5,
+    margin: -20,
   },
 });
 
