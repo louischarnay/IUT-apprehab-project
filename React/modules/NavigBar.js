@@ -36,7 +36,6 @@ const NavigBar= ({navigation}) => {
     <Item icon={item.icon} color={item.color} nav={navigation} link={item.link}/>
   );
 
-  
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -55,14 +54,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#f9c2ff',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
-    marginTop: 22,
+    marginTop: 20,
   },
   item: {
     flex: 1,
-    margin: 2,
-    padding: 0,
     width: Dimensions.get('window').width/3.1,
     height: Dimensions.get('window').height/10,
+    margin: 2,
+    marginTop: 7,
+    padding: 0,
     borderRadius: 10,
     justifyContent: 'flex-end',
     alignItems: 'center',
