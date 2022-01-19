@@ -46,8 +46,113 @@ const ROW_3 = [
   }
 ];
 
+function navigation(params){
+  if (params.title == 'Créativité'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Pliage',
+      },
+      {
+        id: '2',
+        title: 'Collage',
+      },
+      {
+        id: '3',
+        title: 'Land\'Art',
+      },
+      {
+        id: '4',
+        title: 'Ecriture',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+  }
+  if (params.title == 'Sport'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Renforcements',
+      },
+      {
+        id: '2',
+        title: 'Etirements',
+      },
+      {
+        id: '3',
+        title: 'Liens/Videos utiles',
+      },
+      {
+        id: '4',
+        title: 'Activités',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+  }
+  if (params.title == 'Cognition'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Jeux',
+      },
+      {
+        id: '2',
+        title: 'Livrets',
+      },
+      {
+        id: '3',
+        title: 'Exercices',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+  }
+  if (params.title == 'Psycho-éducation'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Traitements & Symptomes',
+      },
+      {
+        id: '2',
+        title: 'Autonomie',
+      },
+      {
+        id: '3',
+        title: 'Temoignages',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+  }
+  if (params.title == 'Relaxation'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Applications',
+      },
+      {
+        id: '2',
+        title: 'Videos',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+  }
+  if (params.title == 'Culture & Infos'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'Réseau',
+      },
+      {
+        id: '2',
+        title: 'Qui sommes nous ?',
+      },
+    ];
+    params.nav.navigate('ThemesPage', {DATA:{DATA}})
+  }
+};
+
 const Item = (item) => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('ThemesPage')}>
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => navigation(item)}>
     <Image
       style={styles.icon}
       source={item.icon}  
