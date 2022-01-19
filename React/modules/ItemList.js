@@ -8,7 +8,6 @@ const Item = ({ title }) => (
 );
 
 const ItemList = (item) => {
-  console.log(item.DATA)
   const renderItem = ({ item }) => (
     <Item title={item.title} />
   );

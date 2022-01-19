@@ -7,14 +7,12 @@ const ROW = [
     {
       id: '01',
       title: 'Challenge',
-
       icon: require('../icones/challenge.png'),
-      link: 'ChallengesPage'
+      link: 'Challenge'
     },
     {
       id: '02',
       title: 'Accueil',
-
       icon: require('../icones/accueil.png'),
       link: 'MainPage'
     },
@@ -57,9 +55,6 @@ const ROW = [
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-
-
-
       backgroundColor: '#f9c2ff',
       borderTopRightRadius: 10,
       borderTopLeftRadius: 10,
