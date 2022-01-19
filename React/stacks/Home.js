@@ -1,8 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import { render } from 'react-dom';
 import React from 'react';
 import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from '@react-navigation/native';
 import MainPage from '../screens/MainPage';
 import ThemesPage from '../screens/ThemesPage';
 

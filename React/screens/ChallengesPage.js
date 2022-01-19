@@ -8,7 +8,10 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, 
 const ChallengesPage = ({navigation}) => {
     return (
         <View style={{flex: 1}}>
-            <View style={{flex: 6}}>
+            <View style={{flex: 1}}>
+                <Header navigation={navigation}/>
+            </View>
+            <View style={{flex: 5}}>
                 <ChallengePicture navigation={navigation}/>
             </View>
             <View style={{flex: 1}}>

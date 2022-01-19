@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../modules/Header';
 import Categories from '../modules/Categories'
 import NavigBar from '../modules/NavigBar';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
+import { View } from 'react-native';
 
 const MainPage = ({navigation}) => {
     return (
