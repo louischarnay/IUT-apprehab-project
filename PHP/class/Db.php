@@ -235,4 +235,10 @@ class Db {
         $sth->execute();
         return $sth->fetchAll();
     }
+
+    public function getAllItems(){
+        $sth = $this->pdo->prepare("SELECT * FROM Files");
+        $sth->execute();
+        return $sth->fetchAll();
+    }
 }

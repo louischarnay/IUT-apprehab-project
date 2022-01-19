@@ -37,6 +37,7 @@ $arrayExercices = Array();
 $arrayTmp = Array();
 $cpt = 0;
 
+
 foreach ($exercices as $exercice) {
     $arrayExercice = Array(
         "idExercice" => $exercice["idItem"],
@@ -48,13 +49,32 @@ foreach ($exercices as $exercice) {
 }
 
 
+$items = $db->getAllItems();
+$arrayItems = Array();
+$arrayTmp = Array();
+$cpt = 0;
+
+foreach ($items as $item) {
+    $arrayItem = Array(
+        "idItem" => $item["idFile"],
+        "pathItem" => $item["pathFile"],
+        "typeItem" => $item["typeFile"],
+        "exerciceId" => $item["itemId"]
+    );
+    $arrayItems[$cpt] = $arrayItem;
+    $cpt++;
+}
+
+
 $finalArray = Array(
         "categories" => $arrayCategories,
     "themes" => $arrayThemes,
-    "exercices" => $arrayExercices
+    "exercices" => $arrayExercices,
+    "items" => $arrayItems
 );
 
 $json = json_encode($finalArray);
 file_put_contents("api/api.json", $json);
 header("Location: index.php");
-
+exit();
+?>

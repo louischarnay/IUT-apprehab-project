@@ -57,7 +57,7 @@ class Db {
             return "Exercice déjà existant";
         }
         $sth = $this->pdo->prepare("INSERT INTO Exercices(nomExercice, themeId) VALUES(:nom, :lessonId)");
-        return $sth->execute(["nom" => $nom, "lessonId" => $lessonId]);
+        $sth->execute(["nom" => $nom, "lessonId" => $lessonId]);
         return "Exercice ajouté";
     }
 
@@ -99,7 +99,7 @@ class Db {
         if ($result == false) {
             return "Exercice non existant";
         }
-        $itemId = $result["idItem"];
+        $itemId = $result["idExercice"];
         $sth = $this->pdo->prepare("DELETE FROM Items WHERE ExerciceId= :itemId");
         $sth->execute(["itemId" => $itemId]);
         $sth = $this->pdo->prepare("DELETE FROM Exercices WHERE idExercice= :itemId");
@@ -114,7 +114,7 @@ class Db {
         if($result == false){
             return "Thème non existant";
         }
-        $lessonId = $result["idLesson"];
+        $lessonId = $result["idTheme"];
         $sth = $this->pdo->prepare("SELECT * FROM Exercices WHERE themeId= :lessonId");
         $sth->execute(["lessonId" => $lessonId]);
         $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
@@ -133,7 +133,7 @@ class Db {
         if($result == false){
             return "Catégorie non existante";
         }
-        $categoryId = $result["idCategory"];
+        $categoryId = $result["idCategorie"];
         $sth = $this->pdo->prepare("SELECT * FROM Themes WHERE categorieId= :categoryId");
         $sth->execute(["categoryId" => $categoryId]);
         $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
@@ -217,8 +217,15 @@ class Db {
         $sth->execute(["id" => $id]);
         return $sth->fetch();
     }
+
     public function getAllMots(){
         $sth = $this->pdo->prepare("SELECT * FROM Mots");
+        $sth->execute();
+        return $sth->fetchAll();
+    }
+
+    public function getAllItems(){
+        $sth = $this->pdo->prepare("SELECT * FROM Items");
         $sth->execute();
         return $sth->fetchAll();
     }
