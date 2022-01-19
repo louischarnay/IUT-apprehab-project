@@ -5,13 +5,13 @@ const ROW_1 = [
   {
     id: '01',
     title: 'Créativité',
-    color: '#f9c2ff',
+    color: '#ac569d',
     icon: require('../assets/icones/creativite.png')
   },
   {
     id: '02',
     title: 'Sport',
-    color: '#f9c2ff',
+    color: '#f39205',
     icon: require('../assets/icones/sport.png')
   }
 ];
@@ -20,13 +20,13 @@ const ROW_2 = [
   {
     id: '03',
     title: 'Cognition',
-    color: '#f9c2ff',
+    color: '#bce652',
     icon: require('../assets/icones/cognition.png')
   },
   {
     id: '04',
     title: 'Psycho-éducation',
-    color: '#f9c2ff',
+    color: '#4bc2ee',
     icon: require('../assets/icones/psycho-education.png')
   }
 ];
@@ -35,13 +35,13 @@ const ROW_3 = [
   {
     id: '05',
     title: 'Relaxation',
-    color: '#f9c2ff',
-    icon: require('../assets/icones/anxiete.png')
+    color: '#99cda2',
+    icon: require('../assets/icones/relaxation.png')
   },
   {
     id: '06',
     title: 'Culture & Infos',
-    color: '#f9c2ff',
+    color: '#dd0712',
     icon: require('../assets/icones/culture.png')
   }
 ];
@@ -209,11 +209,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: Dimensions.get('window').width/24,
     fontWeight: 'bold',
+    color: 'white'
   },
   icon: {
-    width: Dimensions.get('window').width/4,
-    height: Dimensions.get('window').width/4,
-    margin: 10,
+    width: Dimensions.get('window').width/2.5,
+    height: Dimensions.get('window').width/2.5,
+    margin: -20,
   },
 });
 
