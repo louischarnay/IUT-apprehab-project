@@ -6,13 +6,13 @@ const ROW_1 = [
     id: '01',
     title: 'Créativité',
     color: '#f9c2ff',
-    icon: require('../icones/creativite.png')
+    icon: require('../assets/icones/creativite.png')
   },
   {
     id: '02',
     title: 'Sport',
     color: '#f9c2ff',
-    icon: require('../icones/sport.png')
+    icon: require('../assets/icones/sport.png')
   }
 ];
 
@@ -21,13 +21,13 @@ const ROW_2 = [
     id: '03',
     title: 'Cognition',
     color: '#f9c2ff',
-    icon: require('../icones/cognition.png')
+    icon: require('../assets/icones/cognition.png')
   },
   {
     id: '04',
     title: 'Psycho-éducation',
     color: '#f9c2ff',
-    icon: require('../icones/psycho-education.png')
+    icon: require('../assets/icones/psycho-education.png')
   }
 ];
 
@@ -36,13 +36,13 @@ const ROW_3 = [
     id: '05',
     title: 'Relaxation',
     color: '#f9c2ff',
-    icon: require('../icones/anxiete.png')
+    icon: require('../assets/icones/anxiete.png')
   },
   {
     id: '06',
     title: 'Culture & Infos',
     color: '#f9c2ff',
-    icon: require('../icones/culture.png')
+    icon: require('../assets/icones/culture.png')
   }
 ];
 
