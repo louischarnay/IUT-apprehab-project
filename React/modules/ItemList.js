@@ -2,19 +2,19 @@ import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 
 const Item = (item) => (
-  <View style={styles.item}>
+  <View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate('ExercisesPage')}>
     <Text style={styles.title}>{item.title}</Text>
   </View>
 );
 
-const ItemList = (item) => {
+const ItemList = (props) => {
   const renderItem = ({ item }) => (
-    <Item title={item.title} link={item.link}/>
+    <Item title={item.title} nav={props.navigation}/>
   );
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={item.DATA}
+        data={props.DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
