@@ -32,17 +32,16 @@ const ROW_2 = [
     }
 ];
 
-
 const ROW_3 = [
     {
       id: '05',
-      title: 'Anxiété',
+      title: 'Relaxation',
       color: '#f9c2ff',
       icon: require('../icones/anxiete.png')
     },
     {
       id: '06',
-      title: 'Culture',
+      title: 'Culture & Infos',
       color: '#f9c2ff',
       icon: require('../icones/culture.png')
     }
