@@ -1,14 +1,12 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Dimensions, Image } from 'react-native';
 
-const ex = [
+const DATA = [
   {
     id:'01',
-    source: require('../assets/affiche.png')
+    source: require('../assets/pictures/affiche.png')
   }
 ]
-
 
 const Item = (item) =>(
   <View style={styles.item} >
@@ -27,7 +25,7 @@ const Challenge = ({navigation}) => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={ex}
+        data={DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
@@ -36,22 +34,21 @@ const Challenge = ({navigation}) => {
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        borderTopRightRadius:10,
-        borderTopLeftRadius:10,
-        marginTop: 22,
-      },
-    item: {
-      flex: 1,
-      margin: 2,
-      padding: 0,
-      width: Dimensions.get('window').width,
-      height: Dimensions.get('window').height,
-      borderRadius: 10,
-      marginTop: 22,
-      justifyContent: 'flex-start',
-      alignItems: 'center',
-    },
+  container: {
+    flex: 1,
+    borderTopRightRadius:10,
+    borderTopLeftRadius:10,
+    marginTop: 22,
+  },
+  item: {
+    flex: 1,
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height,
+    borderRadius: 10,
+    marginTop: 22,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
 });
+
 export default Challenge;

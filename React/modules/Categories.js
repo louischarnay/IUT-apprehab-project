@@ -1,6 +1,5 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
+import { SafeAreaView, View, FlatList, StyleSheet, Text, Dimensions, Image } from 'react-native';
 
 const ROW_1 = [
   {
@@ -18,42 +17,42 @@ const ROW_1 = [
 ];
 
 const ROW_2 = [
-    {
-      id: '03',
-      title: 'Cognition',
-      color: '#f9c2ff',
-      icon: require('../icones/cognition.png')
-    },
-    {
-      id: '04',
-      title: 'Psycho-éducation',
-      color: '#f9c2ff',
-      icon: require('../icones/psycho-education.png')
-    }
+  {
+    id: '03',
+    title: 'Cognition',
+    color: '#f9c2ff',
+    icon: require('../icones/cognition.png')
+  },
+  {
+    id: '04',
+    title: 'Psycho-éducation',
+    color: '#f9c2ff',
+    icon: require('../icones/psycho-education.png')
+  }
 ];
 
 const ROW_3 = [
-    {
-      id: '05',
-      title: 'Relaxation',
-      color: '#f9c2ff',
-      icon: require('../icones/anxiete.png')
-    },
-    {
-      id: '06',
-      title: 'Culture & Infos',
-      color: '#f9c2ff',
-      icon: require('../icones/culture.png')
-    }
+  {
+    id: '05',
+    title: 'Relaxation',
+    color: '#f9c2ff',
+    icon: require('../icones/anxiete.png')
+  },
+  {
+    id: '06',
+    title: 'Culture & Infos',
+    color: '#f9c2ff',
+    icon: require('../icones/culture.png')
+  }
 ];
 
 const Item = (item) => (
   <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('ThemesPage')}>
-      <Image
-        style={styles.icon}
-        source={item.icon}  
-      />
-      <Text style={styles.title}>{item.title}</Text>
+    <Image
+      style={styles.icon}
+      source={item.icon}  
+    />
+    <Text style={styles.title}>{item.title}</Text>
   </View>
 );
 
@@ -64,24 +63,24 @@ const Categories = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.container}>
-        <FlatList
-            data={ROW_1}
-            horizontal={true}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-        />
-        <FlatList
-            data={ROW_2}
-            horizontal={true}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-        />
-        <FlatList
-            data={ROW_3}
-            horizontal={true}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-        />
+      <FlatList
+        data={ROW_1}
+        horizontal={true}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+      <FlatList
+        data={ROW_2}
+        horizontal={true}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+      <FlatList
+        data={ROW_3}
+        horizontal={true}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
     </SafeAreaView>
   );
 }
@@ -94,23 +93,23 @@ const styles = StyleSheet.create({
   },
   item: {
     flex: 1,
-    margin: Dimensions.get('window').width/25,
-    padding: 0,
     width: Dimensions.get('window').height/4.7,
     height: Dimensions.get('window').height/4.7,
+    margin: Dimensions.get('window').width/25,
+    padding: 0,
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   title: {
     fontSize: Dimensions.get('window').width/24,
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   icon: {
     width: Dimensions.get('window').width/4,
     height: Dimensions.get('window').width/4,
-    margin: 10
-  }
+    margin: 10,
+  },
 });
 
 export default Categories;
