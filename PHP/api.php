@@ -8,8 +8,8 @@ $cpt = 0;
 
 foreach ($categories as $categorie){
     $arrayCategorie = Array(
-        "idCategorie" => $categorie["idCategory"],
-        "nomCategorie" => $categorie["nameCategory"]
+        "idCategorie" => $categorie["idCategorie"],
+        "nomCategorie" => $categorie["nomCategorie"]
     );
     $arrayCategories[$cpt] = $arrayCategorie;
     $cpt++;
@@ -23,9 +23,9 @@ $cpt = 0;
 
 foreach ($themes as $theme) {
     $arrayTheme = Array(
-        "idTheme" => $theme["idLesson"],
-        "nomTheme" => $theme["nameLesson"],
-        "categorieId" => $theme["categoryId"]
+        "idTheme" => $theme["idTheme"],
+        "nomTheme" => $theme["nomTheme"],
+        "categorieId" => $theme["categorieId"]
     );
     $arrayThemes[$cpt] = $arrayTheme;
     $cpt++;
@@ -40,9 +40,9 @@ $cpt = 0;
 
 foreach ($exercices as $exercice) {
     $arrayExercice = Array(
-        "idExercice" => $exercice["idItem"],
-        "nomExercice" => $exercice["nameItem"],
-        "themeId" => $exercice["lessonId"]
+        "idExercice" => $exercice["idExercice"],
+        "nomExercice" => $exercice["nomExercice"],
+        "themeId" => $exercice["themeId"]
     );
     $arrayExercices[$cpt] = $arrayExercice;
     $cpt++;
@@ -56,10 +56,10 @@ $cpt = 0;
 
 foreach ($items as $item) {
     $arrayItem = Array(
-        "idItem" => $item["idFile"],
-        "pathItem" => $item["pathFile"],
-        "typeItem" => $item["typeFile"],
-        "exerciceId" => $item["itemId"]
+        "idItem" => $item["idItem"],
+        "pathItem" => $item["pathItem"],
+        "typeItem" => $item["typeItem"],
+        "exerciceId" => $item["exerciceId"]
     );
     $arrayItems[$cpt] = $arrayItem;
     $cpt++;

@@ -18,7 +18,7 @@
 $allMots = $db->getAllMots();
 foreach ($allMots as $mot){
     echo "<div class='divCommentaire'><div class='categorieThemeExercice'>".
-        "<p class='categorieDataBase margin'>".$mot['name']."</p>".
+        "<p class='categorieDataBase margin'>".$mot['mot']."</p>".
         "<p class='messageCommentaire'>".$mot["definition"]."</p><br>".
         "</div></div>";
 }?>

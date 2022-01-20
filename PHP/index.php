@@ -40,7 +40,30 @@ $db = new Db();?>
     </div>
     <div class="divThemeExercice">
         <fieldset class="classThemeExercice">
-            <legend>Ajout thème</legend>
+            <legend>Ajout Catégorie</legend>
+            <form action="traitement/ajoutCategorie.php" method="post" enctype="multipart/form-data">
+                <div class="divInputLabel">
+                    <label for="titreCategorie">Titre</label>
+                    <input type="text" name="titreCategorie" id="titreCategorie"required="required">
+                </div>
+                <div class="divInputLabel">
+                    <label for="dropCategorie">Couleur</label>
+                    <input type="color" name="couleurCategorie" required="required">
+                </div>
+                <button type="submit">Ajouter Catégorie</button>
+            </form>
+        </fieldset>
+        <fieldset class="classThemeExercice">
+            <legend>Changer Challenge</legend>
+            <form action="traitement/changementChallenge.php" method="post" enctype="multipart/form-data">
+                <label for="titreExercice">Challenge</label>
+                    <input type="file" name="challenge" required="required">
+                <button type="submit">Changer Challenge</button>
+            </form>
+        </fieldset>
+    </div><div class="divThemeExercice">
+        <fieldset class="classThemeExercice">
+            <legend>Ajout Thème</legend>
             <form action="traitement/ajoutTheme.php" method="post" enctype="multipart/form-data">
                 <div class="divInputLabel">
                     <label for="titreTheme">Titre</label>
@@ -70,7 +93,7 @@ $db = new Db();?>
                     <select name="dropExercice" id="dropExercice" required="required">
                         <?php $result = $db->getThemes();
                         foreach ($result as $value):?>
-                        <option value="<?php echo $value?>"><?php echo $value?></option>
+                            <option value="<?php echo $value?>"><?php echo $value?></option>
                         <?php endforeach;?>
                     </select>
                 </div>
@@ -125,6 +148,14 @@ $db = new Db();?>
         <form action="traitement/suppr.php" method="post" enctype="multipart/form-data">
             <div id="divRadioSuppr">
                 <div class="classRadio">
+                    <input type="radio" name="typeSuppr" id="motRadio" value="Mot" class="widthNormal" required="required">
+                    <label for="motRadio" class="widthNormal">Mot</label>
+                </div>
+                <div class="classRadio">
+                    <input type="radio" name="typeSuppr" id="categorieRadio" value="Categorie" class="widthNormal" required="required">
+                    <label for="categorieRadio" class="widthNormal">Catégorie</label>
+                </div>
+                <div class="classRadio">
                     <input type="radio" name="typeSuppr" id="themeRadio" value="Theme" class="widthNormal" required="required">
                     <label for="themeRadio" class="widthNormal">Thème</label>
                 </div>
@@ -136,17 +167,21 @@ $db = new Db();?>
             <label for="dropSuppr">Supprimer</label>
             <select name="dropSuppr" id="dropSuppr" class="widthNormal" required="required">
                 <?php $db = new Db();
-                $result = $db->getExercices();
+                $result = $db->getCategories();
                 foreach ($result as $value):?>
-                <option value="<?php echo $value?>"><?php echo $value?></option>
+                    <option value="<?php echo $value?>"><?php echo $value?></option>
                 <?php endforeach;
                 $result = $db->getThemes();
                 foreach ($result as $value):?>
-                <option value="<?php echo $value?>"><?php echo $value?></option>
+                    <option value="<?php echo $value?>"><?php echo $value?></option>
                 <?php endforeach;
-                $result = $db->getCategories();
+                $result = $db->getExercices();
                 foreach ($result as $value):?>
-                <option value="<?php echo $value?>"><?php echo $value?></option>
+                    <option value="<?php echo $value?>"><?php echo $value?></option>
+                <?php endforeach;
+                $result = $db->getMots();
+                foreach ($result as $value):?>
+                    <option value="<?php echo $value?>"><?php echo $value?></option>
                 <?php endforeach;?>
             </select>
             <button type="submit">Supprimer élément</button>
