@@ -9,7 +9,8 @@ $cpt = 0;
 foreach ($categories as $categorie){
     $arrayCategorie = Array(
         "idCategorie" => $categorie["idCategorie"],
-        "nomCategorie" => $categorie["nomCategorie"]
+        "nomCategorie" => $categorie["nomCategorie"],
+        "codeCouleur" => $categorie["codeCouleur"]
     );
     $arrayCategories[$cpt] = $arrayCategorie;
     $cpt++;
@@ -73,8 +74,23 @@ $finalArray = Array(
     "items" => $arrayItems
 );
 
+
+
 $json = json_encode($finalArray);
 file_put_contents("api/api.json", $json);
+
+$json = json_encode($arrayCategories);
+file_put_contents("api/apiCategories.json", $json);
+
+$json = json_encode($arrayThemes);
+file_put_contents("api/apiThemes.json", $json);
+
+$json = json_encode($arrayExercices);
+file_put_contents("api/apiExercices.json", $json);
+
+$json = json_encode($arrayItems);
+file_put_contents("api/apiItems.json", $json);
+
 header("Location: index.php");
 exit();
 ?>

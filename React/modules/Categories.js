@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, Dimensions, Image } from 'react-native';
+import {AsyncStorage, Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
 
 const ROW_1 = [
   {
@@ -46,8 +46,35 @@ const ROW_3 = [
   },
 ];
 
-function navigation(params){
-  if (params.title == 'Créativité'){
+async function navigation(params){
+  var idCategorie = -1;
+  var cpt = 0;
+  while (idCategorie === -1){
+    var categorie = JSON.parse( await AsyncStorage.getItem('categorie' + cpt));
+    if(params.title === categorie.nomCategorie){
+      idCategorie = categorie.idCategorie;
+    }
+    cpt++;
+  }
+  console.log(idCategorie)
+  var allThemes = JSON.parse( await AsyncStorage.getItem('allThemes'));
+  var matchThemes = [];
+  for (cpt = 0; cpt < allThemes.length; cpt++){
+    if(allThemes[cpt].categorieId === idCategorie){
+      matchThemes[matchThemes.length] = allThemes[cpt];
+    }
+  }
+  var DATA = [];
+  for(cpt = 0; cpt < matchThemes.length; cpt ++){
+    var theme ={
+      id: matchThemes[cpt].idTheme,
+      title: matchThemes[cpt].nomTheme,
+      link: 'ExercisesPage'
+    }
+    DATA[DATA.length] = theme;
+  }
+  params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
+  /*if (params.title == 'Créativité'){
     const DATA = [
       {
         id: '1',
@@ -166,7 +193,7 @@ function navigation(params){
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
-  }
+  }*/
 };
 
 const Item = (item) => (
@@ -183,7 +210,6 @@ const Categories = ({navigation}) => {
   const renderItem = ({ item }) => (
     <Item title={item.title} icon={item.icon} color={item.color} nav={navigation}/>
   );
-
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
