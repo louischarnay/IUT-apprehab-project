@@ -9,13 +9,15 @@ const ex ={
 
 const ItemProf =({item})=>(
 <View style={styles.item}>
-<Text>"Ceci est un profil"</Text>
+<Text>{item.title} 
+"Ceci est un profil"
+</Text>
 </View>
 );
 
 const Profil=({navigation})=>{
     const renderItemProf=({item})=>(
-        <ItemProf title={item.title}></ItemProf>
+        <ItemProf title={item.title} nav={navigation}></ItemProf>
     );
     
     return (
