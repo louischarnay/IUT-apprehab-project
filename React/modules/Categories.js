@@ -20,7 +20,7 @@ const ROW_2 = [
   {
     id: '03',
     title: 'Cognition',
-    color: '#bce652',
+    color: '#ece652',
     icon: require('../assets/icones/cognition.png')
   },
   {
