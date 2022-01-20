@@ -16,11 +16,15 @@ const ROW = [
     },
     {
       id: '03',
-      title:'Profil',
+      title:'Profile',
       icon: require('../assets/icones/profil.png'),
       link: 'Profile'
     }
-  ];
+];
+
+function navigation(params){
+  
+}
 
 const Item = (item) => (
   <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
