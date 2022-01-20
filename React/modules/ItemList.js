@@ -1,8 +1,8 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
+import {SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, AsyncStorage} from 'react-native';
 
-function navigation(params){
-  if (params.title == 'Lexique'){
+async function navigation(params){
+  if (params.title === 'Lexique'){
     const DATA = [
       {
         id: '1',
@@ -13,6 +13,33 @@ function navigation(params){
     params.nav.navigate('LexiquePage', {DATA:{DATA}, color:params.color})
   }
   else {
+    var idTheme = -1;
+    var cpt = 0;
+    while(idTheme === -1){
+      var theme = JSON.parse( await AsyncStorage.getItem('theme' + cpt));
+      if( theme.nomTheme === params.title){
+        idTheme = theme.idTheme
+      }
+      cpt++
+    }
+    var allExercices = JSON.parse( await AsyncStorage.getItem('allExercices'))
+    var matchExercices = []
+    for(cpt = 0; cpt < allExercices.length; cpt++){
+      if(allExercices[cpt].themeId === idTheme){
+        matchExercices[matchExercices.length] = allExercices[cpt];
+      }
+    }
+    var DATA = [];
+    for (cpt = 0; cpt < matchExercices.length; cpt++){
+      DATA[DATA.length] = {
+        id: matchExercices[cpt].idExercice,
+        title: matchExercices[cpt].nomExercice,
+        link: 'ExerciseScreen.js'
+      }
+    }
+    for (cpt = 0; cpt < DATA.length; cpt++){
+      console.log(DATA[cpt].title)
+    }
     params.nav.navigate(params.link, {title:params.title, color:params.color})
   }
 };
