@@ -17,7 +17,7 @@ const ContentExercise = [
 ]
 
 const ItemTitleExercise =(item)=>(
-    <View style={styles.itemTitleExercise} onStartShouldSetResponder={() => item.nav.navigate('ExerciseSelectionPage')}>
+    <View style={styles.itemTitleExercise} onStartShouldSetResponder={() => item.nav.navigate('ExercisesPage')}>
     <Text style={styles.title}>{item.title}</Text>
     </View>
     );
