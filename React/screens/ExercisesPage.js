@@ -8,34 +8,42 @@ const DATA = [
     {
         id: '01',
         title: 'Créativité',
+        link: 'LessonPage',
     },
     {
         id: '02',
         title: 'Sport',
+        link: 'LessonPage',
     },
     {
         id: '03',
         title: 'Créativité',
+        link: 'LessonPage',
     },
     {
         id: '04',
         title: 'Sport',
+        link: 'LessonPage',
     },
     {
         id: '05',
         title: 'Créativité',
+        link: 'LessonPage',
     },
     {
         id: '06',
         title: 'Sport',
+        link: 'LessonPage',
     },
     {
         id: '07',
         title: 'Créativité',
+        link: 'LessonPage',
     },
     {
         id: '08',
         title: 'Sport',
+        link: 'LessonPage',
     }
 ];
 

@@ -4,20 +4,21 @@ import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, 
 
 const ex ={
     id:'01',
-    title:'Ex'
-}
+    source: require('../assets/banner.png')
+  }
 
-const ItemProf =({item})=>(
+const ItemChall =(item) =>(
 <View style={styles.item}>
-<Text>{item.title} 
-"Ceci est un profil"
-</Text>
+<Image
+  style={styles.im}
+  source={item.source}
+/>
 </View>
 );
 
-const Profil=({navigation})=>{
-    const renderItemProf=({item})=>(
-        <ItemProf title={item.title} nav={navigation}></ItemProf>
+const Challenge=({navigation})=>{
+    const renderItemChall=({item})=>(
+        <ItemChall  source={item.source} nav={navigation}></ItemChall>
     );
     
     return (
@@ -25,7 +26,7 @@ const Profil=({navigation})=>{
             <FlatList
                 data={ex}
                 horizontal={true}
-                renderItem={renderItemProf}
+                renderItem={renderItemChall}
                 keyExtractor={item => item.id}
             />
         </SafeAreaView>
@@ -36,11 +37,11 @@ const Profil=({navigation})=>{
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:'#f9c2ff',
         borderTopRightRadius:10,
         borderTopLeftRadius:10,
         marginTop:22   
       },
+
     item: {
       flex: 1,
       margin: 2,
@@ -51,9 +52,9 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
     },
-    /*icon: {
+    im: {
       width:65,
       height:65
-    }*/
+    }
 });
-export default Profil;
+export default Challenge;

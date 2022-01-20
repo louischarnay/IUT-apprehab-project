@@ -16,11 +16,15 @@ const ROW = [
     },
     {
       id: '03',
-      title:'Profil',
+      title:'Profile',
       icon: require('../assets/icones/profil.png'),
       link: 'Profile'
     }
-  ];
+];
+
+function navigation(params){
+  
+}
 
 const Item = (item) => (
   <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
@@ -51,7 +55,7 @@ const NavigBar= ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f9c2ff',
+    backgroundColor: '#8dd7cf',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
     marginTop: 20,

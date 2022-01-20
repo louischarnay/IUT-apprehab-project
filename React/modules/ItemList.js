@@ -1,19 +1,37 @@
 import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 
+function navigation(params){
+  if (params.title == 'Lexique'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'ABCD',
+        link: 'LessonPage',
+      },
+    ];
+    params.nav.navigate('LexiquePage', {DATA:{DATA}, color:params.color})
+  }
+  else {
+    params.nav.navigate(params.link, {title:params.title, color:params.color})
+  }
+};
+
 const Item = (item) => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate('ExercisesPage', {title:item.title, color:item.color})}>
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => navigation(item)}>
     <Text style={styles.title}>{item.title}</Text>
   </View>
 );
 
+
 const ItemList = (props) => {
   const renderItem = ({ item }) => (
-    <Item title={item.title} color={props.color} nav={props.navigation}/>
+    <Item title={item.title} color={props.color} link={item.link} nav={props.navigation}/>
   );
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
+
         data={props.DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}

@@ -13,14 +13,14 @@ const ROW_1 = [
     title: 'Sport',
     color: '#f39205',
     icon: require('../assets/icones/sport.png')
-  }
+  },
 ];
 
 const ROW_2 = [
   {
     id: '03',
     title: 'Cognition',
-    color: '#bce652',
+    color: '#ece652',
     icon: require('../assets/icones/cognition.png')
   },
   {
@@ -28,7 +28,7 @@ const ROW_2 = [
     title: 'Psycho-éducation',
     color: '#4bc2ee',
     icon: require('../assets/icones/psycho-education.png')
-  }
+  },
 ];
 
 const ROW_3 = [
@@ -43,7 +43,7 @@ const ROW_3 = [
     title: 'Culture & Infos',
     color: '#dd0712',
     icon: require('../assets/icones/culture.png')
-  }
+  },
 ];
 
 function navigation(params){
@@ -52,18 +52,22 @@ function navigation(params){
       {
         id: '1',
         title: 'Pliage',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Collage',
+        link: 'ExercisesPage',
       },
       {
         id: '3',
         title: 'Land\'Art',
+        link: 'ExercisesPage',
       },
       {
         id: '4',
         title: 'Ecriture',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -73,18 +77,22 @@ function navigation(params){
       {
         id: '1',
         title: 'Renforcements',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Etirements',
+        link: 'ExercisesPage',
       },
       {
         id: '3',
         title: 'Liens/Videos utiles',
+        link: 'ExercisesPage',
       },
       {
         id: '4',
         title: 'Activités',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -94,14 +102,17 @@ function navigation(params){
       {
         id: '1',
         title: 'Jeux',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Livrets',
+        link: 'ExercisesPage',
       },
       {
         id: '3',
         title: 'Exercices',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -111,14 +122,17 @@ function navigation(params){
       {
         id: '1',
         title: 'Traitements & Symptomes',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Autonomie',
+        link: 'ExercisesPage',
       },
       {
         id: '3',
         title: 'Temoignages',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -128,10 +142,12 @@ function navigation(params){
       {
         id: '1',
         title: 'Applications',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Videos',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
@@ -141,10 +157,12 @@ function navigation(params){
       {
         id: '1',
         title: 'Réseau',
+        link: 'ExercisesPage',
       },
       {
         id: '2',
         title: 'Qui sommes nous ?',
+        link: 'ExercisesPage',
       },
     ];
     params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
