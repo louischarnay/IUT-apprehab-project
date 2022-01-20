@@ -1,8 +1,24 @@
 import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 
+function navigation(params){
+  if (params.title == 'Lexique'){
+    const DATA = [
+      {
+        id: '1',
+        title: 'ABCD',
+        link: null,
+      },
+    ];
+    params.nav.navigate('LexiquePage', {DATA:{DATA}, color:params.color})
+  }
+  else {
+    params.nav.navigate(params.link, {title:params.title, color:params.color})
+  }
+};
+
 const Item = (item) => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item.link, {title:item.title, color:item.color})}>
+  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => navigation(item)}>
     <Text style={styles.title}>{item.title}</Text>
   </View>
 );

@@ -13,7 +13,7 @@ const ROW_1 = [
     title: 'Sport',
     color: '#f39205',
     icon: require('../assets/icones/sport.png')
-  }
+  },
 ];
 
 const ROW_2 = [
@@ -28,7 +28,7 @@ const ROW_2 = [
     title: 'Psycho-éducation',
     color: '#4bc2ee',
     icon: require('../assets/icones/psycho-education.png')
-  }
+  },
 ];
 
 const ROW_3 = [
@@ -43,7 +43,7 @@ const ROW_3 = [
     title: 'Culture & Infos',
     color: '#dd0712',
     icon: require('../assets/icones/culture.png')
-  }
+  },
 ];
 
 function navigation(params){

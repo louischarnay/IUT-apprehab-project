@@ -18,7 +18,7 @@ const DATA = [
   {
     id: '3',
     title: 'Lexique',
-    link: null,
+    link: 'LexiquePage',
   },
   {
     id: '4',
@@ -34,7 +34,7 @@ const ProfilePage = ({navigation}) => {
         <Header/>
       </View>
       <View style={{flex: 5}}>
-        <ItemList DATA={DATA} color='#8dd7cf'/>
+        <ItemList navigation={navigation} DATA={DATA} color='#8dd7cf'/>
       </View>
       <View style={{flex: 1}}>
         <NavigBar navigation={navigation}/>
