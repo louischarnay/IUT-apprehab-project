@@ -1,6 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, Dimensions, Image } from 'react-native';
 import ThemeSelected from '../modules/ThemeSelected';
+import Lesson from '../modules/Lesson';
 import NavigBar from '../modules/NavigBar';
 
 const LessonPage = ({route, navigation}) => {
@@ -12,7 +13,7 @@ const LessonPage = ({route, navigation}) => {
                 <ThemeSelected navigation={navigation} title={title} color={color}/>
             </View>
             <View style={{flex: 5}}>
-
+                <Lesson navigation={navigation} color={color}/>
             </View>
             <View style={{flex: 1}}>
                 <NavigBar navigation={navigation}/>
