@@ -7,7 +7,7 @@ function navigation(params){
       {
         id: '1',
         title: 'ABCD',
-        link: null,
+        link: 'LessonPage',
       },
     ];
     params.nav.navigate('LexiquePage', {DATA:{DATA}, color:params.color})

@@ -13,7 +13,7 @@ const LessonPage = ({route, navigation}) => {
                 <ThemeSelected navigation={navigation} title={title} color={color}/>
             </View>
             <View style={{flex: 5}}>
-                <Lesson navigation={navigation} color={color}/>
+                <Lesson color={color}/>
             </View>
             <View style={{flex: 1}}>
                 <NavigBar navigation={navigation}/>
