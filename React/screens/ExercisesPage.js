@@ -39,14 +39,16 @@ const DATA = [
     }
 ];
 
-const ExercisesPage = ({navigation}) => {
+const ExercisesPage = ({route, navigation}) => {
+    const title = route.params.title
+    const color = route.params.color
     return (
         <View style={{flex: 2}}>
             <View style={{flex: 1}}>
-                <ThemeSelected navigation={navigation}/>
+                <ThemeSelected navigation={navigation} title={title} color={color}/>
             </View>
             <View style={{flex: 5}}>
-                <ItemList navigation={navigation} DATA={DATA}/>
+                <ItemList navigation={navigation} DATA={DATA} color={color}/>
             </View>
             <View style={{flex: 1}}>
                 <NavigBar navigation={navigation}/>

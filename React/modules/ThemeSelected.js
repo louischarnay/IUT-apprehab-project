@@ -1,49 +1,34 @@
 import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar } from 'react-native';
 
-const Theme =[{
-  id: '01',
-  title: 'Thème',
-}]
-
 const Item =(item) =>(
-  <View style={styles.itemTheme} onStartShouldSetResponder={() => item.nav.goBack()}>
+  <View style={styles.itemTheme} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.goBack()}>
     <Text style={styles.title}>{item.title}</Text>
   </View>
 );
 
-const ThemeSelected =({navigation})=>{
-    const renderItem=({item})=>(
-      <Item title={item.title} nav={navigation} />      
+const ThemeSelected = (props) => {
+    const renderItem = () => (
+      <Item title={props.title} nav={props.navigation} color={props.color} />      
     );
     
     return(
-      <SafeAreaView style={styles.container}>
-        <FlatList
-          data={Theme}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        />
-      </SafeAreaView>
+      renderItem()
     );
 }
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: 20,
     },
     itemTheme: {
-      backgroundColor: '#f9c2ff',
-      borderColor:"black",
-      borderStyle:'solid',
-      borderWidth:4,
-      padding: 20,
+      padding: 30,
       borderRadius: 5,     
     },
     title: {
-      fontSize: 30,
+      fontSize: 25,
       fontWeight: 'bold',
+      color: 'white',
     },
   });
 

@@ -8,18 +8,22 @@ const DATA = [
   {
     id: '1',
     title: 'Statistiques',
+    link: null,
   },
   {
     id: '2',
     title: 'Préférences',
+    link: null,
   },
   {
     id: '3',
     title: 'Lexique',
+    link: null,
   },
   {
     id: '4',
     title: 'Historique',
+    link: null,
   },
 ];
 
@@ -30,7 +34,7 @@ const ProfilePage = ({navigation}) => {
         <Header/>
       </View>
       <View style={{flex: 5}}>
-        <ItemList DATA={DATA}/>
+        <ItemList DATA={DATA} color='#f9c2ff'/>
       </View>
       <View style={{flex: 1}}>
         <NavigBar navigation={navigation}/>
