@@ -84,6 +84,8 @@ const getAllDataFromApi = async () => {
         await AsyncStorage.setItem('allExercices', toString);
         var toString = JSON.stringify(json.items);
         await AsyncStorage.setItem('allItems', toString);
+        var toString = JSON.stringify(json.mots);
+        await AsyncStorage.setItem('allMots', toString);
     }catch(error){
         console.log('error ' + error);
     }

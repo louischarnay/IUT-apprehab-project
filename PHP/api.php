@@ -67,11 +67,30 @@ foreach ($items as $item) {
 }
 
 
+$items = $db->getAllMots();
+$arrayItems = Array();
+$arrayTmp = Array();
+$cpt = 0;
+
+foreach ($items as $item) {
+    $arrayMot = Array(
+        "idMot" => $item["idMot"],
+        "mot" => $item["mot"],
+        "definition" => $item["definition"]
+    );
+    $arrayMots[$cpt] = $arrayMot;
+    $cpt++;
+}
+
+
+
+
 $finalArray = Array(
         "categories" => $arrayCategories,
     "themes" => $arrayThemes,
     "exercices" => $arrayExercices,
-    "items" => $arrayItems
+    "items" => $arrayItems,
+    "mots" => $arrayMots
 );
 
 
@@ -90,6 +109,9 @@ file_put_contents("api/apiExercices.json", $json);
 
 $json = json_encode($arrayItems);
 file_put_contents("api/apiItems.json", $json);
+
+$json = json_encode($arrayMots);
+file_put_contents("api/apiMots.json", $json);
 
 header("Location: index.php");
 exit();
