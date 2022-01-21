@@ -3,6 +3,8 @@ import {SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, AsyncStorage}
 
 async function navigation(params) {
   var DATA = [];
+  console.log(params)  
+  
     if (params.title === 'Lexique') {
       const tabMots = await JSON.parse(await AsyncStorage.getItem('allMots'))
       for (var cpt = 0; cpt < tabMots.length; cpt++) {
@@ -13,11 +15,14 @@ async function navigation(params) {
         }
       }
       params.nav.navigate('LexiquePage', {DATA: {DATA}, color: params.color})
-    } else {
+    }
+    
+    else if (params.link === 'ExercisesPage'){
       var idTheme = -1;
       cpt = 0;
       while (idTheme === -1) {
         var theme = JSON.parse(await AsyncStorage.getItem('theme' + cpt));
+        console.log(theme.nomTheme);
         if (theme.nomTheme === params.title) {
           idTheme = theme.idTheme
         }
@@ -35,11 +40,10 @@ async function navigation(params) {
         DATA[DATA.length] = {
           id: matchExercices[cpt].idExercice,
           title: matchExercices[cpt].nomExercice,
-          link: 'ExerciseScreen'
+          link: 'LessonPage'
         }
       }
-      console.log(DATA)
-      params.nav.navigate('ExercisesPage', {DATA: {DATA}, color: params.color, title: params.title})
+      params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title})
     }
 }
 

@@ -6,7 +6,6 @@ import ThemeSelected from '../modules/ThemeSelected';
 
 const ExercisesPage = ({route, navigation}) => {
     const title = route.params.title
-    console.log(route)
     const DATA = route.params
     const color = route.params.color
     return (
