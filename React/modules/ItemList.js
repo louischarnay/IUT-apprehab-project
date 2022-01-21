@@ -9,11 +9,13 @@ async function navigation(params) {
         DATA[DATA.length] = {
           id: tabMots[cpt].idMot,
           title: tabMots[cpt].mot,
-          link: 'MainPage'
+          link: 'LessonPage'
         }
       }
-      params.nav.navigate('LexiquePage', {DATA: {DATA}, color: params.color})
-    } else if (params.link === 'ExercisesPage') {
+
+    }
+    else if (params.link === 'ExercisesPage'){
+
       var idTheme = -1;
       cpt = 0;
       while (idTheme === -1) {
@@ -26,7 +28,7 @@ async function navigation(params) {
       var allExercices = JSON.parse(await AsyncStorage.getItem('allExercices'))
       var matchExercices = []
       for (cpt = 0; cpt < allExercices.length; cpt++) {
-        
+
         if (allExercices[cpt].themeId === idTheme) {
           matchExercices[matchExercices.length] = allExercices[cpt];
         }
@@ -38,9 +40,17 @@ async function navigation(params) {
           link: 'LessonPage'
         }
       }
-      
-      params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title})
+
     }
+    else if (params.link === 'LessonPage'){
+      if (params.color === mainColor){
+        console.log("raciste")
+      }
+      else{
+        console.log("blanc fragile")
+      }
+    }
+  params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title})
 }
 
 const Item = (item) => (
