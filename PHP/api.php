@@ -94,9 +94,6 @@ $finalArray = Array(
     "mots" => $arrayMots
 );
 
-//var_dump($finalArray);
-
-
 
 $json = json_encode($finalArray);
 file_put_contents("api/api.json", $json);
