@@ -4,9 +4,11 @@ import { SafeAreaView, View, FlatList, StyleSheet, Dimensions, Image } from 'rea
 const DATA = [
   {
     id:'01',
-    source: require('../assets/pictures/affiche.png')
+    source: ({uri:'https://apprehab.000webhostapp.com/database/challenge/challenge.jpg'})
   }
 ]
+
+const source = {uri:'https://apprehab.000webhostapp.com/database/challenge/challenge.jpg'+ '?' + new Date()}
 
 const Item = (item) =>(
   <View style={styles.item} >
@@ -19,7 +21,7 @@ const Item = (item) =>(
 
 const Challenge = ({navigation}) => {
   const renderItem = ({item}) => (
-    <Item source={item.source} nav={navigation}></Item>
+    <Image source={source} nav={navigation}  style={{width: 500, height: 500}}/>
   );
 
   return (
