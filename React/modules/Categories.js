@@ -68,7 +68,7 @@ async function navigation(params){
     DATA[DATA.length] = {
       id: matchThemes[cpt].idTheme,
       title: matchThemes[cpt].nomTheme,
-      link: 'LessonPage'
+      link: 'ExercisesPage'
     };
   }
   params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
