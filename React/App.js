@@ -76,16 +76,18 @@ const getAllDataFromApi = async () => {
         await AsyncStorage.setItem('themesLength', '' + json.themes.length);
         await AsyncStorage.setItem('exercicesLength', '' + json.exercices.length);
         await AsyncStorage.setItem('itemsLength', '' + json.items.length);
-        var toString = JSON.stringify(json.categories);
+        toString = JSON.stringify(json.categories);
         await AsyncStorage.setItem('allCategories', toString);
-        var toString = JSON.stringify(json.themes);
+        toString = JSON.stringify(json.themes);
         await AsyncStorage.setItem('allThemes', toString);
-        var toString = JSON.stringify(json.exercices);
+        toString = JSON.stringify(json.exercices);
         await AsyncStorage.setItem('allExercices', toString);
-        var toString = JSON.stringify(json.items);
+        toString = JSON.stringify(json.items);
         await AsyncStorage.setItem('allItems', toString);
-        var toString = JSON.stringify(json.mots);
+        toString = JSON.stringify(json.mots);
         await AsyncStorage.setItem('allMots', toString);
+        await AsyncStorage.getItem('themesLength');
+        l
     }catch(error){
         console.log('error ' + error);
     }
