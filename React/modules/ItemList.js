@@ -26,11 +26,11 @@ async function navigation(params) {
       var allExercices = JSON.parse(await AsyncStorage.getItem('allExercices'))
       var matchExercices = []
       for (cpt = 0; cpt < allExercices.length; cpt++) {
+        console.log(allExercices[cpt].themeId + '     ' + idTheme)
         if (allExercices[cpt].themeId === idTheme) {
           matchExercices[matchExercices.length] = allExercices[cpt];
         }
       }
-      console.log(matchExercices.length)
       for (cpt = 0; cpt < matchExercices.length; cpt++) {
         DATA[DATA.length] = {
           id: matchExercices[cpt].idExercice,
