@@ -90,7 +90,6 @@ const getAllDataFromApi = async () => {
         toString = JSON.stringify(json.mots);
         await AsyncStorage.setItem('allMots', toString);
         await AsyncStorage.getItem('themesLength');
-        var allKeys = await AsyncStorage.getAllKeys();
     }catch(error){
         console.log('error ' + error);
     }
