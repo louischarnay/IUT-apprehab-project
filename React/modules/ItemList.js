@@ -39,7 +39,7 @@ async function navigation(params) {
         }
       }
       console.log(DATA)
-      params.nav.navigate('ExercisesPage', {DATA: {DATA}, color: params.color})
+      params.nav.navigate('ExercisesPage', {DATA: {DATA}, color: params.color, title: params.title})
     }
 }
 

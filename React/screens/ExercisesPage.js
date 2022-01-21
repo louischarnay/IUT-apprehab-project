@@ -6,6 +6,7 @@ import ThemeSelected from '../modules/ThemeSelected';
 
 const ExercisesPage = ({route, navigation}) => {
     const title = route.params.title
+    console.log(route)
     const DATA = route.params
     const color = route.params.color
     return (
@@ -14,7 +15,7 @@ const ExercisesPage = ({route, navigation}) => {
                 <ThemeSelected navigation={navigation} title={title} color={color}/>
             </View>
             <View style={{flex: 5}}>
-                <ItemList navigation={navigation} DATA={DATA} color={color}/>
+                <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
             </View>
             <View style={{flex: 1}}>
                 <NavigBar navigation={navigation}/>
