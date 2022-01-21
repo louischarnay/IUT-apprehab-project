@@ -37,6 +37,7 @@ async function fillTable(){
     })
 }*/
 const getAllDataFromApi = async () => {
+    //SyncStorage.clear();
     const response = await fetch('https://apprehab.000webhostapp.com/api/api.json');
     const json = await response.json();
     for (var cpt = 0; cpt < json.categories.length; cpt++){
@@ -72,21 +73,27 @@ const getAllDataFromApi = async () => {
         }
     }
     try{
-        await AsyncStorage.setItem('categoriesLength', '' + json.categories.length);
-        await AsyncStorage.setItem('themesLength', '' + json.themes.length);
-        await AsyncStorage.setItem('exercicesLength', '' + json.exercices.length);
-        await AsyncStorage.setItem('itemsLength', '' + json.items.length);
-        toString = JSON.stringify(json.categories);
-        await AsyncStorage.setItem('allCategories', toString);
-        toString = JSON.stringify(json.themes);
-        await AsyncStorage.setItem('allThemes', toString);
-        toString = JSON.stringify(json.exercices);
-        await AsyncStorage.setItem('allExercices', toString);
-        toString = JSON.stringify(json.items);
+        await AsyncStorage.setItem('categoriesLength', '' + json.categories.length)
+        await AsyncStorage.setItem('themesLength', '' + json.themes.length)
+        await AsyncStorage.setItem('exercicesLength', '' + json.exercices.length)
+        await AsyncStorage.setItem('itemsLength', '' + json.items.length)
+        toString = JSON.stringify(json.categories)
+        await AsyncStorage.setItem('allCategories', toString)
+        toString = JSON.stringify(json.themes)
+        await AsyncStorage.setItem('allThemes', toString)
+        toString = JSON.stringify(json.exercices)
+        await AsyncStorage.setItem('allExercices', toString)
+        toString = JSON.stringify(json.items)
         await AsyncStorage.setItem('allItems', toString);
         toString = JSON.stringify(json.mots);
         await AsyncStorage.setItem('allMots', toString);
         await AsyncStorage.getItem('themesLength');
+        var allKeys = await AsyncStorage.getAllKeys();
+        console.log(allKeys.length)
+        for (var cpt = 0; cpt < allKeys.length; cpt++){
+            var test = await AsyncStorage.getItem(allKeys[cpt])
+            console.log(allKeys[cpt] + '    ' + test)
+        }
     }catch(error){
         console.log('error ' + error);
     }
@@ -97,6 +104,7 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render() {
+      AsyncStorage.clear();
       getAllDataFromApi();
     return (
       <NavigationContainer>

@@ -38,6 +38,7 @@ async function navigation(params) {
           link: 'ExerciseScreen'
         }
       }
+      console.log(DATA)
       params.nav.navigate('ExercisesPage', {DATA: {DATA}, color: params.color})
     }
 }
