@@ -69,7 +69,7 @@ foreach ($items as $item) {
 
 
 $items = $db->getAllMots();
-$arrayItems = Array();
+$arrayMots = Array();
 $arrayTmp = Array();
 $cpt = 0;
 
@@ -94,6 +94,8 @@ $finalArray = Array(
     "mots" => $arrayMots
 );
 
+//var_dump($finalArray);
+
 
 
 $json = json_encode($finalArray);
@@ -115,6 +117,6 @@ $json = json_encode($arrayMots);
 file_put_contents("api/apiMots.json", $json);
 
 $_SESSION["message"] = "Notification envoyée";
-    header("Location: index.php");
+header("Location: index.php");
 exit();
 ?>
