@@ -12,8 +12,7 @@ async function navigation(params) {
         link: 'LessonPage'
       }
     }
-  }
-  else if (params.link === 'ExercisesPage'){
+  } else if (params.link === 'ExercisesPage') {
     var idTheme = -1;
     cpt = 0;
     while (idTheme === -1) {
@@ -37,12 +36,11 @@ async function navigation(params) {
         link: 'LessonPage'
       }
     }
-  }
-  else if (params.link === 'LessonPage'){
-    if (params.color === mainColor){
+  } else if (params.link === 'LessonPage') {
+    if (params.color === mainColor) {
       var allMots = JSON.parse(await AsyncStorage.getItem('allMots'))
-      for(cpt = 0; cpt < allMots.length; cpt++){
-        if(allMots[cpt].mot === params.title){
+      for (cpt = 0; cpt < allMots.length; cpt++) {
+        if (allMots[cpt].mot === params.title) {
           var content = [];
           content[0] = allMots[cpt].definition
           DATA[0] = {
@@ -52,14 +50,18 @@ async function navigation(params) {
           }
         }
       }
-    }
-    else{
-      //TODO
+      console.log(content[0])
+    } else {
+      var allItems = JSON.parse(await AsyncStorage.getItem('allItems'))
+      var matchItems = [];
+      for (cpt = 0; cpt < allItems.length; cpt++) {
+        //if(allItems[cpt].idExercice)
       }
+    }
   }
+  console.log("test")
   params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title})
 }
-
 const Item = (item) => (
   <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => navigation(item)}>
     <Text style={styles.title}>{item.title}</Text>
