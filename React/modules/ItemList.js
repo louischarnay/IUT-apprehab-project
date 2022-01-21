@@ -26,7 +26,6 @@ async function navigation(params) {
       var allExercices = JSON.parse(await AsyncStorage.getItem('allExercices'))
       var matchExercices = []
       for (cpt = 0; cpt < allExercices.length; cpt++) {
-        console.log(allExercices[cpt].themeId + '     ' + idTheme)
         if (allExercices[cpt].themeId === idTheme) {
           matchExercices[matchExercices.length] = allExercices[cpt];
         }
@@ -38,8 +37,7 @@ async function navigation(params) {
           link: 'ExerciseScreen'
         }
       }
-      console.log(DATA)
-      params.nav.navigate('ExercisesPage', {DATA: {DATA}, color: params.color})
+      params.nav.navigate('ExercisesPage', {DATA: {DATA}, color: params.color, title: params.title})
     }
 }
 
