@@ -27,7 +27,7 @@ function navigation(params){
 }
 
 const Item = (item) => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
+  <View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
     <Image
       style={styles.icon}
       source={item.icon}
@@ -37,11 +37,11 @@ const Item = (item) => (
 
 const NavigBar= ({navigation}) => {
   const renderItem = ({ item }) => (
-    <Item icon={item.icon} color={item.color} nav={navigation} link={item.link}/>
+    <Item icon={item.icon} nav={navigation} link={item.link}/>
   );
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} backgroundColor={mainColor}>
       <FlatList
         data={ROW}
         horizontal={true}
@@ -55,7 +55,6 @@ const NavigBar= ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#8dd7cf',
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
     marginTop: 20,
