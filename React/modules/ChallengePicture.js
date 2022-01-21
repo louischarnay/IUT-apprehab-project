@@ -21,7 +21,7 @@ const Item = (item) =>(
 
 const Challenge = ({navigation}) => {
   const renderItem = ({item}) => (
-    <Image source={source} nav={navigation}  style={{width: 500, height: 500}}/>
+    <Image source={source} nav={navigation}  style={styles.im}/>
   );
 
   return (
@@ -51,6 +51,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  im:{
+    width: Dimensions.get('window').width,
+    height: Dimensions.get('window').height-230
+  }
 });
 
 export default Challenge;
