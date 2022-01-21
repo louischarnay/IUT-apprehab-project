@@ -1,10 +1,12 @@
 import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Dimensions, Image } from 'react-native';
 
+const imageUrl="https://apprehab.000webhostapp.com/database/challenge/challenge.jpg";
+
 const DATA = [
   {
     id:'01',
-    source: require('../assets/pictures/affiche.png')
+    source: {uri:imageUrl}
   }
 ]
 
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
+  
 });
 
 export default Challenge;
