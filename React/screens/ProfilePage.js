@@ -34,7 +34,7 @@ const ProfilePage = ({navigation}) => {
         <Header/>
       </View>
       <View style={{flex: 5}}>
-        <ItemList navigation={navigation} DATA={DATA} color='#8dd7cf'/>
+        <ItemList navigation={navigation} DATA={DATA} color= {mainColor}/>
       </View>
       <View style={{flex: 1}}>
         <NavigBar navigation={navigation}/>

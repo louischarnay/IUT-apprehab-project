@@ -36,6 +36,8 @@ async function fillTable(){
         )
     })
 }*/
+
+global.mainColor = '#8dd7cf';
 const getAllDataFromApi = async () => {
     //SyncStorage.clear();
     const response = await fetch('https://apprehab.000webhostapp.com/api/api.json');

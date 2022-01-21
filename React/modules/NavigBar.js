@@ -55,7 +55,7 @@ const NavigBar= ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#8dd7cf',
+    backgroundColor: mainColor,
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
     marginTop: 20,
