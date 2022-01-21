@@ -3,47 +3,47 @@ import {SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, AsyncStorage}
 
 async function navigation(params) {
   if (params.title === 'Lexique') {
-    if (params.title === 'Lexique') {
-      const tabMots = await JSON.parse(await AsyncStorage.getItem('allMots'))
-      var DATA = [];
-      for (var cpt = 0; cpt < tabMots.length; cpt++) {
-        DATA[DATA.length] = {
-          id: tabMots[cpt].idMot,
-          title: tabMots[cpt].mot,
-          link: 'LexiquePage'
-        }
+    const tabMots = await JSON.parse(await AsyncStorage.getItem('allMots'))
+    var DATA = [];
+    for (var cpt = 0; cpt < tabMots.length; cpt++) {
+      DATA[DATA.length] = {
+        id: tabMots[cpt].idMot,
+        title: tabMots[cpt].mot,
+        link: 'LexiquePage'
       }
-      params.nav.navigate('LexiquePage', {DATA: {DATA}, color: params.color})
-    } else {
-      var idTheme = -1;
-      var cpt = 0;
-      while (idTheme === -1) {
-        var theme = JSON.parse(await AsyncStorage.getItem('theme' + cpt));
-        if (theme.nomTheme === params.title) {
-          idTheme = theme.idTheme
-        }
-        cpt++
-      }
-      var allExercices = JSON.parse(await AsyncStorage.getItem('allExercices'))
-      var matchExercices = []
-      for (cpt = 0; cpt < allExercices.length; cpt++) {
-        if (allExercices[cpt].themeId === idTheme) {
-          matchExercices[matchExercices.length] = allExercices[cpt];
-        }
-      }
-      var DATA = [];
-      for (cpt = 0; cpt < matchExercices.length; cpt++) {
-        DATA[DATA.length] = {
-          id: matchExercices[cpt].idExercice,
-          title: matchExercices[cpt].nomExercice,
-          link: 'ExerciseScreen.js'
-        }
-      }
-      for (cpt = 0; cpt < DATA.length; cpt++) {
-        console.log(DATA[cpt].title)
-      }
-      params.nav.navigate('ExercisesPage', {DATA: {DATA}, color: params.color})
     }
+    params.nav.navigate('LexiquePage', {DATA: {DATA}, color: params.color})
+  } 
+  else {
+    var idTheme = -1;
+    var cpt = 0;
+    while (idTheme === -1) {
+      var theme = JSON.parse(await AsyncStorage.getItem('theme' + cpt));
+      if (theme.nomTheme === params.title) {
+        idTheme = theme.idTheme
+      }
+      cpt++
+    }
+    var allExercices = JSON.parse(await AsyncStorage.getItem('allExercices'))
+    var matchExercices = []
+    for (cpt = 0; cpt < allExercices.length; cpt++) {
+      if (allExercices[cpt].themeId === idTheme) {
+        matchExercices[matchExercices.length] = allExercices[cpt];
+      }
+    }
+    var DATA = [];
+    for (cpt = 0; cpt < matchExercices.length; cpt++) {
+      DATA[DATA.length] = {
+        id: matchExercices[cpt].idExercice,
+        title: matchExercices[cpt].nomExercice,
+        link: 'ExerciseScreen'
+      }
+    }
+    for (cpt = 0; cpt < DATA.length; cpt++) {
+      console.log(DATA[cpt].title)
+    }
+    console.log(DATA)
+    params.nav.navigate('ExercisesPage', {DATA: {DATA}, color: params.color})
   }
 }
 
