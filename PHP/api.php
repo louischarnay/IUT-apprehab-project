@@ -1,5 +1,6 @@
 <?php
 include 'class/Db.php';
+session_start();
 $db = new Db();
 $categories = $db->getAllCategories();
 $arrayCategories = Array();
@@ -113,6 +114,7 @@ file_put_contents("api/apiItems.json", $json);
 $json = json_encode($arrayMots);
 file_put_contents("api/apiMots.json", $json);
 
-header("Location: index.php");
+$_SESSION["message"] = "Notification envoyée";
+    header("Location: index.php");
 exit();
 ?>

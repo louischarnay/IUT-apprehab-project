@@ -1,6 +1,6 @@
-import Categories from '../modules/Categories'
+/*import Categories from '../modules/Categories'
 import NavigBar from '../modules/NavigBar';
-import Exercise from '../modules/Exercise';
+
 import FilterPicker from '../modules/FilterPicker';
 import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
 
@@ -17,4 +17,4 @@ const ExerciseScreen = ({navigation}) => {
     );
 }
 
-export default ExerciseScreen
+export default ExerciseScreen*/
