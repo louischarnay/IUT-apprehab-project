@@ -44,10 +44,8 @@ async function navigation(params) {
     }
     else if (params.link === 'LessonPage'){
       if (params.color === mainColor){
-        console.log("raciste")
       }
       else{
-        console.log("blanc fragile")
       }
     }
   params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title})
