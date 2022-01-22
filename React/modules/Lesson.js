@@ -24,7 +24,7 @@ function fillDATA(params){
 
 const Item = (item) => (
   <View style={styles.itemContentExercise}>
-    <Text styleDesc={styles.desc}>{item.desc}</Text>
+    <Text style={styles.desc}>{item.desc}</Text>
   </View>
 );
 
@@ -47,18 +47,11 @@ const Lesson = (params) => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: 20,
-    },
-    item: {
-      backgroundColor: '#f9c2ff',
-      padding: 20,
-      marginVertical: 8,
-      marginHorizontal: 16,
-      borderRadius: 5,
     },
     desc:{
-        fontSize: 20,
-        color:"black"
+      marginHorizontal: 15,
+      fontSize: 20,
+      textAlign: 'justify',
     },
   });
   
