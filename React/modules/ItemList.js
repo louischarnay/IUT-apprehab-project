@@ -74,7 +74,6 @@ const ItemList = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-
         data={props.DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}

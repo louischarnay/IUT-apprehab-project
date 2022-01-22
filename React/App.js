@@ -100,12 +100,11 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render() {
-      AsyncStorage.clear();
+      /*AsyncStorage.clear();*/
       getAllDataFromApi();
     return (
       <NavigationContainer>
         <Stack.Navigator>
-
           <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
           <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
           <Stack.Screen name="Challenge" component={Challenge} options={{headerShown: false}}/>
