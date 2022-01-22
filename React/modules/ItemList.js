@@ -50,7 +50,6 @@ async function navigation(params) {
           }
         }
       }
-      console.log(content[0])
     } else {
       var allItems = JSON.parse(await AsyncStorage.getItem('allItems'))
       var matchItems = [];
@@ -59,7 +58,6 @@ async function navigation(params) {
       }
     }
   }
-  console.log("test")
   params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title})
 }
 const Item = (item) => (
