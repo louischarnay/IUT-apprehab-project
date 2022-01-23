@@ -1,12 +1,13 @@
 import React from 'react';
+import { View } from 'react-native';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
 import FilterPicker from '../modules/FilterPicker';
-import { View } from 'react-native';
 
 const ThemesPage = ({route, navigation}) => {
-  const DATA = route.params
-  const color = route.params.color
+  const DATA = route.params;
+  const color = route.params.color;
+
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 1}}>
@@ -20,6 +21,6 @@ const ThemesPage = ({route, navigation}) => {
       </View>
     </View>
   );
-}
+};
 
-export default ThemesPage
+export default ThemesPage;

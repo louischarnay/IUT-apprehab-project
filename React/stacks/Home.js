@@ -15,7 +15,7 @@ const Home = () => {
         <Stack.Screen name="ExercisesPage" component={ExercisesPage} options={{headerShown: false}}/>
         <Stack.Screen name="LessonPage" component={LessonPage} options={{headerShown: false}}/>
     </Stack.Navigator>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

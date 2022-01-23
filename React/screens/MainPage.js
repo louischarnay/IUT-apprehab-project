@@ -1,8 +1,8 @@
 import React from 'react';
+import { View } from 'react-native';
 import Header from '../modules/Header';
 import Categories from '../modules/Categories'
 import NavigBar from '../modules/NavigBar';
-import { View } from 'react-native';
 
 const MainPage = ({navigation}) => {
     return (
@@ -18,6 +18,6 @@ const MainPage = ({navigation}) => {
             </View>
         </View>
     );
-}
+};
 
-export default MainPage
+export default MainPage;

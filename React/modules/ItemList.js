@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, AsyncStorage} from 'react-native';
+import { AsyncStorage, SafeAreaView, View, StyleSheet, FlatList, Text } from 'react-native';
 
 async function navigation(params) {
   var DATA = [];
@@ -9,34 +9,36 @@ async function navigation(params) {
       DATA[DATA.length] = {
         id: tabMots[cpt].idMot,
         title: tabMots[cpt].mot,
-        link: 'LessonPage'
-      }
-    }
-  } else if (params.link === 'ExercisesPage') {
+        link: 'LessonPage',
+      };
+    };
+  }
+  else if (params.link === 'ExercisesPage') {
     var idTheme = -1;
     cpt = 0;
     while (idTheme === -1) {
       var theme = JSON.parse(await AsyncStorage.getItem('theme' + cpt));
       if (theme.nomTheme === params.title) {
         idTheme = theme.idTheme
-      }
+      };
       cpt++
-    }
+    };
     var allExercices = JSON.parse(await AsyncStorage.getItem('allExercices'))
     var matchExercices = []
     for (cpt = 0; cpt < allExercices.length; cpt++) {
       if (allExercices[cpt].themeId === idTheme) {
         matchExercices[matchExercices.length] = allExercices[cpt];
-      }
-    }
+      };
+    };
     for (cpt = 0; cpt < matchExercices.length; cpt++) {
       DATA[DATA.length] = {
         id: matchExercices[cpt].idExercice,
         title: matchExercices[cpt].nomExercice,
         link: 'LessonPage'
-      }
-    }
-  } else if (params.link === 'LessonPage') {
+      };
+    };
+  }
+  else if (params.link === 'LessonPage') {
     if (params.color === mainColor) {
       var allMots = JSON.parse(await AsyncStorage.getItem('allMots'))
       for (cpt = 0; cpt < allMots.length; cpt++) {
@@ -47,30 +49,32 @@ async function navigation(params) {
             id: allMots[cpt].idMot,
             title: allMots[cpt].mot,
             content: content
-          }
-        }
-      }
-    } else {
+          };
+        };
+      };
+    }
+    else {
       var allItems = JSON.parse(await AsyncStorage.getItem('allItems'))
       var matchItems = [];
       for (cpt = 0; cpt < allItems.length; cpt++) {
         //if(allItems[cpt].idExercice)
-      }
-    }
-  }
-  params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title})
-}
+      };
+    };
+  };
+  params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title});
+};
+
 const Item = (item) => (
   <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => navigation(item)}>
     <Text style={styles.title}>{item.title}</Text>
   </View>
 );
 
-
 const ItemList = (props) => {
-  const renderItem = ({ item }) => (
+  const renderItem = ({item}) => (
     <Item title={item.title} color={props.color} link={item.link} nav={props.navigation}/>
   );
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -80,7 +84,7 @@ const ItemList = (props) => {
       />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -99,6 +103,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
-
 
 export default ItemList;

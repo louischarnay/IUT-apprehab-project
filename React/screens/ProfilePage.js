@@ -1,8 +1,8 @@
 import React from 'react';
+import { View } from 'react-native';
 import Header from '../modules/Header';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
-import { View } from 'react-native';
 
 const DATA = [
   {
@@ -41,6 +41,6 @@ const ProfilePage = ({navigation}) => {
       </View>
     </View>
   );
-}
+};
 
-export default ProfilePage
+export default ProfilePage;
