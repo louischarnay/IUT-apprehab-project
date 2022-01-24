@@ -12,7 +12,7 @@ const LessonPage = ({route, navigation}) => {
     return (
         <View style={{flex: 1}}>
             <View style={{flex: 1}}>
-                <ThemeSelected navigation={navigation} title={title} color={color}/>
+                <ThemeSelected navigation={navigation} title={"< "+ title} color={color}/>
             </View>
             <View style={{flex: 5}}>
                 <Lesson content={content} color={color}/>

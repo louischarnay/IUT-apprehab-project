@@ -12,7 +12,7 @@ const ExercisesPage = ({route, navigation}) => {
     return (
         <View style={{flex: 2}}>
             <View style={{flex: 1}}>
-                <ThemeSelected navigation={navigation} title={title} color={color}/>
+                <ThemeSelected navigation={navigation} title={"< " + title} color={color}/>
             </View>
             <View style={{flex: 5}}>
                 <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
