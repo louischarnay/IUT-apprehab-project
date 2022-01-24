@@ -5,8 +5,8 @@ import FilterPicker from '../modules/FilterPicker';
 import { View } from 'react-native';
 
 const LexiquePage = ({route, navigation}) => {
-  const DATA = route.params
-  const color = route.params.color
+  const DATA = route.params;
+  const color = route.params.color;
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 1}}>
@@ -20,6 +20,6 @@ const LexiquePage = ({route, navigation}) => {
       </View>
     </View>
   );
-}
+};
 
-export default LexiquePage
+export default LexiquePage;

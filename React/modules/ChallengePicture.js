@@ -1,27 +1,18 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Dimensions, Image } from 'react-native';
+import { SafeAreaView, StyleSheet, Dimensions, FlatList, Image } from 'react-native';
 
 const DATA = [
   {
-    id:'01',
-    source: ({uri:'https://apprehab.000webhostapp.com/database/challenge/challenge.jpg'})
-  }
-]
+    id: '01',
+    source: ({uri:'https://apprehab.000webhostapp.com/database/challenge/challenge.jpg'}),
+  },
+];
 
-const source = {uri:'https://apprehab.000webhostapp.com/database/challenge/challenge.jpg'+ '?' + new Date()}
+const source = {uri:'https://apprehab.000webhostapp.com/database/challenge/challenge.jpg'+ '?' + new Date()};
 
-const Item = (item) =>(
-  <View style={styles.item} >
-    <Image
-      style={styles.im}
-      source={item.source}
-    />
-  </View>
-);
-
-const Challenge = ({navigation}) => {
+const ChallengePicture = () => {
   const renderItem = ({item}) => (
-    <Image source={source} nav={navigation}  style={styles.im}/>
+    <Image source={source} style={styles.im}/>
   );
 
   return (
@@ -33,13 +24,13 @@ const Challenge = ({navigation}) => {
       />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    borderTopRightRadius:10,
-    borderTopLeftRadius:10,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
     marginTop: 22,
   },
   item: {
@@ -51,10 +42,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
   },
-  im:{
+  im: {
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height-230
-  }
+    height: Dimensions.get('window').height-230,
+  },
 });
 
-export default Challenge;
+export default ChallengePicture;

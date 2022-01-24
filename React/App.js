@@ -1,11 +1,11 @@
 import React from 'react';
+import { AsyncStorage } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
-
 import Home from './stacks/Home';
 import Profile from './stacks/Profile';
 import Challenge from './stacks/Challenge';
-import {AsyncStorage, LogBox} from "react-native";
+
 /*import * as SQLite from 'react-native-sqlite-storage';
 
 SQLite.enablePromise(true);
@@ -42,39 +42,39 @@ const getAllDataFromApi = async () => {
     //SyncStorage.clear();
     const response = await fetch('https://apprehab.000webhostapp.com/api/api.json');
     const json = await response.json();
-    for (var cpt = 0; cpt < json.categories.length; cpt++){
+    for (var cpt = 0; cpt < json.categories.length; cpt++) {
         try {
             const toString = JSON.stringify(json.categories[cpt]);
             await AsyncStorage.setItem('categorie' + cpt, toString);
-        }catch (error){
+        } catch (error){
         console.log('error ' + error)
         }
     }
-    for (cpt = 0; cpt < json.themes.length; cpt++){
+    for (cpt = 0; cpt < json.themes.length; cpt++) {
         try{
             const toString = JSON.stringify(json.themes[cpt]);
             await AsyncStorage.setItem('theme' + cpt, toString);
-        }catch(error){
+        } catch(error){
             console.log('error ' + error)
         }
     }
-    for(cpt = 0; cpt < json.exercices.length; cpt++){
+    for (cpt = 0; cpt < json.exercices.length; cpt++) {
         try{
             const toString = JSON.stringify(json.exercices[cpt]);
             await AsyncStorage.setItem('exercice' + cpt, toString);
-        }catch(error){
+        } catch(error){
             console.log('error '+ error)
         }
     }
-    for(cpt = 0; cpt < json.items.length; cpt++){
+    for (cpt = 0; cpt < json.items.length; cpt++) {
         try{
             const toString = JSON.stringify(json.items[cpt]);
             await AsyncStorage.setItem('item' + cpt, toString);
-        }catch(error){
+        } catch(error){
             console.log('error ' + error)
         }
     }
-    try{
+    try {
         await AsyncStorage.setItem('categoriesLength', '' + json.categories.length)
         await AsyncStorage.setItem('themesLength', '' + json.themes.length)
         await AsyncStorage.setItem('exercicesLength', '' + json.exercices.length)
@@ -90,29 +90,24 @@ const getAllDataFromApi = async () => {
         toString = JSON.stringify(json.mots);
         await AsyncStorage.setItem('allMots', toString);
         await AsyncStorage.getItem('themesLength');
-        var allKeys = await AsyncStorage.getAllKeys();
-    }catch(error){
+    } catch(error){
         console.log('error ' + error);
     }
-}
-
+};
 
 const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render() {
-      AsyncStorage.clear();
-      getAllDataFromApi();
+    getAllDataFromApi();
     return (
       <NavigationContainer>
         <Stack.Navigator>
-
           <Stack.Screen name="Home" component={Home} options={{headerShown: false}}/>
           <Stack.Screen name="Profile" component={Profile} options={{headerShown: false}}/>
           <Stack.Screen name="Challenge" component={Challenge} options={{headerShown: false}}/>
-
         </Stack.Navigator>
       </NavigationContainer>
-    )
-  }
-}
+    );
+  };
+};

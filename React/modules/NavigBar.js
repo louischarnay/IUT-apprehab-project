@@ -1,30 +1,26 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Dimensions, Image } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image } from 'react-native';
 
 const ROW = [
-    {
-      id: '01',
-      title: 'Challenge',
-      icon: require('../assets/icones/challenge.png'),
-      link: 'Challenge'
-    },
-    {
-      id: '02',
-      title: 'Accueil',
-      icon: require('../assets/icones/accueil.png'),
-      link: 'MainPage'
-    },
-    {
-      id: '03',
-      title:'Profile',
-      icon: require('../assets/icones/profil.png'),
-      link: 'Profile'
-    }
+  {
+    id: '01',
+    title: 'Challenge',
+    icon: require('../assets/icones/challenge.png'),
+    link: 'Challenge',
+  },
+  {
+    id: '02',
+    title: 'Accueil',
+    icon: require('../assets/icones/accueil.png'),
+    link: 'MainPage',
+  },
+  {
+    id: '03',
+    title:'Profile',
+    icon: require('../assets/icones/profil.png'),
+    link: 'Profile',
+  },
 ];
-
-function navigation(params){
-  
-}
 
 const Item = (item) => (
   <View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
@@ -50,7 +46,7 @@ const NavigBar= ({navigation}) => {
       />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import {Picker} from '@react-native-picker/picker';
+import React, {useState} from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
-
+import { Picker } from '@react-native-picker/picker';
 
 const FilterPicker = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(true);
@@ -12,14 +11,14 @@ const FilterPicker = () => {
           selectedValue={selectedLanguage}
           onValueChange={(itemValue, itemIndex) =>
             setSelectedLanguage(itemValue)
-          }>
+        }>
           <Picker.Item label="Ajout récent" value="ch1"/>
           <Picker.Item label="Catégorie préférée" value="ch2"/>
           <Picker.Item label="Catégorie la plus regardée" value="ch3"/>
         </Picker>
       </SafeAreaView>
     );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -37,4 +36,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FilterPicker
+export default FilterPicker;
