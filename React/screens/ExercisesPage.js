@@ -1,13 +1,14 @@
 import React from 'react';
+import { View } from 'react-native';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, Dimensions, Image } from 'react-native';
 import ThemeSelected from '../modules/ThemeSelected';
 
 const ExercisesPage = ({route, navigation}) => {
-    const title = route.params.title
-    const DATA = route.params
-    const color = route.params.color
+    const title = route.params.title;
+    const DATA = route.params;
+    const color = route.params.color;
+
     return (
         <View style={{flex: 2}}>
             <View style={{flex: 1}}>
@@ -21,6 +22,6 @@ const ExercisesPage = ({route, navigation}) => {
             </View>
         </View>
     );
-}
+};
 
-export default ExercisesPage
+export default ExercisesPage;

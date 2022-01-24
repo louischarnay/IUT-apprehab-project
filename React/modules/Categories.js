@@ -1,18 +1,18 @@
 import React from 'react';
-import {AsyncStorage, Dimensions, FlatList, Image, SafeAreaView, StyleSheet, Text, View} from 'react-native';
+import { AsyncStorage, View, SafeAreaView, StyleSheet, Dimensions, FlatList, Text, Image } from 'react-native';
 
 const ROW_1 = [
   {
     id: '01',
     title: 'Créativité',
     color: '#ac569d',
-    icon: require('../assets/icones/creativite.png')
+    icon: require('../assets/icones/creativite.png'),
   },
   {
     id: '02',
     title: 'Sport',
     color: '#f39205',
-    icon: require('../assets/icones/sport.png')
+    icon: require('../assets/icones/sport.png'),
   },
 ];
 
@@ -21,13 +21,13 @@ const ROW_2 = [
     id: '03',
     title: 'Cognition',
     color: '#ece652',
-    icon: require('../assets/icones/cognition.png')
+    icon: require('../assets/icones/cognition.png'),
   },
   {
     id: '04',
     title: 'Psycho-éducation',
     color: '#4bc2ee',
-    icon: require('../assets/icones/psycho-education.png')
+    icon: require('../assets/icones/psycho-education.png'),
   },
 ];
 
@@ -36,13 +36,13 @@ const ROW_3 = [
     id: '05',
     title: 'Relaxation',
     color: '#99cda2',
-    icon: require('../assets/icones/relaxation.png')
+    icon: require('../assets/icones/relaxation.png'),
   },
   {
     id: '06',
     title: 'Culture & Infos',
     color: '#dd0712',
-    icon: require('../assets/icones/culture.png')
+    icon: require('../assets/icones/culture.png'),
   },
 ];
 
@@ -53,16 +53,16 @@ async function navigation(params){
     var categorie = JSON.parse( await AsyncStorage.getItem('categorie' + cpt));
     if(params.title === categorie.nomCategorie){
       idCategorie = categorie.idCategorie;
-    }
+    };
     cpt++;
-  }
+  };
   var allThemes = JSON.parse( await AsyncStorage.getItem('allThemes'));
   var matchThemes = [];
   for (cpt = 0; cpt < allThemes.length; cpt++){
     if(allThemes[cpt].categorieId === idCategorie){
       matchThemes[matchThemes.length] = allThemes[cpt];
-    }
-  }
+    };
+  };
   var DATA = [];
   for(cpt = 0; cpt < matchThemes.length; cpt ++){
     DATA[DATA.length] = {
@@ -70,8 +70,8 @@ async function navigation(params){
       title: matchThemes[cpt].nomTheme,
       link: 'ExercisesPage'
     };
-  }
-  params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color})
+  };
+  params.nav.navigate('ThemesPage', {DATA:{DATA}, color:params.color});
 };
 
 const Item = (item) => (
@@ -85,7 +85,7 @@ const Item = (item) => (
 );
 
 const Categories = ({navigation}) => {
-  const renderItem = ({ item }) => (
+  const renderItem = ({item}) => (
     <Item title={item.title} icon={item.icon} color={item.color} nav={navigation}/>
   );
   return (
@@ -110,7 +110,7 @@ const Categories = ({navigation}) => {
       />
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: Dimensions.get('window').width/24,
     fontWeight: 'bold',
-    color: 'white'
+    color: 'white',
   },
   icon: {
     width: Dimensions.get('window').width/2.5,

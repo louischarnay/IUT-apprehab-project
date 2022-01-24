@@ -1,10 +1,7 @@
 import React from 'react';
-import Header from '../modules/Header';
-import Categories from '../modules/Categories'
+import { View } from 'react-native';
 import NavigBar from '../modules/NavigBar';
 import ExerciseSelection from '../modules/ExerciseSelection';
-import FilterPicker from '../modules/FilterPicker';
-import { SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, Dimensions, Image } from 'react-native';
 
 const ExerciseSelectionPage = ({navigation}) => {
     return (
@@ -17,6 +14,6 @@ const ExerciseSelectionPage = ({navigation}) => {
             </View>
         </View>
     );
-}
+};
 
-export default ExerciseSelectionPage
+export default ExerciseSelectionPage;

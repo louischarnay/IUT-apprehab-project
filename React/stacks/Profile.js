@@ -15,7 +15,7 @@ const Profile = () => {
         <Stack.Screen name="LexiquePage" component={LexiquePage} options={{headerShown: false}}/>
         <Stack.Screen name="LessonPage" component={LessonPage} options={{headerShown: false}}/>
     </Stack.Navigator>
-    )
-}
+    );
+};
 
-export default Profile
+export default Profile;
