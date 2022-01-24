@@ -7,7 +7,7 @@ const inputTexte = document.querySelector('#divInputTexte');
 const inputImage = document.querySelector('#divInputImage');
 
 lien.onclick = function(){
-    console.log("zebi");
+    
     inputLien.classList.remove('hidden');
     inputTexte.classList.add('hidden');
     inputImage.classList.add('hidden');
