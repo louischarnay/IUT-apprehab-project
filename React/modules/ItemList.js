@@ -1,5 +1,6 @@
 import React from 'react';
-import { AsyncStorage, SafeAreaView, View, StyleSheet, FlatList, Text } from 'react-native';
+import {SafeAreaView, View, FlatList, StyleSheet, Text, StatusBar, AsyncStorage} from 'react-native';
+import {param} from "express/lib/router";
 
 async function navigation(params) {
   var DATA = [];
@@ -9,82 +10,99 @@ async function navigation(params) {
       DATA[DATA.length] = {
         id: tabMots[cpt].idMot,
         title: tabMots[cpt].mot,
-        link: 'LessonPage',
-      };
-    };
-  }
-  else if (params.link === 'ExercisesPage') {
+        link: 'LessonPage'
+      }
+    }
+  } else if (params.link === 'ExercisesPage') {
     var idTheme = -1;
     cpt = 0;
     while (idTheme === -1) {
       var theme = JSON.parse(await AsyncStorage.getItem('theme' + cpt));
       if (theme.nomTheme === params.title) {
         idTheme = theme.idTheme
-      };
+      }
       cpt++
-    };
+    }
     var allExercices = JSON.parse(await AsyncStorage.getItem('allExercices'))
     var matchExercices = []
     for (cpt = 0; cpt < allExercices.length; cpt++) {
       if (allExercices[cpt].themeId === idTheme) {
         matchExercices[matchExercices.length] = allExercices[cpt];
-      };
-    };
+      }
+    }
     for (cpt = 0; cpt < matchExercices.length; cpt++) {
       DATA[DATA.length] = {
         id: matchExercices[cpt].idExercice,
         title: matchExercices[cpt].nomExercice,
         link: 'LessonPage'
-      };
-    };
-  }
-  else if (params.link === 'LessonPage') {
+      }
+    }
+  } else if (params.link === 'LessonPage') {
     if (params.color === mainColor) {
       var allMots = JSON.parse(await AsyncStorage.getItem('allMots'))
       for (cpt = 0; cpt < allMots.length; cpt++) {
         if (allMots[cpt].mot === params.title) {
-          var content = [];
+          content = [];
           content[0] = allMots[cpt].definition
           DATA[0] = {
             id: allMots[cpt].idMot,
             title: allMots[cpt].mot,
             content: content
-          };
-        };
-      };
+          }
+          cpt = allMots.length + 1;
+        }
+      }
+    } else {
+      var allItems = JSON.parse( await AsyncStorage.getItem('allItems'));
+      var idExercice = -1;
+      cpt = 0;
+      while(idExercice === -1){
+        var exercice = JSON.parse(await AsyncStorage.getItem('exercice' + [cpt]))
+        if(exercice.nomExercice === params.title){
+          idExercice = exercice.idExercice
+        }
+        cpt++;
+      }
+      var content = [];
+      for (cpt = 0; cpt < allItems.length; cpt++){
+        if(allItems[cpt].idExercice === idExercice){
+          content[content.length] = {
+            type: allItems[cpt].typeItem,
+            data: allItems[cpt].pathItem
+          }
+        }
+      }
+      DATA[0] = {
+        id: exercice.idExercice,
+        title: exercice.nomExercice,
+        content: content
+      }
     }
-    else {
-      var allItems = JSON.parse(await AsyncStorage.getItem('allItems'))
-      var matchItems = [];
-      for (cpt = 0; cpt < allItems.length; cpt++) {
-        //if(allItems[cpt].idExercice)
-      };
-    };
-  };
-  params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title});
-};
-
+  }
+  params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title})
+}
 const Item = (item) => (
   <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => navigation(item)}>
     <Text style={styles.title}>{item.title}</Text>
   </View>
 );
 
+
 const ItemList = (props) => {
-  const renderItem = ({item}) => (
+  const renderItem = ({ item }) => (
     <Item title={item.title} color={props.color} link={item.link} nav={props.navigation}/>
   );
-
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
+
         data={props.DATA}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -103,5 +121,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
 });
+
 
 export default ItemList;
