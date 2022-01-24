@@ -79,6 +79,51 @@ async function navigation(params) {
       }
     }
   }
+
+  else if (params.link === 'LessonPage') {
+    if (params.color === mainColor) {
+      var allMots = JSON.parse(await AsyncStorage.getItem('allMots'))
+      for (cpt = 0; cpt < allMots.length; cpt++) {
+        if (allMots[cpt].mot === params.title) {
+          content = [];
+          content[0] = allMots[cpt].definition
+          DATA[0] = {
+            id: allMots[cpt].idMot,
+            title: allMots[cpt].mot,
+            content: content
+          }
+          cpt = allMots.length + 1;
+        }
+      }
+    } else {
+      var allItems = JSON.parse( await AsyncStorage.getItem('allItems'));
+      var idExercice = -1;
+      cpt = 0;
+      while(idExercice === -1){
+        var exercice = JSON.parse(await AsyncStorage.getItem('exercice' + [cpt]))
+        if(exercice.nomExercice === params.title){
+          idExercice = exercice.idExercice
+        }
+        cpt++;
+      }
+      var content = [];
+      for (cpt = 0; cpt < allItems.length; cpt++){
+        if(allItems[cpt].idExercice === idExercice){
+          content[content.length] = {
+            type: allItems[cpt].typeItem,
+            data: allItems[cpt].pathItem
+          }
+        }
+      }
+      DATA[0] = {
+        id: exercice.idExercice,
+        title: exercice.nomExercice,
+        content: content
+      }
+    }
+  }
+
+
   params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title})
 }
 const Item = (item) => (
