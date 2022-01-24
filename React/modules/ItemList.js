@@ -44,7 +44,8 @@ async function navigation(params) {
                     var content = [];
                     content[0] = {
                         type: 'Texte',
-                        data: allMots[cpt].definition
+                        data: allMots[cpt].definition,
+                        id: allMots[cpt].idMot
                     }
                     DATA[0] = {
                         id: allMots[cpt].idMot,
@@ -72,7 +73,8 @@ async function navigation(params) {
                 if(allItems[cpt].exerciceId === matchExercice.idExercice){
                     content[content.length] = {
                         type: allItems[cpt].typeItem,
-                        data: allItems[cpt].pathItem
+                        data: allItems[cpt].pathItem,
+                        id: allItems[cpt].idItem
                     }
                 }
             }
