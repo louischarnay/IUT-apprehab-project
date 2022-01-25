@@ -49,7 +49,6 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
   },
   im: {
-    width: Dimensions.get('window').width,
     maxWidth: Dimensions.get('window').width,
     height: Dimensions.get('window').height/3
   }

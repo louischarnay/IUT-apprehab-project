@@ -16,20 +16,11 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
-    marginTop: 22,
-  },
-  item: {
-    flex: 1,
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-    borderRadius: 10,
-    marginTop: 22,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
+    marginTop: 10,
   },
   im: {
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height-230,
+    maxWidth: Dimensions.get('window').width,
+    height: Dimensions.get('window').height-200,
   },
 });
 
