@@ -66,7 +66,6 @@ async function navigation(params) {
                 }
                 cpt++
             }
-            console.log(matchExercice)
             var allItems = JSON.parse(await AsyncStorage.getItem('allItems'))
             content = [];
             for (cpt = 0; cpt < allItems.length; cpt++){
@@ -83,7 +82,6 @@ async function navigation(params) {
                 title: matchExercice.nomExercice,
                 content: content
             }
-            console.log(DATA[0])
         }
     }
     params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title});
