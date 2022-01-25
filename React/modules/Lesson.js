@@ -6,7 +6,7 @@ function printObject(params) {
     case 'Texte':
       return <ItemTexte data={params.data}/>
     case 'Image':
-      const source = ({uri:'https://apprehab.000webhostapp.com/'+ params.data});
+      const source = ({uri:'https://apprehab.000webhostapp.com/'+ params.data + '?' + new Date()});
       return <ItemImage data={source}/>
   }
 }
@@ -49,8 +49,9 @@ const styles = StyleSheet.create({
     textAlign: 'justify',
   },
   im: {
+    width: Dimensions.get('window').width,
     maxWidth: Dimensions.get('window').width,
-    maxHeight: Dimensions.get('window').height/3
+    height: Dimensions.get('window').height/3
   }
 });
   
