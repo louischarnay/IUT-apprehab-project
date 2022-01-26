@@ -47,6 +47,13 @@ const ROW_3 = [
 ];
 
 async function navigation(params){
+  var toIncrease = await AsyncStorage.getItem("nbTimes" + params.title);
+  if(toIncrease === null){
+    await AsyncStorage.setItem("nbTimes" + params.title, '1')
+  } else{
+    toIncrease++
+    await AsyncStorage.setItem("nbTimes" + params.title, "" + toIncrease)
+  }
   var idCategorie = -1;
   var cpt = 0;
   while (idCategorie === -1){
