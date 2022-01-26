@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image } from 'react-native';
 
-const ROW = [
+var ROW = [
   {
     id: '01',
     title: 'Challenge',
@@ -19,11 +19,10 @@ const ROW = [
     title:'Profile',
     icon: require('../assets/icones/profil.png'),
     link: 'Profile',
-  },
-];
+  }]
 
 const Item = (item) => (
-  <View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate(item.link)}>
+  <View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate(item.link, {routeName:item.route})}>
     <Image
       style={styles.icon}
       source={item.icon}
@@ -31,9 +30,9 @@ const Item = (item) => (
   </View>
 );
 
-const NavigBar= ({navigation}) => {
+const NavigBar = (params) => {
   const renderItem = ({ item }) => (
-    <Item icon={item.icon} nav={navigation} link={item.link}/>
+    <Item icon={item.icon} nav={params.navigation} route={params.route} link={item.link}/>
   );
 
   return (

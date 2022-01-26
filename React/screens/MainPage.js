@@ -1,8 +1,9 @@
 import React from 'react';
-import { View } from 'react-native';
+import {AsyncStorage, View} from 'react-native';
 import Header from '../modules/Header';
 import Categories from '../modules/Categories'
 import NavigBar from '../modules/NavigBar';
+
 
 const MainPage = ({navigation}) => {
     return (

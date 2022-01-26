@@ -6,40 +6,9 @@ import Home from './stacks/Home';
 import Profile from './stacks/Profile';
 import Challenge from './stacks/Challenge';
 
-/*import * as SQLite from 'react-native-sqlite-storage';
-
-SQLite.enablePromise(true);
-
-const db = SQLite.openDatabase({
-    name: 'database.db',
-    location: 'default'
-},
-    () => { console.log("database ouverte")},
-    error => { console.log("erreur " + error) }
-);
-
-const createTable = () => {
-    db.transaction((tx) =>{
-        tx.executeSql(
-            "CREATE TABLE IF NOT EXISTS categories(id_categorie INTEGER PRIMARY KEY AUTOINCREMENT, nom_categorie VARCHAR(20))"
-        )
-    })
-}
-
-async function fillTable(){
-    await db.transaction(async (tx) =>{
-        await tx.executeSql(
-            "INSERT INTO categories(nom_categorie) VALUES(?)",
-            [],
-            () => {console.log("réussi")},
-            error => {console.log("erreur " +  error)}
-        )
-    })
-}*/
-
 global.mainColor = '#8dd7cf';
 const getAllDataFromApi = async () => {
-    //SyncStorage.clear();
+    //AsyncStorage.clear();
     const response = await fetch('https://apprehab.000webhostapp.com/api/api.json');
     const json = await response.json();
     for (var cpt = 0; cpt < json.categories.length; cpt++) {
