@@ -54,6 +54,7 @@ async function navigation(params){
     toIncrease++
     await AsyncStorage.setItem("nbTimes" + params.title, "" + toIncrease)
   }
+
   var idCategorie = -1;
   var cpt = 0;
   while (idCategorie === -1){
