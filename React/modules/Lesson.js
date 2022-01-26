@@ -12,6 +12,8 @@ function printObject(params) {
     case 'Image':
       const source = ({uri:'https://apprehab.000webhostapp.com/'+ params.data + '?' + new Date()});
       return <ItemImage data={source}/>
+    case 'Lien':
+      return <ItemURL data={params.data}/>
   }
 }
 
@@ -26,6 +28,12 @@ const ItemImage = (item) => (
     <Image source={item.data} style={styles.im}/>
   </View>
 )
+
+const ItemURL = (item) => (
+  <View style={styles.itemContentExercise}>
+    <Text style={styles.url} onPress={() => Linking.openURL(item.data)}>{item.data}</Text>
+  </View>
+);
 
 /*
 const ItemBouton = () => (
@@ -87,6 +95,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   data: {
+    marginHorizontal: 15,
+    fontSize: 20,
+    textAlign: 'justify',
+  },
+  url: {
+    color: 'blue',
     marginHorizontal: 15,
     fontSize: 20,
     textAlign: 'justify',
