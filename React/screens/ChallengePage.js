@@ -4,7 +4,7 @@ import Header from '../modules/Header';
 import ChallengePicture from '../modules/ChallengePicture';
 import NavigBar from '../modules/NavigBar';
 
-function sendComment(rate: number, comment: string){
+/*function sendComment(rate: number, comment: string){
     try{
         fetch('https://apprehab.000webhostapp.com/api/apiTraitement.php',{
             method: 'POST',
@@ -21,7 +21,7 @@ function sendComment(rate: number, comment: string){
         console.log(error)
     }
 }
-
+*/
 const ChallengePage = ({navigation}) => {
     sendComment(4, 'new comment')
     return (
