@@ -42,7 +42,11 @@ async function navigation(params) {
             for (cpt = 0; cpt < allMots.length; cpt++) {
                 if (allMots[cpt].mot === params.title) {
                     var content = [];
-                    content[0] = allMots[cpt].definition
+                    content[0] = {
+                        type: 'Texte',
+                        data: allMots[cpt].definition,
+                        id: allMots[cpt].idMot
+                    }
                     DATA[0] = {
                         id: allMots[cpt].idMot,
                         title: allMots[cpt].mot,
@@ -62,14 +66,14 @@ async function navigation(params) {
                 }
                 cpt++
             }
-            console.log(matchExercice)
             var allItems = JSON.parse(await AsyncStorage.getItem('allItems'))
             content = [];
             for (cpt = 0; cpt < allItems.length; cpt++){
                 if(allItems[cpt].exerciceId === matchExercice.idExercice){
                     content[content.length] = {
                         type: allItems[cpt].typeItem,
-                        data: allItems[cpt].pathItem
+                        data: allItems[cpt].pathItem,
+                        id: allItems[cpt].idItem
                     }
                 }
             }
@@ -78,7 +82,6 @@ async function navigation(params) {
                 title: matchExercice.nomExercice,
                 content: content
             }
-            console.log(DATA[0])
         }
     }
 
