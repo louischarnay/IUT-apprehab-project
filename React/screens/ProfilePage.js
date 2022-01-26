@@ -13,7 +13,7 @@ const DATA = [
   {
     id: '2',
     title: 'Préférences',
-    link: null,
+    link: 'StatistiquesPage',
   },
   {
     id: '3',
@@ -23,7 +23,7 @@ const DATA = [
   {
     id: '4',
     title: 'Historique',
-    link: null,
+    link: 'StatistiquesPage',
   },
 ];
 
