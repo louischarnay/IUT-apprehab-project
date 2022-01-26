@@ -7,7 +7,7 @@ class GlobalStarRating extends Component{
     constructor(props){
         super(props);
         this.state={
-            starCount:1
+            starCount:2.5
         }
     }
 
@@ -28,7 +28,7 @@ class GlobalStarRating extends Component{
         maxStars={5}
         rating={this.state.starCount}
         selectedStar={(rating)=>this.onStarRatingPress(rating)}
-        fullStarColor='yellow'    
+        fullStarColor={'yellow'}
         />)
     } 
 

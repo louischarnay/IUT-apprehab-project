@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import CommentTextInput from '../modules/CommentSection';
 import GlobalStarRating from '../modules/StarRating';
-import { SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Text } from 'react-native';
+import { Alert,SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Text, Modal } from 'react-native';
 
-/*const [modalVisible,setModalVisible] = useState(false);*/
+
 
 function printObject(params) {
   switch (params.type){
@@ -27,15 +27,17 @@ const ItemImage = (item) => (
   </View>
 )
 
-const ItemNumActivite = (item)=>(
+/*const ItemNumActivite = (item)=>(
   <View style={styles.itemContentExercise}>
     <Text style={styles.data}>Cette semaine, j'ai fait {item.data} activités</Text>
   </View>
-)
+)*/
 
 
-/*
-const ItemBouton = () => (
+
+const ItemBouton = () => {
+  const [modalVisible,setModalVisible] = useState(false);
+  return(
   <View style={styles.centeredView}>
     <Modal
       animationType='fade'
@@ -71,7 +73,9 @@ const ItemBouton = () => (
       <Text style={styles.textStyle}>Finir l'exercice</Text>
     </Pressable>
   </View>
-)*/
+  )
+}
+
 const Lesson = (params) => {
   const renderItem =({item}) => (
     printObject(item)    
@@ -84,6 +88,7 @@ const Lesson = (params) => {
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
+      <ItemBouton/>
     </SafeAreaView>
   );
 };
