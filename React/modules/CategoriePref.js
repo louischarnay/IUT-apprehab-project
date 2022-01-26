@@ -2,15 +2,15 @@ import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
 const Item = (item) =>(
-    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.goBack()}>
+    <View style={styles.item} backgroundColor={item.color}>
       <Text style={styles.txt}>Ma catégorie préférée :</Text>
-      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.title} color={item.color}>{item.title}</Text>
     </View>
   );
 
 const CategoriePref = (props) => {
     const renderItem = () => (
-        <Item title={props.title}/>      
+        <Item title={props.title} color={mainColor}/>      
     );
 
     return(
@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
     },
     item: {
       padding: 30,
-      borderWidth: 3,
       borderRadius: 10,
       justifyContent: 'center',
       textAlign: 'center',
@@ -34,11 +33,12 @@ const styles = StyleSheet.create({
     txt: {
       fontSize: 25,
       fontWeight: 'bold',
-      color: 'black',
+      color: 'white',
     },
     title: {
       fontSize: 25,
       fontWeight: 'bold',
+      color: 'white',
       },
   });
 

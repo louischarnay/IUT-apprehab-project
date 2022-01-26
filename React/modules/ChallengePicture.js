@@ -7,7 +7,7 @@ const source = {uri:'https://apprehab.000webhostapp.com/database/challenge/chall
 const ChallengePicture = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Image source={source} style={styles.im}/>
+      <Image source={source} style={styles.im} borderColor={mainColor}/>
     </SafeAreaView>
   );
 };
@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
   },
 
   im: {
+    borderWidth: 5,
+    borderRadius: 5,
+    marginHorizontal: 5,
     maxWidth: Dimensions.get('window').width,
     height: Dimensions.get('window').height-200,
   },
