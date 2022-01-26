@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import {AsyncStorage, View} from 'react-native';
 import Header from '../modules/Header';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
@@ -27,7 +27,37 @@ const DATA = [
   },
 ];
 
+async function setCatPref(){
+  var catPref = Number(await AsyncStorage.getItem("nbTimesCréativité"))
+  global.catPref = "Créativité"
+  var tmp = Number(await AsyncStorage.getItem("nbTimesSport"))
+  if(tmp > catPref) {
+    global.catPref = "Sport"
+    catPref = tmp
+  }
+  tmp = Number(await AsyncStorage.getItem("nbTimesCognition"))
+  if(tmp > catPref) {
+    global.catPref = "Cognition"
+    catPref = tmp
+  }
+  tmp = Number(await AsyncStorage.getItem("nbTimesPsycho-éducation"))
+  if(tmp > catPref) {
+    global.catPref = "Psycho-éducation"
+    catPref = tmp
+  }
+  tmp = Number(await AsyncStorage.getItem("nbTimesRelaxation"))
+  if(tmp > catPref) {
+    global.catPref = "Relaxation"
+    catPref = tmp
+  }
+  tmp = Number(await AsyncStorage.getItem("nbTimesCulture & Infos"))
+  if(tmp > catPref) {
+    global.catPref = "Culture & Infos"
+  }
+}
+
 const ProfilePage = ({navigation}) => {
+  setCatPref()
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 1}}>
