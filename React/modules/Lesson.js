@@ -25,6 +25,12 @@ const ItemImage = (item) => (
   </View>
 )
 
+const ItemNumActivite = (item)=>(
+  <View style={styles.itemContentExercise}>
+    <Text style={styles.data}>Cette semaine, j'ai fait {item.data} activités</Text>
+  </View>
+)
+
 const ItemBouton =(item) =>(
   <Pressable 
   style={[styles.button,styles.buttonOpen]}
