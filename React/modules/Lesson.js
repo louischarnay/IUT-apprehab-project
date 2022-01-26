@@ -9,8 +9,8 @@ function printObject(params) {
     case 'Image':
       const source = ({uri:'https://apprehab.000webhostapp.com/'+ params.data + '?' + new Date()});
       return <ItemImage data={source}/>
-    case 'Bouton':
-      return <ItemBouton data={params.data}/>
+    /*case 'Bouton':
+      return <ItemBouton data={params.data}/>*/
   }
 }
 
@@ -26,14 +26,14 @@ const ItemImage = (item) => (
   </View>
 )
 
-const ItemBouton =(item) =>(
+/*const ItemBouton =(item) =>(
   <Pressable 
   style={[styles.button,styles.buttonOpen]}
   onPress={()=>setModalVisible(true)}
   >
   <Text style={styles.textStyle}>Finir l'exercice</Text>
 </Pressable>
-)
+)*/
 
 const Lesson = (params) => {
   const renderItem =({item}) => (

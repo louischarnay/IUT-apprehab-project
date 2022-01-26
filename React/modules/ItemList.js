@@ -84,7 +84,6 @@ async function navigation(params) {
             }
         }
     }
-
     params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title});
 }
 
