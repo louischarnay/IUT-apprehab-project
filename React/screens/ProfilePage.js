@@ -8,12 +8,12 @@ const DATA = [
   {
     id: '1',
     title: 'Statistiques',
-    link: null,
+    link: 'StatistiquesPage',
   },
   {
     id: '2',
     title: 'Préférences',
-    link: null,
+    link: 'StatistiquesPage',
   },
   {
     id: '3',
@@ -23,7 +23,7 @@ const DATA = [
   {
     id: '4',
     title: 'Historique',
-    link: null,
+    link: 'StatistiquesPage',
   },
 ];
 
