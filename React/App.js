@@ -64,11 +64,22 @@ const getAllDataFromApi = async () => {
     }
 };
 
+        let lastUpdate = await AsyncStorage.getItem("monthOfUpdate")
+        if(lastUpdate !== ("" + new Date().getMonth())){
+            await AsyncStorage.setItem("amountExercicesDoneMonth", "0")
+            let date = "" + new Date().getMonth()
+            await AsyncStorage.setItem("monthOfUpdate", date)
+            console.log("update")
+        }
+    }
+}
+
 const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render() {
     getAllDataFromApi();
+    setMonth()
     return (
       <NavigationContainer>
         <Stack.Navigator>
