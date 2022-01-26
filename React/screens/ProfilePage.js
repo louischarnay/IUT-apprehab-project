@@ -8,7 +8,7 @@ const DATA = [
   {
     id: '1',
     title: 'Statistiques',
-    link: null,
+    link: 'StatistiquesPage',
   },
   {
     id: '2',
