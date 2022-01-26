@@ -1,6 +1,9 @@
-import React from 'react';
-import { SafeAreaView, View, StyleSheet, Dimensions,  FlatList, Image, Text } from 'react-native';
-import EndLesson from '../screens/EndLesson';
+import React, { useState } from 'react';
+import CommentTextInput from '../modules/CommentSection';
+import GlobalStarRating from '../modules/StarRating';
+import { SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Text } from 'react-native';
+
+/*const [modalVisible,setModalVisible] = useState(false);*/
 
 function printObject(params) {
   switch (params.type){
@@ -9,7 +12,6 @@ function printObject(params) {
     case 'Image':
       const source = ({uri:'https://apprehab.000webhostapp.com/'+ params.data + '?' + new Date()});
       return <ItemImage data={source}/>
-    
   }
 }
 
@@ -31,15 +33,45 @@ const ItemNumActivite = (item)=>(
   </View>
 )
 
-const ItemBouton =(item) =>(
-  <Pressable 
-  style={[styles.button,styles.buttonOpen]}
-  onPress={()=>setModalVisible(true)}
-  >
-  <Text style={styles.textStyle}>Finir l'exercice</Text>
-</Pressable>
-)
 
+/*
+const ItemBouton = () => (
+  <View style={styles.centeredView}>
+    <Modal
+      animationType='fade'
+      transparent={true}
+      visible={modalVisible}
+      onRequestClose={()=>{
+          Alert.alert("Modal has been closed.");
+          setModalVisible(!modalVisible);
+      }}
+    >
+      <View style={styles.centeredView}>
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}>Exercice Fini !</Text>
+          <View style={{flex:1}}>
+            <GlobalStarRating/>
+          </View>
+          <View style={{flew:4}}>
+            <CommentTextInput/>
+          </View>
+          <Pressable
+            style={[styles.button,styles.buttonClose]}
+            onPress={()=>setModalVisible(!modalVisible)}
+          >
+            <Text style={styles.textStyle}>Terminer</Text>
+          </Pressable>
+        </View>
+      </View>
+    </Modal>
+    <Pressable 
+      style={[styles.button,styles.buttonOpen]}
+      onPress={()=>setModalVisible(true)}
+      >
+      <Text style={styles.textStyle}>Finir l'exercice</Text>
+    </Pressable>
+  </View>
+)*/
 const Lesson = (params) => {
   const renderItem =({item}) => (
     printObject(item)    
