@@ -9,8 +9,9 @@ import Challenge from './stacks/Challenge';
 global.mainColor = '#8dd7cf';
 const getAllDataFromApi = async () => {
     //AsyncStorage.clear();
-    const response = await fetch('https://apprehab.000webhostapp.com/api/api.json');
+    const response = await fetch('https://apprehab.000webhostapp.com/api/api.json' + '?' + new Date());
     const json = await response.json();
+    console.log(json)
     for (var cpt = 0; cpt < json.categories.length; cpt++) {
         try {
             const toString = JSON.stringify(json.categories[cpt]);
@@ -64,6 +65,12 @@ const getAllDataFromApi = async () => {
     }
 };
 
+async function setMonth(){
+    let month = await AsyncStorage.getItem("monthOfUpdate")
+    if(month === null) {
+        let date = "" + new Date().getMonth()
+        await AsyncStorage.setItem("monthOfUpdate", date)
+    } else{
         let lastUpdate = await AsyncStorage.getItem("monthOfUpdate")
         if(lastUpdate !== ("" + new Date().getMonth())){
             await AsyncStorage.setItem("amountExercicesDoneMonth", "0")
