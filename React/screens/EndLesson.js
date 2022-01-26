@@ -60,12 +60,6 @@ const EndLesson=()=>{
                     </View>
                 </View>
             </Modal>
-            <Pressable 
-                style={[styles.button,styles.buttonClose]}
-                onPress={()=>setModalVisible(true)}
-                >
-                <Text style={styles.textStyle}>Finir l'exercice</Text>
-            </Pressable>
         </View>
     );
 };
