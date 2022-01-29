@@ -8,7 +8,7 @@ const LessonPage = ({route, navigation}) => {
     const title = route.params.title;
     const color = route.params.color;
     const content = route.params.DATA.DATA;
-
+    
     return (
         <View style={{flex: 1}}>
             <View style={{flex: 1}}>
