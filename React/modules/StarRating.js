@@ -23,7 +23,10 @@ class GlobalStarRating extends Component{
         return(
         <StarRating
         disabled={false}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0b74498003a61c1af1b7cdd2f481e977b9d77c95
         emptyStar={'star-o'}
         halfStar={'star-half-o'}
         fullStar={'star'}
@@ -32,7 +35,10 @@ class GlobalStarRating extends Component{
         rating={this.state.starCount}
         selectedStar={(rating)=>this.onStarRatingPress(rating)}
         
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0b74498003a61c1af1b7cdd2f481e977b9d77c95
         />)
     } 
 
