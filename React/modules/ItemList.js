@@ -37,6 +37,19 @@ async function navigation(params) {
             }
         }
     } else if (params.link === 'LessonPage') {
+        let nbItemsHistorique = await AsyncStorage.getItem('nbItemsHistorique')
+        let data = {
+            title: params.title,
+            color: params.color
+        }
+        await AsyncStorage.setItem('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
+        console.log(' ')
+        console.log(params.title)
+        let tmp = Number(nbItemsHistorique)
+        tmp++
+        nbItemsHistorique = tmp.toString()
+        await AsyncStorage.setItem('nbItemsHistorique', nbItemsHistorique)
+        console.log(nbItemsHistorique)
         if (params.color === mainColor) {
             var allMots = JSON.parse(await AsyncStorage.getItem('allMots'))
             for (cpt = 0; cpt < allMots.length; cpt++) {
@@ -54,8 +67,9 @@ async function navigation(params) {
                     };
                 }
             }
-        } else {
-            let toIncrease = Number(await AsyncStorage.getItem("AmountExercicesDoneMonth"))
+        }
+    else {
+            let toIncrease = (await AsyncStorage.getItem("AmountExercicesDoneMonth"))
             if (toIncrease === null) {
                 toIncrease = -1;
             }

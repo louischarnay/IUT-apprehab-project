@@ -6,6 +6,13 @@ import Home from './stacks/Home';
 import Profile from './stacks/Profile';
 import Challenge from './stacks/Challenge';
 
+async function initHistorique(){
+    let tmp = await AsyncStorage.getItem('nbItemsHistorique')
+    if(tmp === null){
+        await AsyncStorage.setItem('nbItemsHistorique', '0')
+    }
+}
+
 global.mainColor = '#8dd7cf';
 const getAllDataFromApi = async () => {
     //AsyncStorage.clear();
@@ -84,8 +91,9 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render() {
-    getAllDataFromApi();
+    getAllDataFromApi()
     setMonth()
+    initHistorique()
     return (
       <NavigationContainer>
         <Stack.Navigator>
