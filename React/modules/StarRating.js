@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // Use prebuilt version of RNVI in dist folder
 //import Icon from 'C:/Users/admin/Documents/appRehab/React/node_modules/react-native-vector-icons/FontAwesome.js';
 
+import {FontAwesome} from 'react-native-fontawesome';
+
 import StarRating from 'react-native-star-rating'
 
 class GlobalStarRating extends Component{
@@ -23,13 +25,14 @@ class GlobalStarRating extends Component{
         return(
         <StarRating
         disabled={false}
-        emptyStar={'star-o'}
-        halfStar={'star-half-o'}
+        emptyStar={'star'}
+        halfStar={'star'}
         fullStar={'star'}
-        iconSet={Icon}
+        iconSet={FontAwesome}
         maxStars={5}
         rating={this.state.starCount}
         selectedStar={(rating)=>this.onStarRatingPress(rating)}
+        
         />)
     } 
 
