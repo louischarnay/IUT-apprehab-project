@@ -11,7 +11,6 @@ const getAllDataFromApi = async () => {
     //AsyncStorage.clear();
     const response = await fetch('https://apprehab.000webhostapp.com/api/api.json' + '?' + new Date());
     const json = await response.json();
-    console.log(json)
     for (var cpt = 0; cpt < json.categories.length; cpt++) {
         try {
             const toString = JSON.stringify(json.categories[cpt]);

@@ -4,26 +4,14 @@ import Header from '../modules/Header';
 import ChallengePicture from '../modules/ChallengePicture';
 import NavigBar from '../modules/NavigBar';
 
-/*function sendComment(rate: number, comment: string){
-    try{
-        fetch('https://apprehab.000webhostapp.com/api/apiTraitement.php',{
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                rate: rate,
-                comment: comment
-            })
-        })
-    } catch(error){
-        console.log(error)
-    }
+async function sendComment(rate: string, comment: string, exerciceId: string) {
+    let url = 'https://apprehab.000webhostapp.com/api/apiTraitement.php?rate=' + rate + '&comment='
+        + comment + '&exerciceId=' + exerciceId
+    await fetch(url)
 }
-*/
+
 const ChallengePage = ({navigation}) => {
-    sendComment(4, 'new comment')
+    sendComment('4', 'new comment', '1')
     return (
         <View style={{flex: 1}}>
             <View style={{flex: 1}}>

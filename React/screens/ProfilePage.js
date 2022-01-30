@@ -56,8 +56,14 @@ async function setCatPref(){
   }
 }
 
+async function getNumberActivities(){
+  let tmp = await AsyncStorage.getItem("AmountExercicesDoneMonth")
+  global.amountExerciceDoneMonth = tmp
+}
+
 const ProfilePage = ({navigation}) => {
   setCatPref()
+  getNumberActivities()
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 1}}>

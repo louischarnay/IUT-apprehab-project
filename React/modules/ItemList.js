@@ -13,8 +13,8 @@ async function navigation(params) {
             }
         }
     } else if (params.link === 'ExercisesPage') {
-        var idTheme = -1;
         cpt = 0;
+        var idTheme = -1;
         while (idTheme === -1) {
             var theme = JSON.parse(await AsyncStorage.getItem('theme' + cpt));
             if (theme.nomTheme === params.title) {
@@ -54,22 +54,30 @@ async function navigation(params) {
                     };
                 }
             }
-        }
-        else{
+        } else {
+            let toIncrease = Number(await AsyncStorage.getItem("AmountExercicesDoneMonth"))
+            if (toIncrease === null) {
+                toIncrease = -1;
+            }
+            toIncrease++;
+            toIncrease = toIncrease.toString()
+            await AsyncStorage.setItem("AmountExercicesDoneMonth", toIncrease)
+            global.amountExerciceDoneMonth = toIncrease
+
             var idExercice = -1;
             var matchExercice;
             cpt = 0;
-            while (idExercice === -1){
-                matchExercice = JSON.parse( await AsyncStorage.getItem('exercice' + cpt))
-                if(matchExercice.nomExercice === params.title){
+            while (idExercice === -1) {
+                matchExercice = JSON.parse(await AsyncStorage.getItem('exercice' + cpt))
+                if (matchExercice.nomExercice === params.title) {
                     idExercice = matchExercice
                 }
                 cpt++
             }
             var allItems = JSON.parse(await AsyncStorage.getItem('allItems'))
             content = [];
-            for (cpt = 0; cpt < allItems.length; cpt++){
-                if(allItems[cpt].exerciceId === matchExercice.idExercice){
+            for (cpt = 0; cpt < allItems.length; cpt++) {
+                if (allItems[cpt].exerciceId === matchExercice.idExercice) {
                     content[content.length] = {
                         type: allItems[cpt].typeItem,
                         data: allItems[cpt].pathItem,
