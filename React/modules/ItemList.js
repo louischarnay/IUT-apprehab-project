@@ -43,13 +43,10 @@ async function navigation(params) {
             color: params.color
         }
         await AsyncStorage.setItem('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
-        console.log(' ')
-        console.log(params.title)
         let tmp = Number(nbItemsHistorique)
         tmp++
         nbItemsHistorique = tmp.toString()
         await AsyncStorage.setItem('nbItemsHistorique', nbItemsHistorique)
-        console.log(nbItemsHistorique)
         if (params.color === mainColor) {
             var allMots = JSON.parse(await AsyncStorage.getItem('allMots'))
             for (cpt = 0; cpt < allMots.length; cpt++) {
