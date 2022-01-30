@@ -11,7 +11,6 @@ async function sendComment(rate: string, comment: string, exerciceId: string) {
 }
 
 const ChallengePage = ({navigation}) => {
-    sendComment('4', 'new comment', '1')
     return (
         <View style={{flex: 1}}>
             <View style={{flex: 1}}>
