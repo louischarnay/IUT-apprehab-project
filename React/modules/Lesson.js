@@ -27,11 +27,9 @@ const ItemImage = (item) => (
   </View>
 )
 
-/*const ItemNumActivite = (item)=>(
-  <View style={styles.itemContentExercise}>
-    <Text style={styles.data}>Cette semaine, j'ai fait {item.data} activités</Text>
-  </View>
-)*/
+
+
+
 
 
 
@@ -51,7 +49,7 @@ const ItemBouton = () => {
       <View style={styles.centeredView}>
         <View style={styles.modalView}>
           <Text style={styles.modalText}>Exercice Fini !</Text>
-          <View style={{flex:1}}>
+          <View style={{flex:2}}>
             <GlobalStarRating/>
           </View>
           <View style={{flew:4}}>

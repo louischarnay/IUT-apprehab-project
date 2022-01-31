@@ -1,11 +1,26 @@
-import React, { Component } from 'react';
+import React, { View,Component } from 'react';
 
 // Use prebuilt version of RNVI in dist folder
 //import Icon from 'C:/Users/admin/Documents/appRehab/React/node_modules/react-native-vector-icons/FontAwesome.js';
 
-import {FontAwesome} from 'react-native-fontawesome';
-
+import {AirbnbRating} from "react-native-ratings"
 import StarRating from 'react-native-star-rating'
+
+
+const halfStar={
+    color:'#00000',
+    icon:require('../assets/icones/star-half-alt-solid.png')
+}
+
+const emptyStar={
+    color:'#00000',
+    icon:require('../assets/icones/star-regular.png')
+}
+
+const fullStar={
+    color:'#00000',
+    icon:require('../assets/icones/star-solid.png')
+}
 
 class GlobalStarRating extends Component{
     constructor(props){
@@ -15,25 +30,37 @@ class GlobalStarRating extends Component{
         }
     }
 
-    onStarRatingPress(rating){
-        this.setState({
-            starCount:rating
-        })
-    }
+  ratingCompleted(rating){
+      console.log("Rating is :" + rating)
+  }
+    
 
     render(){
         return(
-        <StarRating
+         
+          
+            <AirbnbRating
+            ratingCount={5}
+            count={5}
+            reviews={["1","2","3","4","5"]}
+            defaultRating={5}
+            size={20}
+            style={{paddingHorizontal:10}}
+            showRating
+            />
+        
+
+            
+        /*<StarRating
         disabled={false}
-        emptyStar={'star'}
-        halfStar={'star'}
-        fullStar={'star'}
-        iconSet={FontAwesome}
+        emptyStar={emptyStar}
+        halfStar={halfStar}
+        fullStar={fullStar}
         maxStars={5}
         rating={this.state.starCount}
         selectedStar={(rating)=>this.onStarRatingPress(rating)}
-        
-        />)
+        />*/
+        )
     } 
 
 
