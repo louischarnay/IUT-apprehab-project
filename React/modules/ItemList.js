@@ -124,7 +124,7 @@ async function navigation(params) {
 }
 
 const Item = (item) => (
-    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => navigation(item)}>
+    <View style={styles.item} backgroundColor={item.color} onMoveShouldSetResponder={() => true} onResponderRelease={() => navigation(item)}>
         <Text style={styles.title}>{item.title}</Text>
     </View>
 )
