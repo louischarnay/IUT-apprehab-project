@@ -1,75 +1,98 @@
-import React, { View,Component } from 'react';
+import React, { useState }  from 'react';
+import { View,Component,StyleSheet, SafeAreaView, FlatList } from 'react-native'
 
 // Use prebuilt version of RNVI in dist folder
 //import Icon from 'C:/Users/admin/Documents/appRehab/React/node_modules/react-native-vector-icons/FontAwesome.js';
 
-import {AirbnbRating} from "react-native-ratings"
-import StarRating from 'react-native-star-rating'
+const RowStar=[
+    {   
+        id:1,
+        icon:require('../assets/icones/star-regular.png'),
 
-
-const halfStar={
-    color:'#00000',
-    icon:require('../assets/icones/star-half-alt-solid.png')
-}
-
-const emptyStar={
-    color:'#00000',
-    icon:require('../assets/icones/star-regular.png')
-}
-
-const fullStar={
-    color:'#00000',
-    icon:require('../assets/icones/star-solid.png')
-}
-
-class GlobalStarRating extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            starCount:2.5
-        }
+    },
+    {
+        id:2,
+        icon:require('../assets/icones/star-regular.png'),
+        
+    },
+    {   
+        id:3,
+        icon:require('../assets/icones/star-regular.png'),
+        
+    },
+    {   
+        id:4,
+        icon:require('../assets/icones/star-regular.png'),
+        
+    },
+    {
+        id:5,
+        icon:require('../assets/icones/star-regular.png'),
+        
     }
 
-  ratingCompleted(rating){
-      console.log("Rating is :" + rating)
-  }
-    
+]
 
-    render(){
-        return(
-         
-          
-            <AirbnbRating
-            ratingCount={5}
-            count={5}
-            reviews={["1","2","3","4","5"]}
-            defaultRating={5}
-            size={20}
-            style={{paddingHorizontal:10}}
-            showRating
-            />
+const Item = (item) => (
+    <View style={styles.item}>
+      <Image
+        style={styles.icon}
+        source={item.icon}  
+      />
+      
+    </View>
+  );
+
+
+const GlobalStarRating =()=>{
+    const renderItem = ({item}) => (
+        <Item id={item.id}  icon={item.icon}/>
+      );
+    <SafeAreaView>
+        <FlatList>
+            data={RowStar}
+            horizontal={true}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+        </FlatList>
+    </SafeAreaView>
+
+    
         
 
-            
-        /*<StarRating
-        disabled={false}
-        emptyStar={emptyStar}
-        halfStar={halfStar}
-        fullStar={fullStar}
-        maxStars={5}
-        rating={this.state.starCount}
-        selectedStar={(rating)=>this.onStarRatingPress(rating)}
-        />*/
-        )
-    } 
+        
+        
+    
+
+   
+
+        }
 
 
-
-
-}export default GlobalStarRating
-
-
-
+    const styles=StyleSheet.create({
+        container: {
+            flex: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+           // paddingTop: Constants.statusBarHeight,
+            backgroundColor: '#ecf0f1',
+          },
+          tite: {
+            fontSize: 24,
+            textAlign: 'center',
+            color: '#34495e'
+          },
+          paragraph: {
+            margin: 10,
+            marginTop: 40,
+            fontSize: 18,
+            fontWeight: 'bold',
+            textAlign: 'center',
+            color: '#34495e',
+          },
+    });
+    
+export default GlobalStarRating
 
 
 

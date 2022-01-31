@@ -46,10 +46,10 @@ const ItemBouton = () => {
           setModalVisible(!modalVisible);
       }}
     >
-      <View style={styles.centeredView}>
+      <View style={styles.centeredView,{paddingTop:50}}>
         <View style={styles.modalView}>
           <Text style={styles.modalText}>Exercice Fini !</Text>
-          <View style={{flex:2}}>
+          <View style={{flex:2,paddingBottom:20}}>
             <GlobalStarRating/>
           </View>
           <View style={{flew:4}}>
