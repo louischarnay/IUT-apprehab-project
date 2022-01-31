@@ -23,7 +23,7 @@ const DATA = [
   {
     id: '4',
     title: 'Historique',
-    link: 'StatistiquesPage',
+    link: 'HistoriquePage',
   },
 ];
 
