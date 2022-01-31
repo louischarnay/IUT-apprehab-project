@@ -10,7 +10,7 @@ const LexiquePage = ({route, navigation}) => {
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 1}}>
-        <FilterPicker/>
+        
       </View>
       <View style={{flex: 5}}>
         <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
