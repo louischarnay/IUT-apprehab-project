@@ -27,11 +27,11 @@ const ItemImage = (item) => (
   </View>
 )
 
-/*const ItemNumActivite = (item)=>(
+const ItemNumActivite = ()=>(
   <View style={styles.itemContentExercise}>
-    <Text style={styles.data}>Cette semaine, j'ai fait {item.data} activités</Text>
+    <Text style={styles.data}>Cette semaine, j'ai fait {global.amountExerciceDoneMonth} activités</Text>
   </View>
-)*/
+)
 
 
 

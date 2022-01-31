@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import CategoriePref from '../modules/CategoriePref';
 import NavigBar from '../modules/NavigBar';
-
+import ItemNumActivite from "../modules/Lesson.js";
 
 
 const StatistiquesPage = ({navigation}) => {
