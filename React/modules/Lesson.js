@@ -32,7 +32,7 @@ const ItemNumActivite = ()=>(
     <Text style={styles.data}>Cette semaine, j'ai fait {global.amountExerciceDoneMonth} activités</Text>
   </View>
 )
-
+  
 
 
 const ItemBouton = () => {
