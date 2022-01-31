@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CommentTextInput from '../modules/CommentSection';
 import GlobalStarRating from '../modules/StarRating';
-import { Alert,SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Text, Modal } from 'react-native';
+import { Alert,SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Text, Linking, Modal } from 'react-native';
 
 
 
@@ -115,6 +115,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 15,
     fontSize: 20,
     textAlign: 'justify',
+    textDecorationLine: 'underline'
   },
   im: {
     maxWidth: Dimensions.get('window').width,
