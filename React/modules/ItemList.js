@@ -89,11 +89,20 @@ async function navigation(params) {
             tmp = await AsyncStorage.getItem('nbItemsHistorique')
         }catch (error){}
         let nbItemsHistorique = tmp
-        let data = {
+        let data
+        if(params.color === global.mainColor){
+            data = {
+                title: params.title,
+                color: params.color,
+                link: 'LexiquePage'
+            }
+        } else {
+            data = {
             title: params.title,
             color: params.color,
             link: 'LessonPage'
-        }
+        }}
+
         await setStorage('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
         tmp = Number(nbItemsHistorique)
         tmp++
