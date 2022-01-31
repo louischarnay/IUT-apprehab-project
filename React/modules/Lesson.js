@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CommentTextInput from '../modules/CommentSection';
 import GlobalStarRating from '../modules/StarRating';
-import { Alert,SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Text, Modal } from 'react-native';
+import { Alert,SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Linking, Text, Modal } from 'react-native';
 
 
 
@@ -9,6 +9,8 @@ function printObject(params) {
   switch (params.type){
     case 'Texte':
       return <ItemTexte data={params.data}/>
+    case 'Lien':
+      return <ItemURL data={params.data}/>
     case 'Image':
       const source = ({uri:'https://apprehab.000webhostapp.com/'+ params.data + '?' + new Date()});
       return <ItemImage data={source}/>
@@ -18,6 +20,12 @@ function printObject(params) {
 const ItemTexte = (item) => (
   <View style={styles.itemContentExercise}>
     <Text style={styles.data}>{item.data}</Text>
+  </View>
+);
+
+const ItemURL = (item) => (
+  <View style={styles.itemContentExercise}>
+    <Text style={styles.url} onPress={() => Linking.openURL(item.data)}>{item.data}</Text>
   </View>
 );
 
@@ -103,6 +111,14 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     textAlign: "center"
+  },
+
+  url: {
+    color: 'blue',
+    marginHorizontal: 15,
+    fontSize: 20,
+    textAlign: 'justify',
+    textDecorationLine: 'underline'
   },
 
   button: {
