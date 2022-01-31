@@ -9,10 +9,7 @@ const LexiquePage = ({route, navigation}) => {
   const color = route.params.color;
   return (
     <View style={{flex: 1}}>
-      <View style={{flex: 1}}>
-        
-      </View>
-      <View style={{flex: 5}}>
+      <View style={{flex: 6}}>
         <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
       </View>
       <View style={{flex: 1}}>

@@ -9,9 +9,6 @@ const ThemesPage = ({route, navigation}) => {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{flex: 1}}>
-        
-      </View>
       <View style={{flex: 6}}>
         <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
       </View>
