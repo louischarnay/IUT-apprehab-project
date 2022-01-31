@@ -14,7 +14,7 @@ const DATA = [
   {
     id: '2',
     title: 'Préférences',
-    link: 'StatistiquesPage',
+    link: 'PreferencesPage',
   },
   {
     id: '3',
