@@ -19,13 +19,11 @@ async function navigation(params) {
         }else {
             for (let cpt = 0; cpt < historiqueLength; cpt++){
                 let tmp = await AsyncStorage.getItem('itemHistorique' + cpt)
-                console.log(tmp)
                 tmp = JSON.parse(tmp)
                 DATA[DATA.length] = {
                     title: tmp.title,
                     color: tmp.color
                 }
-                console.log(DATA[cpt])
             }
         }
     } else if (params.link === 'ExercisesPage') {
@@ -58,7 +56,6 @@ async function navigation(params) {
             title: params.title,
             color: params.color
         }
-        console.log(params.id)
         await AsyncStorage.setItem('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
         let tmp = Number(nbItemsHistorique)
         tmp++
@@ -123,6 +120,18 @@ async function navigation(params) {
     params.nav.navigate(params.link, {DATA: {DATA}, color: params.color, title: params.title});
 }
 
+let color = '';
+
+function checkColor(props, item) {
+    console.log(props);
+    if (props.color === null) {
+        color = item.color
+    }
+    else {
+        color = props.color
+    }
+}
+
 const Item = (item) => (
     <View style={styles.item} backgroundColor={item.color} onMoveShouldSetResponder={() => true} onResponderRelease={() => navigation(item)}>
         <Text style={styles.title}>{item.title}</Text>
@@ -131,7 +140,8 @@ const Item = (item) => (
 
 const ItemList = (props) => {
     const renderItem = ({item}) => (
-        <Item title={item.title} color={props.color} link={item.link} nav={props.navigation}/>
+        checkColor(props, item),
+        <Item title={item.title} color={color} link={item.link} nav={props.navigation}/>
     )
 
     return (
