@@ -3,6 +3,7 @@ import {View} from "react-native";
 import Header from '../modules/Header';
 import ChallengePicture from '../modules/ChallengePicture';
 import NavigBar from '../modules/NavigBar';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 async function sendComment(rate: string, comment: string, exerciceId: string) {
     let url = 'https://apprehab.000webhostapp.com/api/apiTraitement.php?rate=' + rate + '&comment='

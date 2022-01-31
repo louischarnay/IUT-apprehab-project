@@ -84,7 +84,7 @@ async function navigation(params) {
             }
         }
     } else if (params.link === 'LessonPage') {
-        let tmp
+        /*let tmp
         try {
             tmp = await AsyncStorage.getItem('nbItemsHistorique')
         }catch (error){}
@@ -102,12 +102,11 @@ async function navigation(params) {
             color: params.color,
             link: 'LessonPage'
         }}
-
         await setStorage('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
         tmp = Number(nbItemsHistorique)
         tmp++
         nbItemsHistorique = tmp.toString()
-        await setStorage('nbItemsHistorique', nbItemsHistorique)
+        await setStorage('nbItemsHistorique', nbItemsHistorique)*/
         if (params.color === mainColor) {
             let tmp
             try {
@@ -131,7 +130,30 @@ async function navigation(params) {
             }
         }
     else {
-            let tmp
+        let tmp
+            try {
+                tmp = await AsyncStorage.getItem('nbItemsHistorique')
+            }catch (error){}
+            let nbItemsHistorique = tmp
+            let data
+            if(params.color === global.mainColor){
+                data = {
+                    title: params.title,
+                    color: params.color,
+                    link: 'LexiquePage'
+                }
+            } else {
+                data = {
+                    title: params.title,
+                    color: params.color,
+                    link: 'LessonPage'
+                }}
+            await setStorage('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
+            tmp = Number(nbItemsHistorique)
+            tmp++
+            nbItemsHistorique = tmp.toString()
+            await setStorage('nbItemsHistorique', nbItemsHistorique)
+            tmp
             try {
                 tmp = await AsyncStorage.getItem("AmountExercicesDoneMonth")
             }catch (error){}

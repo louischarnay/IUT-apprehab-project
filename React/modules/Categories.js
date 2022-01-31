@@ -61,7 +61,7 @@ async function navigation(params){
     var toIncrease = await AsyncStorage.getItem("nbTimes" + params.title);
   }catch (e){}
   if(toIncrease === null){
-    await set("nbTimes" + params.title, '1')
+    await setStorage("nbTimes" + params.title, '1')
   } else{
     toIncrease++
     await setStorage("nbTimes" + params.title, "" + toIncrease)
