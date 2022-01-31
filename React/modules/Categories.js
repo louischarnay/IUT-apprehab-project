@@ -1,6 +1,16 @@
 import React from 'react';
-import { AsyncStorage, View, SafeAreaView, StyleSheet, Dimensions, FlatList, Text, Image } from 'react-native';
+import {View, SafeAreaView, StyleSheet, Dimensions, FlatList, Text, Image } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
+async function setStorage(key: string, value: string){
+  if(typeof value === Object){
+    value = JSON.stringify(value)
+  }
+  try {
+    await AsyncStorage.setItem(key, value)
+  }catch (error){
+  }
+}
 const ROW_1 = [
   {
     id: '01',
@@ -47,24 +57,34 @@ const ROW_3 = [
 ];
 
 async function navigation(params){
-  var toIncrease = await AsyncStorage.getItem("nbTimes" + params.title);
+  try {
+    var toIncrease = await AsyncStorage.getItem("nbTimes" + params.title);
+  }catch (e){}
   if(toIncrease === null){
-    await AsyncStorage.setItem("nbTimes" + params.title, '1')
+    await set("nbTimes" + params.title, '1')
   } else{
     toIncrease++
-    await AsyncStorage.setItem("nbTimes" + params.title, "" + toIncrease)
+    await setStorage("nbTimes" + params.title, "" + toIncrease)
   }
 
   var idCategorie = -1;
   var cpt = 0;
   while (idCategorie === -1){
-    var categorie = JSON.parse( await AsyncStorage.getItem('categorie' + cpt));
+    let tmp
+    try {
+      tmp = await AsyncStorage.getItem('categorie' + cpt)
+    }catch (error){}
+    var categorie = JSON.parse(tmp);
     if(params.title === categorie.nomCategorie){
       idCategorie = categorie.idCategorie;
     };
     cpt++;
   };
-  var allThemes = JSON.parse( await AsyncStorage.getItem('allThemes'));
+  let tmp
+  try {
+    tmp =  await AsyncStorage.getItem('allThemes')
+  }catch (error){}
+  var allThemes = JSON.parse(tmp)
   var matchThemes = [];
   for (cpt = 0; cpt < allThemes.length; cpt++){
     if(allThemes[cpt].categorieId === idCategorie){

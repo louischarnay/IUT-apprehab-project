@@ -1,10 +1,25 @@
 import React from 'react';
-import {AsyncStorage, SafeAreaView, View, StyleSheet, FlatList, Text} from 'react-native';
+import {SafeAreaView, View, StyleSheet, FlatList, Text} from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+async function setStorage(key: string, value: string){
+    if(typeof value === Object){
+        value = JSON.stringify(value)
+    }
+    try {
+        await AsyncStorage.setItem(key, value)
+    }catch (error){
+    }
+}
 
 async function navigation(params) {
     let DATA = []
     if (params.title === 'Lexique') {
-        const tabMots = await JSON.parse(await AsyncStorage.getItem('allMots'))
+        let tmp
+        try {
+            tmp = await AsyncStorage.getItem('allMots')
+        }catch (error){}
+        const tabMots = await JSON.parse(tmp)
         for (let cpt = 0; cpt < tabMots.length; cpt++) {
             DATA[DATA.length] = {
                 id: tabMots[cpt].idMot,
@@ -13,32 +28,50 @@ async function navigation(params) {
             }
         }
     } else if(params.title === 'Historique'){
-        let historiqueLength = await AsyncStorage.getItem('nbItemsHistorique')
+        let tmp
+        try {
+            tmp = await AsyncStorage.getItem('nbItemsHistorique')
+        }catch (error){}
+        let historiqueLength = tmp
         if(historiqueLength === null){
             DATA = {};
         }else {
             for (let cpt = 0; cpt < historiqueLength; cpt++){
-                let tmp = await AsyncStorage.getItem('itemHistorique' + cpt)
-                console.log(tmp)
+                let tmp
+                try {
+                    tmp = await AsyncStorage.getItem('itemHistorique' + cpt)
+                }catch (error){}
+                tmp = tmp
+                //console.log(tmp)
                 tmp = JSON.parse(tmp)
                 DATA[DATA.length] = {
                     title: tmp.title,
-                    color: tmp.color
+                    color: tmp.color,
+                    link: tmp.link
                 }
                 console.log(DATA[cpt])
             }
+            DATA.reverse()
         }
     } else if (params.link === 'ExercisesPage') {
         let cpt = 0;
         let idTheme = -1;
         while (idTheme === -1) {
-            let theme = JSON.parse(await AsyncStorage.getItem('theme' + cpt))
+            let tmp
+            try {
+                tmp = await AsyncStorage.getItem('theme' + cpt)
+            }catch (error){}
+            let theme = JSON.parse(tmp)
             if (theme.nomTheme === params.title) {
                 idTheme = theme.idTheme
             }
             cpt++
         }
-        let allExercices = JSON.parse(await AsyncStorage.getItem('allExercices'))
+        let tmp
+        try {
+            tmp = await AsyncStorage.getItem('allExercices')
+        }catch (error){}
+        let allExercices = JSON.parse(tmp)
         let matchExercices = []
         for (cpt = 0; cpt < allExercices.length; cpt++) {
             if (allExercices[cpt].themeId === idTheme) {
@@ -53,19 +86,28 @@ async function navigation(params) {
             }
         }
     } else if (params.link === 'LessonPage') {
-        let nbItemsHistorique = await AsyncStorage.getItem('nbItemsHistorique')
+        let tmp
+        try {
+            tmp = await AsyncStorage.getItem('nbItemsHistorique')
+        }catch (error){}
+        let nbItemsHistorique = tmp
         let data = {
             title: params.title,
-            color: params.color
+            color: params.color,
+            link: 'LessonPage'
         }
-        console.log(params.id)
-        await AsyncStorage.setItem('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
-        let tmp = Number(nbItemsHistorique)
+        console.log(params)
+        await setStorage('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
+        tmp = Number(nbItemsHistorique)
         tmp++
         nbItemsHistorique = tmp.toString()
-        await AsyncStorage.setItem('nbItemsHistorique', nbItemsHistorique)
+        await setStorage('nbItemsHistorique', nbItemsHistorique)
         if (params.color === mainColor) {
-            let allMots = JSON.parse(await AsyncStorage.getItem('allMots'))
+            let tmp
+            try {
+                tmp = await AsyncStorage.getItem('allMots')
+            }catch (error){}
+            let allMots = JSON.parse(tmp)
             for (let cpt = 0; cpt < allMots.length; cpt++) {
                 if (allMots[cpt].mot === params.title) {
                     let content = [];
@@ -83,26 +125,37 @@ async function navigation(params) {
             }
         }
     else {
-            let toIncrease = (await AsyncStorage.getItem("AmountExercicesDoneMonth"))
+            let tmp
+            try {
+                tmp = await AsyncStorage.getItem("AmountExercicesDoneMonth")
+            }catch (error){}
+            let toIncrease = (tmp)
             if (toIncrease === null) {
                 toIncrease = -1;
             }
             toIncrease++;
             toIncrease = toIncrease.toString()
-            await AsyncStorage.setItem("AmountExercicesDoneMonth", toIncrease)
+            await setStorage("AmountExercicesDoneMonth", toIncrease)
             global.amountExerciceDoneMonth = toIncrease
 
             let idExercice = -1;
             let matchExercice;
             let cpt = 0;
             while (idExercice === -1) {
-                matchExercice = JSON.parse(await AsyncStorage.getItem('exercice' + cpt))
+                let tmp
+                try {
+                    tmp = await AsyncStorage.getItem('exercice' + cpt)
+                }catch (error){}
+                matchExercice = JSON.parse(tmp)
                 if (matchExercice.nomExercice === params.title) {
                     idExercice = matchExercice
                 }
                 cpt++
             }
-            let allItems = JSON.parse(await AsyncStorage.getItem('allItems'))
+            try {
+                tmp = await AsyncStorage.getItem('allItems')
+            }catch (error){}
+            let allItems = JSON.parse(tmp)
             let content = [];
             for (cpt = 0; cpt < allItems.length; cpt++) {
                 if (allItems[cpt].exerciceId === matchExercice.idExercice) {
