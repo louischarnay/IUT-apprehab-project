@@ -27,14 +27,6 @@ const ItemImage = (item) => (
   </View>
 )
 
-const ItemNumActivite = ()=>(
-  <View style={styles.itemContentExercise}>
-    <Text style={styles.data}>Cette semaine, j'ai fait {global.amountExerciceDoneMonth} activités</Text>
-  </View>
-)
-  
-
-
 const ItemBouton = () => {
   const [modalVisible,setModalVisible] = useState(false);
   return(

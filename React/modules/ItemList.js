@@ -12,6 +12,22 @@ async function navigation(params) {
                 link: 'LessonPage',
             }
         }
+    } else if(params.title === 'Historique'){
+        let historiqueLength = await AsyncStorage.getItem('nbItemsHistorique')
+        if(historiqueLength === null){
+            DATA = {};
+        }else {
+            for (let cpt = 0; cpt < historiqueLength; cpt++){
+                let tmp = await AsyncStorage.getItem('itemHistorique' + cpt)
+                console.log(tmp)
+                tmp = JSON.parse(tmp)
+                DATA[DATA.length] = {
+                    title: tmp.title,
+                    color: tmp.color
+                }
+                console.log(DATA[cpt])
+            }
+        }
     } else if (params.link === 'ExercisesPage') {
         let cpt = 0;
         let idTheme = -1;
@@ -40,9 +56,9 @@ async function navigation(params) {
         let nbItemsHistorique = await AsyncStorage.getItem('nbItemsHistorique')
         let data = {
             title: params.title,
-            color: params.color,
-
+            color: params.color
         }
+        console.log(params.id)
         await AsyncStorage.setItem('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
         let tmp = Number(nbItemsHistorique)
         tmp++
