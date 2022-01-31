@@ -1,5 +1,6 @@
 import React from 'react';
-import {AsyncStorage, View} from 'react-native';
+import {View} from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from '../modules/Header';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
@@ -28,36 +29,53 @@ const DATA = [
 ];
 
 async function setCatPref(){
-  var catPref = Number(await AsyncStorage.getItem("nbTimesCréativité"))
+  let catPref
+  try {
+    catPref = Number(await AsyncStorage.getItem("nbTimesCréativité"))
+  }catch (e) {}
   global.catPref = "Créativité"
-  var tmp = Number(await AsyncStorage.getItem("nbTimesSport"))
+  let tmp
+  try {
+    tmp = Number(await AsyncStorage.getItem("nbTimesSport"))
+  }catch (e) {}
   if(tmp > catPref) {
     global.catPref = "Sport"
     catPref = tmp
   }
-  tmp = Number(await AsyncStorage.getItem("nbTimesCognition"))
+  try {
+    tmp = Number(await AsyncStorage.getItem("nbTimesCognition"))
+  }catch (e) {}
   if(tmp > catPref) {
     global.catPref = "Cognition"
     catPref = tmp
   }
-  tmp = Number(await AsyncStorage.getItem("nbTimesPsycho-éducation"))
+  try {
+    tmp = Number(await AsyncStorage.getItem("nbTimesPsycho-éducation"))
+  }catch (e){}
   if(tmp > catPref) {
     global.catPref = "Psycho-éducation"
     catPref = tmp
   }
-  tmp = Number(await AsyncStorage.getItem("nbTimesRelaxation"))
+  try {
+    tmp = Number(await AsyncStorage.getItem("nbTimesRelaxation"))
+  }catch (e) {}
   if(tmp > catPref) {
     global.catPref = "Relaxation"
     catPref = tmp
   }
-  tmp = Number(await AsyncStorage.getItem("nbTimesCulture & Infos"))
+  try {
+    tmp = Number(await AsyncStorage.getItem("nbTimesCulture & Infos"))
+  } catch (e) {}
   if(tmp > catPref) {
     global.catPref = "Culture & Infos"
   }
 }
 
 async function getNumberActivities(){
-  let tmp = await AsyncStorage.getItem("AmountExercicesDoneMonth")
+  let tmp
+  try {
+    tmp = await AsyncStorage.getItem("AmountExercicesDoneMonth")
+  } catch (e) {}
   global.amountExerciceDoneMonth = tmp
 }
 

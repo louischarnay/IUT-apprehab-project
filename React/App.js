@@ -1,15 +1,28 @@
 import React from 'react';
-import { AsyncStorage } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from '@react-navigation/native';
 import Home from './stacks/Home';
 import Profile from './stacks/Profile';
 import Challenge from './stacks/Challenge';
 
+async function setStorage(key: string, value: string){
+    if(typeof value === Object){
+        value = JSON.stringify(value)
+    }
+    try {
+        await AsyncStorage.setItem(key, value)
+    }catch (error){
+    }
+}
+
 async function initHistorique(){
-    let tmp = await AsyncStorage.getItem('nbItemsHistorique')
+    let tmp = null
+    try {
+        tmp = await AsyncStorage.getItem('nbItemsHistorique')
+    }catch (e) {}
     if(tmp === null){
-        await AsyncStorage.setItem('nbItemsHistorique', '0')
+        await setStorage('nbItemsHistorique', '0')
     }
 }
 
@@ -21,7 +34,7 @@ const getAllDataFromApi = async () => {
     for (var cpt = 0; cpt < json.categories.length; cpt++) {
         try {
             const toString = JSON.stringify(json.categories[cpt]);
-            await AsyncStorage.setItem('categorie' + cpt, toString);
+            await setStorage('categorie' + cpt, toString)
         } catch (error){
         console.log('error ' + error)
         }
@@ -29,7 +42,7 @@ const getAllDataFromApi = async () => {
     for (cpt = 0; cpt < json.themes.length; cpt++) {
         try{
             const toString = JSON.stringify(json.themes[cpt]);
-            await AsyncStorage.setItem('theme' + cpt, toString);
+            await setStorage('theme' + cpt, toString);
         } catch(error){
             console.log('error ' + error)
         }
@@ -37,7 +50,7 @@ const getAllDataFromApi = async () => {
     for (cpt = 0; cpt < json.exercices.length; cpt++) {
         try{
             const toString = JSON.stringify(json.exercices[cpt]);
-            await AsyncStorage.setItem('exercice' + cpt, toString);
+            await setStorage('exercice' + cpt, toString);
         } catch(error){
             console.log('error '+ error)
         }
@@ -45,43 +58,49 @@ const getAllDataFromApi = async () => {
     for (cpt = 0; cpt < json.items.length; cpt++) {
         try{
             const toString = JSON.stringify(json.items[cpt]);
-            await AsyncStorage.setItem('item' + cpt, toString);
+            await setStorage('item' + cpt, toString);
         } catch(error){
             console.log('error ' + error)
         }
     }
     try {
-        await AsyncStorage.setItem('categoriesLength', '' + json.categories.length)
-        await AsyncStorage.setItem('themesLength', '' + json.themes.length)
-        await AsyncStorage.setItem('exercicesLength', '' + json.exercices.length)
-        await AsyncStorage.setItem('itemsLength', '' + json.items.length)
+        await setStorage('categoriesLength', '' + json.categories.length)
+        await setStorage('themesLength', '' + json.themes.length)
+        await setStorage('exercicesLength', '' + json.exercices.length)
+        await setStorage('itemsLength', '' + json.items.length)
         toString = JSON.stringify(json.categories)
-        await AsyncStorage.setItem('allCategories', toString)
+        await setStorage('allCategories', toString)
         toString = JSON.stringify(json.themes)
-        await AsyncStorage.setItem('allThemes', toString)
+        await setStorage('allThemes', toString)
         toString = JSON.stringify(json.exercices)
-        await AsyncStorage.setItem('allExercices', toString)
+        await setStorage('allExercices', toString)
         toString = JSON.stringify(json.items)
-        await AsyncStorage.setItem('allItems', toString);
+        await setStorage('allItems', toString);
         toString = JSON.stringify(json.mots);
-        await AsyncStorage.setItem('allMots', toString);
-        await AsyncStorage.getItem('themesLength');
+        await setStorage('allMots', toString);
+        await setStorage('themesLength');
     } catch(error){
         console.log('error ' + error);
     }
 };
 
 async function setMonth(){
-    let month = await AsyncStorage.getItem("monthOfUpdate")
+    let month
+    try {
+        month = await AsyncStorage.getItem("monthOfUpdate")
+    } catch (e) {}
     if(month === null) {
         let date = "" + new Date().getMonth()
-        await AsyncStorage.setItem("monthOfUpdate", date)
+        await setStorage("monthOfUpdate", date)
     } else{
-        let lastUpdate = await AsyncStorage.getItem("monthOfUpdate")
+        let lastUpdate
+        try {
+            lastUpdate = await AsyncStorage.getItem("monthOfUpdate")
+        }catch (e) { console.log("zebi" + e)}
         if(lastUpdate !== ("" + new Date().getMonth())){
-            await AsyncStorage.setItem("amountExercicesDoneMonth", "0")
+            await setStorage("amountExercicesDoneMonth", "0")
             let date = "" + new Date().getMonth()
-            await AsyncStorage.setItem("monthOfUpdate", date)
+            await setStorage("monthOfUpdate", date)
             console.log("update")
         }
     }
