@@ -41,9 +41,9 @@ async function navigation(params) {
                 try {
                     tmp = await AsyncStorage.getItem('itemHistorique' + cpt)
                 }catch (error){}
-                tmp = tmp
                 tmp = JSON.parse(tmp)
                 DATA[DATA.length] = {
+                    id: cpt,
                     title: tmp.title,
                     color: tmp.color,
                     link: tmp.link
@@ -176,7 +176,6 @@ async function navigation(params) {
 let color = '';
 
 function checkColor(props, item) {
-    console.log(props);
     if (props.color === null) {
         color = item.color
     }
