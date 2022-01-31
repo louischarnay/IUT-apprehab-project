@@ -264,8 +264,9 @@ class Db {
     }
 
     public function addComment(string $rate, string $comment, string $exerciceId){
-          $sth = $this->pdo->prepare("INSERT INTO Commentaires (note, commentaire) VALUES (:note, :comment, exerciceId)");
+          $sth = $this->pdo->prepare("INSERT INTO Commentaires (note, commentaire, exerciceId) VALUES (:note, :comment, :exerciceId)");
           $sth->execute(["note" => $rate, "comment" => $comment, "exerciceId" => $exerciceId]);
-          return $sth->fetch();
+          $sth->fetch();
+
     }
 }

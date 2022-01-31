@@ -6,12 +6,18 @@ import Home from './stacks/Home';
 import Profile from './stacks/Profile';
 import Challenge from './stacks/Challenge';
 
+async function initHistorique(){
+    let tmp = await AsyncStorage.getItem('nbItemsHistorique')
+    if(tmp === null){
+        await AsyncStorage.setItem('nbItemsHistorique', '0')
+    }
+}
+
 global.mainColor = '#8dd7cf';
 const getAllDataFromApi = async () => {
     //AsyncStorage.clear();
     const response = await fetch('https://apprehab.000webhostapp.com/api/api.json' + '?' + new Date());
     const json = await response.json();
-    console.log(json)
     for (var cpt = 0; cpt < json.categories.length; cpt++) {
         try {
             const toString = JSON.stringify(json.categories[cpt]);
@@ -85,8 +91,9 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render() {
-    getAllDataFromApi();
+    getAllDataFromApi()
     setMonth()
+    initHistorique()
     return (
       <NavigationContainer>
         <Stack.Navigator>
