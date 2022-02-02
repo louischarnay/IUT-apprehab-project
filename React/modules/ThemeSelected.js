@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Vibration} from 'react-native';
 
 const Item = (item) =>(
-  <View style={styles.itemTheme} backgroundColor={item.color} onStartShouldSetResponder={() => item.nav.goBack()}>
+  <View style={styles.itemTheme} backgroundColor={item.color} onStartShouldSetResponder={() => {Vibration.vibrate(VibrationTime), item.nav.goBack()}}>
     <Text style={styles.title}>{item.title}</Text>
   </View>
 );

@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, FlatList, Text} from 'react-native';
+import {SafeAreaView, View, StyleSheet, FlatList, Text, Vibration} from 'react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 async function setStorage(key: string, value: string){
@@ -216,7 +216,7 @@ function checkColor(props, item) {
 }
 
 const Item = (item) => (
-    <View style={styles.item} backgroundColor={item.color} onMoveShouldSetResponder={() => true} onResponderRelease={() => navigation(item)}>
+    <View style={styles.item} backgroundColor={item.color} onMoveShouldSetResponder={() => true} onResponderRelease={() => {Vibration.vibrate(VibrationTime), navigation(item)}}>
         <Text style={styles.title}>{item.title}</Text>
     </View>
 )

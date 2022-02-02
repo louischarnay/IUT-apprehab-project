@@ -1,6 +1,6 @@
 import React from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { View, Text, StyleSheet, StatusBar, Vibration } from "react-native";
 
 async function setStorage(key: string, value: string){
     if(typeof value === Object){
@@ -13,7 +13,6 @@ async function setStorage(key: string, value: string){
 }
 
 async function clear(){
-    console.log('test');
     let nbItemsHistorique
     try {
         nbItemsHistorique = await AsyncStorage.getItem('nbItemsHistorique')
@@ -27,7 +26,7 @@ async function clear(){
 
 const ClearHistorique = () => {
     return (
-        <View style={styles.item} backgroundColor={mainColor} onStartShouldSetResponder={() => {clear()}}>
+        <View style={styles.item} backgroundColor={mainColor} onStartShouldSetResponder={() => {Vibration.vibrate(10),clear()}}>
             <Text style={styles.title}>Réinitialiser l'historique</Text>
         </View>
     )
