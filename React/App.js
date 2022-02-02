@@ -16,6 +16,18 @@ async function setStorage(key: string, value: string){
     }
 }
 
+async function initGlobals(){
+    let tmp
+    try {
+        tmp = await AsyncStorage.getItem('AmountExercicesStartedMonth')
+    }catch (e){}
+    globals.AmountExercicesStartedMonth = Number(tmp)
+    try {
+        tmp = await AsyncStorage.getItem('AmountExercicesEndedMonth')
+    }catch (e){}
+    globals.AmountExercicesEndedMonth = Number(tmp)
+}
+
 async function initHistorique(){
     let tmp = null
     try {
