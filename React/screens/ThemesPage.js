@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, StyleSheet, TextInput, View} from 'react-native';
+import {Button, StyleSheet, TextInput, View, StatusBar} from 'react-native';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
 
@@ -41,7 +41,6 @@ class ThemesPage extends React.Component{
             data : this.data
         })
     }
-
     render() {
         return (
             <View style={{flex: 1}}>
@@ -66,20 +65,15 @@ class ThemesPage extends React.Component{
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        marginTop: 20
+        marginTop: StatusBar.currentHeight
     },
     textinput: {
         marginLeft: 5,
         marginRight: 5,
         height: 50,
-        borderColor: '#000000',
         borderWidth: 1,
         paddingLeft: 5
     },
-    button: {
-        marginLeft: 5,
-        marginRight: 5,
-    }
 })
 
 export default ThemesPage;

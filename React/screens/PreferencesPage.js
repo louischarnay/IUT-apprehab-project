@@ -1,5 +1,6 @@
 import React from 'react';
 import NavigBar from '../modules/NavigBar';
+import ClearHistorique from '../modules/ClearHistorique'
 import { View } from 'react-native';
 
 const PreferencesPage = ({route, navigation}) => {
@@ -7,7 +8,7 @@ const PreferencesPage = ({route, navigation}) => {
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 6}}>
-        
+        <ClearHistorique/>
       </View>
       <View style={{flex: 1}}>
         <NavigBar navigation={navigation}/>

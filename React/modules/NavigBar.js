@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Vibration } from 'react-native';
 
 var ROW = [
   {
@@ -22,7 +22,7 @@ var ROW = [
   }]
 
 const Item = (item) => (
-  <View style={styles.item} onStartShouldSetResponder={() => item.nav.navigate(item.link, {routeName:item.route})}>
+  <View style={styles.item} onStartShouldSetResponder={() => {Vibration.vibrate(VibrationTime), item.nav.navigate(item.link, {routeName:item.route})}}>
     <Image
       style={styles.icon}
       source={item.icon}
