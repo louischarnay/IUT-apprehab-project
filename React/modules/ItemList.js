@@ -153,24 +153,24 @@ async function navigation(params) {
             tmp++
             nbItemsHistorique = tmp.toString()
             await setStorage('nbItemsHistorique', nbItemsHistorique)
-            tmp
             try {
-                tmp = await AsyncStorage.getItem("AmountExercicesDoneMonth")
+                tmp = await AsyncStorage.getItem("AmountExercicesStartedMonth")
             }catch (error){}
-            let toIncrease = (tmp)
+            let toIncrease = Number(tmp)
             if (toIncrease === null) {
                 toIncrease = -1;
             }
             toIncrease++;
             toIncrease = toIncrease.toString()
-            await setStorage("AmountExercicesDoneMonth", toIncrease)
-            global.amountExerciceDoneMonth = toIncrease
+            await setStorage("AmountExercicesStartedMonth", toIncrease)
+            global.amountExercicesStartedMonth = toIncrease
+
+            global.amountExercicesEndedMonth = 0
 
             let idExercice = -1;
             let matchExercice;
             let cpt = 0;
             while (idExercice === -1) {
-                let tmp
                 try {
                     tmp = await AsyncStorage.getItem('exercice' + cpt)
                 }catch (error){}

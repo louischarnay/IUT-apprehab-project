@@ -74,9 +74,9 @@ async function setCatPref(){
 async function getNumberActivities(){
   let tmp
   try {
-    tmp = await AsyncStorage.getItem("AmountExercicesDoneMonth")
+    tmp = await AsyncStorage.getItem("AmountExercicesStartedMonth")
   } catch (e) {}
-  global.amountExerciceDoneMonth = tmp
+  global.amountExercicesStartedMonth = tmp
 }
 
 const ProfilePage = ({navigation}) => {

@@ -10,7 +10,7 @@ const StatistiquesPage = ({navigation}) => {
       <View style={{flex: 1}}>
         <View style={{flex: 6}}>
             <CategoriePref title={global.catPref}/>
-            <ItemNumActivite title={global.amountExerciceDoneMonth}/>
+            <ItemNumActivite title={global.amountExercicesStartedMonth}/>
         </View>
         <View style={{flex: 1}}>
           <NavigBar navigation={navigation} route={'ProfilePage'}/>
