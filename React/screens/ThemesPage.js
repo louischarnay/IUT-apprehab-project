@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, StyleSheet, TextInput, View} from 'react-native';
+import {Button, StyleSheet, TextInput, View, StatusBar} from 'react-native';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
 
@@ -10,8 +10,8 @@ const ThemesPage = ({route, navigation}) => {
   return (
     <View style={{flex: 1}}>
       <View style={styles.main_container}>
-          <TextInput style={styles.textinput}/>
-          <Button style={styles.button} color={color} title='Rechercher' onPress={() => {}}/>
+          <TextInput style={styles.textinput} importantForAutofill='no' placeholder='Trouver un thème'/>
+          <Button color={color} title='Rechercher' onPress={() => {}}/>
       </View>
       <View style={{flex: 5}}>
         <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
@@ -26,20 +26,15 @@ const ThemesPage = ({route, navigation}) => {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        marginTop: 20
+        marginTop: StatusBar.currentHeight
     },
     textinput: {
         marginLeft: 5,
         marginRight: 5,
         height: 50,
-        borderColor: '#000000',
         borderWidth: 1,
         paddingLeft: 5
     },
-    button: {
-        marginLeft: 5,
-        marginRight: 5,
-    }
 })
 
 export default ThemesPage;
