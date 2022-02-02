@@ -3,13 +3,13 @@ import { View, StyleSheet, Text } from 'react-native';
 
 const Item1 = () => (
     <View style={styles.item} backgroundColor={mainColor}>
-        <Text style={styles.title}>J'ai ouvert {global.amountExerciceDoneMonth} activités durant les 30 derniers jours.</Text>
+        <Text style={styles.title}>J'ai ouvert {global.amountExercicesStartedMonth} activités durant les 30 derniers jours.</Text>
     </View>
 )
 
 const Item2 = () => (
     <View style={styles.item} backgroundColor={mainColor}>
-        <Text style={styles.title}>J'ai terminé {global.amountExerciceDoneMonth} activités durant les 30 derniers jours.</Text>
+        <Text style={styles.title}>J'ai terminé {global.amountExercicesEndedMonth} activités durant les 30 derniers jours.</Text>
     </View>
 )
 
