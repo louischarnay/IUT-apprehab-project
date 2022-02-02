@@ -1,72 +1,68 @@
-import React, { useState }  from 'react';
-import { View,Component,StyleSheet, SafeAreaView, FlatList } from 'react-native'
+import React from 'react';
+import { View,StyleSheet, SafeAreaView, FlatList, Text,Image } from 'react-native'
 
 // Use prebuilt version of RNVI in dist folder
-//import Icon from 'C:/Users/admin/Documents/appRehab/React/node_modules/react-native-vector-icons/FontAwesome.js';
 
+const rate={};
 const RowStar=[
     {   
-        id:1,
-        icon:require('../assets/icones/star-regular.png'),
+        id:'1',
+        icon:require('../assets/icones/star-solid.png'),
+        color: "#00000"
 
     },
     {
-        id:2,
-        icon:require('../assets/icones/star-regular.png'),
+        id:'2',
+        icon:require('../assets/icones/star-solid.png'),
+        color: "#00000"
+    },
+    {   
+        id:'3',
+        icon:require('../assets/icones/star-solid.png'),
+        color: "#00000"
         
     },
     {   
-        id:3,
-        icon:require('../assets/icones/star-regular.png'),
-        
-    },
-    {   
-        id:4,
-        icon:require('../assets/icones/star-regular.png'),
+        id:'4',
+        icon:require('../assets/icones/star-solid.png'),
+        color: "#00000"
         
     },
     {
-        id:5,
-        icon:require('../assets/icones/star-regular.png'),
+        id:'5',
+        icon:require('../assets/icones/star-solid.png'),
+        color: "#00000"
         
     }
 
 ]
 
 const Item = (item) => (
-    <View style={styles.item}>
+    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={rate}>
       <Image
         style={styles.icon}
         source={item.icon}  
       />
-      
+      <Text>{item.id}</Text>
     </View>
   );
 
 
 const GlobalStarRating =()=>{
     const renderItem = ({item}) => (
-        <Item id={item.id}  icon={item.icon}/>
+        <Item rate={item.id} color={item.color} icon={item.icon}/>
       );
-    <SafeAreaView>
-        <FlatList>
-            data={RowStar}
-            horizontal={true}
-            renderItem={renderItem}
-            keyExtractor={item => item.id}
-        </FlatList>
-    </SafeAreaView>
-
-    
-        
-
-        
-        
-    
-
-   
-
-        }
+    return(
+        <SafeAreaView style={styles.container}>
+            <FlatList
+                data={RowStar}
+                horizontal={true}
+                renderItem={renderItem}
+                 keyExtractor={item => item.id}
+            />
+        </SafeAreaView>
+      );
+}
 
 
     const styles=StyleSheet.create({
@@ -89,61 +85,9 @@ const GlobalStarRating =()=>{
             fontWeight: 'bold',
             textAlign: 'center',
             color: '#34495e',
-          },
+          }
     });
     
-export default GlobalStarRating
+export default GlobalStarRating;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*const WATER_IMAGE = require('./water.png');
-
-
-
-<><AirbnbRating /><><AirbnbRating
-    count={11}
-    reviews={["Terrible", "Bad", "Meh", "OK", "Good", "Hmm...", "Very Good", "Wow", "Amazing", "Unbelievable", "Jesus"]}
-    defaultRating={11}
-    size={20} />
-    <Rating
-        showRating
-        onFinishRating={this.ratingCompleted}
-        style={{ paddingVertical: 10 }} />
-    <Rating
-        type='heart'
-        ratingCount={3}
-        imageSize={60}
-        showRating
-        onFinishRating={this.ratingCompleted} />
-    <Rating
-        type='custom'
-        ratingImage={WATER_IMAGE}
-        ratingColor='#3498db'
-        ratingBackgroundColor='#c8c7c8'
-        ratingCount={10}
-        imageSize={30}
-        onFinishRating={this.ratingCompleted}
-        style={{ paddingVertical: 10 }} 
-    />
-        </>
-        </>*/
 
