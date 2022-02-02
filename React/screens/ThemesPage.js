@@ -1,8 +1,7 @@
 import React from 'react';
-import { View } from 'react-native';
+import {Button, StyleSheet, TextInput, View} from 'react-native';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
-import Search from '../modules/Search';
 
 const ThemesPage = ({route, navigation}) => {
   const DATA = route.params;
@@ -10,8 +9,9 @@ const ThemesPage = ({route, navigation}) => {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{flex: 1}}>
-        <Search color={color}/>
+      <View style={styles.main_container}>
+          <TextInput style={styles.textinput}/>
+          <Button style={styles.button} color={color} title='Rechercher' onPress={() => {}}/>
       </View>
       <View style={{flex: 5}}>
         <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
@@ -22,5 +22,24 @@ const ThemesPage = ({route, navigation}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+    main_container: {
+        flex: 1,
+        marginTop: 20
+    },
+    textinput: {
+        marginLeft: 5,
+        marginRight: 5,
+        height: 50,
+        borderColor: '#000000',
+        borderWidth: 1,
+        paddingLeft: 5
+    },
+    button: {
+        marginLeft: 5,
+        marginRight: 5,
+    }
+})
 
 export default ThemesPage;
