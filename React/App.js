@@ -98,7 +98,8 @@ async function setMonth(){
             lastUpdate = await AsyncStorage.getItem("monthOfUpdate")
         }catch (e) { console.log("zebi" + e)}
         if(lastUpdate !== ("" + new Date().getMonth())){
-            await setStorage("amountExercicesDoneMonth", "0")
+            await setStorage("amountExercicesStartedMonth", "0")
+            await setStorage("amountExercicesEndedMonth", "0")
             let date = "" + new Date().getMonth()
             await setStorage("monthOfUpdate", date)
             console.log("update")
