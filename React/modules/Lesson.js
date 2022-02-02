@@ -3,8 +3,6 @@ import CommentTextInput from '../modules/CommentSection';
 import GlobalStarRating from '../modules/StarRating';
 import { Alert,SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Linking, Text, Modal } from 'react-native';
 
-
-
 function printObject(params) {
   switch (params.type){
     case 'Texte':

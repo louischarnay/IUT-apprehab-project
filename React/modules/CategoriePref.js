@@ -9,12 +9,8 @@ const Item = (item) =>(
   );
 
 const CategoriePref = (props) => {
-    const renderItem = () => (
-        <Item title={props.title} color={mainColor}/>      
-    );
-
     return(
-        renderItem()
+      <Item title={props.title} color={mainColor}/>
     );
 };
 
@@ -40,6 +36,6 @@ const styles = StyleSheet.create({
       fontWeight: 'bold',
       color: 'white',
       },
-  });
+});
 
 export default CategoriePref;
