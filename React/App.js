@@ -21,11 +21,12 @@ async function initGlobals(){
     try {
         tmp = await AsyncStorage.getItem('AmountExercicesStartedMonth')
     }catch (e){}
-    globals.AmountExercicesStartedMonth = Number(tmp)
+    global.AmountExercicesStartedMonth = Number(tmp)
     try {
         tmp = await AsyncStorage.getItem('AmountExercicesEndedMonth')
     }catch (e){}
-    globals.AmountExercicesEndedMonth = Number(tmp)
+    global.AmountExercicesEndedMonth = Number(tmp)
+    global.AmountExercicesEndedMonth = 0
 }
 
 async function initHistorique(){
@@ -123,6 +124,7 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render() {
+    initGlobals()
     getAllDataFromApi()
     setMonth()
     initHistorique()
