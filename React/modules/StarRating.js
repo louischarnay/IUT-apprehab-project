@@ -7,25 +7,30 @@ const rate={};
 const RowStar=[
     {   
         id:'1',
+        icon: require('../assets/icones/star-solid.png'),
         color: "#00000"
 
     },
     {
         id:'2',
+        icon: require('../assets/icones/star-solid.png'),
         color: "#00000"
     },
     {   
         id:'3',
+        icon: require('../assets/icones/star-solid.png'),
         color: "#00000"
         
     },
     {   
         id:'4',
+        icon: require('../assets/icones/star-solid.png'),
         color: "#00000"
         
     },
     {
         id:'5',
+        icon: require('../assets/icones/star-solid.png'),
         color: "#00000"
         
     }
@@ -36,7 +41,7 @@ const Item = (item) => (
     <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={rate}>
     <Image
       style={styles.icon}
-      source={require('../assets/icones/star-solid.png')}  
+      source={item.icon}  
     />
   </View>
   );
