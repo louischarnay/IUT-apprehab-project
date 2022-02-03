@@ -1,96 +1,207 @@
-import React, { Component } from 'react';
+/*import React from 'react';
+import { View,StyleSheet, SafeAreaView, FlatList, Text,Image,Dimensions } from 'react-native'
 
 // Use prebuilt version of RNVI in dist folder
-//import Icon from 'C:/Users/admin/Documents/appRehab/React/node_modules/react-native-vector-icons/FontAwesome.js';
 
-import StarRating from 'react-native-star-rating'
+const rate={};
+const RowStar=[
+    {   
+        id:'1',
+        icon: require('../assets/icones/star-solid.png'),
+        color: "#00000"
 
-class GlobalStarRating extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            starCount:2.5
-        }
+    },
+    {
+        id:'2',
+        icon: require('../assets/icones/star-solid.png'),
+        color: "#00000"
+    },
+    {   
+        id:'3',
+        icon: require('../assets/icones/star-solid.png'),
+        color: "#00000"
+        
+    },
+    {   
+        id:'4',
+        icon: require('../assets/icones/star-solid.png'),
+        color: "#00000"
+        
+    },
+    {
+        id:'5',
+        icon: require('../assets/icones/star-solid.png'),
+        color: "#00000"
+        
     }
 
-    onStarRatingPress(rating){
-        this.setState({
-            starCount:rating
-        })
+]
+
+const Item = (item) => (
+    <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={rate}>
+        <Image
+        style={styles.icon}
+        source={item.icon}  
+        />
+    </View>
+  );
+
+
+const GlobalStarRating = () =>{
+    const renderItem = ({item}) => (
+        <Item rate={item.id} color={item.color} icon={item.icon}/>
+      );
+    return (
+        <SafeAreaView style={styles.container}>
+            <FlatList
+                data= {RowStar}
+                horizontal ={true}
+                renderItem= {renderItem}
+                 keyExtractor= {item => item.id}
+            />
+        </SafeAreaView>
+      );
+}
+
+
+    const styles = StyleSheet.create({
+        container: {
+            flex: 1,
+            borderTopRightRadius: 10,
+            borderTopLeftRadius: 10,
+            marginTop: 20,
+          },
+          item: {
+            flex: 1,
+            width: Dimensions.get('window').width/3.1,
+            height: Dimensions.get('window').height/10,
+            margin: 2,
+            marginTop: 7,
+            padding: 0,
+            borderRadius: 10,
+            justifyContent: 'flex-end',
+            alignItems: 'center',
+          },
+          icon: {
+            width:  Dimensions.get('window').width/10,
+            height:  Dimensions.get('window').width/10
+          },
+    });
+    
+export default GlobalStarRating;
+*/
+
+import React, { Component } from 'react';
+//import react in our code. 
+import {
+  StyleSheet,
+  View,
+  Platform,
+  Text,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
+//import all the components we are going to use.
+
+export default class Myapp extends Component {
+  constructor() {
+    super();
+    this.state = {
+      Default_Rating: 2.5,
+      //To set the default Star Selected
+      Max_Rating: 5,
+      //To set the max number of Stars
+    };
+    //Filled Star. You can also give the path from local
+    this.Star = 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/star_filled.png';
+
+    //Empty Star. You can also give the path from local
+    this.Star_With_Border = 'https://raw.githubusercontent.com/AboutReact/sampleresource/master/star_corner.png';
+  }
+  UpdateRating(key) {
+    this.setState({ Default_Rating: key });
+    //Keeping the Rating Selected in state
+  }
+  render() {
+    let React_Native_Rating_Bar = [];
+    //Array to hold the filled or empty Stars
+    for (var i = 1; i <= this.state.Max_Rating; i++) {
+      React_Native_Rating_Bar.push(
+        <TouchableOpacity
+          activeOpacity={0.7}
+          key={i}
+          onPress={this.UpdateRating.bind(this, i)}>
+          <Image
+            style={styles.StarImage}
+            source={
+              i <= this.state.Default_Rating
+                ? { uri: this.Star }
+                : { uri: this.Star_With_Border }
+            }
+          />
+        </TouchableOpacity>
+      );
     }
+    return (
+      <View style={styles.MainContainer}>
+        <Text style={styles.textStyle}>Avez-vous apprécié l'exercice ?</Text>
+        
+        {/*View to hold our Stars*/}
+        <View style={styles.childView}>{React_Native_Rating_Bar}</View>
+        
+        <Text style={styles.textStyle}>
+        {/*To show the rating selected*/}
+          {this.state.Default_Rating} / {this.state.Max_Rating}
+        </Text>
 
-    render(){
-        return(
-        <StarRating
-        disabled={false}
-        emptyStar={'star-o'}
-        halfStar={'star-half-o'}
-        fullStar={'star'}
-        iconSet={Icon}
-        maxStars={5}
-        rating={this.state.starCount}
-        selectedStar={(rating)=>this.onStarRatingPress(rating)}
-        />)
-    } 
+        <TouchableOpacity
+          activeOpacity={0.7}
+          style={styles.button}
+          onPress={() => alert(this.state.Default_Rating)}>
+          {/*Clicking on button will show the rating as an alert*/}
+          <Text>Confirmer la note</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
+}
 
+const styles = StyleSheet.create({
+  MainContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: Platform.OS === 'ios' ? 20 : 0,
+  },
+  childView: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    marginTop: 30,
+  },
+  button: {
+    justifyContent: 'center',
+    flexDirection: 'row',
+    marginTop: 30,
+    padding: 15,
+    backgroundColor: '#8ad24e',
+  },
+  StarImage: {
+    width: 40,
+    height: 40,
+    resizeMode: 'cover',
+  },
+  textStyle: {
+    textAlign: 'center',
+    fontSize: 23,
+    color: '#000',
+    marginTop: 15,
+  },
+  textStyleSmall: {
+    textAlign: 'center',
+    fontSize: 16,
 
-
-
-}export default GlobalStarRating
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*const WATER_IMAGE = require('./water.png');
-
-
-
-<><AirbnbRating /><><AirbnbRating
-    count={11}
-    reviews={["Terrible", "Bad", "Meh", "OK", "Good", "Hmm...", "Very Good", "Wow", "Amazing", "Unbelievable", "Jesus"]}
-    defaultRating={11}
-    size={20} />
-    <Rating
-        showRating
-        onFinishRating={this.ratingCompleted}
-        style={{ paddingVertical: 10 }} />
-    <Rating
-        type='heart'
-        ratingCount={3}
-        imageSize={60}
-        showRating
-        onFinishRating={this.ratingCompleted} />
-    <Rating
-        type='custom'
-        ratingImage={WATER_IMAGE}
-        ratingColor='#3498db'
-        ratingBackgroundColor='#c8c7c8'
-        ratingCount={10}
-        imageSize={30}
-        onFinishRating={this.ratingCompleted}
-        style={{ paddingVertical: 10 }} 
-    />
-        </>
-        </>*/
+    color: '#000',
+    marginTop: 15,
+  },
+});
 

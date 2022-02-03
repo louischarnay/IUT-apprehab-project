@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import CommentTextInput from '../modules/CommentSection';
-import GlobalStarRating from '../modules/StarRating';
-import { Alert,SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Linking, Text, Modal } from 'react-native';
+
+import React from 'react';
+import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text } from 'react-native';
+import App from '../modules/Modal';
+import Modal from '../modules/Modal';
+
+
 
 function printObject(params) {
   switch (params.type){
@@ -12,6 +15,7 @@ function printObject(params) {
     case 'Image':
       const source = ({uri:'https://apprehab.000webhostapp.com/'+ params.data + '?' + new Date()});
       return <ItemImage data={source}/>
+    
   }
 }
 
@@ -33,46 +37,6 @@ const ItemImage = (item) => (
   </View>
 )
 
-const ItemBouton = () => {
-  const [modalVisible,setModalVisible] = useState(false);
-  return(
-  <View style={styles.centeredView}>
-    <Modal
-      animationType='fade'
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={()=>{
-          Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
-      }}
-    >
-      <View style={styles.centeredView}>
-        <View style={styles.modalView}>
-          <Text style={styles.modalText}>Exercice Fini !</Text>
-          <View style={{flex:1}}>
-            <GlobalStarRating/>
-          </View>
-          <View style={{flew:4}}>
-            <CommentTextInput/>
-          </View>
-          <Pressable
-            style={[styles.button,styles.buttonClose]}
-            onPress={()=>setModalVisible(!modalVisible)}
-          >
-            <Text style={styles.textStyle}>Terminer</Text>
-          </Pressable>
-        </View>
-      </View>
-    </Modal>
-    <Pressable 
-      style={[styles.button,styles.buttonOpen]}
-      onPress={()=>setModalVisible(true)}
-      >
-      <Text style={styles.textStyle}>Finir l'exercice</Text>
-    </Pressable>
-  </View>
-  )
-}
 
 const Lesson = (params) => {
   const renderItem =({item}) => (
@@ -81,13 +45,17 @@ const Lesson = (params) => {
   
   return(
     <SafeAreaView style={styles.container}>
+      
       <FlatList
         data={params.content[0].content}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
-      <ItemBouton/>
+    
+        <App/>
+      
     </SafeAreaView>
+    
   );
 };
 
@@ -104,7 +72,27 @@ const styles = StyleSheet.create({
     maxWidth: Dimensions.get('window').width,
     height: Dimensions.get('window').height/3
   },
-
+  centeredView:{
+    flex:1,
+    justifyContent:"center",
+    alignItems:"center",
+    marginTop:20
+  },
+  modalView:{
+    margin:20,
+    backgroundColor:"white",
+    borderRadius:20,
+    padding:35,
+    alignItems:"center",
+    shadowColor:"#000",
+    shadowOffset:{
+      width:0,
+      height:2
+    },
+    shadowOpacity:0.25,
+    shadowRadius:4,
+    elevation:5
+  },
   textStyle: {
     color: "white",
     fontWeight: "bold",
@@ -128,7 +116,9 @@ const styles = StyleSheet.create({
   buttonOpen: {
     backgroundColor: "#F194FF",
   },
-
+  modalView: {
+    
+  }
 });
   
 export default Lesson;
