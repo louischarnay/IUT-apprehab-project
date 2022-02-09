@@ -16,20 +16,21 @@ class ThemesPage extends React.Component{
         console.log(this.state.data)
     }
 
-    filterThemes(data){
-        if(this.searchedText === ""){
+    filterThemes(data) {
+        if (this.searchedText === "") {
             return
         }
         let newData = Array()
-        const regex = new RegExp('[.]*' + this.searchedText + '[.]*')
-        for (let cpt = 0; cpt < data.length; cpt++){
-            if(regex.test(data[cpt]['title'])){
+        const regex = new RegExp('[.]*' + this.searchedText.toLowerCase() + '[.]*')
+        for (let cpt = 0; cpt < data.length; cpt++) {
+            if (regex.test(data[cpt]['title'].toLowerCase())) {
                 newData[newData.length] = data[cpt]
             }
         }
         this.setState({
-            data : newData
+            data: newData
         })
+        this.TextInput.clear()
     }
 
     updateSearchedText(text) {
@@ -37,6 +38,7 @@ class ThemesPage extends React.Component{
     }
 
     resetFilters() {
+
         this.setState({
             data : this.data
         })
