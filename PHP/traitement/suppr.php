@@ -12,5 +12,8 @@ switch ($_POST["typeSuppr"]){
     case  "Mot":
         $_SESSION["message"] = $db->deleteMot($_POST["dropSuppr"]);
         break;
+    case "Item":
+        $_SESSION["message"] = $db->deleteItem($_POST["dropSuppr"]);
+        break;
 }
-header("Location: ../index.php");
+header("Location: ../viewDatabase.php");

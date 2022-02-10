@@ -118,6 +118,18 @@ class Db {
         return "Exercice supprimé";
     }
 
+    public function deleteItem(string $id){
+        $sth = $this->pdo->prepare("SELECT * FROM Items WHERE idItem= :id");
+        $sth->execute(["id" => $id]);
+        $result = $sth->fetch();
+        if($result == false){
+            return "Item non existant";
+        }
+        $sth = $this->pdo->prepare("DELETE FROM Items WHERE idItem= :id");
+        $sth->execute(["id" => $id]);
+        return "Item supprimé";
+    }
+
     public function deleteTheme(string $nom){
         $sth = $this->pdo->prepare("SELECT * FROM Themes WHERE nomTheme= :nom");
         $sth->execute(["nom" => $nom]);
@@ -205,22 +217,19 @@ class Db {
     public function getThemesFromCategorie(string $idCategory){
         $sth = $this->pdo->prepare("SELECT * FROM Themes WHERE categorieId= :idCategory");
         $sth->execute(["idCategory" => $idCategory]);
-        $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
-        return $result;
+        return $sth->fetchAll(PDO::FETCH_COLUMN, 1);
     }
 
     public function getExerciceFromTheme(string $idLesson){
         $sth = $this->pdo->prepare("SELECT * FROM Exercices WHERE themeId= :idLesson");
         $sth->execute(["idLesson" => $idLesson]);
-        $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
-        return $result;
+        return $sth->fetchAll(PDO::FETCH_COLUMN, 1);
     }
 
     public function getItemsFromExercice(string $idExercice){
         $sth = $this->pdo->prepare("SELECT * FROM Items WHERE exerciceId= :idExercice");
         $sth->execute(["idExercice" => $idExercice]);
-        $result = $sth->fetchAll(PDO::FETCH_COLUMN, 2);
-        return $result;
+        return $sth->fetchAll();
     }
 
     public function getAllCommentaires(){

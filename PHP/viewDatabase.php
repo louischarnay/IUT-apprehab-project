@@ -20,15 +20,26 @@ $db = new Db();?>
         foreach ($categories as $category):
             echo '
                 <div class="divDataBase">
-                    <div class="categoryNode">
-                        <div class="categorieDataBase">
-                        <div class="categorieDataBase">
-                            Catégorie '.$category.'</div>
-                            <form>
-                                <input type="hidden">
-                                <button type="submit">Ajouter</button>
-                            </form>
-                        </div>';
+                    <div class="divDataBaseButton">
+                        <div class="categoryNode">
+                            <div class="categorieDataBase">
+                                Catégorie '.$category. '
+                            </div>
+                        </div>
+                        <div class="btAddTheme">Ajouter</div>
+                        <div class="modalAddTheme">
+                            <div class="modal-content">
+                                <div class="btCloseAddTheme">x</div>
+                                <p>Ajouter un thème dans la catégorie ' .$category.'</p>
+                                <form action="traitement/ajoutTheme.php" enctype="multipart/form-data" method="post">
+                                    <label for="titreTheme">Titre</label>
+                                    <input type="text" name="titreTheme">
+                                    <input type="hidden" name="dropCategorie" value="'.$category.'">
+                                    <button type="submit">Ajouter</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>';
             $idCategory = $db->getCategorieId($category);
             $themes = $db->getThemesFromCategorie($idCategory);
             foreach ($themes as $theme):
@@ -39,18 +50,12 @@ $db = new Db();?>
                             <div class="themeDataBase brown">
                                 Thème '.$theme.'
                                 <div class="buttonsForm">
-                                    <form>
-                                        <input type="hidden" value="'.$idTheme.'">
-                                        <button type="submit">Ajouter</button>
-                                    </form>
-                                    <form>
-                                        <input type="hidden" value="'.$idTheme.'">
-                                        <button type="submit">Modifier</button>
-                                    </form>
+                                    <div class="button brown">Ajouter</div>
+                                    <div class="button brown">Modifier</div>
                                     <form action="traitement/suppr.php" enctype="application/x-www-form-urlencoded" method="post">
                                         <input type="hidden" value="'.$theme.'" name="dropSuppr">
                                         <input type="hidden" value="Theme" name="typeSuppr">
-                                        <button type="submit">Supprimer</button>
+                                        <button type="submit">Suppr</button>
                                     </form>
                                 </div>
                         </div>';
@@ -60,18 +65,12 @@ $db = new Db();?>
                                 <div class="exerciceDataBase blue">
                                     Exercice '.$exercice.'
                                     <div class="buttonsForm">
-                                        <form>
-                                            <input type="hidden" value="'.$idTheme.'">
-                                            <button type="submit">Ajouter</button>
-                                        </form>
-                                        <form>
-                                            <input type="hidden" value="'.$idTheme.'">
-                                            <button type="submit">Modifier</button>
-                                        </form>
-                                    <form action="traitement/suppr.php" enctype="application/x-www-form-urlencoded" method="post">
+                                    <div class="button blue">Ajouter</div>
+                                    <div class="button blue">Modifier</div>
+                                    <form action="traitement/suppr.php" enctype="multipart/form-data" method="post">
                                         <input type="hidden" value="'.$exercice.'" name="dropSuppr">
                                         <input type="hidden" value="Exercice" name="typeSuppr">
-                                        <button type="submit">Supprimer</button>
+                                        <button type="submit">Suppr</button>
                                     </form>
                                     </div>
                                 </div>';
@@ -80,15 +79,13 @@ $db = new Db();?>
                     foreach ($items as $item):
                         echo '
                                 <div class="hidden itemNode red">
-                                    Item '.$item.'
+                                    Item '.$item['typeItem'].'
                                     <div class="buttonsForm">
-                                        <form>
-                                            <input type="hidden" value="'.$idTheme.'">
-                                            <button type="submit">Modifier</button>
-                                        </form>
-                                        <form>
-                                            <input type="hidden" value="'.$idTheme.'">
-                                            <button type="submit">Supprimer</button>
+                                    <div class="button red">Modifier</div>  
+                                        <form action="traitement/suppr.php" enctype="multipart/form-data" method="post">
+                                            <input type="hidden" value="'.$item['idItem'].'" name="dropSuppr">
+                                            <input type="hidden" value="Item" name="typeSuppr">
+                                            <button type="submit">Suppr</button>
                                         </form>
                                     </div>
                                     </div>';
@@ -102,7 +99,9 @@ $db = new Db();?>
                     </div>
                 </div>';
         endforeach;?>
+
     </div>
     <script src="js/arborescence.js"></script>
+    <script src="js/popup.js"></script>
 </body>
 </html>

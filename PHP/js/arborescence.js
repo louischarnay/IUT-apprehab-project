@@ -4,7 +4,8 @@ let arrayExercices = document.getElementsByClassName("exerciceDataBase");
 
 for (let i = 0; i < arrayCategories.length; i++) {
     arrayCategories[i].addEventListener("click", function() {
-        let children = this.parentElement.children
+        let children = this.parentElement.parentElement.parentElement.children
+        console.log(children)
         for (let cpt = 0; cpt < children.length; cpt++){
             if(children[cpt].classList.contains("themeNode")){
                 children[cpt].classList.toggle("hidden")
@@ -33,6 +34,8 @@ for (let i = 0; i < arrayExercices.length; i++){
         }
     })
 }
+
+
 
 
 
