@@ -187,15 +187,19 @@ class Db {
     public function getCategorieId(string $nom){
         $sth = $this->pdo->prepare("SELECT * FROM Categories WHERE nomCategorie= :nom");
         $sth->execute(["nom" => $nom]);
-        $result = $sth->fetch(PDO::FETCH_COLUMN, 0);
-        return $result;
+        return $sth->fetch(PDO::FETCH_COLUMN, 0);
     }
 
     public function getThemeId(string $nom){
         $sth = $this->pdo->prepare("SELECT * FROM Themes WHERE nomTheme= :nom");
         $sth->execute(["nom" => $nom]);
-        $result = $sth->fetch(PDO::FETCH_COLUMN, 0);
-        return $result;
+        return $sth->fetch(PDO::FETCH_COLUMN, 0);
+    }
+
+    public function getExerciceId(string $nom){
+        $sth = $this->pdo->prepare("SELECT * FROM Exercices WHERE nomExercice= :nom");
+        $sth->execute(["nom" => $nom]);
+        return $sth->fetch(PDO::FETCH_COLUMN, 0);
     }
 
     public function getThemesFromCategorie(string $idCategory){
@@ -209,6 +213,13 @@ class Db {
         $sth = $this->pdo->prepare("SELECT * FROM Exercices WHERE themeId= :idLesson");
         $sth->execute(["idLesson" => $idLesson]);
         $result = $sth->fetchAll(PDO::FETCH_COLUMN, 1);
+        return $result;
+    }
+
+    public function getItemsFromExercice(string $idExercice){
+        $sth = $this->pdo->prepare("SELECT * FROM Items WHERE exerciceId= :idExercice");
+        $sth->execute(["idExercice" => $idExercice]);
+        $result = $sth->fetchAll(PDO::FETCH_COLUMN, 2);
         return $result;
     }
 

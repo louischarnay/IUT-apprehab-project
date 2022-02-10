@@ -34,7 +34,6 @@ async function clearHistorique(){
 }
 
 const ChallengePage = ({navigation}) => {
-    clearHistorique()
     return (
         <View style={{flex: 1}}>
             <View style={{flex: 1}}>

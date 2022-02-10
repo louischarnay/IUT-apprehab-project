@@ -9,6 +9,7 @@
     box-sizing: border-box;
     font-family: Futura;
     --couleurPrincipale: #e9225e;
+    list-style: none;
 }
 h1{
     color: var(--couleurPrincipale);
@@ -68,9 +69,6 @@ input, select, textarea{
 .classThemeExercice{
     width: 48%;
 }
-.hidden{
-    display: none;
-}
 #divRadioAjout, #divRadioSuppr{
     display: flex;
     justify-content: space-evenly;
@@ -109,24 +107,17 @@ a{
     color: red;
 }
 
-.dataBase{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 .categorieDataBase{
     background-color: var(--couleurPrincipale);
     color: white;
-    padding: 10px;
     border-radius: 10px;
     border: 5px var(--couleurPrincipale) solid;
 }
 
-.themeDataBase{
+.themeDataBase, .exerciceDataBase, .itemNode{
     border: 5px var(--couleurPrincipale) solid;
     border-radius: 10px;
-    padding: 10px;
+    padding: 0 10px;
 }
 
 .divDataBase{
@@ -184,11 +175,35 @@ a{
     margin-right: 10px;
 }
 
+.categorieDataBase, .themeDataBase, .exerciceDataBase{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.itemNode{
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
 .categorieThemeExercice{
     display: flex;
     flex-direction: row;
     align-items: baseline;
     margin: 10px;
+}
+
+.buttonsForm{
+    display: flex;
+    flex-direction: row;
+    width: 50%;
 }
 
 .divButtons{
@@ -200,6 +215,54 @@ a{
     width: 45%;
 }
 
+
+.caret {
+    cursor: pointer;
+    user-select: none;
+}
+
+.nested {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.hidden{
+    display: none;
+}
+
+.blue{
+    border-color: darkblue;
+}
+.blue button{
+    border-color: darkblue;
+    background-color: darkblue;
+}
+.red{
+    border-color: red;
+}
+.red button{
+    border-color: red;
+    background-color: red;
+}
+.brown{
+    border-color: saddlebrown;
+}
+.brown button{
+    border-color: saddlebrown;
+    background-color: saddlebrown;
+}
+.buttonsForm form{
+    padding: 0;
+}
+.itemNode .buttonsForm{
+    width: 34%;
+}
+.categorieDataBase form{
+    width: 18%;
+}
 @media (max-width: 1000px) {
     .divThemeExercice{
         flex-direction: column;

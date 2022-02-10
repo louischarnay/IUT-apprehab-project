@@ -13,7 +13,6 @@ class ThemesPage extends React.Component{
         this.state = {
             data : props.route.params.DATA.DATA
         }
-        console.log(this.state.data)
     }
 
     filterThemes(data) {
