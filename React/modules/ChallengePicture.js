@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopRightRadius: 10,
     borderTopLeftRadius: 10,
-    marginTop: 10,
+    marginTop: 35,
   },
 
   im: {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginHorizontal: 5,
     maxWidth: Dimensions.get('window').width,
-    height: Dimensions.get('window').height-200,
+    height: Dimensions.get('window').height-230,
   },
 
 });
