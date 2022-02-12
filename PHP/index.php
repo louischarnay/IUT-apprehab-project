@@ -152,10 +152,6 @@ $db = new Db();?>
                     <label for="motRadio" class="widthNormal">Mot</label>
                 </div>
                 <div class="classRadio">
-                    <input type="radio" name="typeSuppr" id="categorieRadio" value="Categorie" class="widthNormal" required="required">
-                    <label for="categorieRadio" class="widthNormal">Catégorie</label>
-                </div>
-                <div class="classRadio">
                     <input type="radio" name="typeSuppr" id="themeRadio" value="Theme" class="widthNormal" required="required">
                     <label for="themeRadio" class="widthNormal">Thème</label>
                 </div>
@@ -167,10 +163,6 @@ $db = new Db();?>
             <label for="dropSuppr">Supprimer</label>
             <select name="dropSuppr" id="dropSuppr" class="widthNormal" required="required">
                 <?php $db = new Db();
-                $result = $db->getCategories();
-                foreach ($result as $value):?>
-                    <option value="<?php echo $value?>"><?php echo $value?></option>
-                <?php endforeach;
                 $result = $db->getThemes();
                 foreach ($result as $value):?>
                     <option value="<?php echo $value?>"><?php echo $value?></option>
@@ -188,7 +180,6 @@ $db = new Db();?>
         </form>
     </fieldset>
     </div>
-
     <script src="js/script.js"></script>
 </body>
 </html>

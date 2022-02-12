@@ -9,11 +9,11 @@ switch ($_POST["typeSuppr"]){
     case "Theme":
         $_SESSION["message"] = $db->deleteTheme($_POST["dropSuppr"]);
         break;
-    case "Categorie":
-        $_SESSION["message"] = $db->deleteCategorie($_POST["dropSuppr"]);
-        break;
     case  "Mot":
         $_SESSION["message"] = $db->deleteMot($_POST["dropSuppr"]);
         break;
+    case "Item":
+        $_SESSION["message"] = $db->deleteItem($_POST["dropSuppr"]);
+        break;
 }
-header("Location: ../index.php");
+header("Location: ../viewDatabase.php");

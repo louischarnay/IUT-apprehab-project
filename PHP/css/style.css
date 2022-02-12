@@ -9,6 +9,7 @@
     box-sizing: border-box;
     font-family: Futura;
     --couleurPrincipale: #e9225e;
+    list-style: none;
 }
 h1{
     color: var(--couleurPrincipale);
@@ -20,7 +21,7 @@ main{
     min-height: 100vh;
     flex-direction: column;
     padding: 0 50px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 form{
     display: flex;
@@ -29,7 +30,7 @@ form{
     width: 100%;
 }
 input, button, select, textarea, a{
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin: 10px;
 }
 label{
@@ -68,9 +69,6 @@ input, select, textarea{
 .classThemeExercice{
     width: 48%;
 }
-.hidden{
-    display: none;
-}
 #divRadioAjout, #divRadioSuppr{
     display: flex;
     justify-content: space-evenly;
@@ -90,6 +88,7 @@ button, a{
     border: var(--couleurPrincipale) 5px solid;
     color: white;
     border-radius: 10px;
+    width: 100%;
 }
 
 a{
@@ -109,24 +108,25 @@ a{
     color: red;
 }
 
-.dataBase{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.categorieDataBase{
+    margin-right: 10px;
+}
+.btAddTheme{
+    width: 105px;
 }
 
-.categorieDataBase{
+.categorieDataBase, .btAddTheme{
     background-color: var(--couleurPrincipale);
     color: white;
-    padding: 10px;
     border-radius: 10px;
+    padding: 5px;
     border: 5px var(--couleurPrincipale) solid;
 }
 
-.themeDataBase{
-    border: 5px var(--couleurPrincipale) solid;
+.themeDataBase, .exerciceDataBase, .itemNode{
+    border-bottom: 5px var(--couleurPrincipale) solid;
     border-radius: 10px;
-    padding: 10px;
+    padding: 0 10px;
 }
 
 .divDataBase{
@@ -184,11 +184,50 @@ a{
     margin-right: 10px;
 }
 
+.categorieDataBase, .themeDataBase, .exerciceDataBase{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 1s;
+}
+
+.themeDataBase{
+    margin-left: 5%;
+}
+
+.exerciceDataBase{
+    margin-left: 10%;
+}
+
+.itemNode{
+    margin-left: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
 .categorieThemeExercice{
     display: flex;
     flex-direction: row;
     align-items: baseline;
     margin: 10px;
+}
+
+.divDataBaseButton{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttonsForm{
+    display: flex;
+    flex-direction: row;
+    width: 350px;
 }
 
 .divButtons{
@@ -200,6 +239,104 @@ a{
     width: 45%;
 }
 
+
+.caret {
+    cursor: pointer;
+    user-select: none;
+}
+
+.nested {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.hidden{
+    display: none;
+}
+
+.blue{
+    border-color: cadetblue;
+}
+.blue button, .blue .button{
+    border-color: cadetblue;
+    background-color: cadetblue;
+}
+.red{
+    border-color: rebeccapurple;
+}
+.red button, .red .button{
+    border-color: rebeccapurple;
+    background-color: rebeccapurple;
+}
+.brown{
+    border-color: mediumseagreen;
+}
+.brown button, .brown .button{
+    border-color: mediumseagreen;
+    background-color: mediumseagreen;
+}
+.buttonsForm form{
+    padding: 0;
+}
+.itemNode .buttonsForm{
+    width: 225px;
+}
+.categorieDataBase form{
+    width: 11%;
+}
+.categoryNode{
+    width: 100%;
+}
+.button{
+    width: 100%;
+    border: 5px solid;
+    color: white;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.modalAddTheme {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.btCloseAddTheme{
+    color: red;
+    margin-top: -20px;
+    float: right;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.btAddTheme{
+
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
 @media (max-width: 1000px) {
     .divThemeExercice{
         flex-direction: column;
