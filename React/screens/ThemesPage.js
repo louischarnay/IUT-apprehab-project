@@ -1,8 +1,7 @@
 import React from 'react';
-import {Button, StyleSheet, TextInput, View, StatusBar} from 'react-native';
+import {Button, StyleSheet, TextInput, View, StatusBar, Image, Dimensions, KeyboardAvoidingView} from 'react-native';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
-
 class ThemesPage extends React.Component{
     constructor(props) {
         super(props);
@@ -43,15 +42,20 @@ class ThemesPage extends React.Component{
     }
     render() {
         return (
+            
             <View style={{flex: 1}}>
                 <View style={styles.main_container}>
                     <TextInput style={styles.textinput} onChangeText={(text) => {
                         this.updateSearchedText(text)
                     }}/>
                     <Button style={styles.button} color={this.color} title='Rechercher' onPress={() => this.filterThemes(this.state.data)}/>
-                    <Button style={styles.button} color={this.color} title='Effacer' onPress={() => this.resetFilters()}/>
+                    <Image
+                        style={styles.cross}
+                        source={require('../assets/icones/cross.png')}
+                        onStartShouldSetResponder={() => {this.resetFilters()}}
+                    />
                 </View>
-                <View style={{flex: 5}}>
+                <View style={{flex: 5, marginTop: -50}}>
                     <ItemList navigation={this.navigation} DATA={this.state.data} color={this.color}/>
                 </View>
                 <View style={{flex: 1}}>
@@ -74,6 +78,12 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         paddingLeft: 5
     },
+    cross: {
+        width: 35,
+        height: 35,
+        marginTop: -80,
+        marginLeft: Dimensions.get('window').width - 50
+    }
 })
 
 export default ThemesPage;
