@@ -1,25 +1,56 @@
 import React from 'react';
 import { SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Vibration } from 'react-native';
 
-var ROW = [
-  {
-    id: '01',
-    title: 'Challenge',
-    icon: require('../assets/icones/challenge.png'),
-    link: 'Challenge',
-  },
-  {
-    id: '02',
-    title: 'Accueil',
-    icon: require('../assets/icones/accueil.png'),
-    link: 'MainPage',
-  },
-  {
-    id: '03',
-    title:'Profile',
-    icon: require('../assets/icones/profil.png'),
-    link: 'Profile',
-  }]
+var ROW = []
+
+function checkRoot(params) {
+  if (params == 'ProfilePage') {
+    ROW = []
+    ROW = [
+      {
+        id: '01',
+        title: 'Challenge',
+        icon: require('../assets/icones/challenge.png'),
+        link: 'Challenge',
+      },
+      {
+        id: '02',
+        title: 'Accueil',
+        icon: require('../assets/icones/accueil.png'),
+        link: 'MainPage',
+      },
+      {
+        id: '03',
+        title:'Profile',
+        icon: require('../assets/icones/profil.png'),
+        link: 'ProfilePage',
+      }
+    ]
+  }
+  if (params == 'MainPage') {
+    ROW = []
+    ROW = [
+      {
+        id: '01',
+        title: 'Challenge',
+        icon: require('../assets/icones/challenge.png'),
+        link: 'Challenge',
+      },
+      {
+        id: '02',
+        title: 'Accueil',
+        icon: require('../assets/icones/accueil.png'),
+        link: 'MainPage',
+      },
+      {
+        id: '03',
+        title:'Profile',
+        icon: require('../assets/icones/profil.png'),
+        link: 'Profile',
+      }
+    ]
+  }
+}
 
 const Item = (item) => (
   <View style={styles.item} onStartShouldSetResponder={() => {Vibration.vibrate(VibrationTime), item.nav.navigate(item.link, {routeName:item.route})}}>
@@ -31,6 +62,7 @@ const Item = (item) => (
 );
 
 const NavigBar = (params) => {
+  checkRoot(params.root)
   const renderItem = ({ item }) => (
     <Item icon={item.icon} nav={params.navigation} route={params.route} link={item.link}/>
   );

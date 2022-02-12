@@ -15,7 +15,7 @@ const MainPage = ({navigation}) => {
                 <Categories navigation={navigation}/>
             </View>
             <View style={{flex: 1}}>
-                <NavigBar navigation={navigation}/>
+                <NavigBar navigation={navigation} root={'MainPage'}/>
             </View>
         </View>
     );

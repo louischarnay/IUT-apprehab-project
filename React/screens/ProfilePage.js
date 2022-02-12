@@ -91,7 +91,7 @@ const ProfilePage = ({navigation}) => {
         <ItemList navigation={navigation} DATA={DATA} color= {mainColor}/>
       </View>
       <View style={{flex: 1}}>
-        <NavigBar navigation={navigation}/>
+        <NavigBar navigation={navigation} root={'ProfilePage'}/>
       </View>
     </View>
   );
