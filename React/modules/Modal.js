@@ -90,6 +90,7 @@ import CommentTextInput from '../modules/CommentSection';
       textAlign: "center"
     },
     modalText: {
+      marginTop:15,
       marginBottom: 15,
       textAlign: "center"
     },
