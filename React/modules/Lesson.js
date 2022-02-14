@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text } from 'react-native';
+import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking } from 'react-native';
 import App from '../modules/Modal';
 import Modal from '../modules/Modal';
 
