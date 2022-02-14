@@ -20,6 +20,12 @@ import CommentTextInput from '../modules/CommentSection';
         >
           <View style={styles.centeredView}>
             <View style={styles.modalView}>
+              <Pressable onPress={()=>setModalVisible(!modalVisible)}>
+                <Image source={require('../assets/icones/cross.png')}
+                        style={styles.cross}
+                />
+                
+              </Pressable>
               <Text style={styles.modalText}>Exercice terminé ! Bien joué !</Text>
               <Myapp/>
               <CommentTextInput/>
@@ -50,10 +56,10 @@ import CommentTextInput from '../modules/CommentSection';
       marginTop: 22
     },
     modalView: {
-      margin: 15,
+      margin: 10,
       backgroundColor: "white",
       borderRadius: 20,
-      padding: 35,
+      padding: 30,
       alignItems: "center",
       shadowColor: "#000",
       shadowOffset: {
@@ -86,7 +92,13 @@ import CommentTextInput from '../modules/CommentSection';
     modalText: {
       marginBottom: 15,
       textAlign: "center"
-    }
+    },
+    cross: {
+      width: 30,
+      height: 30,
+      marginLeft:200,
+      marginTop:-5
+  }
   });
   
   export default App;
