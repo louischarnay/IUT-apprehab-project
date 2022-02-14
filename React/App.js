@@ -27,6 +27,7 @@ async function initGlobals(){
     }catch (e){}
     global.AmountExercicesEndedMonth = Number(tmp)
     global.AmountExercicesEndedMonth = 0
+    global.VibrationOn = true
     global.VibrationTime = 5
 }
 
