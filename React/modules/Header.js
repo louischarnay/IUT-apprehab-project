@@ -1,11 +1,11 @@
 import React from "react"
-import { View, StyleSheet, Dimensions, Image, StatusBar } from 'react-native';
+import { View, StyleSheet, Dimensions, Image, StatusBar, SafeAreaView } from 'react-native';
 
 const Header = () =>{
     return (
-        <View style={{flex: 1}}> 
+        <SafeAreaView style={{flex: 1}}> 
             <Image style={styles.imgBanner} source={require('../assets/pictures/banner.png')}></Image>
-        </View>
+        </SafeAreaView>
     );
 };
 

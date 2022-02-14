@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, StyleSheet, TextInput, View, StatusBar, Image, Dimensions, KeyboardAvoidingView} from 'react-native';
+import {Button, StyleSheet, TextInput, View, StatusBar, Image, Dimensions, Platform} from 'react-native';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
 class ThemesPage extends React.Component{
@@ -43,7 +43,6 @@ class ThemesPage extends React.Component{
     }
     render() {
         return (
-            
             <View style={{flex: 1}}>
                 <View style={styles.main_container}>
                     <TextInput style={styles.textinput} onChangeText={(text) => {
@@ -67,24 +66,47 @@ class ThemesPage extends React.Component{
     }
 }
 
-const styles = StyleSheet.create({
-    main_container: {
-        flex: 1,
-        marginTop: StatusBar.currentHeight
+const styleSheetByPlatform = Platform.select({
+    ios: {
+        main_container: {
+            flex: 1,
+            marginTop: StatusBar.currentHeight + 40
+        },
+        textinput: {
+            marginLeft: 5,
+            marginRight: 5,
+            height: 50,
+            borderWidth: 1,
+            paddingLeft: 5
+        },
+        cross: {
+            width: 35,
+            height: 35,
+            marginTop: -80,
+            marginLeft: Dimensions.get('window').width - 50
+        }
     },
-    textinput: {
-        marginLeft: 5,
-        marginRight: 5,
-        height: 50,
-        borderWidth: 1,
-        paddingLeft: 5
-    },
-    cross: {
-        width: 35,
-        height: 35,
-        marginTop: -80,
-        marginLeft: Dimensions.get('window').width - 50
+    android: {
+        main_container: {
+            flex: 1,
+            marginTop: StatusBar.currentHeight
+        },
+        textinput: {
+            marginLeft: 5,
+            marginRight: 5,
+            height: 50,
+            borderWidth: 1,
+            paddingLeft: 5
+        },
+        cross: {
+            width: 35,
+            height: 35,
+            marginTop: -80,
+            marginLeft: Dimensions.get('window').width - 50
+        }
     }
-})
+  });
+
+const styles = StyleSheet.create(styleSheetByPlatform)
 
 export default ThemesPage;

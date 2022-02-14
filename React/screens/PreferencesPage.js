@@ -1,6 +1,7 @@
 import React from 'react';
 import NavigBar from '../modules/NavigBar';
 import ClearHistorique from '../modules/ClearHistorique'
+import ControlVibrations from '../modules/ControlVibrations'
 import { View } from 'react-native';
 
 const PreferencesPage = ({route, navigation}) => {

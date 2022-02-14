@@ -103,13 +103,13 @@ async function navigation(params){
 };
 
 const Item = (item) => (
-  <View style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => {Vibration.vibrate(VibrationTime), navigation(item)}}>
+  <SafeAreaView style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => {Vibration.vibrate(VibrationTime), navigation(item)}}>
     <Image
       style={styles.icon}
       source={item.icon}  
     />
     <Text style={styles.title}>{item.title}</Text>
-  </View>
+  </SafeAreaView>
 );
 
 const Categories = ({navigation}) => {
@@ -140,33 +140,65 @@ const Categories = ({navigation}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 20,
+const styleByPlatform = Platform.select({
+  ios: {
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 20,
+    },
+    item: {
+      flex: 1,
+      width: Dimensions.get('window').height/5.1,
+      height: Dimensions.get('window').height/5.1,
+      marginHorizontal: Dimensions.get('window').width/25,
+      marginVertical : Dimensions.get('window').height/35,
+      borderRadius: 10,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    title: {
+      fontSize: Dimensions.get('window').width/22,
+      fontWeight: 'bold',
+      color: 'white',
+    },
+    icon: {
+      width: Dimensions.get('window').width/2.5,
+      height: Dimensions.get('window').width/2.5,
+      margin: -20,
+    },
   },
-  item: {
-    flex: 1,
-    width: Dimensions.get('window').height/4.7,
-    height: Dimensions.get('window').height/4.7,
-    marginHorizontal: Dimensions.get('window').width/25,
-    marginVertical : Dimensions.get('window').height/35,
-    borderRadius: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: Dimensions.get('window').width/24,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-  icon: {
-    width: Dimensions.get('window').width/2.5,
-    height: Dimensions.get('window').width/2.5,
-    margin: -20,
-  },
+  android: {
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 20,
+    },
+    item: {
+      flex: 1,
+      width: Dimensions.get('window').height/4.7,
+      height: Dimensions.get('window').height/4.7,
+      marginHorizontal: Dimensions.get('window').width/25,
+      marginVertical : Dimensions.get('window').height/35,
+      borderRadius: 10,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    title: {
+      fontSize: Dimensions.get('window').width/24,
+      fontWeight: 'bold',
+      color: 'white',
+    },
+    icon: {
+      width: Dimensions.get('window').width/2.5,
+      height: Dimensions.get('window').width/2.5,
+      margin: -20,
+    },
+  }
 });
+
+const styles = StyleSheet.create(styleByPlatform);
 
 export default Categories;
