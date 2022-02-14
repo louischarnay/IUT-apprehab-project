@@ -28,73 +28,101 @@ $db = new Db();?>
                         </div>
                         <div class="btAddTheme">Ajouter</div>
                         <div class="modalAddTheme">
-                            <div class="modal-content">
+                            <div class="modal-content mainColor">
                                 <div class="btCloseAddTheme">x</div>
-                                <p>Ajouter un thème dans la catégorie ' .$category.'</p>
+                                <p class="titleModal">Ajouter un thème dans la catégorie ' .$category.'</p>
                                 <form action="traitement/ajoutTheme.php" enctype="multipart/form-data" method="post">
-                                    <label for="titreTheme">Titre</label>
-                                    <input type="text" name="titreTheme">
+                                    <div class="divInputLabel">
+                                        <label for="titreTheme">Titre</label>
+                                        <input type="text" name="titreTheme">
+                                    </div>
                                     <input type="hidden" name="dropCategorie" value="'.$category.'">
-                                    <button type="submit">Ajouter</button>
+                                    <button class="mainColor" type="submit">Ajouter</button>
                                 </form>
                             </div>
                         </div>
                     </div>';
             $idCategory = $db->getCategorieId($category);
             $themes = $db->getThemesFromCategorie($idCategory);
-            foreach ($themes as $theme):
-                $idTheme = $db->getThemeId($theme);
-                $exercices = $db->getExerciceFromTheme($idTheme);
-                echo '
-                        <div class="hidden themeNode">
-                            <div class="themeDataBase brown">
-                                Thème '.$theme.'
-                                <div class="buttonsForm">
-                                    <div class="button brown">Ajouter</div>
-                                    <div class="button brown">Modifier</div>
-                                    <form action="traitement/suppr.php" enctype="application/x-www-form-urlencoded" method="post">
-                                        <input type="hidden" value="'.$theme.'" name="dropSuppr">
-                                        <input type="hidden" value="Theme" name="typeSuppr">
-                                        <button type="submit">Suppr</button>
-                                    </form>
-                                </div>
-                        </div>';
-                foreach ($exercices as $exercice):
+            if(sizeof($themes) > 0) {
+                foreach ($themes as $theme):
+                    $idTheme = $db->getThemeId($theme);
+                    $exercices = $db->getExerciceFromTheme($idTheme);
                     echo '
-                            <div class="hidden exerciceNode">
-                                <div class="exerciceDataBase blue">
-                                    Exercice '.$exercice.'
+                            <div class="hidden themeNode">
+                                <div class="themeDataBase brown">
+                                    Thème ' . $theme . '
                                     <div class="buttonsForm">
-                                    <div class="button blue">Ajouter</div>
-                                    <div class="button blue">Modifier</div>
-                                    <form action="traitement/suppr.php" enctype="multipart/form-data" method="post">
-                                        <input type="hidden" value="'.$exercice.'" name="dropSuppr">
-                                        <input type="hidden" value="Exercice" name="typeSuppr">
-                                        <button type="submit">Suppr</button>
-                                    </form>
+                                        <div class="button">Ajouter</div>
+                                        <div class="button">Modifier</div>
+                                        <div class="button">Suppr</div>
                                     </div>
-                                </div>';
-                    $idExercice = $db->getExerciceId($exercice);
-                    $items = $db->getItemsFromExercice($idExercice);
-                    foreach ($items as $item):
-                        echo '
-                                <div class="hidden itemNode red">
-                                    Item '.$item['typeItem'].'
-                                    <div class="buttonsForm">
-                                    <div class="button red">Modifier</div>  
-                                        <form action="traitement/suppr.php" enctype="multipart/form-data" method="post">
-                                            <input type="hidden" value="'.$item['idItem'].'" name="dropSuppr">
-                                            <input type="hidden" value="Item" name="typeSuppr">
-                                            <button type="submit">Suppr</button>
-                                        </form>
-                                    </div>
+                            </div>';
+                    if(sizeof($exercices) > 0){
+                        foreach ($exercices as $exercice):
+                            echo '
+                                <div class="hidden exerciceNode">
+                                    <div class="exerciceDataBase blue">
+                                        Exercice ' . $exercice . '
+                                        <div class="buttonsForm">
+                                        <div class="button">Ajouter</div>
+                                        <div class="button">Modifier</div>
+                                        <div class="button">Suppr</div>
+                                        </div>
                                     </div>';
-                    endforeach;
-                    echo '</div>';
+                            $idExercice = $db->getExerciceId($exercice);
+                            $items = $db->getItemsFromExercice($idExercice);
+                            if(sizeof($items) > 0){
+                            foreach ($items as $item):
+                                echo '
+                                    <div class="hidden itemNode red">
+                                        Item ' . $item['typeItem'] . '
+                                        <div class="buttonsForm">
+                                            <div class="button">Modifier</div> 
+                                            <div class="button">Suppr</div> 
+                                        </div>
+                                    </div>';
+                            endforeach;
+                            } else{
+                                echo '
+                                    <div class="hidden itemNode grey">
+                                        Aucun item
+                                        <div class="buttonsForm">
+                                            <div class="button">Modifier</div> 
+                                            <div class="button">Suppr</div> 
+                                        </div>
+                                    </div>';
+                            }
+                            echo '
+                                </div>';
+                        endforeach;
+                    } else{
+                    echo '<div class="hidden exerciceNode">
+                            <div class="exerciceDataBase grey">
+                                    Aucun exercice
+                                <div class="buttonsForm">
+                                    <div class="button">Ajouter</div>
+                                    <div class="button">Modifier</div>
+                                    <div class="button">Suppr</div>
+                                </div>
+                            </div>
+                      </div>';
+                    }
+                        echo '
+                            </div>';
                 endforeach;
-                echo '
-                        </div>';
-            endforeach;
+            } else{
+                echo '<div class="hidden themeNode">
+                            <div class="themeDataBase grey">
+                                    Aucun thème
+                                <div class="buttonsForm">
+                                    <div class="button">Ajouter</div>
+                                    <div class="button">Modifier</div>
+                                    <div class="button">Suppr</div>
+                                </div>
+                            </div>
+                      </div>';
+            }
             echo'
                     </div>
                 </div>';
