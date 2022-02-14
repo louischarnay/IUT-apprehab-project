@@ -1,5 +1,5 @@
 import React from "react"
-import { View, StyleSheet, Dimensions, Image } from 'react-native';
+import { View, StyleSheet, Dimensions, Image, StatusBar } from 'react-native';
 
 const Header = () =>{
     return (
@@ -11,8 +11,9 @@ const Header = () =>{
 
 const styles = StyleSheet.create({
     imgBanner: {
-        width: Dimensions.get('window').width,
-        height: 120,
+        marginTop: StatusBar.currentHeight - 10,
+        maxWidth: Dimensions.get('window').width,
+        maxHeight: Dimensions.get('window').height / 7.5,
         justifyContent: 'center',
         alignItems: "center",
     },

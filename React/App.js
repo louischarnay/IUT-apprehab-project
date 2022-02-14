@@ -40,7 +40,7 @@ async function initHistorique(){
     }
 }
 
-global.mainColor = '#8dd7cf';
+global.mainColor = '#88bd28';
 const getAllDataFromApi = async () => {
     //AsyncStorage.clear();
     const response = await fetch('https://apprehab.000webhostapp.com/api/api.json' + '?' + new Date());
