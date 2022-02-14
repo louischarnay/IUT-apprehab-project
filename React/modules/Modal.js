@@ -50,7 +50,7 @@ import CommentTextInput from '../modules/CommentSection';
       marginTop: 22
     },
     modalView: {
-      margin: 20,
+      margin: 15,
       backgroundColor: "white",
       borderRadius: 20,
       padding: 35,
@@ -70,7 +70,10 @@ import CommentTextInput from '../modules/CommentSection';
       elevation: 2
     },
     buttonOpen: {
-      backgroundColor: "#F194FF",
+      marginTop:200,
+      backgroundColor: "#88bd28",
+      width: Dimensions.get('window').width/2,
+      height: Dimensions.get('window').width/8
     },
     buttonClose: {
       backgroundColor: "#2196F3",

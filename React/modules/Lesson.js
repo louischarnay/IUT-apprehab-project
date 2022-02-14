@@ -2,7 +2,7 @@
 import React from 'react';
 import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text } from 'react-native';
 import App from '../modules/Modal';
-import Modal from '../modules/Modal';
+
 
 
 
@@ -37,22 +37,42 @@ const ItemImage = (item) => (
   </View>
 )
 
+ function FinExo(params){
+  var isExo=false;
+if(params.color!=='#88bd28'){
+   isExo=true
+  }
+  else if(params.color=='#88bd28'){
+   
+  isExo=false
+  }
+
+  if(isExo==true)
+   return <App/>
+
+   return isExo
+}
+
+
 
 const Lesson = (params) => {
+  
   const renderItem =({item}) => (
     printObject(item)    
   );
   
+  
   return(
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} >
       
       <FlatList
         data={params.content[0].content}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
-    
-        <App/>
+      <FinExo color={params.color}/>
+        
+
       
     </SafeAreaView>
     
@@ -115,10 +135,8 @@ const styles = StyleSheet.create({
 
   buttonOpen: {
     backgroundColor: "#F194FF",
-  },
-  modalView: {
-    
   }
+ 
 });
   
 export default Lesson;
