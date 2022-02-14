@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking } from 'react-native';
+import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform} from 'react-native';
 import App from '../modules/Modal';
 
 
@@ -79,35 +79,65 @@ const Lesson = (params) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  data: {
-    marginHorizontal: 15,
-    fontSize: 20,
-    textAlign: 'justify',
-  },
-  im: {
-    maxWidth: Dimensions.get('window').width,
-    height: Dimensions.get('window').height/3
-  },
+const styleByPlatform = Platform.select({
+  ios: {
+    container: {
+      flex: 1,
+    },
+    data: {
+      marginHorizontal: 15,
+      fontSize: 20,
+      textAlign: 'justify',
+    },
+    im: {
+      maxWidth: Dimensions.get('window').width,
+      height: Dimensions.get('window').height/3
+    },
+    
+    textStyle: {
+      color: "white",
+      fontWeight: "bold",
+      textAlign: "center"
+    },
   
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
+    url: {
+      color: 'blue',
+      marginHorizontal: 15,
+      fontSize: 20,
+      textAlign: 'justify',
+      textDecorationLine: 'underline'
+    },
   },
-
-  url: {
-    color: 'blue',
-    marginHorizontal: 15,
-    fontSize: 20,
-    textAlign: 'justify',
-    textDecorationLine: 'underline'
-  },
-
- 
+  android: {
+    container: {
+      flex: 1,
+    },
+    data: {
+      marginHorizontal: 15,
+      fontSize: 20,
+      textAlign: 'justify',
+    },
+    im: {
+      maxWidth: Dimensions.get('window').width,
+      height: Dimensions.get('window').height/3
+    },
+    
+    textStyle: {
+      color: "white",
+      fontWeight: "bold",
+      textAlign: "center"
+    },
+  
+    url: {
+      color: 'blue',
+      marginHorizontal: 15,
+      fontSize: 20,
+      textAlign: 'justify',
+      textDecorationLine: 'underline'
+    },
+  }
 });
+
+const styles = StyleSheet.create(styleByPlatform);
   
 export default Lesson;

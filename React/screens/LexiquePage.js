@@ -1,7 +1,7 @@
 import React from 'react';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
-import { View, StyleSheet, Button, TextInput, StatusBar} from 'react-native';
+import { View, StyleSheet, Button, TextInput, StatusBar, Platform} from 'react-native';
 
 const LexiquePage = ({route, navigation}) => {
   const DATA = route.params;
@@ -22,18 +22,35 @@ const LexiquePage = ({route, navigation}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  main_container: {
+const styleByPlatform = Platform.select({
+  ios: {
+    main_container: {
+      flex: 1,
+      marginTop: StatusBar.currentHeight + 40
+    },
+    textinput: {
+        marginLeft: 5,
+        marginRight: 5,
+        height: 50,
+        borderWidth: 1,
+        paddingLeft: 5
+    },
+  },
+  android: {
+    main_container: {
       flex: 1,
       marginTop: StatusBar.currentHeight
-  },
-  textinput: {
-      marginLeft: 5,
-      marginRight: 5,
-      height: 50,
-      borderWidth: 1,
-      paddingLeft: 5
-  },
-})
+    },
+    textinput: {
+        marginLeft: 5,
+        marginRight: 5,
+        height: 50,
+        borderWidth: 1,
+        paddingLeft: 5
+    },
+  }
+});
+
+const styles = StyleSheet.create(styleByPlatform)
 
 export default LexiquePage;
