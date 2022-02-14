@@ -38,7 +38,6 @@ label{
     margin: 10px 0 10px 10px;
 }
 input, select, textarea{
-    width: 80%;
     margin: 10px;
 }
 .widthNormal{
@@ -65,6 +64,11 @@ input, select, textarea{
 .divThemeExercice{
     display: flex;
     justify-content: space-between;
+    margin: 30px 10px;
+}
+.textAreaInput{
+    height: 65px;
+    resize: none;
 }
 .classThemeExercice{
     width: 48%;
@@ -88,7 +92,7 @@ button, a{
     border: var(--couleurPrincipale) 5px solid;
     color: white;
     border-radius: 10px;
-    width: 100%;
+    cursor: pointer;
 }
 
 a{
@@ -106,15 +110,14 @@ a{
 
 #erreur{
     color: red;
-}
-
-.categorieDataBase{
-    margin-right: 10px;
+    text-align: center;
 }
 .btAddTheme{
     width: 105px;
 }
-
+.messageCommentaire{
+    width: 85%;
+}
 .categorieDataBase, .btAddTheme{
     background-color: var(--couleurPrincipale);
     color: white;
@@ -132,12 +135,13 @@ a{
 .divDataBase{
     cursor: pointer;
     padding: 10px;
-    margin: 10px;
+    margin: 30px 10px;
     text-align: center;
 }
 
 .h1DataBase{
     text-align: center;
+    width: 20%;
 }
 
 .h1Button{
@@ -145,11 +149,25 @@ a{
     padding: 10px;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
 }
 
 .buttonsDataBase{
     display: flex;
-    width: 700px;
+    width: 80%;
+}
+
+.buttonAdd{
+    cursor: pointer;
+    width: 80%;
+    color: white;
+    background-color: var(--couleurPrincipale);
+    border-radius: 10px;
+    border: 10px var(--couleurPrincipale) solid;
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
 .divCommentaire{
@@ -169,7 +187,7 @@ a{
 }
 
 .commentaire{
-    width: 70%;
+    width: 60%;
     align-items: baseline;
     float: right;
     display: flex;
@@ -183,6 +201,12 @@ a{
     border-radius: 10px;
     padding: 10px;
     margin-right: 10px;
+}
+
+.date{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .categorieDataBase, .themeDataBase, .exerciceDataBase{
@@ -212,11 +236,18 @@ a{
 
 .categorieThemeExercice{
     display: flex;
+    width: 25%;
     flex-direction: row;
     align-items: baseline;
     margin: 10px;
 }
-
+.mot{
+    color: white;
+    background-color: var(--couleurPrincipale);
+    border: 10px solid var(--couleurPrincipale);
+    border-radius: 10px;
+    margin: 10px;
+}
 .divDataBaseButton{
     display: flex;
     flex-direction: row;
@@ -228,7 +259,7 @@ a{
 .buttonsForm{
     display: flex;
     flex-direction: row;
-    width: 350px;
+    width: 110px;
 }
 
 .divButtons{
@@ -260,34 +291,24 @@ a{
     border-color: chocolate;
     text-decoration-color: chocolate;
 }
-.blue button, .blue .button{
-    border-color: chocolate;
-    background-color: chocolate;
-}
 .grey, .grey .titleModal{
      border-color: slategrey;
      text-decoration-color: slategrey;
     cursor: default;
  }
-.grey button, .grey .button{
-    border-color: slategrey;
-    background-color: slategrey;
-}
 .red, .red .titleModal{
     border-color: rebeccapurple;
     text-decoration-color: rebeccapurple;
-}
-.red button, .red .button, .red p{
-    border-color: rebeccapurple;
-    background-color: rebeccapurple;
 }
 .mainColor, .mainColor .titleModal{
     border-color: var(--couleurPrincipale);
     text-decoration-color: var(--couleurPrincipale);
 }
+.noBorder{
+    border: none;
+}
 .mainColor button, .mainColor .button{
-     border-color: var(--couleurPrincipale);
-     background-color: var(--couleurPrincipale);
+    text-align: center;
  }
 .mainColor .btCloseAddTheme{
     color: var(--couleurPrincipale);
@@ -296,15 +317,8 @@ a{
     border-color: mediumseagreen;
     text-decoration-color: mediumseagreen;
 }
-.brown button, .brown .button{
-    border-color: mediumseagreen;
-    background-color: mediumseagreen;
-}
 .buttonsForm form{
     padding: 0;
-}
-.itemNode .buttonsForm{
-    width: 225px;
 }
 .categorieDataBase form{
     width: 11%;
@@ -313,7 +327,7 @@ a{
     width: 100%;
 }
 .button{
-    width: 100%;
+    cursor: pointer;
     border: 5px solid;
     color: white;
     border-radius: 10px;
@@ -353,6 +367,13 @@ a{
     text-decoration-line: underline;
     margin: 10px;
     font-size: 1.2rem;
+}
+.unAllowed{
+    cursor: not-allowed;
+}
+img{
+    width: 25px;
+    height: 25px;
 }
 
 @media (max-width: 1000px) {

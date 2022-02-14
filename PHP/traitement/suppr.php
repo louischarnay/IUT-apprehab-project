@@ -16,4 +16,4 @@ switch ($_POST["typeSuppr"]){
         $_SESSION["message"] = $db->deleteItem($_POST["dropSuppr"]);
         break;
 }
-header("Location: ../viewDatabase.php");
+header("Location: ../index.php");

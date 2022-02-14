@@ -233,7 +233,7 @@ class Db {
     }
 
     public function getAllCommentaires(){
-        $sth = $this->pdo->prepare("SELECT commentaire, note, exerciceId FROM Commentaires");
+        $sth = $this->pdo->prepare("SELECT * FROM Commentaires");
         $sth->execute();
         return $sth->fetchAll();
     }

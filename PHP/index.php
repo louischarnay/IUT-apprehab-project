@@ -3,183 +3,150 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>DashBoard | Base de données</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
 <?php include "class/Db.php";
 $db = new Db();?>
 <body>
-<main>
-    <div class="divThemeExercice">
-        <div class="classThemeExercice divUn">
-            <h1>DashBoard App la Rehab</h1>
-            <div class="divButtons">
-                <a href="viewRates.php">Voir les commmentaires</a>
-                <a href="viewDatabase.php">Voir la base de données</a>
-                <a href="viewLexique.php">Voir le lexique</a>
-                <a href="api.php">Envoyer la notification</a>
-            </div>
-            <p id="erreur"><?php if(isset($_SESSION["message"])){
-                echo $_SESSION["message"];
-                }?></p>
-        </div>
-        <fieldset class="classThemeExercice">
-            <legend>Ajout Lexique</legend>
-            <form action="traitement/ajoutMot.php" method="post" enctype="multipart/form-data">
-                <div class="divInputLabel">
-                    <label for="titreMot">Mot</label>
-                    <input type="text" name="titreMot" id="titreMot" required="required">
-                </div>
-                <div class="divInputLabel">
-                    <label for="dropExercice">Définition</label>
-                    <textarea name="textDef"></textarea>
-                </div>
-                <button type="submit">Ajouter Mot</button>
-            </form>
-        </fieldset>
+<div class="h1Button">
+    <h1 class="h1DataBase">Dashboard</h1>
+    <div class="buttonsDataBase">
+        <a href="api.php">Mettre à jour l'app</a>
+        <a href="viewLexique.php">Voir le lexique</a>
+        <a href="viewRates.php">Voir les commentaires</a>
     </div>
-    <div class="divThemeExercice">
-        <fieldset class="classThemeExercice">
-            <legend>Ajout Catégorie</legend>
-            <form action="traitement/ajoutCategorie.php" method="post" enctype="multipart/form-data">
-                <div class="divInputLabel">
-                    <label for="titreCategorie">Titre</label>
-                    <input type="text" name="titreCategorie" id="titreCategorie"required="required">
-                </div>
-                <div class="divInputLabel">
-                    <label for="dropCategorie">Couleur</label>
-                    <input type="color" name="couleurCategorie" required="required">
-                </div>
-                <button type="submit">Ajouter Catégorie</button>
-            </form>
-        </fieldset>
-        <fieldset class="classThemeExercice">
-            <legend>Changer Challenge</legend>
-            <form action="traitement/changementChallenge.php" method="post" enctype="multipart/form-data">
-                <label for="titreExercice">Challenge</label>
-                    <input type="file" name="challenge" required="required">
-                <button type="submit">Changer Challenge</button>
-            </form>
-        </fieldset>
-    </div><div class="divThemeExercice">
-        <fieldset class="classThemeExercice">
-            <legend>Ajout Thème</legend>
-            <form action="traitement/ajoutTheme.php" method="post" enctype="multipart/form-data">
-                <div class="divInputLabel">
-                    <label for="titreTheme">Titre</label>
-                    <input type="text" name="titreTheme" id="titreTheme"required="required">
-                </div>
-                <div class="divInputLabel">
-                    <label for="dropCategorie">Catégorie</label>
-                    <select name="dropCategorie" id="dropCategorie" required="required">
-                        <?php $result = $db->getCategories();
-                        foreach ($result as $value):?>
-                            <option value="<?php echo $value?>"><?php echo $value?></option>
-                        <?php endforeach;?>
-                    </select>
-                </div>
-                <button type="submit">Ajouter Thème</button>
-            </form>
-        </fieldset>
-        <fieldset class="classThemeExercice">
-            <legend>Ajout Exercice</legend>
-            <form action="traitement/ajoutExercice.php" method="post" enctype="multipart/form-data">
-                <div class="divInputLabel">
-                    <label for="titreExercice">Titre</label>
-                    <input type="text" name="titreExercice" id="titreExercice" required="required">
-                </div>
-                <div class="divInputLabel">
-                    <label for="dropExercice">Thème</label>
-                    <select name="dropExercice" id="dropExercice" required="required">
-                        <?php $result = $db->getThemes();
-                        foreach ($result as $value):?>
-                            <option value="<?php echo $value?>"><?php echo $value?></option>
-                        <?php endforeach;?>
-                    </select>
-                </div>
-                <button type="submit">Ajouter Exercice</button>
-            </form>
-        </fieldset>
-    </div>
-    <div class="divThemeExercice">
+</div>
+<p id="erreur"><?php if(isset($_SESSION["message"]))echo $_SESSION["message"];
+                    unset($_SESSION["message"])?></p>
+<div class="divThemeExercice">
     <fieldset class="classThemeExercice">
-        <legend>Ajout Item</legend>
-        <form action="traitement/ajoutItem.php" method="post" enctype="multipart/form-data">
-            <div id="divRadioAjout">
-                <div class="classRadio" id="divRadioTexte">
-                    <input type="radio" name="typeFichier" id="texteRadio" value="Texte" class="widthNormal" required="required" checked="checked">
-                    <label for="texteRadio" class="widthNormal">Texte</label>
-                </div>
-                <div class="classRadio" id="divRadioLien">
-                    <input type="radio" name="typeFichier" id="lienRadio" value="Lien" class="widthNormal" required="required">
-                    <label for="lienRadio" class="widthNormal">Lien</label>
-            </div>
-                <div class="classRadio" id="divRadioImage">
-                    <input type="radio" name="typeFichier" id="imageRadio" value="Image" class="widthNormal" required="required">
-                    <label for="imageRadio" class="widthNormal">Image</label>
-            </div>
-            </div>
-            <div class="divInputLabel hidden" id="divInputLien">
-                <label for="lienItem">Lien</label>
-                <input type="text" name="lienItem" id="lienItem">
-            </div>
-            <div class="divInputLabel" id="divInputTexte">
-                <label for="textItem">Texte</label>
-                <textarea name="textItem" id="textItem"></textarea>
-            </div>
-            <div class="divInputLabel hidden" id="divInputImage">
-                <label for="imageItem">Image</label>
-                <input type="file" name="imageItem" id="imageItem" accept="image/jpeg">
-            </div>
-            <div class="divInputLabel">
-                <label for="dropExercice">Exercice</label>
-                <select name="dropAjout" id="dropAjout">
-                    <?php $result = $db->getExercices();
-                    foreach ($result as $value):?>
-                        <option value="<?php echo $value?>"><?php echo $value?></option>
-                    <?php endforeach;?>
-                </select>
-            </div>
-            <button type="submit">Ajouter Item</button>
+        <legend>Changer Challenge</legend>
+        <form action="traitement/changementChallenge.php" method="post" enctype="multipart/form-data">
+            <label for="titreExercice">Challenge</label>
+            <input type="file" name="challenge" required="required">
+            <button type="submit">Changer Challenge</button>
         </form>
     </fieldset>
     <fieldset class="classThemeExercice">
-        <legend>Supprimer</legend>
-        <form action="traitement/suppr.php" method="post" enctype="multipart/form-data">
-            <div id="divRadioSuppr">
-                <div class="classRadio">
-                    <input type="radio" name="typeSuppr" id="motRadio" value="Mot" class="widthNormal" required="required">
-                    <label for="motRadio" class="widthNormal">Mot</label>
-                </div>
-                <div class="classRadio">
-                    <input type="radio" name="typeSuppr" id="themeRadio" value="Theme" class="widthNormal" required="required">
-                    <label for="themeRadio" class="widthNormal">Thème</label>
-                </div>
-                <div class="classRadio">
-                    <input type="radio" name="typeSuppr" id="exerciceRadio" value="Exercice" class="widthNormal" required="required">
-                    <label for="exerciceRadio" class="widthNormal">Exercice</label>
-                </div>
-            </div>
-            <label for="dropSuppr">Supprimer</label>
-            <select name="dropSuppr" id="dropSuppr" class="widthNormal" required="required">
-                <?php $db = new Db();
-                $result = $db->getThemes();
-                foreach ($result as $value):?>
-                    <option value="<?php echo $value?>"><?php echo $value?></option>
-                <?php endforeach;
-                $result = $db->getExercices();
-                foreach ($result as $value):?>
-                    <option value="<?php echo $value?>"><?php echo $value?></option>
-                <?php endforeach;
-                $result = $db->getMots();
-                foreach ($result as $value):?>
-                    <option value="<?php echo $value?>"><?php echo $value?></option>
-                <?php endforeach;?>
-            </select>
-            <button type="submit">Supprimer élément</button>
+        <legend>Qui sommes-nous</legend>
+        <form action="traitement/changementChallenge.php" method="post" enctype="multipart/form-data">
+            <textarea class="textAreaInput" name="newtext"></textarea>
+            <button type="submit">Mettre à jour</button>
         </form>
     </fieldset>
-    </div>
-    <script src="js/script.js"></script>
+</div>
+<div class="dataBase">
+    <?php $categories = $db->getCategories();
+    foreach ($categories as $category):
+        echo '
+                <div class="divDataBase">
+                    <div class="divDataBaseButton">
+                        <div class="categoryNode">
+                            <div class="categorieDataBase">
+                                Catégorie '.$category. '
+                            </div>
+                        </div>
+                        <div class="modalAddTheme">
+                            <div class="modal-content mainColor">
+                                <div class="btCloseAddTheme">x</div>
+                                <p class="titleModal">Ajouter un thème dans la catégorie ' .$category.'</p>
+                                <form action="traitement/ajoutTheme.php" enctype="multipart/form-data" method="post">
+                                    <div class="divInputLabel">
+                                        <label for="titreTheme">Titre</label>
+                                        <input type="text" name="titreTheme">
+                                    </div>
+                                    <input type="hidden" name="dropCategorie" value="'.$category.'">
+                                    <button class="mainColor" type="submit">Ajouter</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>';
+        $idCategory = $db->getCategorieId($category);
+        $themes = $db->getThemesFromCategorie($idCategory);
+        if(sizeof($themes) > 0) {
+            foreach ($themes as $theme):
+                $idTheme = $db->getThemeId($theme);
+                $exercices = $db->getExerciceFromTheme($idTheme);
+                echo '
+                            <div class="hidden themeNode">
+                                <div class="themeDataBase brown">
+                                    Thème ' . $theme . '
+                                    <div class="buttonsForm">
+                                        <div class="button"><img src="icons/edit_theme.png" alt="Modifier"></div>
+                                        <div class="button"><img src="icons/delete_theme.png" alt="Suppr"></div>
+                                    </div>
+                            </div>';
+                if(sizeof($exercices) > 0){
+                    foreach ($exercices as $exercice):
+                        echo '
+                                <div class="hidden exerciceNode">
+                                    <div class="exerciceDataBase blue">
+                                        Exercice ' . $exercice . '
+                                        <div class="buttonsForm">
+                                        <div class="button"><img src="icons/edit_exercice.png" alt="Modifier"></div>
+                                        <div class="button"><img src="icons/delete_exercice.png" alt="Suppr"></div>
+                                        </div>
+                                    </div>';
+                        $idExercice = $db->getExerciceId($exercice);
+                        $items = $db->getItemsFromExercice($idExercice);
+                        if(sizeof($items) > 0){
+                            foreach ($items as $item):
+                                echo '
+                                    <div class="hidden itemNode red">
+                                        Item ' . $item['typeItem'] . '
+                                        <div class="buttonsForm">
+                                            <div class="button"><img src="icons/edit_item.png" alt="Modifier"></div> 
+                                            <div class="button"><img src="icons/delete_item.png" alt="Suppr"></div> 
+                                            
+                                            <div class="modalAddTheme">
+                                                <div class="modal-content mainColor">
+                                                    <div class="btCloseAddTheme">x</div>
+                                                    <p class="titleModal">Ajouter un thème dans la catégorie ' .$category.'</p>
+                                                    <form action="traitement/ajoutTheme.php" enctype="multipart/form-data" method="post">
+                                                        <div class="divInputLabel">
+                                                            <label for="titreTheme">Titre</label>
+                                                            <input type="text" name="titreTheme">
+                                                        </div>
+                                                        <input type="hidden" name="dropCategorie" value="'.$category.'">
+                                                        <button class="mainColor" type="submit">Ajouter</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>';
+                            endforeach;
+                        }
+                            echo '<div class="hidden itemNode noBorder"><div class="buttonsForm">
+                                            <div class="button"><img src="icons/add_item.png" alt="Modifier"></div>
+                                        </div>
+                                        </div>
+                                    </div>';
+                    endforeach;
+                }
+                echo '
+                                <div class="hidden exerciceNode">
+                                    <div class="exerciceDataBase noBorder">
+                                        <div class="buttonsForm">
+                                            <div class="button"><img src="icons/add_exercice.png" alt="Modifier"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>';
+            endforeach;
+        }
+        echo '<div class="hidden themeNode">
+                <div class="themeDataBase noBorder">
+                    <div class="buttonsForm">
+                        <div class="button"><img src="icons/add_theme.png" alt="Modifier"></div>
+                    </div>
+                </div>
+                </div>
+                </div>';
+    endforeach;?>
+
+</div>
+<script src="js/arborescence.js"></script>
+<script src="js/popup.js"></script>
 </body>
 </html>

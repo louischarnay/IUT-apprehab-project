@@ -1,3 +1,4 @@
+<?php session_start()?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,19 +9,28 @@
 <?php include "class/Db.php";?>
 <body>
 <div class="h1Button">
-    <h1 class="h1DataBase">Commentaires</h1>
+    <h1 class="h1DataBase">Lexique</h1>
     <div class="buttonsDataBase">
-        <a href="index.php">Retour au DashBoard</a>
-        <a href="viewDatabase.php">Voir la base de données</a>
+        <a href="api.php">Mettre à jour l'app</a>
+        <a href="index.php">Retourner au dashboard</a>
+        <a href="viewRates.php">Voir les commentaires</a>
     </div>
 </div>
+<p id="erreur"><?php if(isset($_SESSION["message"]))echo $_SESSION["message"];
+    unset($_SESSION["message"])?></p>
+<div class="buttonAdd">Ajouter un mot</div>
 <?php $db = new Db();
 $allMots = $db->getAllMots();
 foreach ($allMots as $mot){
-    echo "<div class='divCommentaire'><div class='categorieThemeExercice'>".
-        "<p class='categorieDataBase margin'>".$mot['mot']."</p>".
-        "<p class='messageCommentaire'>".$mot["definition"]."</p><br>".
-        "</div></div>";
+    echo "
+        <div class='divCommentaire mainColor'>
+            <p class='mot'>".$mot['mot']."</p>
+            <p class='messageCommentaire'>".$mot["definition"]."</p>
+            <div class='buttonsForm'>
+                <div class='button border'>Modifier</div>
+                <div class='button border'>Suppr</div>
+            </div>
+        </div>";
 }?>
 </body>
 <body>
