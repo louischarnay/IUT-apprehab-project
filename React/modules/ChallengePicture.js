@@ -12,22 +12,41 @@ const ChallengePicture = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    borderTopRightRadius: 10,
-    borderTopLeftRadius: 10,
-    marginTop: 35,
+const styleByPlatform = Platform.select({
+  ios: {
+    container: {
+      flex: 1,
+      borderTopRightRadius: 10,
+      borderTopLeftRadius: 10,
+      marginTop: 35,
+    },
+  
+    im: {
+      borderWidth: 5,
+      borderRadius: 5,
+      marginHorizontal: 5,
+      maxWidth: Dimensions.get('window').width,
+      height: Dimensions.get('window').height-255,
+    },
   },
-
-  im: {
-    borderWidth: 5,
-    borderRadius: 5,
-    marginHorizontal: 5,
-    maxWidth: Dimensions.get('window').width,
-    height: Dimensions.get('window').height-230,
-  },
-
+  android: {
+    container: {
+      flex: 1,
+      borderTopRightRadius: 10,
+      borderTopLeftRadius: 10,
+      marginTop: 35,
+    },
+  
+    im: {
+      borderWidth: 5,
+      borderRadius: 5,
+      marginHorizontal: 5,
+      maxWidth: Dimensions.get('window').width,
+      height: Dimensions.get('window').height-230,
+    },
+  }
 });
+
+const styles = StyleSheet.create(styleByPlatform);
 
 export default ChallengePicture;

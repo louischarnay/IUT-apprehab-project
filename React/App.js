@@ -35,7 +35,7 @@ async function initGlobals(){
     }catch (e){}
     tmp = Boolean(tmp)
     if (tmp === true){
-        global.VibrationTime = 5
+        global.VibrationTime = [0, 10]
     }
 }
 
