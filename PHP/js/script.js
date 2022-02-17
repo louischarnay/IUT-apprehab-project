@@ -1,27 +1,41 @@
-const lien = document.querySelector('#divRadioLien')
-const texte = document.querySelector('#divRadioTexte')
-const image = document.querySelector('#divRadioImage')
+const liens = document.getElementsByClassName('divRadioLien')
+const textes = document.getElementsByClassName('divRadioTexte')
+const images = document.getElementsByClassName('divRadioImage')
 
-const inputLien = document.querySelector('#divInputLien')
-const inputTexte = document.querySelector('#divInputTexte')
-const inputImage = document.querySelector('#divInputImage')
+const inputLiens = document.getElementsByClassName('divInputLien')
+const inputTextes = document.getElementsByClassName('divInputTexte')
+const inputImages = document.getElementsByClassName('divInputImage')
 
-lien.onclick = function(){
-    console.log("test")
-    inputLien.classList.remove('hidden');
-    inputTexte.classList.add('hidden');
-    inputImage.classList.add('hidden');
-}
+const radioImage = document.querySelectorAll('#imageRadio')
+const radioLien = document.querySelectorAll('#lienRadio')
+const radioTexte = document.querySelectorAll('#texteRadio')
 
-texte.onclick = function(){
-    inputTexte.classList.remove('hidden');
-    inputLien.classList.add('hidden');
-    inputImage.classList.add('hidden');
-}
+for (let cpt = 0; cpt < liens.length; cpt++){
+    liens[cpt].addEventListener('click', event =>{
+        inputLiens[cpt].classList.remove('hidden');
+        inputTextes[cpt].classList.add('hidden');
+        inputImages[cpt].classList.add('hidden');
+        radioTexte[cpt].removeAttribute('checked')
+        radioImage[cpt].removeAttribute('checked')
+        radioLien[cpt].setAttribute('checked', 'true')
+    })
 
-image.onclick = function(){
-    inputImage.classList.remove('hidden');
-    inputTexte.classList.add('hidden');
-    inputLien.classList.add('hidden');
+    textes[cpt].addEventListener('click', event =>{
+        inputTextes[cpt].classList.remove('hidden');
+        inputLiens[cpt].classList.add('hidden');
+        inputImages[cpt].classList.add('hidden');
+        radioLien[cpt].removeAttribute('checked')
+        radioImage[cpt].removeAttribute('checked')
+        radioTexte[cpt].setAttribute('checked', 'true')
+    })
+
+    images[cpt].addEventListener('click', event =>{
+        inputImages[cpt].classList.remove('hidden');
+        inputTextes[cpt].classList.add('hidden');
+        inputLiens[cpt].classList.add('hidden');
+        radioTexte[cpt].removeAttribute('checked')
+        radioLien[cpt].removeAttribute('checked')
+        radioImage[cpt].setAttribute('checked', 'true')
+    })
 }
 

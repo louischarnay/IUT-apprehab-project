@@ -1,15 +1,14 @@
-let modalsAddTheme = document.getElementsByClassName("modalAddTheme");
-let btsAddTheme = document.getElementsByClassName("btAddTheme");
-let btsCloseAddTheme = document.getElementsByClassName("btCloseAddTheme");
-
-for (let cpt = 0; cpt < btsAddTheme.length; cpt++){
-    btsAddTheme[cpt].addEventListener('click', function(){
-        modalsAddTheme[cpt].style.display = "block"
+let modals = document.getElementsByClassName("modal");
+let bts = document.getElementsByClassName("btModal");
+let btsClose = document.getElementsByClassName("btClose");
+for (let cpt = 0; cpt < bts.length; cpt++){
+    bts[cpt].addEventListener('click', function(){
+        modals[cpt].style.display = "block"
     })
 }
 
-for (let cpt = 0; cpt < btsCloseAddTheme.length; cpt++){
-    btsCloseAddTheme[cpt].addEventListener('click', function(){
-        modalsAddTheme[cpt].style.display = "none"
+for (let cpt = 0; cpt < btsClose.length; cpt++){
+    btsClose[cpt].addEventListener('click', function(){
+        modals[cpt].style.display = "none"
     })
 }
