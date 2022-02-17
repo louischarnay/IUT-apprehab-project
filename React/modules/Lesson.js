@@ -1,6 +1,7 @@
 
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform} from 'react-native';
+import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform,Pressable} from 'react-native';
+
 import App from '../modules/Modal';
 
 
@@ -48,7 +49,13 @@ if(params.color!=='#88bd28'){
   }
 
   if(isExo==true)
-   return <App/>
+   return (<Pressable
+    style={[styles.button, styles.buttonOpen]}
+    onPress={() => setModalVisible(true)}
+  >
+    <Text style={styles.textStyle}>Finir l'exercice</Text>
+    <App/>
+  </Pressable>)
 
    return isExo
 }

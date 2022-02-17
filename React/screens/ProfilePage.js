@@ -26,6 +26,11 @@ const DATA = [
     title: 'Historique',
     link: 'HistoriquePage',
   },
+  {
+    id:'5',
+    title:'Qui sommes-nous ?',
+    link: 'PresentationPage'
+  }
 ];
 
 async function setCatPref(){

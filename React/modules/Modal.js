@@ -38,126 +38,64 @@ import CommentTextInput from '../modules/CommentSection';
             </View>
           </View>
         </Modal>
-        <Pressable
-          style={[styles.button, styles.buttonOpen]}
-          onPress={() => setModalVisible(true)}
-        >
-          <Text style={styles.textStyle}>Finir l'exercice</Text>
-        </Pressable>
+        
       </View>
     );
   };
-
-  const styleByPlatform = Platform.select({
-    ios: {
-      centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 22
-      },
-      modalView: {
-        margin: 10,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 30,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5
-      },
-      button: {
-        borderRadius: 20,
-        padding: 10,
-        elevation: 2
-      },
-      buttonOpen: {
-        marginTop:200,
-        backgroundColor: "#88bd28",
-        width: Dimensions.get('window').width/2,
-        height: Dimensions.get('window').width/8
-      },
-      buttonClose: {
-        backgroundColor: "#2196F3",
-      },
-      textStyle: {
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center",
-        fontSize: 18
-      },
-      modalText: {
-        marginTop:15,
-        marginBottom: 15,
-        textAlign: "center"
-      },
-      cross: {
-        width: 30,
-        height: 30,
-        marginLeft:200,
-        marginTop:-5
-      }
-    },
-    android: {
-      centeredView: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: 22
-      },
-      modalView: {
-        margin: 10,
-        backgroundColor: "white",
-        borderRadius: 20,
-        padding: 30,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 4,
-        elevation: 5
-      },
-      button: {
-        borderRadius: 20,
-        padding: 10,
-        elevation: 2
-      },
-      buttonOpen: {
-        marginTop:200,
-        backgroundColor: "#88bd28",
-        width: Dimensions.get('window').width/2,
-        height: Dimensions.get('window').width/8
-      },
-      buttonClose: {
-        backgroundColor: "#2196F3",
-      },
-      textStyle: {
-        color: "white",
-        fontWeight: "bold",
-        textAlign: "center"
-      },
-      modalText: {
-        marginTop:15,
-        marginBottom: 15,
-        textAlign: "center"
-      },
-      cross: {
-        width: 30,
-        height: 30,
-        marginLeft:200,
-        marginTop:-5
-      }
-    }
-  });
   
-  const styles = StyleSheet.create(styleByPlatform);
+  const styles = StyleSheet.create({
+    centeredView: {
+      flex: 1,
+      justifyContent: "center",
+      alignItems: "center",
+      marginBottom: 22
+    },
+    modalView: {
+      margin: 10,
+      backgroundColor: "white",
+      borderRadius: 20,
+      padding: 30,
+      alignItems: "center",
+      shadowColor: "#000",
+      shadowOffset: {
+        width: 0,
+        height: 2
+      },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 5
+    },
+    button: {
+      borderRadius: 20,
+      padding: 10,
+      elevation: 2
+    },
+    buttonOpen: {
+      marginBottom:22,
+      marginTop:50,
+      backgroundColor: "#88bd28",
+      width: Dimensions.get('window').width/2,
+      height: Dimensions.get('window').width/8
+    },
+    buttonClose: {
+      backgroundColor: "#2196F3",
+    },
+    textStyle: {
+      color: "white",
+      fontWeight: "bold",
+      textAlign: "center"
+    },
+    modalText: {
+      marginTop:15,
+      marginBottom: 15,
+      textAlign: "center"
+    },
+    cross: {
+      width: 30,
+      height: 30,
+      marginLeft:200,
+      marginTop:-5
+  }
+  });
   
   export default App;
