@@ -1,8 +1,8 @@
 
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text } from 'react-native';
+import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform} from 'react-native';
 import App from '../modules/Modal';
-import Modal from '../modules/Modal';
+
 
 
 
@@ -37,88 +37,107 @@ const ItemImage = (item) => (
   </View>
 )
 
+ function FinExo(params){
+  var isExo=false;
+if(params.color!=='#88bd28'){
+   isExo=true
+  }
+  else if(params.color=='#88bd28'){
+   
+  isExo=false
+  }
+
+  if(isExo==true)
+   return <App/>
+
+   return isExo
+}
+
+
 
 const Lesson = (params) => {
+  
   const renderItem =({item}) => (
     printObject(item)    
   );
   
+  
   return(
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container} >
       
       <FlatList
         data={params.content[0].content}
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
-    
-        <App/>
+      <FinExo color={params.color}/>
+        
+
       
     </SafeAreaView>
     
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  data: {
-    marginHorizontal: 15,
-    fontSize: 20,
-    textAlign: 'justify',
-  },
-  im: {
-    maxWidth: Dimensions.get('window').width,
-    height: Dimensions.get('window').height/3
-  },
-  centeredView:{
-    flex:1,
-    justifyContent:"center",
-    alignItems:"center",
-    marginTop:20
-  },
-  modalView:{
-    margin:20,
-    backgroundColor:"white",
-    borderRadius:20,
-    padding:35,
-    alignItems:"center",
-    shadowColor:"#000",
-    shadowOffset:{
-      width:0,
-      height:2
+const styleByPlatform = Platform.select({
+  ios: {
+    container: {
+      flex: 1,
     },
-    shadowOpacity:0.25,
-    shadowRadius:4,
-    elevation:5
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-
-  url: {
-    color: 'blue',
-    marginHorizontal: 15,
-    fontSize: 20,
-    textAlign: 'justify',
-    textDecorationLine: 'underline'
-  },
-
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
-  },
-
-  buttonOpen: {
-    backgroundColor: "#F194FF",
-  },
-  modalView: {
+    data: {
+      marginHorizontal: 15,
+      fontSize: 20,
+      textAlign: 'justify',
+    },
+    im: {
+      maxWidth: Dimensions.get('window').width,
+      height: Dimensions.get('window').height/3
+    },
     
+    textStyle: {
+      color: "white",
+      fontWeight: "bold",
+      textAlign: "center"
+    },
+  
+    url: {
+      color: 'blue',
+      marginHorizontal: 15,
+      fontSize: 20,
+      textAlign: 'justify',
+      textDecorationLine: 'underline'
+    },
+  },
+  android: {
+    container: {
+      flex: 1,
+    },
+    data: {
+      marginHorizontal: 15,
+      fontSize: 20,
+      textAlign: 'justify',
+    },
+    im: {
+      maxWidth: Dimensions.get('window').width,
+      height: Dimensions.get('window').height/3
+    },
+    
+    textStyle: {
+      color: "white",
+      fontWeight: "bold",
+      textAlign: "center"
+    },
+  
+    url: {
+      color: 'blue',
+      marginHorizontal: 15,
+      fontSize: 20,
+      textAlign: 'justify',
+      textDecorationLine: 'underline'
+    },
   }
 });
+
+const styles = StyleSheet.create(styleByPlatform);
   
 export default Lesson;

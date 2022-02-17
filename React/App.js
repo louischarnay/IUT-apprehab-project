@@ -27,7 +27,16 @@ async function initGlobals(){
     }catch (e){}
     global.AmountExercicesEndedMonth = Number(tmp)
     global.AmountExercicesEndedMonth = 0
-    global.VibrationTime = 5
+    try {
+        await setStorage('VibrationOn', 'true')
+    }catch (e){}
+    try {
+        tmp = await AsyncStorage.getItem('VibrationOn')
+    }catch (e){}
+    tmp = Boolean(tmp)
+    if (tmp === true){
+        global.VibrationTime = [0, 10]
+    }
 }
 
 async function initHistorique(){

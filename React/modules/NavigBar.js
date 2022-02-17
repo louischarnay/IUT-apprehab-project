@@ -53,12 +53,12 @@ function checkRoot(params) {
 }
 
 const Item = (item) => (
-  <View style={styles.item} onStartShouldSetResponder={() => {Vibration.vibrate(VibrationTime), item.nav.navigate(item.link, {routeName:item.route})}}>
+  <SafeAreaView style={styles.item} onStartShouldSetResponder={() => {Vibration.vibrate(VibrationTime), item.nav.navigate(item.link, {routeName:item.route})}}>
     <Image
       style={styles.icon}
       source={item.icon}
     />
-  </View>
+  </SafeAreaView>
 );
 
 const NavigBar = (params) => {
