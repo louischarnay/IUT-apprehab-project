@@ -1,6 +1,6 @@
 
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform,Pressable} from 'react-native';
+import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform,Pressable,Modal} from 'react-native';
 
 import App from '../modules/Modal';
 
@@ -106,7 +106,13 @@ const styleByPlatform = Platform.select({
       fontWeight: "bold",
       textAlign: "center"
     },
-  
+    buttonOpen: {
+      marginBottom:22,
+      marginTop:50,
+      backgroundColor: "#88bd28",
+      width: Dimensions.get('window').width/2,
+      height: Dimensions.get('window').width/8
+    },
     url: {
       color: 'blue',
       marginHorizontal: 15,
