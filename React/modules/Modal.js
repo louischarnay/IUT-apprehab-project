@@ -53,7 +53,7 @@ import CommentTextInput from '../modules/CommentSection';
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      marginTop: 22
+      marginBottom: 22
     },
     modalView: {
       margin: 10,
@@ -76,7 +76,8 @@ import CommentTextInput from '../modules/CommentSection';
       elevation: 2
     },
     buttonOpen: {
-      marginTop:200,
+      marginBottom:22,
+      marginTop:50,
       backgroundColor: "#88bd28",
       width: Dimensions.get('window').width/2,
       height: Dimensions.get('window').width/8
