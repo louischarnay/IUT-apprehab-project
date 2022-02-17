@@ -38,7 +38,12 @@ import CommentTextInput from '../modules/CommentSection';
             </View>
           </View>
         </Modal>
-        
+        <Pressable
+          style={[styles.button, styles.buttonOpen]}
+          onPress={() => setModalVisible(true)}
+        >
+          <Text style={styles.textStyle}>Finir l'exercice</Text>
+        </Pressable>
       </View>
     );
   };

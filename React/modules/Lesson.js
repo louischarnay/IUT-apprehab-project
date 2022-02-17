@@ -1,7 +1,6 @@
 
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform,Pressable,Modal} from 'react-native';
-
+import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text } from 'react-native';
 import App from '../modules/Modal';
 
 
@@ -49,13 +48,7 @@ if(params.color!=='#88bd28'){
   }
 
   if(isExo==true)
-   return (<Pressable
-    style={[styles.button, styles.buttonOpen]}
-    onPress={() => setModalVisible(true)}
-  >
-    <Text style={styles.textStyle}>Finir l'exercice</Text>
-    <App/>
-  </Pressable>)
+   return <App/>
 
    return isExo
 }
@@ -86,71 +79,35 @@ const Lesson = (params) => {
   );
 };
 
-const styleByPlatform = Platform.select({
-  ios: {
-    container: {
-      flex: 1,
-    },
-    data: {
-      marginHorizontal: 15,
-      fontSize: 20,
-      textAlign: 'justify',
-    },
-    im: {
-      maxWidth: Dimensions.get('window').width,
-      height: Dimensions.get('window').height/3
-    },
-    
-    textStyle: {
-      color: "white",
-      fontWeight: "bold",
-      textAlign: "center"
-    },
-    buttonOpen: {
-      marginBottom:22,
-      marginTop:50,
-      backgroundColor: "#88bd28",
-      width: Dimensions.get('window').width/2,
-      height: Dimensions.get('window').width/8
-    },
-    url: {
-      color: 'blue',
-      marginHorizontal: 15,
-      fontSize: 20,
-      textAlign: 'justify',
-      textDecorationLine: 'underline'
-    },
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
   },
-  android: {
-    container: {
-      flex: 1,
-    },
-    data: {
-      marginHorizontal: 15,
-      fontSize: 20,
-      textAlign: 'justify',
-    },
-    im: {
-      maxWidth: Dimensions.get('window').width,
-      height: Dimensions.get('window').height/3
-    },
-    
-    textStyle: {
-      color: "white",
-      fontWeight: "bold",
-      textAlign: "center"
-    },
+  data: {
+    marginHorizontal: 15,
+    fontSize: 20,
+    textAlign: 'justify',
+  },
+  im: {
+    maxWidth: Dimensions.get('window').width,
+    height: Dimensions.get('window').height/3
+  },
   
-    url: {
-      color: 'blue',
-      marginHorizontal: 15,
-      fontSize: 20,
-      textAlign: 'justify',
-      textDecorationLine: 'underline'
-    },
-  }
-});
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center"
+  },
 
-const styles = StyleSheet.create(styleByPlatform);
+  url: {
+    color: 'blue',
+    marginHorizontal: 15,
+    fontSize: 20,
+    textAlign: 'justify',
+    textDecorationLine: 'underline'
+  },
+
+ 
+});
   
 export default Lesson;
