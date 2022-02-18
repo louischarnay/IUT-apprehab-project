@@ -4,15 +4,12 @@ import {SafeAreaView, StyleSheet,TextInput } from 'react-native';
 
 
 const CommentTextInput =()=>{
-    const [text, onChangeText] = React.useState(null);
-
 
     return(
         <SafeAreaView>
             <TextInput
                 style={styles.input}
-                onChangeText={onChangeText}
-                value={text}
+                onChangeText={newText => global.comment = newText}
                 placeholder='Entrez votre commentaire...'
             />
         </SafeAreaView>

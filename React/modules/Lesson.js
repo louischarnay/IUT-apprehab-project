@@ -1,7 +1,7 @@
 
 import React from 'react';
 import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform} from 'react-native';
-import App from '../modules/Modal';
+import ModalRate from './ModalRate';
 
 
 
@@ -37,31 +37,25 @@ const ItemImage = (item) => (
   </View>
 )
 
- function FinExo(params){
+function FinExo(params){
   var isExo=false;
-if(params.color!=='#88bd28'){
-   isExo=true
+  if(params.color!=='#88bd28'){
+    isExo=true
   }
   else if(params.color=='#88bd28'){
-   
-  isExo=false
+    isExo=false
   }
-
   if(isExo==true)
-   return <App/>
-
+   return <ModalRate idExercice={params.color.content[0].id}/>
    return isExo
 }
 
 
 
 const Lesson = (params) => {
-  
   const renderItem =({item}) => (
     printObject(item)    
   );
-  
-  
   return(
     <SafeAreaView style={styles.container} >
       
@@ -70,10 +64,7 @@ const Lesson = (params) => {
         renderItem={renderItem}
         keyExtractor={item => item.id}
       />
-      <FinExo color={params.color}/>
-        
-
-      
+      <FinExo color={params}/>
     </SafeAreaView>
     
   );

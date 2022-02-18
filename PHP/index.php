@@ -7,7 +7,9 @@
     <link href="css/style.css" rel="stylesheet">
 </head>
 <?php include "class/Db.php";
-$db = new Db();?>
+$db = new Db();
+include "class/Popup.php";
+$popup = new Popup()?>
 <body>
 <div class="h1Button">
     <h1 class="h1DataBase">Dashboard</h1>
@@ -59,18 +61,8 @@ $db = new Db();?>
                                 <div class="themeDataBase brown">
                                     Thème ' . $theme . '
                                     <div class="buttonsForm">
-                                        <div class="button btModal"><img src="icons/edit_theme.png" alt="Suppr"></div>
-                                        <div class="modal">
-                                            <div class="modal-content brown">
-                                                <div class="btClose">x</div>
-                                                <p class="titleModal">Modifier le thème '.$theme.' ?</p>
-                                                <form action="traitement/#.php" enctype="multipart/form-data" method="post">';//TODO
-                                                    echo '<input type="text" name="newNomTheme" value="'.$theme.'">
-                                                    <input type="hidden" name="oldNomTheme" value="'.$theme.'">
-                                                    <button class="brown" type="submit">Modifier</button>
-                                                </form>
-                                            </div>
-                                        </div>
+                                        <div class="button btModal"><img src="icons/edit_theme.png" alt="Suppr"></div>'
+                .$popup->modalUpdate('brown', $theme, '#', 'Modifier le thème '.$theme.' ?').'
                                         <div class="button btModal"><img src="icons/delete_theme.png" alt="Modifier"></div>
                                         <div class="modal">
                                             <div class="modal-content brown">

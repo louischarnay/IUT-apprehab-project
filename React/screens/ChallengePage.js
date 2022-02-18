@@ -5,12 +5,6 @@ import ChallengePicture from '../modules/ChallengePicture';
 import NavigBar from '../modules/NavigBar';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-async function sendComment(rate: string, comment: string, exerciceId: string) {
-    let url = 'https://apprehab.000webhostapp.com/api/apiTraitement.php?rate=' + rate + '&comment='
-        + comment + '&exerciceId=' + exerciceId
-    await fetch(url)
-}
-
 async function setStorage(key: string, value: string){
     if(typeof value === Object){
         value = JSON.stringify(value)

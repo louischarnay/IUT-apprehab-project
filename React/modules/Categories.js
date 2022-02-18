@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, SafeAreaView, StyleSheet, Dimensions, FlatList, Text, Image, Vibration } from 'react-native';
+import { SafeAreaView, StyleSheet, Dimensions, FlatList, Text, Image, Vibration } from 'react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 async function setStorage(key: string, value: string){

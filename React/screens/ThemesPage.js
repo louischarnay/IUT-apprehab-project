@@ -28,7 +28,7 @@ class ThemesPage extends React.Component{
         this.setState({
             data: newData
         })
-        this.TextInput.clear()
+        //this.TextInput.clear()
     }
 
     updateSearchedText(text) {

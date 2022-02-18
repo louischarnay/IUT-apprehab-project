@@ -119,7 +119,7 @@ async function setMonth(){
         let lastUpdate
         try {
             lastUpdate = await AsyncStorage.getItem("monthOfUpdate")
-        }catch (e) { console.log("zebi" + e)}
+        }catch (e) { console.log("" + e)}
         if(lastUpdate !== ("" + new Date().getMonth())){
             await setStorage("amountExercicesStartedMonth", "0")
             await setStorage("amountExercicesEndedMonth", "0")
