@@ -194,6 +194,11 @@ async function navigation(params) {
                     }
                 }
             }
+            content[content.length] = {
+                type: 'Button',
+                data: '',
+                id: ''
+            }
             DATA[0] = {
                 id: matchExercice.idExercice,
                 title: matchExercice.nomExercice,

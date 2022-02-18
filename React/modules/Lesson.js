@@ -3,19 +3,17 @@ import React from 'react';
 import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform} from 'react-native';
 import ModalRate from './ModalRate';
 
-
-
-
-function printObject(params) {
-  switch (params.type){
+function printObject(item, params) {
+  switch (item.type){
     case 'Texte':
-      return <ItemTexte data={params.data}/>
+      return <ItemTexte data={item.data}/>
     case 'Lien':
-      return <ItemURL data={params.data}/>
+      return <ItemURL data={item.data}/>
     case 'Image':
-      const source = ({uri:'https://apprehab.000webhostapp.com/'+ params.data + '?' + new Date()});
+      const source = ({uri:'https://apprehab.000webhostapp.com/'+ item.data + '?' + new Date()});
       return <ItemImage data={source}/>
-    
+    case 'Button':
+      return <ModalRate idExercice={params.content[0].id}/>
   }
 }
 
@@ -35,38 +33,20 @@ const ItemImage = (item) => (
   <View style={styles.itemContentExercise}>
     <Image source={item.data} style={styles.im}/>
   </View>
-)
-
-function FinExo(params){
-  var isExo=false;
-  if(params.color!=='#88bd28'){
-    isExo=true
-  }
-  else if(params.color=='#88bd28'){
-    isExo=false
-  }
-  if(isExo==true)
-   return <ModalRate idExercice={params.color.content[0].id}/>
-   return isExo
-}
-
-
+);
 
 const Lesson = (params) => {
   const renderItem =({item}) => (
-    printObject(item)    
+    printObject(item, params)    
   );
   return(
     <SafeAreaView style={styles.container} >
-      
       <FlatList
         data={params.content[0].content}
         renderItem={renderItem}
         keyExtractor={item => item.id}
-      />
-      <FinExo color={params}/>
+      />      
     </SafeAreaView>
-    
   );
 };
 
