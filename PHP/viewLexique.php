@@ -27,8 +27,8 @@ foreach ($allMots as $mot){
             <p class='mot'>".$mot['mot']."</p>
             <p class='messageCommentaire'>".$mot["definition"]."</p>
             <div class='buttonsForm'>
-                <div class='button border'>Modifier</div>
-                <div class='button border'>Suppr</div>
+                <div class='button'><img src='icons/edit_mainColor.png'></div>
+                <div class='button'><img src='icons/delete_mainColor.png'></div>
             </div>
         </div>";
 }?>

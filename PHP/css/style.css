@@ -70,10 +70,13 @@ input, select, textarea{
     height: 65px;
     resize: none;
 }
+#textItem{
+    width: 100%;
+}
 .classThemeExercice{
     width: 48%;
 }
-#divRadioAjout, #divRadioSuppr{
+    #divRadioAjout, #divRadioSuppr{
     display: flex;
     justify-content: space-evenly;
 }
@@ -112,13 +115,13 @@ a{
     color: red;
     text-align: center;
 }
-.btAddTheme{
-    width: 105px;
-}
 .messageCommentaire{
     width: 85%;
 }
-.categorieDataBase, .btAddTheme{
+.inputModal{
+    width: 100%;
+}
+.categorieDataBase{
     background-color: var(--couleurPrincipale);
     color: white;
     border-radius: 10px;
@@ -286,36 +289,8 @@ a{
 .hidden{
     display: none;
 }
-
-.blue, .blue .titleModal{
-    border-color: chocolate;
-    text-decoration-color: chocolate;
-}
-.grey, .grey .titleModal{
-     border-color: slategrey;
-     text-decoration-color: slategrey;
-    cursor: default;
- }
-.red, .red .titleModal{
-    border-color: rebeccapurple;
-    text-decoration-color: rebeccapurple;
-}
-.mainColor, .mainColor .titleModal{
-    border-color: var(--couleurPrincipale);
-    text-decoration-color: var(--couleurPrincipale);
-}
-.noBorder{
-    border: none;
-}
-.mainColor button, .mainColor .button{
-    text-align: center;
- }
-.mainColor .btCloseAddTheme{
-    color: var(--couleurPrincipale);
-   }
-.brown, brown.titleModal{
-    border-color: mediumseagreen;
-    text-decoration-color: mediumseagreen;
+.noMargin{
+    margin: 10px 0;
 }
 .buttonsForm form{
     padding: 0;
@@ -334,7 +309,7 @@ a{
     margin: 10px;
 }
 
-.modalAddTheme {
+.modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -356,7 +331,7 @@ a{
     width: 80%;
 }
 
-.btCloseAddTheme{
+.btClose{
     margin-top: -20px;
     float: right;
     font-size: 2rem;
@@ -374,6 +349,46 @@ a{
 img{
     width: 25px;
     height: 25px;
+}
+
+.blue, .blue .titleModal{
+    border-color: chocolate;
+    text-decoration-color: chocolate;
+}
+.blue button{
+    background-color: chocolate;
+}
+.grey, .grey .titleModal{
+    border-color: slategrey;
+    text-decoration-color: slategrey;
+    cursor: default;
+}
+.red, .red .titleModal{
+    border-color: rebeccapurple;
+    text-decoration-color: rebeccapurple;
+}
+.red button{
+    background-color: rebeccapurple;
+}
+.mainColor, .mainColor .titleModal{
+    border-color: var(--couleurPrincipale);
+    text-decoration-color: var(--couleurPrincipale);
+}
+/*.mainColor button, .mainColor .button{
+    text-align: center;
+}*/
+.mainColor .btCloseAddTheme{
+    color: var(--couleurPrincipale);
+}
+.brown, .brown .titleModal{
+    border-color: mediumseagreen;
+    text-decoration-color: mediumseagreen;
+}
+.brown button{
+    background-color: mediumseagreen;
+}
+.noBorder{
+    border: none;
 }
 
 @media (max-width: 1000px) {
