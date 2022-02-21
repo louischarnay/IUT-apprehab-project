@@ -61,20 +61,10 @@ $popup = new Popup()?>
                                 <div class="themeDataBase brown">
                                     Thème ' . $theme . '
                                     <div class="buttonsForm">
-                                        <div class="button btModal"><img src="icons/edit_theme.png" alt="Suppr"></div>'
-                .$popup->modalUpdate('brown', $theme, '#', 'Modifier le thème '.$theme.' ?').'
+                                        <div class="button btModal"><img src="icons/edit_theme.png" alt="Suppr"></div>
+                '.$popup->modalUpdate('brown', $theme, '#', 'Modifier le thème '.$theme.' ?').'
                                         <div class="button btModal"><img src="icons/delete_theme.png" alt="Modifier"></div>
-                                        <div class="modal">
-                                            <div class="modal-content brown">
-                                                <div class="btClose">x</div>
-                                                <p class="titleModal">Supprimer le thème '.$theme.' ?</p>
-                                                <form action="traitement/suppr.php" enctype="multipart/form-data" method="post">
-                                                    <input type="hidden" name="dropSuppr" value="'.$theme.'">
-                                                    <input type="hidden" name="typeSuppr" value="Theme">
-                                                    <button class="brown" type="submit">Supprimer</button>
-                                                </form>
-                                            </div>
-                                        </div>
+                '.$popup->modalSuppr('brown', 'Supprimer le thème '.$theme.' ?', $theme, 'Theme').'
                                     </div>
                             </div>';
                 if(sizeof($exercices) > 0){
@@ -85,29 +75,9 @@ $popup = new Popup()?>
                                         Exercice ' . $exercice . '
                                         <div class="buttonsForm">
                                         <div class="button btModal"><img src="icons/edit_exercice.png" alt="Modifier"></div>
-                                        <div class="modal">
-                                            <div class="modal-content blue ">
-                                                <div class="btClose">x</div>
-                                                <p class="titleModal">Modifier l\'exercice '.$exercice.' ?</p>
-                                                <form action="traitement/#.php" enctype="multipart/form-data" method="post">';//TODO
-                                                    echo'<input type="text" name="newNomExercice" value="'.$exercice.'">
-                                                    <input type="hidden" name="oldNomExercice" value="'.$exercice.'">
-                                                    <button class="blue" type="submit">Modifier</button>
-                                                </form>
-                                            </div>
-                                        </div>
+                        '.$popup->modalUpdate('blue', $exercice, '#', 'Modifier l\'exercice '.$exercice.' ?').'
                                         <div class="button btModal"><img src="icons/delete_exercice.png" alt="Suppr"></div>
-                                        <div class="modal">
-                                            <div class="modal-content blue ">
-                                                <div class="btClose">x</div>
-                                                <p class="titleModal">Supprimer l\'exercice '.$exercice.' ?</p>
-                                                <form action="traitement/suppr.php" enctype="multipart/form-data" method="post">
-                                                    <input type="hidden" name="dropSuppr" value="'.$exercice.'">
-                                                    <input type="hidden" name="typeSuppr" value="Exercice">
-                                                    <button class="blue" type="submit">Supprimer</button>
-                                                </form>
-                                            </div>
-                                        </div>
+                        '.$popup->modalSuppr('blue', 'Supprimer l\'exercice '.$exercice.' ?', $exercice, 'Exercice').'
                                         </div>
                                     </div>';
                         $idExercice = $db->getExerciceId($exercice);
@@ -119,96 +89,17 @@ $popup = new Popup()?>
                                         Item ' . $item['typeItem'] . '
                                         <div class="buttonsForm">
                                             <div class="button btModal"><img src="icons/edit_item.png" alt="Modifier"></div> 
-                                            <div class="modal">
-                                                <div class="modal-content red ">
-                                                    <div class="btClose">x</div>
-                                                    <p class="titleModal">Modifier l\'item '.$item["typeItem"].' ?</p>
-                                                <form action="traitement/ajoutItem.php" method="post" enctype="multipart/form-data">
-                                                        <div id="divRadioAjout">
-                                                            <div class="classRadio divRadioTexte">
-                                                                <input type="radio" name="typeFichier" id="texteRadio" value="Texte" class="widthNormal noMargin" required="required" checked="checked">
-                                                                <label for="texteRadio" class="widthNormal noMargin">Texte</label>
-                                                            </div>
-                                                            <div class="classRadio divRadioLien">
-                                                                <input type="radio" name="typeFichier" id="lienRadio" value="Lien" class="widthNormal noMargin" required="required">
-                                                                <label for="lienRadio" class="widthNormal noMargin">Lien</label>
-                                                            </div>
-                                                            <div class="classRadio divRadioImage">
-                                                                <input type="radio" name="typeFichier" id="imageRadio" value="Image" class="widthNormal noMargin" required="required">
-                                                                <label for="imageRadio" class="widthNormal noMargin">Image</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="divInputLabel hidden divInputLien">
-                                                            <label for="lienItem">Lien</label>
-                                                            <input type="text" name="lienItem" id="lienItem" class="inputModal">
-                                                        </div>
-                                                        <div class="divInputLabel divInputTexte">
-                                                            <label for="textItem">Texte</label>
-                                                            <textarea name="textItem" id="textItem"></textarea>
-                                                        </div>
-                                                        <div class="divInputLabel hidden divInputImage">
-                                                            <label for="imageItem">Image</label>
-                                                            <input type="file" name="imageItem" class="inputModal" id="imageItem" accept="image/jpeg">
-                                                        </div>
-                                                        <input type="hidden" name="dropAjout" value="'.$exercice.'">
-                                                        <button class="red" type="submit">Modifier</button>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                            '.$popup->modalUpdateItem($item, $exercice).'
                                             <div class="button btModal"><img src="icons/delete_item.png" alt="Suppr"></div> 
-                                            <div class="modal">
-                                                <div class="modal-content red ">
-                                                    <div class="btClose">x</div>
-                                                    <p class="titleModal">Supprimer l\'item '.$item["typeItem"].' ?</p>
-                                                    <form action="traitement/suppr.php" enctype="multipart/form-data" method="post">
-                                                        <input type="hidden" name="dropSuppr" value="'.$item['idItem'].'">
-                                                        <input type="hidden" name="typeSuppr" value="Item">
-                                                        <button class="red" type="submit">Supprimer</button>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                            '.$popup->modalSuppr('red', 'Supprimer l\'item '.$item["typeItem"].' ?', $item['idItem'], 'Item').'
+                                            
                                         </div>
                                     </div>';
                             endforeach;
                         }
                             echo '<div class="hidden itemNode noBorder"><div class="buttonsForm">
                                         <div class="button btModal"><img src="icons/add_item.png" alt="Ajouter"></div>
-                                             <div class="modal">
-                                                <div class="modal-content red">
-                                                    <div class="btClose">x</div>
-                                                    <p class="titleModal">Ajouter un item dans l\'exercice ' .$exercice.'</p>
-                                                    <form action="traitement/ajoutItem.php" method="post" enctype="multipart/form-data">
-                                                        <div id="divRadioAjout">
-                                                            <div class="classRadio divRadioTexte">
-                                                                <input type="radio" name="typeFichier" id="texteRadio" value="Texte" class="widthNormal noMargin" required="required" checked="checked">
-                                                                <label for="texteRadio" class="widthNormal noMargin">Texte</label>
-                                                            </div>
-                                                            <div class="classRadio divRadioLien">
-                                                                <input type="radio" name="typeFichier" id="lienRadio" value="Lien" class="widthNormal noMargin" required="required">
-                                                                <label for="lienRadio" class="widthNormal noMargin">Lien</label>
-                                                            </div>
-                                                            <div class="classRadio divRadioImage">
-                                                                <input type="radio" name="typeFichier" id="imageRadio" value="Image" class="widthNormal noMargin" required="required">
-                                                                <label for="imageRadio" class="widthNormal noMargin">Image</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="divInputLabel hidden divInputLien">
-                                                            <label for="lienItem">Lien</label>
-                                                            <input type="text" name="lienItem" id="lienItem" class="inputModal">
-                                                        </div>
-                                                        <div class="divInputLabel divInputTexte">
-                                                            <label for="textItem">Texte</label>
-                                                            <textarea name="textItem" id="textItem"></textarea>
-                                                        </div>
-                                                        <div class="divInputLabel hidden divInputImage">
-                                                            <label for="imageItem">Image</label>
-                                                            <input type="file" name="imageItem" class="inputModal" id="imageItem" accept="image/jpeg">
-                                                        </div>
-                                                        <input type="hidden" name="dropAjout" value="'.$exercice.'">
-                                                        <button class="red" type="submit">Ajouter</button>
-                                                    </form>
-                                                </div>
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>';
@@ -219,20 +110,8 @@ $popup = new Popup()?>
                         <div class="exerciceDataBase noBorder">
                             <div class="buttonsForm">
                                 <div class="button btModal"><img src="icons/add_exercice.png" alt="Ajouter"></div>
-                                <div class="modal">
-                                    <div class="modal-content blue">
-                                        <div class="btClose">x</div>
-                                        <p class="titleModal">Ajouter un exercice dans le thème ' .$theme.'</p>
-                                        <form action="traitement/ajoutExercice.php" enctype="multipart/form-data" method="post">
-                                            <div class="divInputLabel">
-                                                <label for="titreExercice">Titre</label>
-                                                <input type="text" name="titreExercice" class="inputModal">
-                                            </div>
-                                            <input type="hidden" name="dropTheme" value="'.$theme.'">
-                                            <button class="blue" type="submit">Ajouter</button>
-                                        </form>
-                                    </div>
-                                </div>
+          
+                                '.$popup->modalAdd('blue', 'Ajouter un exercice dans le thème ' .$theme, 'Exercice', 'Theme', $theme).'
                             </div>
                         </div>
                     </div>
@@ -243,21 +122,7 @@ $popup = new Popup()?>
                 <div class="themeDataBase noBorder">
                     <div class="buttonsForm">
                         <div class="button btModal"><img src="icons/add_theme.png" alt="Ajouter"></div>
-                            <div class="modal">
-                                <div class="modal-content brown ">
-                                    <div class="btClose">x</div>
-                                        <p class="titleModal">Ajouter un thème dans la catégorie ' .$category.'</p>
-                                        <form action="traitement/ajoutTheme.php" enctype="multipart/form-data" method="post">
-                                            <div class="divInputLabel">
-                                                <label for="titreTheme">Titre</label>
-                                                <input type="text" name="titreTheme" class="inputModal">
-                                            </div>
-                                            <input type="hidden" name="dropCategorie" value="'.$category.'">
-                                            <button class="brown" type="submit">Ajouter</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                            '.$popup->modalAdd('brown', 'Ajouter un theme dans la catégorie '.$category, 'Theme', 'Categorie', $exercice).'
                         </div>
                     </div>
                 </div>
