@@ -72,6 +72,8 @@ input, select, textarea{
 }
 #textItem{
     width: 100%;
+    resize: vertical;
+    min-height: 50px;
 }
 .classThemeExercice{
     width: 48%;

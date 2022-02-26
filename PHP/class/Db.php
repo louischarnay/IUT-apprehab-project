@@ -100,7 +100,7 @@ class Db {
         }
         $sth = $this->pdo->prepare("DELETE FROM Mots WHERE mot= :mot");
         $sth->execute(["mot" => $nom]);
-        return "Most supprimé";
+        return "Mot supprimé";
     }
 
     public function deleteExercice(string $nom){
@@ -323,5 +323,11 @@ class Db {
         $sth = $this->pdo->prepare("DELETE FROM Commentaires WHERE idCommentaire= :id");
         $sth->execute(["id" => $id]);
         return "Commentaire supprimé";
+    }
+
+    public function updateMot(string $mot, string $definition, string $oldMot){
+        $sth = $this->pdo->prepare("UPDATE Mots SET mot= :mot, definition= :definition WHERE mot= :oldMot");
+        $sth->execute(["mot" => $mot, "definition" => $definition, "oldMot" => $oldMot]);
+        return "Mot modifié";
     }
 }

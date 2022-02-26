@@ -6,7 +6,8 @@
     <title>DashBoard | Lexique</title>
     <link href="css/style.css" rel="stylesheet">
 </head>
-<?php include "class/Db.php";?>
+<?php include "class/Db.php";
+include "class/Popup.php"?>
 <body>
 <div class="h1Button">
     <h1 class="h1DataBase">Lexique</h1>
@@ -18,8 +19,10 @@
 </div>
 <p id="erreur"><?php if(isset($_SESSION["message"]))echo $_SESSION["message"];
     unset($_SESSION["message"])?></p>
-<div class="buttonAdd">Ajouter un mot</div>
+<div class="buttonAdd btModal">Ajouter un mot</div>
 <?php $db = new Db();
+$popup = new Popup();
+echo $popup->modalAddWord();
 $allMots = $db->getAllMots();
 foreach ($allMots as $mot){
     echo "
@@ -27,12 +30,13 @@ foreach ($allMots as $mot){
             <p class='mot'>".$mot['mot']."</p>
             <p class='messageCommentaire'>".$mot["definition"]."</p>
             <div class='buttonsForm'>
-                <div class='button'><img src='icons/edit_mainColor.png'></div>
-                <div class='button'><img src='icons/delete_mainColor.png'></div>
+                <div class='button btModal'><img src='icons/edit_mainColor.png'></div>
+                ".$popup->modalUpdateWord($mot['mot'], $mot['definition'])."
+                <div class='button btModal'><img src='icons/delete_mainColor.png'></div>
+                ".$popup->modalSuppr("mainColor", "Supprimer le mot " . $mot['mot'] . " ?", $mot['mot'], "Mot")."
             </div>
         </div>";
 }?>
-</body>
-<body>
+<script src="js/popup.js"></script>
 </body>
 </html>

@@ -135,4 +135,47 @@ function modalAddItem(string $parent){
             </div>
         </div>';
 }
+
+function modalAddWord(){
+    return '
+    <div class="modal">
+        <div class="modal-content mainColor">
+            <div class="btClose">x</div>
+            <p class="titleModal">Ajouter un mot</p>
+            <form action="traitement/ajoutMot.php" method="post" enctype="multipart/form-data">
+                <div class="divInputLabel">
+                    <label for="titreMot">Mot</label>
+                    <input type="text" name="titreMot" id="titreMot" required="required">
+                </div>
+                <div class="divInputLabel">
+                    <label for="dropExercice">Définition</label>
+                    <textarea name="textDef"></textarea>
+                </div>
+                <button type="submit">Ajouter Mot</button>
+            </form>
+        </div>
+    </div>';
+}
+
+function modalUpdateWord(string $mot, string $definition){
+    return '
+    <div class="modal">
+        <div class="modal-content mainColor">
+            <div class="btClose">x</div>
+            <p class="titleModal">Modifier un mot</p>
+            <form action="traitement/modifMot.php" method="post" enctype="multipart/form-data">
+                <div class="divInputLabel">
+                    <label for="titreMot">Mot</label>
+                    <input class="inputModal" type="text" name="titreMot" id="titreMot" required="required" value="'.$mot.'">
+                </div>
+                <div class="divInputLabel">
+                    <label for="dropExercice">Définition</label>
+                    <textarea id="textItem" name="textDef">'.$definition.'</textarea>
+                    <input type="hidden" name="oldMot" value="'.$mot.'">
+                </div>
+                <button type="submit">Modifier un mot</button>
+            </form>
+        </div>
+    </div>';
+}
 }

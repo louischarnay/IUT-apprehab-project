@@ -16,4 +16,8 @@ switch ($_POST["typeSuppr"]){
         $_SESSION["message"] = $db->deleteItem($_POST["dropSuppr"]);
         break;
 }
-header("Location: ../index.php");
+if($_POST["typeSuppr"] == "Mot"){
+    header("Location: ../viewLexique.php");
+} else {
+    header("Location: ../index.php");
+}
