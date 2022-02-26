@@ -2,13 +2,15 @@
     font-family: 'Futura';
     src: url('../font/Futura Medium.otf');
 }
-
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Futura;
-    --couleurPrincipale: #e9225e;
+    --couleurPrincipale: #013158;
+    --couleur1: #0061ac;
+    --couleur2: #0087ef;
+    --couleur3: #54aefc;
     list-style: none;
 }
 h1{
@@ -78,7 +80,7 @@ input, select, textarea{
 .classThemeExercice{
     width: 48%;
 }
-    #divRadioAjout, #divRadioSuppr{
+#divRadioAjout, #divRadioSuppr{
     display: flex;
     justify-content: space-evenly;
 }
@@ -99,20 +101,17 @@ button, a{
     border-radius: 10px;
     cursor: pointer;
 }
-
 a{
     text-decoration: none;
     width: calc(100% - 40px);
     text-align: center;
 }
-
 .divUn{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
-
 #erreur{
     color: red;
     text-align: center;
@@ -131,25 +130,21 @@ a{
     padding: 5px;
     border: 5px var(--couleurPrincipale) solid;
 }
-
 .themeDataBase, .exerciceDataBase, .itemNode{
     border-bottom: 5px var(--couleurPrincipale) solid;
     border-radius: 10px;
     padding: 0 10px;
 }
-
 .divDataBase{
     cursor: pointer;
     padding: 10px;
     margin: 30px 10px;
     text-align: center;
 }
-
 .h1DataBase{
     text-align: center;
     width: 20%;
 }
-
 .h1Button{
     display: flex;
     padding: 10px;
@@ -157,12 +152,10 @@ a{
     justify-content: space-between;
     align-items: center;
 }
-
 .buttonsDataBase{
     display: flex;
     width: 80%;
 }
-
 .buttonAdd{
     cursor: pointer;
     width: 80%;
@@ -175,7 +168,6 @@ a{
     margin-top: 20px;
     margin-bottom: 50px;
 }
-
 .divCommentaire{
     display: flex;
     flex-direction: row;
@@ -183,15 +175,12 @@ a{
     justify-content: space-between;
     margin: 10px;
 }
-
 .margin{
     margin-right: 20px;
 }
-
 .exerciceCommentaire{
     color: var(--couleurPrincipale);
 }
-
 .commentaire{
     width: 60%;
     align-items: baseline;
@@ -199,7 +188,6 @@ a{
     display: flex;
     flex-direction: row;
 }
-
 .noteCommentaire{
     background-color: var(--couleurPrincipale);
     color: white;
@@ -208,13 +196,11 @@ a{
     padding: 10px;
     margin-right: 10px;
 }
-
 .date{
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-
 .categorieDataBase, .themeDataBase, .exerciceDataBase{
     display: flex;
     flex-direction: row;
@@ -222,15 +208,12 @@ a{
     justify-content: space-between;
     transition: all 1s;
 }
-
 .themeDataBase{
     margin-left: 5%;
 }
-
 .exerciceDataBase{
     margin-left: 10%;
 }
-
 .itemNode{
     margin-left: 15%;
     display: flex;
@@ -239,7 +222,6 @@ a{
     justify-content: space-between;
 
 }
-
 .categorieThemeExercice{
     display: flex;
     width: 25%;
@@ -265,18 +247,15 @@ a{
     align-items: center;
     justify-content: space-between;
 }
-
 .buttonsForm{
     display: flex;
     flex-direction: row;
     width: 110px;
 }
-
 .divButtons{
     display: flex;
     flex-wrap: wrap;
 }
-
 .divButtons a{
     width: 45%;
 }
@@ -284,15 +263,12 @@ a{
     cursor: pointer;
     user-select: none;
 }
-
 .nested {
     display: none;
 }
-
 .active {
     display: block;
 }
-
 .hidden{
     display: none;
 }
@@ -315,7 +291,6 @@ a{
     border-radius: 10px;
     margin: 10px;
 }
-
 .modal {
     display: none;
     position: fixed;
@@ -328,7 +303,6 @@ a{
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0,0.4);
 }
-
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
@@ -337,7 +311,6 @@ a{
     border-radius: 10px;
     width: 80%;
 }
-
 .btClose{
     margin-top: -20px;
     float: right;
@@ -357,22 +330,16 @@ img{
     width: 25px;
     height: 25px;
 }
-
 .blue, .blue .titleModal{
-    border-color: chocolate;
-    text-decoration-color: chocolate;
+    border-color: var(--couleur2);
+    text-decoration-color: var(--couleur2);
 }
 .blue button{
-    background-color: chocolate;
-}
-.grey, .grey .titleModal{
-    border-color: slategrey;
-    text-decoration-color: slategrey;
-    cursor: default;
+    background-color: var(--couleur2);
 }
 .red, .red .titleModal{
-    border-color: rebeccapurple;
-    text-decoration-color: rebeccapurple;
+    border-color: var(--couleur3);
+    text-decoration-color: var(--couleur3);
 }
 .red button{
     background-color: rebeccapurple;
@@ -381,18 +348,15 @@ img{
     border-color: var(--couleurPrincipale);
     text-decoration-color: var(--couleurPrincipale);
 }
-/*.mainColor button, .mainColor .button{
-    text-align: center;
-}*/
 .mainColor .btCloseAddTheme{
     color: var(--couleurPrincipale);
 }
 .brown, .brown .titleModal{
-    border-color: mediumseagreen;
-    text-decoration-color: mediumseagreen;
+    border-color: var(--couleur1);
+    text-decoration-color: var(--couleur1);
 }
 .brown button{
-    background-color: mediumseagreen;
+    background-color: var(--couleur1);
 }
 .noBorder{
     border: none;
@@ -402,11 +366,9 @@ img{
     width: 100%;
     padding: 18px 0;
 }
-
 .newMargin{
     margin: 0 10px;
 }
-
 @media (max-width: 1000px) {
     .divThemeExercice{
         flex-direction: column;
