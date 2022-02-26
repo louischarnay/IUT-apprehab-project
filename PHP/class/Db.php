@@ -318,4 +318,10 @@ class Db {
         $sth = $this->pdo->prepare("UPDATE Presentation SET contenu= :contenu");
         $sth->execute(["contenu" => $contenu]);
     }
+
+    public function supprComm(string $id){
+        $sth = $this->pdo->prepare("DELETE FROM Commentaires WHERE idCommentaire= :id");
+        $sth->execute(["id" => $id]);
+        return "Commentaire supprimé";
+    }
 }
