@@ -287,6 +287,35 @@ class Db {
           $sth = $this->pdo->prepare("INSERT INTO Commentaires (note, commentaire, exerciceId) VALUES (:note, :comment, :exerciceId)");
           $sth->execute(["note" => $rate, "comment" => $comment, "exerciceId" => $exerciceId]);
           $sth->fetch();
+    }
 
+    public function updateTheme(string $newTitle, string $theme){
+        $sth = $this->pdo->prepare("UPDATE Themes SET nomTheme= :newTitle WHERE nomTheme= :theme");
+        $sth->execute(["newTitle" => $newTitle, "theme" => $theme]);
+        return "Thème mis à jour";
+    }
+
+    public function updateExercice(string $newTitle, string $exercice){
+        $sth = $this->pdo->prepare("UPDATE Exercices SET nomExercice= :newTitle WHERE nomExercice= :exercice");
+        $sth->execute(["newTitle" => $newTitle, "exercice" => $exercice]);
+        return "Exercice mis à jour";
+    }
+
+    public function updateItem(string  $pathItem, string $id, string $typeItem){
+        $sth = $this->pdo->prepare("UPDATE Items SET typeItem= :typeItem, pathItem= :pathItem WHERE idItem= :id");
+        $sth->execute(["typeItem" => $typeItem, "pathItem" => $pathItem, "id" => $id]);
+        return "Item mis à jour";
+    }
+
+    public function getPresentation(){
+        $sth = $this->pdo->prepare("SELECT * FROM Presentation");
+        $sth->execute();
+        $result = $sth->fetch();
+        return $result["contenu"];
+    }
+
+    public function updatePresentation(string $contenu){
+        $sth = $this->pdo->prepare("UPDATE Presentation SET contenu= :contenu");
+        $sth->execute(["contenu" => $contenu]);
     }
 }

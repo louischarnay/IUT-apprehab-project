@@ -32,8 +32,8 @@ $popup = new Popup()?>
     </fieldset>
     <fieldset class="classThemeExercice">
         <legend>Qui sommes-nous</legend>
-        <form action="traitement/changementChallenge.php" method="post" enctype="multipart/form-data">
-            <textarea class="textAreaInput" name="newtext"></textarea>
+        <form action="traitement/modifPresentation.php" method="post" enctype="multipart/form-data">
+            <textarea class="textAreaInput" name="newText"><?= $db->getPresentation()?></textarea>
             <button type="submit">Mettre à jour</button>
         </form>
     </fieldset>
@@ -59,10 +59,10 @@ $popup = new Popup()?>
                 echo '
                             <div class="hidden themeNode">
                                 <div class="themeDataBase brown">
-                                    Thème ' . $theme . '
+                                    <div class="titleTheme">Thème ' . $theme . '</div>
                                     <div class="buttonsForm">
                                         <div class="button btModal"><img src="icons/edit_theme.png" alt="Suppr"></div>
-                '.$popup->modalUpdate('brown', $theme, '#', 'Modifier le thème '.$theme.' ?').'
+                '.$popup->modalUpdate('brown', $theme, 'modifTheme.php', 'Modifier le thème '.$theme.' ?').'
                                         <div class="button btModal"><img src="icons/delete_theme.png" alt="Modifier"></div>
                 '.$popup->modalSuppr('brown', 'Supprimer le thème '.$theme.' ?', $theme, 'Theme').'
                                     </div>
@@ -72,10 +72,10 @@ $popup = new Popup()?>
                         echo '
                                 <div class="hidden exerciceNode">
                                     <div class="exerciceDataBase blue">
-                                        Exercice ' . $exercice . '
+                                        <div class="titleExercice">Exercice ' . $exercice . '</div>
                                         <div class="buttonsForm">
                                         <div class="button btModal"><img src="icons/edit_exercice.png" alt="Modifier"></div>
-                        '.$popup->modalUpdate('blue', $exercice, '#', 'Modifier l\'exercice '.$exercice.' ?').'
+                        '.$popup->modalUpdate('blue', $exercice, 'modifExercice.php', 'Modifier l\'exercice '.$exercice.' ?').'
                                         <div class="button btModal"><img src="icons/delete_exercice.png" alt="Suppr"></div>
                         '.$popup->modalSuppr('blue', 'Supprimer l\'exercice '.$exercice.' ?', $exercice, 'Exercice').'
                                         </div>
@@ -86,7 +86,7 @@ $popup = new Popup()?>
                             foreach ($items as $item):
                                 echo '
                                     <div class="hidden itemNode red">
-                                        Item ' . $item['typeItem'] . '
+                                        <div class="titleItem">Item ' . $item['typeItem'] . '</div>
                                         <div class="buttonsForm">
                                             <div class="button btModal"><img src="icons/edit_item.png" alt="Modifier"></div> 
                                             '.$popup->modalUpdateItem($item, $exercice).'
@@ -99,7 +99,7 @@ $popup = new Popup()?>
                         }
                             echo '<div class="hidden itemNode noBorder"><div class="buttonsForm">
                                         <div class="button btModal"><img src="icons/add_item.png" alt="Ajouter"></div>
-                                            
+                                        '.$popup->modalAddItem($exercice).'
                                         </div>
                                     </div>
                                 </div>';
@@ -110,7 +110,6 @@ $popup = new Popup()?>
                         <div class="exerciceDataBase noBorder">
                             <div class="buttonsForm">
                                 <div class="button btModal"><img src="icons/add_exercice.png" alt="Ajouter"></div>
-          
                                 '.$popup->modalAdd('blue', 'Ajouter un exercice dans le thème ' .$theme, 'Exercice', 'Theme', $theme).'
                             </div>
                         </div>
@@ -122,7 +121,7 @@ $popup = new Popup()?>
                 <div class="themeDataBase noBorder">
                     <div class="buttonsForm">
                         <div class="button btModal"><img src="icons/add_theme.png" alt="Ajouter"></div>
-                            '.$popup->modalAdd('brown', 'Ajouter un theme dans la catégorie '.$category, 'Theme', 'Categorie', $exercice).'
+                            '.$popup->modalAdd('brown', 'Ajouter un theme dans la catégorie '.$category, 'Theme', 'Categorie', $category).'
                         </div>
                     </div>
                 </div>

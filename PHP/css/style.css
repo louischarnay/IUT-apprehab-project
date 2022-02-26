@@ -391,6 +391,11 @@ img{
 .noBorder{
     border: none;
 }
+.titleTheme, .titleExercice, .titleItem{
+    text-align: left;
+    width: 100%;
+    padding: 18px 0;
+}
 
 @media (max-width: 1000px) {
     .divThemeExercice{
