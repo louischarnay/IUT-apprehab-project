@@ -38,8 +38,8 @@
                 </div>
                 <div class='date'>  
                     <form action='traitement/supprComm.php' method='post' enctype='multipart/form-data'>
-                        <input type='hidden' name='idComm' value='".$commentaire["idCommentaire"]."'>
-                        <button type='submit' class='btSupprComm'>Suppr</button>
+                        <input type='hidden' name='idComm' value='".$commentaire["idCommentaire"].">
+                        <button type='submit' class='btSupprComm'><img src='icons/delete_mainColor.png' alt='Suppr'></button>
                     </form>
                 </div>
             </div>";
