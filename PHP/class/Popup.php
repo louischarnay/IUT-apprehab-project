@@ -145,11 +145,11 @@ function modalAddWord(){
             <form action="traitement/ajoutMot.php" method="post" enctype="multipart/form-data">
                 <div class="divInputLabel">
                     <label for="titreMot">Mot</label>
-                    <input type="text" name="titreMot" id="titreMot" required="required">
+                    <input class="inputModal" type="text" name="titreMot" id="titreMot" required="required">
                 </div>
                 <div class="divInputLabel">
                     <label for="dropExercice">Définition</label>
-                    <textarea name="textDef"></textarea>
+                    <textarea id="textItem" name="textDef"></textarea>
                 </div>
                 <button type="submit">Ajouter Mot</button>
             </form>

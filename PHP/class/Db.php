@@ -305,6 +305,7 @@ class Db {
     public function updatePresentation(string $contenu){
         $sth = $this->pdo->prepare("UPDATE Presentation SET contenu= :contenu");
         $sth->execute(["contenu" => $contenu]);
+        return "Présentation mise à jour";
     }
 
     public function supprComm(string $id){
