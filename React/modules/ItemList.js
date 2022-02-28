@@ -27,7 +27,10 @@ async function navigation(params) {
                 link: 'LessonPage',
             }
         }
-    } else if(params.title === 'Historique'){
+    } 
+   
+    
+    else if(params.title === 'Historique'){
         let tmp
         try {
             tmp = await AsyncStorage.getItem('nbItemsHistorique')
@@ -129,6 +132,8 @@ async function navigation(params) {
                 }
             }
         }
+
+
     else {
         let tmp
             try {

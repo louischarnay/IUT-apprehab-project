@@ -6,7 +6,7 @@ import StatistiquesPage from '../screens/StatistiquesPage';
 import HistoriquePage from '../screens/HistoriquePage';
 import LexiquePage from '../screens/LexiquePage';
 import LessonPage from '../screens/LessonPage';
-
+import PresentationPage from'../screens/PresentationPage';
 const Stack = createStackNavigator();
 
 const Profile = () => {
@@ -18,6 +18,7 @@ const Profile = () => {
         <Stack.Screen name="HistoriquePage" component={HistoriquePage} options={{headerShown: false}}/>
         <Stack.Screen name="LexiquePage" component={LexiquePage} options={{headerShown: false}}/>
         <Stack.Screen name="LessonPage" component={LessonPage} options={{headerShown: false}}/>
+        <Stack.Screen name= "PresentationPage" component={PresentationPage} options={{headerShown:false}}/>
     </Stack.Navigator>
     );
 };
