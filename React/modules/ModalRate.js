@@ -60,7 +60,7 @@ const styleByPlatform = Platform.select({
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      marginTop: 22
+      marginTop: -180
     },
     modalView: {
       margin: 10,
@@ -83,7 +83,7 @@ const styleByPlatform = Platform.select({
       elevation: 2
     },
     buttonOpen: {
-      marginTop:200,
+      marginTop: 200,
       backgroundColor: "#88bd28",
       width: Dimensions.get('window').width/2,
       height: Dimensions.get('window').width/8
@@ -114,7 +114,7 @@ const styleByPlatform = Platform.select({
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      marginTop: 22
+      marginTop: -180
     },
     modalView: {
       margin: 10,

@@ -7,7 +7,7 @@ const source = {uri:'https://apprehab.000webhostapp.com/database/challenge/chall
 const ChallengePicture = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Image source={source} style={styles.im} borderColor={'black'}/>
+      <Image source={source} style={styles.im} borderColor={mainColor}/>
     </SafeAreaView>
   );
 };
