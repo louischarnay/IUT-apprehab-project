@@ -10,18 +10,6 @@ class Db {
         }
     }
 
-    public function addCategorie(string $nom, string $couleur){
-        $sth = $this->pdo->prepare("SELECT * FROM Categories WHERE nomCategorie= :categorie");
-        $sth->execute(["categorie" => $nom]);
-        $result = $sth->fetch();
-        if($result != false){
-            return "Catégorie déjà existante";
-        }
-        $sth = $this->pdo->prepare("INSERT INTO Categories(nomCategorie, codeCouleur) VALUES (:categorie, :couleur)");
-        $sth->execute(["categorie" => $nom, "couleur" => $couleur]);
-        return "Catégorie ajoutée";
-    }
-
     public function addTheme(string $nom, string $categorie){
         $sth = $this->pdo->prepare("SELECT * FROM Categories WHERE nomCategorie= :categorie");
         $sth->execute(["categorie" => $categorie]);
@@ -329,5 +317,11 @@ class Db {
         $sth = $this->pdo->prepare("UPDATE Mots SET mot= :mot, definition= :definition WHERE mot= :oldMot");
         $sth->execute(["mot" => $mot, "definition" => $definition, "oldMot" => $oldMot]);
         return "Mot modifié";
+    }
+
+    public function getPathItemFromId(string $id){
+        $sth = $this->pdo->prepare("SELECT pathItem FROM Items WHERE idItem= :id");
+        $sth->execute(["id" => $id]);
+        return $sth->fetch();
     }
 }
