@@ -28,20 +28,18 @@
         echo "
             <div class='divCommentaire'>
                 <div class='categorieThemeExercice'>
-                    <p class='categorieDataBase margin'>".$categorie['nomCategorie']."</p>
-                    <p class='themeDataBase margin'>".$theme["nomTheme"]."</p>
-                    <p class='exerciceCommentaire margin'>".$exercice["nomExercice"]."</p>
+                    <p class='categorieDataBase'>".$categorie['nomCategorie']."</p>
+                    <p class='themeDataBase newMargin'>".$theme["nomTheme"]."</p>
+                    <p class='exerciceCommentaire'>".$exercice["nomExercice"]."</p>
                 </div>
                 <div class='commentaire'>
                     <p class='noteCommentaire'>".$commentaire["note"]." / 5</p>
                     <p class='messageCommentaire'>".$commentaire["commentaire"]."</p><br>
                 </div>
-                <div class='date'>
-                    14/02/2022
-                    <form action='traitement/suppr.php'>
-                        <input type='hidden' name='typeSuppr' value='Comment'>
-                        <input type='hidden' name='dropSuppr' value='".$commentaire["idCommentaire"]."'>
-                        <button type='submit' class='btAddTheme'>Suppr</button>
+                <div class='date'>  
+                    <form action='traitement/supprComm.php' method='post' enctype='multipart/form-data'>
+                        <input type='hidden' name='idComm' value='".$commentaire["idCommentaire"]."'>
+                        <button type='submit' class='btSupprComm'>Suppr</button>
                     </form>
                 </div>
             </div>";

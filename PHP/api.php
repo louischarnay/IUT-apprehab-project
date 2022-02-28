@@ -17,7 +17,6 @@ foreach ($categories as $categorie){
     $cpt++;
 }
 
-
 $themes = $db->getAllThemes();
 $arrayThemes = Array();
 $arrayTmp = Array();
@@ -39,7 +38,6 @@ $arrayExercices = Array();
 $arrayTmp = Array();
 $cpt = 0;
 
-
 foreach ($exercices as $exercice) {
     $arrayExercice = Array(
         "idExercice" => $exercice["idExercice"],
@@ -49,7 +47,6 @@ foreach ($exercices as $exercice) {
     $arrayExercices[$cpt] = $arrayExercice;
     $cpt++;
 }
-
 
 $items = $db->getAllItems();
 $arrayItems = Array();
@@ -67,7 +64,6 @@ foreach ($items as $item) {
     $cpt++;
 }
 
-
 $items = $db->getAllMots();
 $arrayMots = Array();
 $arrayTmp = Array();
@@ -83,9 +79,6 @@ foreach ($items as $item) {
     $cpt++;
 }
 
-
-
-
 $finalArray = Array(
         "categories" => $arrayCategories,
     "themes" => $arrayThemes,
@@ -94,26 +87,10 @@ $finalArray = Array(
     "mots" => $arrayMots
 );
 
-
 $json = json_encode($finalArray);
 file_put_contents("api/api.json", $json);
 
-$json = json_encode($arrayCategories);
-file_put_contents("api/apiCategories.json", $json);
-
-$json = json_encode($arrayThemes);
-file_put_contents("api/apiThemes.json", $json);
-
-$json = json_encode($arrayExercices);
-file_put_contents("api/apiExercices.json", $json);
-
-$json = json_encode($arrayItems);
-file_put_contents("api/apiItems.json", $json);
-
-$json = json_encode($arrayMots);
-file_put_contents("api/apiMots.json", $json);
-
-$_SESSION["message"] = "Notification envoyée";
+$_SESSION["message"] = "Application mise à jour";
 header("Location: index.php");
 exit();
 ?>
