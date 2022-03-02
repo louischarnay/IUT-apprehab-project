@@ -342,7 +342,7 @@ img{
     text-decoration-color: var(--couleur3);
 }
 .red button{
-    background-color: rebeccapurple;
+    background-color: var(--couleur3);
 }
 .mainColor, .mainColor .titleModal{
     border-color: var(--couleurPrincipale);

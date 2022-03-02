@@ -1,5 +1,6 @@
 <?php
 include "../class/Db.php";
+session_start();
 $db = new Db();
-$db->updatePresentation($_POST["newText"]);
+$_SESSION["message"] = $db->updatePresentation($_POST["newText"]);
 header("Location: ../index.php");

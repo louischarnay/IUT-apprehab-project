@@ -10,8 +10,7 @@ $cpt = 0;
 foreach ($categories as $categorie){
     $arrayCategorie = Array(
         "idCategorie" => $categorie["idCategorie"],
-        "nomCategorie" => $categorie["nomCategorie"],
-        "codeCouleur" => $categorie["codeCouleur"]
+        "nomCategorie" => $categorie["nomCategorie"]
     );
     $arrayCategories[$cpt] = $arrayCategorie;
     $cpt++;
@@ -79,12 +78,15 @@ foreach ($items as $item) {
     $cpt++;
 }
 
+$presentation = $db->getPresentation();
+
 $finalArray = Array(
         "categories" => $arrayCategories,
     "themes" => $arrayThemes,
     "exercices" => $arrayExercices,
     "items" => $arrayItems,
-    "mots" => $arrayMots
+    "mots" => $arrayMots,
+    "presentation" => $presentation
 );
 
 $json = json_encode($finalArray);
