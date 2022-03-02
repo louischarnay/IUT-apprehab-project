@@ -5,9 +5,28 @@ import CommentTextInput from '../modules/CommentSection';
 
 
 async function sendComment(rate: string, comment: string, exerciceId: string) {
+  comment = spacesToUnderscore(comment)
+  console.log(comment)
   let url = 'https://apprehab.000webhostapp.com/api/apiTraitement.php?rate=' + rate + '&comment='
       + comment + '&exerciceId=' + exerciceId
   await fetch(url)
+}
+
+function spacesToUnderscore(string :string){
+  let result = ''
+  const iterator = string[Symbol.iterator]()
+  let char = iterator.next()
+  while (!char.done) {
+    if (char.value === ' ') {
+      result += "_"
+    } else if(char.value === '\''){
+      result += "*"
+    }else {
+        result += char.value
+      }
+      char = iterator.next()
+  }
+  return result
 }
 
 
