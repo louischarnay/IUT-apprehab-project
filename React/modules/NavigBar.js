@@ -1,6 +1,6 @@
 import React from 'react';
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Vibration } from 'react-native';
+import { SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image } from 'react-native';
 
 var ROW = []
 
