@@ -12,7 +12,7 @@ const HistoriquePage = ({route, navigation}) => {
         <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={null}/>
       </View>
       <View style={{flex: 1}}>
-        <ClearHistorique/>
+        <ClearHistorique navigation={navigation}/>
       </View>
       <View style={{flex: 1}}>
         <NavigBar navigation={navigation}/>

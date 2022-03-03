@@ -2,6 +2,10 @@ import React from 'react';
 import {SafeAreaView, View, StyleSheet, FlatList, Text} from 'react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
+export function forceUpdate(){
+    console.log('test');
+}
+
 async function setStorage(key: string, value: string){
     if(typeof value === Object){
         value = JSON.stringify(value)
