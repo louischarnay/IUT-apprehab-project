@@ -26,7 +26,7 @@ async function clear(){
 
 const ClearHistorique = () => {
     return (
-        <View style={styles.item} backgroundColor={mainColor} onStartShouldSetResponder={() => {Vibration.vibrate(10),clear()}}>
+        <View style={styles.item} backgroundColor={mainColor} onStartShouldSetResponder={() => {clear()}}>
             <Text style={styles.title}>Réinitialiser l'historique</Text>
         </View>
     )
@@ -34,15 +34,16 @@ const ClearHistorique = () => {
 
 const styles = StyleSheet.create({
     item: {
-      padding: 30,
+      padding: 20,
       borderRadius: 10,
       justifyContent: 'center',
       textAlign: 'center',
       marginHorizontal: 10,
-      marginVertical: 10
+      marginVertical: -1,
+      marginTop: StatusBar.currentHeight
     },
     title: {
-      fontSize: 20,
+      fontSize: 15,
       fontWeight: 'bold',
       color: 'white',
       textAlign: 'justify'
