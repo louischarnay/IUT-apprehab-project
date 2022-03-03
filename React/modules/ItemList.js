@@ -87,29 +87,6 @@ async function navigation(params) {
             }
         }
     } else if (params.link === 'LessonPage') {
-        /*let tmp
-        try {
-            tmp = await AsyncStorage.getItem('nbItemsHistorique')
-        }catch (error){}
-        let nbItemsHistorique = tmp
-        let data
-        if(params.color === global.mainColor){
-            data = {
-                title: params.title,
-                color: params.color,
-                link: 'LexiquePage'
-            }
-        } else {
-            data = {
-            title: params.title,
-            color: params.color,
-            link: 'LessonPage'
-        }}
-        await setStorage('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
-        tmp = Number(nbItemsHistorique)
-        tmp++
-        nbItemsHistorique = tmp.toString()
-        await setStorage('nbItemsHistorique', nbItemsHistorique)*/
         if (params.color === mainColor) {
             let tmp
             try {
@@ -132,8 +109,6 @@ async function navigation(params) {
                 }
             }
         }
-
-
     else {
         let tmp
             try {
@@ -159,7 +134,7 @@ async function navigation(params) {
             nbItemsHistorique = tmp.toString()
             await setStorage('nbItemsHistorique', nbItemsHistorique)
             try {
-                tmp = await AsyncStorage.getItem("AmountExercicesStartedMonth")
+                tmp = await AsyncStorage.getItem("amountExercicesStartedMonth")
             }catch (error){}
             let toIncrease = Number(tmp)
             if (toIncrease === null) {
@@ -167,11 +142,8 @@ async function navigation(params) {
             }
             toIncrease++;
             toIncrease = toIncrease.toString()
-            await setStorage("AmountExercicesStartedMonth", toIncrease)
+            await setStorage("amountExercicesStartedMonth", toIncrease)
             global.amountExercicesStartedMonth = toIncrease
-
-            global.amountExercicesEndedMonth = 0
-
             let idExercice = -1;
             let matchExercice;
             let cpt = 0;

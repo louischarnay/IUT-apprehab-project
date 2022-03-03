@@ -2,6 +2,25 @@ import { Alert,SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, 
 import StarRating from '../modules/StarRating';
 import React, { useState } from 'react';
 import CommentTextInput from '../modules/CommentSection';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+let isEnded
+
+async function setStorage(key: string, value: string){
+  if(typeof value === Object){
+    value = JSON.stringify(value)
+  }
+  try {
+    await AsyncStorage.setItem(key, value)
+  }catch (error){
+  }
+}
+
+async function isEndedFunction(exerciceId){
+  try {
+    isEnded = await AsyncStorage.getItem('exerciceEnded' + exerciceId)
+  } catch (e) {}
+}
 
 async function sendComment(rate: string, comment: string, exerciceId: string) {
   let url = 'https://apprehab.000webhostapp.com/api/apiTraitement.php?rate=' + rate + '&comment='
@@ -10,24 +29,53 @@ async function sendComment(rate: string, comment: string, exerciceId: string) {
 }
 
 const ModalRate = (params) => {
+  isEnded = false
   global.comment = "Aucun commentaire"
-  function closeModal(rate, comment, exerciceId){
-    setModalVisible(!modalVisible)
+  isEndedFunction(params.idExercice)
+
+  function closeSendComment(rate, comment, exerciceId){
+    closeModal(exerciceId)
     sendComment(rate, comment, exerciceId)
   }
+
+  function closeModal(exerciceId){
+    setModalVisible(!modalVisible)
+    setStorage('exerciceEnded'+exerciceId, 'true')
+    global.amountExercicesEndedMonth++
+    setStorage('amountExercicesEndedMonth', global.amountExercicesEndedMonth.toString())
+  }
+
+  function closeModalBis(){
+    setModalVisibleBis(!modalVisibleBis)
+  }
+
+  function openModal(){
+    if(!isEnded){
+      setModalVisible(true)
+     } else{
+      setModalVisibleBis(true)
+     }
+  }
+
+  function setModalAlreadyEndedVisible(){
+    modalAlreadyEndedVisible = !modalAlreadyEndedVisible
+  }
+
+  let modalAlreadyEndedVisible = false
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisibleBis, setModalVisibleBis] = useState(false);
   return (
     <View style={styles.centeredView}>
       <Modal
-        animationType="slide"
-        transparent={true}
-        visible={modalVisible}
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
       >
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
-            <Pressable onPress={()=>setModalVisible(!modalVisible)}>
+            <Pressable onPress={()=>closeModal(params.idExercice)}>
               <Image source={require('../assets/icones/cross.png')}
-                      style={styles.cross}
+                     style={styles.cross}
               />
 
             </Pressable>
@@ -35,16 +83,34 @@ const ModalRate = (params) => {
             <StarRating/>
             <CommentTextInput/>
             <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => closeModal(global.rate, global.comment, params.idExercice)}>
+                style={[styles.button, styles.buttonClose]}
+                onPress={() => closeSendComment(global.rate, global.comment, params.idExercice)}>
               <Text style={styles.textStyle}>Envoyer</Text>
             </Pressable>
           </View>
         </View>
       </Modal>
+      <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisibleBis}
+      >
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Pressable onPress={()=>closeModalBis()}>
+              <Image source={require('../assets/icones/cross.png')}
+                     style={styles.cross}
+              />
+
+            </Pressable>
+            <Text style={styles.modalText}>Exercice déjà terminé !</Text>
+          </View>
+        </View>
+      </Modal>
       <Pressable
         style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
+        backgroundColor={mainColor}
+        onPress={() => openModal()}
       >
         <Text style={styles.textStyle}>Finir l'exercice</Text>
       </Pressable>
@@ -82,7 +148,6 @@ const styleByPlatform = Platform.select({
     },
     buttonOpen: {
       marginTop:200,
-      backgroundColor: "#88bd28",
       width: Dimensions.get('window').width/2,
       height: Dimensions.get('window').width/8
     },
@@ -136,7 +201,6 @@ const styleByPlatform = Platform.select({
     },
     buttonOpen: {
       marginTop:200,
-      backgroundColor: "#88bd28",
       width: Dimensions.get('window').width/2,
       height: Dimensions.get('window').width/8
     },

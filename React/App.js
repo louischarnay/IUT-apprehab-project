@@ -17,16 +17,17 @@ async function setStorage(key: string, value: string){
 }
 
 async function initGlobals(){
+    global.amountExercicesStartedMonth = 0
+    global.amountExercicesEndedMonth = 0
     let tmp
     try {
-        tmp = await AsyncStorage.getItem('AmountExercicesStartedMonth')
+        tmp = await AsyncStorage.getItem('amountExercicesStartedMonth')
     }catch (e){}
-    global.AmountExercicesStartedMonth = Number(tmp)
+    global.amountExercicesStartedMonth = Number(tmp)
     try {
-        tmp = await AsyncStorage.getItem('AmountExercicesEndedMonth')
+        tmp = await AsyncStorage.getItem('amountExercicesEndedMonth')
     }catch (e){}
-    global.AmountExercicesEndedMonth = Number(tmp)
-    global.AmountExercicesEndedMonth = 0
+    global.amountExercicesEndedMonth = Number(tmp)
     try {
         await setStorage('VibrationTime', '1')
     }catch (e){}
@@ -126,9 +127,9 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   render() {
+    setMonth()
     initGlobals()
     getAllDataFromApi()
-    setMonth()
     initHistorique()
     return (
       <NavigationContainer>
