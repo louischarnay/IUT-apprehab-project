@@ -1,13 +1,6 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, Dimensions, FlatList, Text, Image, Vibration } from 'react-native';
+import { SafeAreaView, StyleSheet, Dimensions, FlatList, Text, Image } from 'react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
-
-async function vibrate(){
-  try {
-    VibrationTime = await AsyncStorage.getItem('VibrationTime')
-  }catch (e){}
-  Vibration.vibrate(Number(VibrationTime))
-}
 
 async function setStorage(key: string, value: string){
   if(typeof value === Object){
@@ -110,7 +103,7 @@ async function navigation(params){
 };
 
 const Item = (item) => (
-  <SafeAreaView style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => {vibrate(), navigation(item)}}>
+  <SafeAreaView style={styles.item} backgroundColor={item.color} onStartShouldSetResponder={() => {navigation(item)}}>
     <Image
       style={styles.icon}
       source={item.icon}  

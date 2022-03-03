@@ -1,6 +1,6 @@
 import React from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { View, Text, StyleSheet, StatusBar, Vibration } from "react-native";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
 
 async function setStorage(key: string, value: string){
     if(typeof value === Object){
