@@ -226,7 +226,7 @@ function checkColor(props, item) {
 }
 
 const Item = (item) => (
-    <View style={styles.item} backgroundColor={item.color} onMoveShouldSetResponder={() => true} onResponderRelease={() => {Vibration.vibrate(VibrationTime), navigation(item)}}>
+    <View style={styles.item} backgroundColor={item.color} onMoveShouldSetResponder={() => true} onResponderRelease={() => {navigation(item)}}>
         <Text style={styles.title}>{item.title}</Text>
     </View>
 )

@@ -3,32 +3,11 @@ import StarRating from '../modules/StarRating';
 import React, { useState } from 'react';
 import CommentTextInput from '../modules/CommentSection';
 
-
 async function sendComment(rate: string, comment: string, exerciceId: string) {
-  comment = spacesToUnderscore(comment)
-  console.log(comment)
   let url = 'https://apprehab.000webhostapp.com/api/apiTraitement.php?rate=' + rate + '&comment='
       + comment + '&exerciceId=' + exerciceId
   await fetch(url)
 }
-
-function spacesToUnderscore(string :string){
-  let result = ''
-  const iterator = string[Symbol.iterator]()
-  let char = iterator.next()
-  while (!char.done) {
-    if (char.value === ' ') {
-      result += "_"
-    } else if(char.value === '\''){
-      result += "*"
-    }else {
-        result += char.value
-      }
-      char = iterator.next()
-  }
-  return result
-}
-
 
 const ModalRate = (params) => {
   global.comment = "Aucun commentaire"
@@ -79,7 +58,7 @@ const styleByPlatform = Platform.select({
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      marginTop: -180
+      marginTop: 22
     },
     modalView: {
       margin: 10,
@@ -102,7 +81,7 @@ const styleByPlatform = Platform.select({
       elevation: 2
     },
     buttonOpen: {
-      marginTop: 200,
+      marginTop:200,
       backgroundColor: "#88bd28",
       width: Dimensions.get('window').width/2,
       height: Dimensions.get('window').width/8
@@ -133,7 +112,7 @@ const styleByPlatform = Platform.select({
       flex: 1,
       justifyContent: "center",
       alignItems: "center",
-      marginTop: -180
+      marginTop: 22
     },
     modalView: {
       margin: 10,

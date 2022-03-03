@@ -13,21 +13,16 @@ const DATA = [
   },
   {
     id: '2',
-    title: 'Préférences',
-    link: 'PreferencesPage',
-  },
-  {
-    id: '3',
     title: 'Lexique',
     link: 'LexiquePage',
   },
   {
-    id: '4',
+    id: '3',
     title: 'Historique',
     link: 'HistoriquePage',
   },
   {
-    id:'5',
+    id:'4',
     title:'Qui sommes-nous ?',
     link: 'PresentationPage'
   }
