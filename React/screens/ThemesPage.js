@@ -36,7 +36,6 @@ class ThemesPage extends React.Component{
     }
 
     resetFilters() {
-
         this.setState({
             data : this.data
         })
@@ -48,7 +47,7 @@ class ThemesPage extends React.Component{
                     <TextInput style={styles.textinput} onChangeText={(text) => {
                         this.updateSearchedText(text)
                     }}/>
-                    <Button style={styles.button} color={this.color} title='Rechercher' onPress={() => this.filterThemes(this.state.data)}/>
+                    <Button style={styles.button} color={this.color} title='Rechercher' onPress={() => this.filterThemes(this.data)}/>
                     <Image
                         style={styles.cross}
                         source={require('../assets/icones/cross.png')}

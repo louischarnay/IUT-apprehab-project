@@ -6,7 +6,7 @@ import { View, StyleSheet, Button, TextInput, StatusBar, Platform, Image, Dimens
 class LexiquePage extends React.Component {
   constructor(props) {
     super(props);
-    this.data = props.route.params
+    this.data = props.route.params.DATA.DATA
     this.color = props.route.params.color
     this.navigation = props.navigation
     this.searchedText = ""
@@ -48,7 +48,7 @@ class LexiquePage extends React.Component {
         <View style={styles.main_container}>
           <TextInput style={styles.textinput} onChangeText={(text) => {
               this.updateSearchedText(text)}}/>
-          <Button style={styles.button} color={this.color} title='Rechercher' onPress={() => this.filterThemes(this.state.data)}/>
+          <Button style={styles.button} color={this.color} title='Rechercher' onPress={() => this.filterThemes(this.data)}/>
           <Image
               style={styles.cross}
               source={require('../assets/icones/cross.png')}
@@ -56,7 +56,7 @@ class LexiquePage extends React.Component {
           />
         </View>
         <View style={{flex: 5, marginTop: -50}}>
-          <ItemList navigation={this.navigation} DATA={this.data.DATA.DATA} color={this.color}/>
+          <ItemList navigation={this.navigation} DATA={this.state.data} color={this.color}/>
         </View>
         <View style={{flex: 1}}>
           <NavigBar navigation={this.navigation}/>
