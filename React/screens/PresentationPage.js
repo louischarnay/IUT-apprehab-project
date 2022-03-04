@@ -12,6 +12,7 @@ const PresentationPage=({route,navigation})=>{
         <View style={{flex:1}}> 
                 <View style={{flex: 5}}>
         <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
+        <Text>I'm Stupid</Text>
       </View>
               <View style={{flex:1}}>
                 <NavigBar navigation={navigation}/>
