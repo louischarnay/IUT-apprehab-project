@@ -47,7 +47,8 @@
     "react-native-sync-storage": "^1.0.0",
     "react-native-vector-icons": "^9.0.0",
     "react-native-web": "0.17.1",
-    "rn-android-keyboard-adjust": "^2.0.0"
+    "rn-android-keyboard-adjust": "^2.0.0",
+    "expo-updates": "~0.10.15"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
