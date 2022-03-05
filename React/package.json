@@ -48,11 +48,11 @@
     "react-native-vector-icons": "^9.0.0",
     "react-native-web": "0.17.1",
     "rn-android-keyboard-adjust": "^2.0.0",
-<<<<<<< HEAD
-    "react-native-appearance": "~0.3.3"
-=======
+
+    "react-native-appearance": "~0.3.3",
+
     "expo-updates": "~0.10.15"
->>>>>>> 1dcb1ecd6877fa2ff8d56a2bfa876d7abf5f09d9
+
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
