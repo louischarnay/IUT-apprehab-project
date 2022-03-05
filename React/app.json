@@ -18,11 +18,9 @@
     ],
     "ios": {
       "supportsTablet": true,
-<<<<<<< HEAD
-      "userInterfaceStyle":"automatic"
-=======
+      "userInterfaceStyle":"automatic",
+
       "bundleIdentifier": "com.iut.ios.apprehab"
->>>>>>> 1dcb1ecd6877fa2ff8d56a2bfa876d7abf5f09d9
     },
     "android": {
       "adaptiveIcon": {
