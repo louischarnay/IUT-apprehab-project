@@ -14,7 +14,7 @@ const ExercisesPage = ({route, navigation}) => {
             <View style={{flex: 1}}>
                 <ThemeSelected navigation={navigation} title={"< " + title} color={color}/>
             </View>
-            <View style={{flex: 5}}>
+            <View style={{flex: 5, marginTop: -40}}>
                 <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
             </View>
             <View style={{flex: 1}}>

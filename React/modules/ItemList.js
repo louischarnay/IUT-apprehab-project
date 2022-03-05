@@ -1,6 +1,10 @@
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, FlatList, Text, Vibration} from 'react-native';
+import {SafeAreaView, View, StyleSheet, FlatList, Text} from 'react-native';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+export function forceUpdate(){
+    console.log('test');
+}
 
 async function setStorage(key: string, value: string){
     if(typeof value === Object){
@@ -87,29 +91,6 @@ async function navigation(params) {
             }
         }
     } else if (params.link === 'LessonPage') {
-        /*let tmp
-        try {
-            tmp = await AsyncStorage.getItem('nbItemsHistorique')
-        }catch (error){}
-        let nbItemsHistorique = tmp
-        let data
-        if(params.color === global.mainColor){
-            data = {
-                title: params.title,
-                color: params.color,
-                link: 'LexiquePage'
-            }
-        } else {
-            data = {
-            title: params.title,
-            color: params.color,
-            link: 'LessonPage'
-        }}
-        await setStorage('itemHistorique' + nbItemsHistorique, JSON.stringify(data))
-        tmp = Number(nbItemsHistorique)
-        tmp++
-        nbItemsHistorique = tmp.toString()
-        await setStorage('nbItemsHistorique', nbItemsHistorique)*/
         if (params.color === mainColor) {
             let tmp
             try {
@@ -132,8 +113,6 @@ async function navigation(params) {
                 }
             }
         }
-
-
     else {
         let tmp
             try {
@@ -159,7 +138,7 @@ async function navigation(params) {
             nbItemsHistorique = tmp.toString()
             await setStorage('nbItemsHistorique', nbItemsHistorique)
             try {
-                tmp = await AsyncStorage.getItem("AmountExercicesStartedMonth")
+                tmp = await AsyncStorage.getItem("amountExercicesStartedMonth")
             }catch (error){}
             let toIncrease = Number(tmp)
             if (toIncrease === null) {
@@ -167,11 +146,8 @@ async function navigation(params) {
             }
             toIncrease++;
             toIncrease = toIncrease.toString()
-            await setStorage("AmountExercicesStartedMonth", toIncrease)
+            await setStorage("amountExercicesStartedMonth", toIncrease)
             global.amountExercicesStartedMonth = toIncrease
-
-            global.amountExercicesEndedMonth = 0
-
             let idExercice = -1;
             let matchExercice;
             let cpt = 0;
@@ -226,7 +202,7 @@ function checkColor(props, item) {
 }
 
 const Item = (item) => (
-    <View style={styles.item} backgroundColor={item.color} onMoveShouldSetResponder={() => true} onResponderRelease={() => {Vibration.vibrate(VibrationTime), navigation(item)}}>
+    <View style={styles.item} backgroundColor={item.color} onMoveShouldSetResponder={() => true} onResponderRelease={() => {navigation(item)}}>
         <Text style={styles.title}>{item.title}</Text>
     </View>
 )

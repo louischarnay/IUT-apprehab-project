@@ -28,12 +28,12 @@ foreach ($allMots as $mot){
     echo "
         <div class='divCommentaire mainColor'>
             <p class='mot'>".$mot['mot']."</p>
-            <p class='messageCommentaire'>".$mot["definition"]."</p>
+            <p class='messageCommentaire'>".$mot["definition"]. "</p>
             <div class='buttonsForm'>
-                <div class='button btModal'><img src='icons/edit_mainColor.png'></div>
-                ".$popup->modalUpdateWord($mot['mot'], $mot['definition'])."
-                <div class='button btModal'><img src='icons/delete_mainColor.png'></div>
-                ".$popup->modalSuppr("mainColor", "Supprimer le mot " . $mot['mot'] . " ?", $mot['mot'], "Mot")."
+                <div class='button btModal'><img src='img/edit_mainColor.png'></div>
+                " .$popup->modalUpdateWord($mot['mot'], $mot['definition']). "
+                <div class='button btModal'><img src='img/delete_mainColor.png'></div>
+                " .$popup->modalSuppr("mainColor", "Supprimer le mot " . $mot['mot'] . " ?", $mot['mot'], "Mot")."
             </div>
         </div>";
 }?>

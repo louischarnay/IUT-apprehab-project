@@ -13,21 +13,16 @@ const DATA = [
   },
   {
     id: '2',
-    title: 'Préférences',
-    link: 'PreferencesPage',
-  },
-  {
-    id: '3',
     title: 'Lexique',
     link: 'LexiquePage',
   },
   {
-    id: '4',
+    id: '3',
     title: 'Historique',
     link: 'HistoriquePage',
   },
   {
-    id:'5',
+    id:'4',
     title:'Qui sommes-nous ?',
     link: 'PresentationPage'
   }
@@ -79,9 +74,11 @@ async function setCatPref(){
 async function getNumberActivities(){
   let tmp
   try {
-    tmp = await AsyncStorage.getItem("AmountExercicesStartedMonth")
+    tmp = await AsyncStorage.getItem("amountExercicesStartedMonth")
   } catch (e) {}
-  global.amountExercicesStartedMonth = tmp
+  if(tmp != null){
+    global.amountExercicesStartedMonth = tmp
+  }
 }
 
 const ProfilePage = ({navigation}) => {

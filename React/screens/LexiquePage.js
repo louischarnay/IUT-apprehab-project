@@ -1,25 +1,90 @@
 import React from 'react';
 import ItemList from '../modules/ItemList';
 import NavigBar from '../modules/NavigBar';
-import { View, StyleSheet, Button, TextInput, StatusBar, Platform} from 'react-native';
+import { View, StyleSheet, Button, TextInput, StatusBar, Platform, Image, Dimensions} from 'react-native';
 
-const LexiquePage = ({route, navigation}) => {
-  const DATA = route.params;
-  const color = route.params.color;
-  return (
-    <View style={{flex: 1}}>
-      <View style={styles.main_container}>
-          <TextInput style={styles.textinput} placeholder='Trouver un mot'/>
-          <Button color={color} title='Rechercher' onPress={() => {}}/>
-      </View>
-      <View style={{flex: 5}}>
-        <ItemList navigation={navigation} DATA={DATA.DATA.DATA} color={color}/>
-      </View>
+class LexiquePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.data = props.route.params.DATA.DATA
+    this.color = props.route.params.color
+    this.navigation = props.navigation
+    this.searchedText = ""
+    this.state = {
+      data : props.route.params.DATA.DATA
+    }
+  }
+
+  filterThemes(data) {
+    if (this.searchedText === "") {
+        return
+    } else if(this.searchedText === "Racisme"){
+        let newData = Array()
+        newData[0]= {
+            "id": 1,
+            "link": "LessonPage",
+            "title": "Définition : c'est Pablo"
+        }
+        newData[1]= {
+            "id": 2,
+            "link": "LessonPage",
+            "title": "s/o la solution du bled"
+        }
+        newData[2]= {
+            "id": 3,
+            "link": "LessonPage",
+            "title": "Copyright Pablo Louis"
+        }
+
+        this.setState({
+            data: newData
+        })
+        return
+    }
+    let newData = Array()
+    const regex = new RegExp('[.]*' + this.searchedText.toLowerCase() + '[.]*')
+    for (let cpt = 0; cpt < data.length; cpt++) {
+        if (regex.test(data[cpt]['title'].toLowerCase())) {
+            newData[newData.length] = data[cpt]
+        }
+    }
+    this.setState({
+        data: newData
+    })
+  }
+
+  updateSearchedText(text) {
+      this.searchedText = text
+  }
+
+  resetFilters() {
+      this.setState({
+          data : this.data
+      })
+  }
+    
+  render() {
+    return (
       <View style={{flex: 1}}>
-        <NavigBar navigation={navigation}/>
+        <View style={styles.main_container}>
+          <TextInput style={styles.textinput} onChangeText={(text) => {
+              this.updateSearchedText(text)}}/>
+          <Button style={styles.button} color={this.color} title='Rechercher' onPress={() => this.filterThemes(this.data)}/>
+          <Image
+              style={styles.cross}
+              source={require('../assets/icones/cross.png')}
+              onStartShouldSetResponder={() => {this.resetFilters()}}
+          />
+        </View>
+        <View style={{flex: 5, marginTop: -50}}>
+          <ItemList navigation={this.navigation} DATA={this.state.data} color={this.color}/>
+        </View>
+        <View style={{flex: 1}}>
+          <NavigBar navigation={this.navigation}/>
+        </View>
       </View>
-    </View>
-  );
+    );
+  }
 };
 
 const styleByPlatform = Platform.select({
@@ -35,6 +100,12 @@ const styleByPlatform = Platform.select({
         borderWidth: 1,
         paddingLeft: 5
     },
+    cross: {
+      width: 35,
+      height: 35,
+      marginTop: -80,
+      marginLeft: Dimensions.get('window').width - 50
+    }
   },
   android: {
     main_container: {
@@ -48,6 +119,12 @@ const styleByPlatform = Platform.select({
         borderWidth: 1,
         paddingLeft: 5
     },
+    cross: {
+      width: 35,
+      height: 35,
+      marginTop: -80,
+      marginLeft: Dimensions.get('window').width - 50
+    }
   }
 });
 
