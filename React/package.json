@@ -50,7 +50,6 @@
     "rn-android-keyboard-adjust": "^2.0.0",
 
     "react-native-appearance": "~0.3.3",
-
     "expo-updates": "~0.10.15"
 
   },
