@@ -81,9 +81,29 @@ async function getNumberActivities(){
   }
 }
 
+async function getPresentation(){
+  let tmp
+  try{
+    tmp = await AsyncStorage.getItem("presentation")
+  } catch (e){}
+  if(tmp != null){
+
+    global.presentation = removeQuote(tmp)
+  }
+}
+
+function removeQuote(toRemove){
+  let result = ''
+  for (let cpt = 1; cpt < toRemove.length - 1; cpt++){
+    result += toRemove.charAt(cpt)
+  }
+  return result
+}
+
 const ProfilePage = ({navigation}) => {
   setCatPref()
   getNumberActivities()
+  getPresentation()
   return (
     <View style={{flex: 1}}>
       <View style={{flex: 1}}>

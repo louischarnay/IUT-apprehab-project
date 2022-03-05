@@ -43,40 +43,31 @@ async function initHistorique(){
 
 global.mainColor = '#88bd28';
 const getAllDataFromApi = async () => {
-    //AsyncStorage.clear();
     const response = await fetch('https://apprehab.000webhostapp.com/api/api.json' + '?' + new Date());
     const json = await response.json();
     for (var cpt = 0; cpt < json.categories.length; cpt++) {
         try {
             const toString = JSON.stringify(json.categories[cpt]);
             await setStorage('categorie' + cpt, toString)
-        } catch (error){
-        console.log('error ' + error)
-        }
+        } catch (error){}
     }
     for (cpt = 0; cpt < json.themes.length; cpt++) {
         try{
             const toString = JSON.stringify(json.themes[cpt]);
             await setStorage('theme' + cpt, toString);
-        } catch(error){
-            console.log('error ' + error)
-        }
+        } catch(error){}
     }
     for (cpt = 0; cpt < json.exercices.length; cpt++) {
         try{
             const toString = JSON.stringify(json.exercices[cpt]);
             await setStorage('exercice' + cpt, toString);
-        } catch(error){
-            console.log('error '+ error)
-        }
+        } catch(error){}
     }
     for (cpt = 0; cpt < json.items.length; cpt++) {
         try{
             const toString = JSON.stringify(json.items[cpt]);
             await setStorage('item' + cpt, toString);
-        } catch(error){
-            console.log('error ' + error)
-        }
+        } catch(error){}
     }
     try {
         await setStorage('categoriesLength', '' + json.categories.length)
@@ -90,13 +81,13 @@ const getAllDataFromApi = async () => {
         toString = JSON.stringify(json.exercices)
         await setStorage('allExercices', toString)
         toString = JSON.stringify(json.items)
-        await setStorage('allItems', toString);
-        toString = JSON.stringify(json.mots);
-        await setStorage('allMots', toString);
-        await setStorage('themesLength');
-    } catch(error){
-        console.log('error ' + error);
-    }
+        await setStorage('allItems', toString)
+        toString = JSON.stringify(json.mots)
+        await setStorage('allMots', toString)
+        await setStorage('themesLength')
+        toString = JSON.stringify((json.presentation))
+        await setStorage('presentation', toString)
+    } catch(error){}
 };
 
 async function setMonth(){
