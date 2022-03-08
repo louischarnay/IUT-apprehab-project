@@ -1,4 +1,8 @@
-<?php
+<?php session_start();
+if (!$_SESSION["connected"]){
+    header('Location: connexion.php');
+    die();
+}
 include 'class/Db.php';
 session_start();
 $db = new Db();

@@ -1,4 +1,8 @@
-<?php session_start();?>
+<?php session_start();
+if (!$_SESSION["connected"]){
+    header('Location: connexion.php');
+    die();
+}?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
