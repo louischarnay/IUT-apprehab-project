@@ -147,7 +147,6 @@ const styleByPlatform = Platform.select({
       elevation: 2
     },
     buttonOpen: {
-      marginTop:200,
       width: Dimensions.get('window').width/2,
       height: Dimensions.get('window').width/8
     },
@@ -200,7 +199,6 @@ const styleByPlatform = Platform.select({
       elevation: 2
     },
     buttonOpen: {
-      marginTop:200,
       width: Dimensions.get('window').width/2,
       height: Dimensions.get('window').width/8
     },
@@ -210,7 +208,8 @@ const styleByPlatform = Platform.select({
     textStyle: {
       color: "white",
       fontWeight: "bold",
-      textAlign: "center"
+      textAlign: "center",
+      fontSize: 18
     },
     modalText: {
       marginTop:15,
