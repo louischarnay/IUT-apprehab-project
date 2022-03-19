@@ -49,18 +49,18 @@ class LexiquePage extends React.Component {
         }
     }
     this.setState({
-        data: newData
+      data: newData
     })
   }
 
   updateSearchedText(text) {
-      this.searchedText = text
+    this.searchedText = text
   }
 
   resetFilters() {
-      this.setState({
-          data : this.data
-      })
+    this.setState({
+        data : this.data
+    })
   }
     
   render() {

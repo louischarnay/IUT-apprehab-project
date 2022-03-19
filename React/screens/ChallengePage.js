@@ -11,8 +11,7 @@ async function setStorage(key: string, value: string){
     }
     try {
         await AsyncStorage.setItem(key, value)
-    }catch (error){
-    }
+    }catch (error){}
 }
 
 async function clearHistorique(){

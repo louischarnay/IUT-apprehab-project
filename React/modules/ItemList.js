@@ -31,8 +31,7 @@ async function navigation(params) {
                 link: 'LessonPage',
             }
         }
-    } 
-   
+    }  
     
     else if(params.title === 'Historique'){
         let tmp

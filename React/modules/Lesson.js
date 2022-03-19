@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {SafeAreaView, View, StyleSheet, Dimensions, FlatList, Image, Text, Linking, Platform} from 'react-native';
 import ModalRate from './ModalRate';

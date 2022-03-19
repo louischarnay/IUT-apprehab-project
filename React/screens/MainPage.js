@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, View} from 'react-native';
+import { View } from 'react-native';
 import Header from '../modules/Header';
 import Categories from '../modules/Categories'
 import NavigBar from '../modules/NavigBar';

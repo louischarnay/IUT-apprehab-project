@@ -9,12 +9,12 @@ const Stack = createStackNavigator();
 
 const Home = () => {
     return (
-    <Stack.Navigator>
-        <Stack.Screen name="MainPage" component={MainPage} options={{headerShown: false}}/>
-        <Stack.Screen name="ThemesPage" component={ThemesPage} options={{headerShown: false}}/>
-        <Stack.Screen name="ExercisesPage" component={ExercisesPage} options={{headerShown: false}}/>
-        <Stack.Screen name="LessonPage" component={LessonPage} options={{headerShown: false}}/>
-    </Stack.Navigator>
+        <Stack.Navigator>
+            <Stack.Screen name="MainPage" component={MainPage} options={{headerShown: false}}/>
+            <Stack.Screen name="ThemesPage" component={ThemesPage} options={{headerShown: false}}/>
+            <Stack.Screen name="ExercisesPage" component={ExercisesPage} options={{headerShown: false}}/>
+            <Stack.Screen name="LessonPage" component={LessonPage} options={{headerShown: false}}/>
+        </Stack.Navigator>
     );
 };
 

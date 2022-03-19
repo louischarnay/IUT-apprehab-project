@@ -11,7 +11,6 @@ const ThemeSelected = (props) => {
   const renderItem = () => (
     <Item title={props.title} nav={props.navigation} color={props.color} />      
   );
-  
   return(
     renderItem()
   );

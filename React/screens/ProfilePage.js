@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from "react-native";
+import { View } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Header from '../modules/Header';
 import ItemList from '../modules/ItemList';

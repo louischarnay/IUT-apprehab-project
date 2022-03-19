@@ -1,10 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet,TextInput } from 'react-native';
 
-
-
-const CommentTextInput =()=>{
-
+const CommentTextInput = () => {
     return(
         <SafeAreaView>
             <TextInput
@@ -14,8 +11,8 @@ const CommentTextInput =()=>{
             />
         </SafeAreaView>
     )
-
 }
+
 const styles = StyleSheet.create({
     input: {
       height: 40,
@@ -23,6 +20,6 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       padding: 10,
     },
-  });
+});
 
-  export default CommentTextInput;
+export default CommentTextInput;

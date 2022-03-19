@@ -1,4 +1,4 @@
-import { Alert,SafeAreaView, View, StyleSheet, Dimensions, Pressable, FlatList, Image, Text, Modal } from 'react-native';
+import { View, StyleSheet, Dimensions, Pressable, Image, Text, Modal } from 'react-native';
 import StarRating from '../modules/StarRating';
 import React, { useState } from 'react';
 import CommentTextInput from '../modules/CommentSection';
@@ -55,10 +55,6 @@ const ModalRate = (params) => {
      } else{
       setModalVisibleBis(true)
      }
-  }
-
-  function setModalAlreadyEndedVisible(){
-    modalAlreadyEndedVisible = !modalAlreadyEndedVisible
   }
 
   let modalAlreadyEndedVisible = false

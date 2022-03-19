@@ -8,8 +8,7 @@ async function setStorage(key: string, value: string){
   }
   try {
     await AsyncStorage.setItem(key, value)
-  }catch (error){
-  }
+  }catch (error){}
 }
 const ROW_1 = [
   {

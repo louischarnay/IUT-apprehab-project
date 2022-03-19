@@ -28,7 +28,6 @@ class ThemesPage extends React.Component{
         this.setState({
             data: newData
         })
-        //this.TextInput.clear()
     }
 
     updateSearchedText(text) {
@@ -104,7 +103,7 @@ const styleSheetByPlatform = Platform.select({
             marginLeft: Dimensions.get('window').width - 50
         }
     }
-  });
+});
 
 const styles = StyleSheet.create(styleSheetByPlatform)
 

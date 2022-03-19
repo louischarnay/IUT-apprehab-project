@@ -4,20 +4,20 @@ import { Picker } from '@react-native-picker/picker';
 
 const FilterPicker = () => {
   const [selectedLanguage, setSelectedLanguage] = useState(true);
-    return (
-      <SafeAreaView style={styles.container}>
-        <Picker
-          style={styles.picker}
-          selectedValue={selectedLanguage}
-          onValueChange={(itemValue, itemIndex) =>
-            setSelectedLanguage(itemValue)
-        }>
-          <Picker.Item label="Ajout récent" value="ch1"/>
-          <Picker.Item label="Catégorie préférée" value="ch2"/>
-          <Picker.Item label="Catégorie la plus regardée" value="ch3"/>
-        </Picker>
-      </SafeAreaView>
-    );
+  return (
+    <SafeAreaView style={styles.container}>
+      <Picker
+        style={styles.picker}
+        selectedValue={selectedLanguage}
+        onValueChange={(itemValue, itemIndex) =>
+          setSelectedLanguage(itemValue)
+      }>
+        <Picker.Item label="Ajout récent" value="ch1"/>
+        <Picker.Item label="Catégorie préférée" value="ch2"/>
+        <Picker.Item label="Catégorie la plus regardée" value="ch3"/>
+      </Picker>
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({
