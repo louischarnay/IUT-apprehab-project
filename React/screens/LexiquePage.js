@@ -18,28 +18,6 @@ class LexiquePage extends React.Component {
   filterThemes(data) {
     if (this.searchedText === "") {
         return
-    } else if(this.searchedText === "Racisme"){
-        let newData = Array()
-        newData[0]= {
-            "id": 1,
-            "link": "LessonPage",
-            "title": "Définition : c'est Pablo"
-        }
-        newData[1]= {
-            "id": 2,
-            "link": "LessonPage",
-            "title": "s/o la solution du bled"
-        }
-        newData[2]= {
-            "id": 3,
-            "link": "LessonPage",
-            "title": "Copyright Pablo Louis"
-        }
-
-        this.setState({
-            data: newData
-        })
-        return
     }
     let newData = Array()
     const regex = new RegExp('[.]*' + this.searchedText.toLowerCase() + '[.]*')
